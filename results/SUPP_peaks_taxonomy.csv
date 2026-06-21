@@ -1,0 +1,42 @@
+taxonomy,taxonomy_full,category,code,rmsePeak_lift,rmsePeak_pos,rmsePeak_n,rmsePeak_q,detValley_lift,detValley_pos,detValley_n,detValley_q
+CACS,"CACS — Conversational Argument (Canary, Brossmann & Seibold 1987)",nonarguables (procedural),nonarg,0.804,33.0,34.0,0.0,0.978,32.0,33.0,0.0
+CACS,"CACS — Conversational Argument (Canary, Brossmann & Seibold 1987)",convergence-seeking,converge,0.171,27.0,34.0,0.0,0.263,29.0,33.0,0.0
+CACS,"CACS — Conversational Argument (Canary, Brossmann & Seibold 1987)",disagree-intrusion,disagree,0.026,19.0,34.0,0.3897,0.076,17.0,33.0,0.3198
+CACS,"CACS — Conversational Argument (Canary, Brossmann & Seibold 1987)",delimitors (scoping),delim,-0.255,1.0,34.0,0.0,-0.28,6.0,33.0,0.0
+CACS,"CACS — Conversational Argument (Canary, Brossmann & Seibold 1987)",arguables (claims/reasoning),arguable,-0.345,4.0,34.0,0.0,-0.485,2.0,33.0,0.0
+Bales,Bales IPA (1950),asks information,baskinfo,0.346,33.0,34.0,0.0,0.43,32.0,33.0,0.0
+Bales,Bales IPA (1950),agrees,bagree,0.265,31.0,34.0,0.0,0.37,31.0,33.0,0.0
+Bales,Bales IPA (1950),solidarity,bsolid,0.148,27.0,34.0,0.0003,0.164,25.0,33.0,0.0006
+Bales,Bales IPA (1950),shows tension,btensh,0.054,22.0,34.0,0.0409,0.077,20.0,33.0,0.103
+Bales,Bales IPA (1950),asks opinion,baskopin,0.052,22.0,34.0,0.0539,0.119,23.0,33.0,0.0006
+Bales,Bales IPA (1950),tension release,btension,0.047,17.0,34.0,0.1733,0.11,18.0,33.0,0.1407
+Bales,Bales IPA (1950),disagrees,bdisagree,0.045,22.0,34.0,0.1002,0.091,19.0,33.0,0.0579
+Bales,Bales IPA (1950),asks suggestion,basksug,0.029,17.0,34.0,0.1562,0.019,14.0,33.0,0.6056
+Bales,Bales IPA (1950),gives suggestion,bgivesug,-0.061,15.0,34.0,0.2682,-0.028,15.0,33.0,0.5962
+Bales,Bales IPA (1950),gives information,bgiveinfo,-0.075,15.0,34.0,0.2042,-0.15,12.0,33.0,0.0414
+Bales,Bales IPA (1950),gives opinion,bgiveopin,-0.345,1.0,34.0,0.0,-0.408,3.0,33.0,0.0
+Bales,Bales IPA (1950),antagonism,bantag,,,,,,,,
+ISO,ISO 24617-2 dialogue acts,feedback / backchannel,feedback,0.382,32.0,34.0,0.0,0.5,30.0,33.0,0.0
+ISO,ISO 24617-2 dialogue acts,polar question,qprop,0.311,32.0,34.0,0.0,0.403,28.0,33.0,0.0
+ISO,ISO 24617-2 dialogue acts,directive,directive,0.125,23.0,34.0,0.007,0.202,26.0,33.0,0.0001
+ISO,ISO 24617-2 dialogue acts,commissive (commitment),commissive,0.078,25.0,34.0,0.0047,0.085,22.0,33.0,0.0937
+ISO,ISO 24617-2 dialogue acts,wh/open question,qset,0.075,21.0,34.0,0.0352,0.114,21.0,33.0,0.0414
+act4teams,act4teams-SHORT (Klünder et al. 2020),structuring,struct,0.212,25.0,34.0,0.0011,0.322,25.0,33.0,0.0004
+act4teams,act4teams-SHORT (Klünder et al. 2020),cooperation,coop,0.168,28.0,34.0,0.0,0.194,26.0,33.0,0.0001
+act4teams,act4teams-SHORT (Klünder et al. 2020),giving information,ginfo,0.149,24.0,34.0,0.0125,0.079,14.0,33.0,0.8474
+act4teams,act4teams-SHORT (Klünder et al. 2020),counterproductivity,cprod,0.016,16.0,33.0,0.4821,0.007,16.0,32.0,0.9578
+act4teams,act4teams-SHORT (Klünder et al. 2020),proactivity,proact,0.005,19.0,34.0,0.7545,-0.022,11.0,33.0,0.3019
+act4teams,act4teams-SHORT (Klünder et al. 2020),linking solutions,links,-0.077,11.0,34.0,0.0121,-0.096,10.0,33.0,0.0097
+act4teams,act4teams-SHORT (Klünder et al. 2020),naming solutions,names,-0.093,9.0,34.0,0.0125,-0.083,11.0,33.0,0.1023
+act4teams,act4teams-SHORT (Klünder et al. 2020),linking & connecting,linkc,-0.119,6.0,34.0,0.0001,-0.169,6.0,33.0,0.0001
+act4teams,act4teams-SHORT (Klünder et al. 2020),naming problems,namep,-0.14,9.0,34.0,0.0002,-0.215,7.0,33.0,0.0
+act4teams,act4teams-SHORT (Klünder et al. 2020),linking problems,linkp,-0.153,6.0,34.0,0.0,-0.235,4.0,33.0,0.0
+act4teams,act4teams-SHORT (Klünder et al. 2020),knowledge transfer,ktrans,-0.254,6.0,34.0,0.0,-0.364,2.0,33.0,0.0
+IAM,Gunawardena IAM (1997),share/compare (1),iam1,-0.144,9.0,34.0,0.012,-0.239,6.0,33.0,0.0004
+IAM,Gunawardena IAM (1997),dissonance (2),iam2,-0.0,19.0,34.0,0.8264,0.046,16.0,33.0,0.5483
+IAM,Gunawardena IAM (1997),co-construct (3),iam3,-0.238,3.0,34.0,0.0,-0.162,10.0,33.0,0.0017
+IAM,Gunawardena IAM (1997),testing (4),iam4,-0.167,4.0,34.0,0.0,-0.225,2.0,33.0,0.0
+IAM,Gunawardena IAM (1997),agree/apply (5),iam5,0.117,27.0,34.0,0.0029,0.212,27.0,33.0,0.0001
+Mercer,Mercer talk types (1995/2000),disputational,disput,0.026,12.0,29.0,0.338,0.033,10.0,28.0,0.9732
+Mercer,Mercer talk types (1995/2000),cumulative,cumul,0.045,19.0,34.0,0.1505,0.078,21.0,33.0,0.0142
+Mercer,Mercer talk types (1995/2000),exploratory,explor,-0.311,2.0,34.0,0.0,-0.346,4.0,33.0,0.0

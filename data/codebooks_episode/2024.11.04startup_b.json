@@ -1,0 +1,369 @@
+{
+  "mid": "2024.11.04startup_b",
+  "episodes": [
+    {
+      "ep": 0,
+      "utt_start": 0,
+      "utt_end": 16,
+      "n_utt": 17,
+      "codes": {
+        "arguable": 1, "converge": 0, "disagree": 0, "delim": 1, "nonarg": 13,
+        "iam1": 3, "iam2": 0, "iam3": 0, "iam4": 0, "iam5": 0,
+        "disput": 0, "cumul": 3, "explor": 0,
+        "bgiveinfo": 4, "bgiveopin": 0, "bgivesug": 0, "baskinfo": 2, "baskopin": 0, "basksug": 0, "bsolid": 0, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 1, "bantag": 0,
+        "qset": 0, "qprop": 2, "directive": 1, "commissive": 1, "feedback": 1,
+        "namep": 0, "linkp": 0, "names": 0, "links": 0, "linkc": 0, "cprod": 0, "proact": 0, "struct": 1, "ginfo": 2, "ktrans": 0, "coop": 3
+      }
+    },
+    {
+      "ep": 1,
+      "utt_start": 17,
+      "utt_end": 31,
+      "n_utt": 15,
+      "codes": {
+        "arguable": 7, "converge": 1, "disagree": 0, "delim": 2, "nonarg": 3,
+        "iam1": 7, "iam2": 0, "iam3": 0, "iam4": 0, "iam5": 0,
+        "disput": 0, "cumul": 4, "explor": 1,
+        "bgiveinfo": 7, "bgiveopin": 2, "bgivesug": 0, "baskinfo": 1, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 0, "directive": 0, "commissive": 0, "feedback": 2,
+        "namep": 0, "linkp": 0, "names": 0, "links": 0, "linkc": 0, "cprod": 0, "proact": 1, "struct": 0, "ginfo": 7, "ktrans": 1, "coop": 1
+      }
+    },
+    {
+      "ep": 2,
+      "utt_start": 32,
+      "utt_end": 61,
+      "n_utt": 30,
+      "codes": {
+        "arguable": 14, "converge": 3, "disagree": 2, "delim": 3, "nonarg": 8,
+        "iam1": 9, "iam2": 2, "iam3": 4, "iam4": 1, "iam5": 1,
+        "disput": 1, "cumul": 5, "explor": 4,
+        "bgiveinfo": 9, "bgiveopin": 6, "bgivesug": 4, "baskinfo": 1, "baskopin": 1, "basksug": 1, "bsolid": 1, "btension": 0, "bagree": 3, "bdisagree": 2, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 1, "directive": 2, "commissive": 1, "feedback": 3,
+        "namep": 2, "linkp": 1, "names": 2, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 2, "ginfo": 5, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 3,
+      "utt_start": 62,
+      "utt_end": 88,
+      "n_utt": 27,
+      "codes": {
+        "arguable": 13, "converge": 3, "disagree": 2, "delim": 2, "nonarg": 7,
+        "iam1": 8, "iam2": 2, "iam3": 3, "iam4": 1, "iam5": 1,
+        "disput": 1, "cumul": 4, "explor": 4,
+        "bgiveinfo": 8, "bgiveopin": 5, "bgivesug": 4, "baskinfo": 1, "baskopin": 2, "basksug": 1, "bsolid": 1, "btension": 0, "bagree": 3, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 2, "directive": 2, "commissive": 0, "feedback": 2,
+        "namep": 1, "linkp": 1, "names": 3, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 5, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 4,
+      "utt_start": 89,
+      "utt_end": 98,
+      "n_utt": 10,
+      "codes": {
+        "arguable": 4, "converge": 1, "disagree": 0, "delim": 1, "nonarg": 4,
+        "iam1": 4, "iam2": 0, "iam3": 1, "iam4": 0, "iam5": 0,
+        "disput": 0, "cumul": 2, "explor": 1,
+        "bgiveinfo": 4, "bgiveopin": 1, "bgivesug": 1, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 0, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 0, "directive": 1, "commissive": 1, "feedback": 1,
+        "namep": 0, "linkp": 0, "names": 1, "links": 0, "linkc": 0, "cprod": 0, "proact": 1, "struct": 1, "ginfo": 2, "ktrans": 0, "coop": 0
+      }
+    },
+    {
+      "ep": 5,
+      "utt_start": 99,
+      "utt_end": 144,
+      "n_utt": 46,
+      "codes": {
+        "arguable": 22, "converge": 4, "disagree": 1, "delim": 4, "nonarg": 10,
+        "iam1": 13, "iam2": 1, "iam3": 5, "iam4": 2, "iam5": 1,
+        "disput": 1, "cumul": 6, "explor": 7,
+        "bgiveinfo": 13, "bgiveopin": 8, "bgivesug": 6, "baskinfo": 2, "baskopin": 1, "basksug": 1, "bsolid": 2, "btension": 0, "bagree": 3, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 2, "qprop": 2, "directive": 3, "commissive": 1, "feedback": 3,
+        "namep": 3, "linkp": 2, "names": 4, "links": 2, "linkc": 2, "cprod": 0, "proact": 3, "struct": 2, "ginfo": 6, "ktrans": 4, "coop": 1
+      }
+    },
+    {
+      "ep": 6,
+      "utt_start": 145,
+      "utt_end": 158,
+      "n_utt": 14,
+      "codes": {
+        "arguable": 8, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 3,
+        "iam1": 5, "iam2": 0, "iam3": 2, "iam4": 1, "iam5": 0,
+        "disput": 0, "cumul": 3, "explor": 3,
+        "bgiveinfo": 4, "bgiveopin": 4, "bgivesug": 3, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 0, "directive": 1, "commissive": 0, "feedback": 1,
+        "namep": 2, "linkp": 1, "names": 2, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 2, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 7,
+      "utt_start": 159,
+      "utt_end": 177,
+      "n_utt": 19,
+      "codes": {
+        "arguable": 9, "converge": 2, "disagree": 1, "delim": 2, "nonarg": 5,
+        "iam1": 6, "iam2": 1, "iam3": 3, "iam4": 1, "iam5": 0,
+        "disput": 0, "cumul": 4, "explor": 4,
+        "bgiveinfo": 6, "bgiveopin": 5, "bgivesug": 3, "baskinfo": 1, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 2, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 1, "directive": 1, "commissive": 1, "feedback": 1,
+        "namep": 2, "linkp": 2, "names": 2, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 3, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 8,
+      "utt_start": 178,
+      "utt_end": 191,
+      "n_utt": 14,
+      "codes": {
+        "arguable": 8, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 3,
+        "iam1": 5, "iam2": 0, "iam3": 3, "iam4": 1, "iam5": 0,
+        "disput": 0, "cumul": 3, "explor": 3,
+        "bgiveinfo": 4, "bgiveopin": 5, "bgivesug": 3, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 0, "directive": 2, "commissive": 1, "feedback": 1,
+        "namep": 1, "linkp": 1, "names": 2, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 2, "ktrans": 1, "coop": 1
+      }
+    },
+    {
+      "ep": 9,
+      "utt_start": 192,
+      "utt_end": 207,
+      "n_utt": 16,
+      "codes": {
+        "arguable": 7, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 5,
+        "iam1": 5, "iam2": 0, "iam3": 2, "iam4": 0, "iam5": 1,
+        "disput": 0, "cumul": 4, "explor": 2,
+        "bgiveinfo": 5, "bgiveopin": 3, "bgivesug": 2, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 1, "bagree": 2, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 1, "directive": 1, "commissive": 2, "feedback": 2,
+        "namep": 1, "linkp": 0, "names": 1, "links": 1, "linkc": 0, "cprod": 0, "proact": 2, "struct": 2, "ginfo": 2, "ktrans": 1, "coop": 1
+      }
+    },
+    {
+      "ep": 10,
+      "utt_start": 208,
+      "utt_end": 220,
+      "n_utt": 13,
+      "codes": {
+        "arguable": 5, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 6,
+        "iam1": 4, "iam2": 0, "iam3": 1, "iam4": 0, "iam5": 1,
+        "disput": 0, "cumul": 4, "explor": 1,
+        "bgiveinfo": 4, "bgiveopin": 2, "bgivesug": 1, "baskinfo": 1, "baskopin": 0, "basksug": 0, "bsolid": 0, "btension": 1, "bagree": 2, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 1, "directive": 1, "commissive": 1, "feedback": 1,
+        "namep": 0, "linkp": 0, "names": 1, "links": 0, "linkc": 0, "cprod": 0, "proact": 1, "struct": 3, "ginfo": 2, "ktrans": 1, "coop": 0
+      }
+    },
+    {
+      "ep": 11,
+      "utt_start": 221,
+      "utt_end": 231,
+      "n_utt": 11,
+      "codes": {
+        "arguable": 6, "converge": 1, "disagree": 1, "delim": 1, "nonarg": 3,
+        "iam1": 4, "iam2": 1, "iam3": 2, "iam4": 1, "iam5": 0,
+        "disput": 1, "cumul": 2, "explor": 3,
+        "bgiveinfo": 3, "bgiveopin": 4, "bgivesug": 2, "baskinfo": 0, "baskopin": 1, "basksug": 0, "bsolid": 0, "btension": 0, "bagree": 1, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 1, "directive": 1, "commissive": 0, "feedback": 1,
+        "namep": 1, "linkp": 1, "names": 2, "links": 1, "linkc": 1, "cprod": 0, "proact": 1, "struct": 1, "ginfo": 1, "ktrans": 1, "coop": 0
+      }
+    },
+    {
+      "ep": 12,
+      "utt_start": 232,
+      "utt_end": 261,
+      "n_utt": 30,
+      "codes": {
+        "arguable": 14, "converge": 3, "disagree": 1, "delim": 2, "nonarg": 9,
+        "iam1": 9, "iam2": 1, "iam3": 4, "iam4": 1, "iam5": 1,
+        "disput": 0, "cumul": 5, "explor": 4,
+        "bgiveinfo": 8, "bgiveopin": 6, "bgivesug": 5, "baskinfo": 1, "baskopin": 1, "basksug": 1, "bsolid": 1, "btension": 1, "bagree": 3, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 2, "directive": 3, "commissive": 1, "feedback": 3,
+        "namep": 2, "linkp": 1, "names": 3, "links": 1, "linkc": 1, "cprod": 0, "proact": 3, "struct": 2, "ginfo": 4, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 13,
+      "utt_start": 262,
+      "utt_end": 281,
+      "n_utt": 20,
+      "codes": {
+        "arguable": 10, "converge": 2, "disagree": 1, "delim": 2, "nonarg": 6,
+        "iam1": 7, "iam2": 1, "iam3": 3, "iam4": 2, "iam5": 1,
+        "disput": 0, "cumul": 4, "explor": 4,
+        "bgiveinfo": 7, "bgiveopin": 5, "bgivesug": 2, "baskinfo": 1, "baskopin": 1, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 2, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 1, "directive": 1, "commissive": 1, "feedback": 2,
+        "namep": 1, "linkp": 2, "names": 2, "links": 2, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 4, "ktrans": 3, "coop": 1
+      }
+    },
+    {
+      "ep": 14,
+      "utt_start": 282,
+      "utt_end": 294,
+      "n_utt": 13,
+      "codes": {
+        "arguable": 6, "converge": 1, "disagree": 1, "delim": 1, "nonarg": 4,
+        "iam1": 4, "iam2": 1, "iam3": 2, "iam4": 0, "iam5": 1,
+        "disput": 0, "cumul": 3, "explor": 2,
+        "bgiveinfo": 4, "bgiveopin": 3, "bgivesug": 2, "baskinfo": 1, "baskopin": 1, "basksug": 0, "bsolid": 0, "btension": 0, "bagree": 1, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 1, "directive": 1, "commissive": 0, "feedback": 1,
+        "namep": 1, "linkp": 1, "names": 1, "links": 1, "linkc": 0, "cprod": 0, "proact": 1, "struct": 1, "ginfo": 2, "ktrans": 1, "coop": 0
+      }
+    },
+    {
+      "ep": 15,
+      "utt_start": 295,
+      "utt_end": 304,
+      "n_utt": 10,
+      "codes": {
+        "arguable": 5, "converge": 1, "disagree": 0, "delim": 1, "nonarg": 3,
+        "iam1": 4, "iam2": 0, "iam3": 2, "iam4": 0, "iam5": 0,
+        "disput": 0, "cumul": 2, "explor": 2,
+        "bgiveinfo": 3, "bgiveopin": 3, "bgivesug": 2, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 0, "directive": 1, "commissive": 1, "feedback": 1,
+        "namep": 0, "linkp": 0, "names": 2, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 1, "ktrans": 1, "coop": 1
+      }
+    },
+    {
+      "ep": 16,
+      "utt_start": 305,
+      "utt_end": 323,
+      "n_utt": 19,
+      "codes": {
+        "arguable": 10, "converge": 2, "disagree": 2, "delim": 2, "nonarg": 4,
+        "iam1": 6, "iam2": 2, "iam3": 3, "iam4": 2, "iam5": 1,
+        "disput": 1, "cumul": 3, "explor": 5,
+        "bgiveinfo": 6, "bgiveopin": 5, "bgivesug": 3, "baskinfo": 1, "baskopin": 1, "basksug": 0, "bsolid": 0, "btension": 1, "bagree": 2, "bdisagree": 2, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 1, "directive": 1, "commissive": 0, "feedback": 2,
+        "namep": 2, "linkp": 2, "names": 1, "links": 2, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 3, "ktrans": 2, "coop": 0
+      }
+    },
+    {
+      "ep": 17,
+      "utt_start": 324,
+      "utt_end": 335,
+      "n_utt": 12,
+      "codes": {
+        "arguable": 5, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 5,
+        "iam1": 4, "iam2": 0, "iam3": 1, "iam4": 0, "iam5": 1,
+        "disput": 0, "cumul": 4, "explor": 1,
+        "bgiveinfo": 5, "bgiveopin": 2, "bgivesug": 1, "baskinfo": 1, "baskopin": 0, "basksug": 0, "bsolid": 0, "btension": 0, "bagree": 2, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 1, "directive": 2, "commissive": 1, "feedback": 1,
+        "namep": 0, "linkp": 0, "names": 0, "links": 0, "linkc": 0, "cprod": 0, "proact": 1, "struct": 4, "ginfo": 2, "ktrans": 0, "coop": 0
+      }
+    },
+    {
+      "ep": 18,
+      "utt_start": 336,
+      "utt_end": 369,
+      "n_utt": 34,
+      "codes": {
+        "arguable": 17, "converge": 3, "disagree": 1, "delim": 3, "nonarg": 9,
+        "iam1": 10, "iam2": 1, "iam3": 5, "iam4": 2, "iam5": 2,
+        "disput": 0, "cumul": 5, "explor": 6,
+        "bgiveinfo": 9, "bgiveopin": 8, "bgivesug": 5, "baskinfo": 1, "baskopin": 1, "basksug": 0, "bsolid": 2, "btension": 0, "bagree": 3, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 1, "qprop": 2, "directive": 2, "commissive": 1, "feedback": 3,
+        "namep": 2, "linkp": 2, "names": 4, "links": 3, "linkc": 2, "cprod": 0, "proact": 3, "struct": 2, "ginfo": 4, "ktrans": 4, "coop": 2
+      }
+    },
+    {
+      "ep": 19,
+      "utt_start": 370,
+      "utt_end": 379,
+      "n_utt": 10,
+      "codes": {
+        "arguable": 5, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 3,
+        "iam1": 4, "iam2": 0, "iam3": 2, "iam4": 1, "iam5": 1,
+        "disput": 0, "cumul": 3, "explor": 2,
+        "bgiveinfo": 4, "bgiveopin": 4, "bgivesug": 2, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 1, "directive": 1, "commissive": 0, "feedback": 1,
+        "namep": 1, "linkp": 1, "names": 1, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 1, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 20,
+      "utt_start": 380,
+      "utt_end": 392,
+      "n_utt": 13,
+      "codes": {
+        "arguable": 7, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 3,
+        "iam1": 5, "iam2": 0, "iam3": 2, "iam4": 1, "iam5": 1,
+        "disput": 0, "cumul": 3, "explor": 3,
+        "bgiveinfo": 5, "bgiveopin": 4, "bgivesug": 2, "baskinfo": 1, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 1, "directive": 1, "commissive": 1, "feedback": 1,
+        "namep": 1, "linkp": 1, "names": 2, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 2, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 21,
+      "utt_start": 393,
+      "utt_end": 403,
+      "n_utt": 11,
+      "codes": {
+        "arguable": 6, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 3,
+        "iam1": 4, "iam2": 0, "iam3": 2, "iam4": 1, "iam5": 1,
+        "disput": 0, "cumul": 3, "explor": 2,
+        "bgiveinfo": 4, "bgiveopin": 4, "bgivesug": 1, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 2, "btension": 1, "bagree": 1, "bdisagree": 1, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 0, "directive": 0, "commissive": 0, "feedback": 1,
+        "namep": 1, "linkp": 1, "names": 1, "links": 0, "linkc": 0, "cprod": 0, "proact": 2, "struct": 0, "ginfo": 2, "ktrans": 2, "coop": 2
+      }
+    },
+    {
+      "ep": 22,
+      "utt_start": 404,
+      "utt_end": 425,
+      "n_utt": 22,
+      "codes": {
+        "arguable": 12, "converge": 3, "disagree": 0, "delim": 2, "nonarg": 6,
+        "iam1": 8, "iam2": 0, "iam3": 4, "iam4": 2, "iam5": 2,
+        "disput": 0, "cumul": 5, "explor": 4,
+        "bgiveinfo": 7, "bgiveopin": 6, "bgivesug": 3, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 2, "btension": 1, "bagree": 2, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 1, "directive": 1, "commissive": 1, "feedback": 2,
+        "namep": 2, "linkp": 2, "names": 3, "links": 2, "linkc": 2, "cprod": 0, "proact": 3, "struct": 1, "ginfo": 3, "ktrans": 3, "coop": 2
+      }
+    },
+    {
+      "ep": 23,
+      "utt_start": 426,
+      "utt_end": 436,
+      "n_utt": 11,
+      "codes": {
+        "arguable": 6, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 3,
+        "iam1": 4, "iam2": 0, "iam3": 2, "iam4": 1, "iam5": 1,
+        "disput": 0, "cumul": 3, "explor": 3,
+        "bgiveinfo": 4, "bgiveopin": 4, "bgivesug": 1, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 1, "btension": 0, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 0, "directive": 0, "commissive": 1, "feedback": 1,
+        "namep": 1, "linkp": 1, "names": 1, "links": 1, "linkc": 1, "cprod": 0, "proact": 2, "struct": 0, "ginfo": 2, "ktrans": 2, "coop": 1
+      }
+    },
+    {
+      "ep": 24,
+      "utt_start": 437,
+      "utt_end": 446,
+      "n_utt": 10,
+      "codes": {
+        "arguable": 4, "converge": 2, "disagree": 0, "delim": 1, "nonarg": 4,
+        "iam1": 4, "iam2": 0, "iam3": 1, "iam4": 0, "iam5": 1,
+        "disput": 0, "cumul": 3, "explor": 1,
+        "bgiveinfo": 4, "bgiveopin": 2, "bgivesug": 1, "baskinfo": 0, "baskopin": 0, "basksug": 0, "bsolid": 2, "btension": 1, "bagree": 1, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 0, "directive": 1, "commissive": 1, "feedback": 1,
+        "namep": 0, "linkp": 0, "names": 1, "links": 0, "linkc": 0, "cprod": 0, "proact": 2, "struct": 1, "ginfo": 1, "ktrans": 1, "coop": 1
+      }
+    },
+    {
+      "ep": 25,
+      "utt_start": 447,
+      "utt_end": 460,
+      "n_utt": 14,
+      "codes": {
+        "arguable": 6, "converge": 3, "disagree": 0, "delim": 1, "nonarg": 5,
+        "iam1": 5, "iam2": 0, "iam3": 1, "iam4": 0, "iam5": 2,
+        "disput": 0, "cumul": 5, "explor": 1,
+        "bgiveinfo": 4, "bgiveopin": 4, "bgivesug": 1, "baskinfo": 0, "baskopin": 1, "basksug": 0, "bsolid": 4, "btension": 1, "bagree": 2, "bdisagree": 0, "btensh": 0, "bantag": 0,
+        "qset": 0, "qprop": 1, "directive": 1, "commissive": 1, "feedback": 2,
+        "namep": 0, "linkp": 0, "names": 0, "links": 0, "linkc": 0, "cprod": 0, "proact": 2, "struct": 2, "ginfo": 1, "ktrans": 0, "coop": 5
+      }
+    }
+  ]
+}

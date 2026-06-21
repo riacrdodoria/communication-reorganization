@@ -1,0 +1,11 @@
+# Confidential raw transcripts — NEVER commit (participant text)
+data/text_startup/
+**/*_transcript.csv
+# Licensed dictionary — not redistributable
+*.dic
+external/
+# Python
+__pycache__/
+*.pyc
+.DS_Store
+.venv/

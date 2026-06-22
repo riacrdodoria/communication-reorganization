@@ -52,3 +52,4 @@
 - Wagner, A. K., Soumerai, S. B., Zhang, F., & Ross-Degnan, D. (2002). Segmented regression analysis of interrupted time series studies. *Journal of Clinical Pharmacy and Therapeutics*, 27(4), 299–309.
 - Pangakis, N., Wolken, S., & Fasching, N. (2023). Automated annotation with generative AI requires validation. *arXiv:2306.00176*.
 - Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate. *Journal of the Royal Statistical Society B*, 57(1), 289–300.
+- Wickman, G. (2011). *Traction: Get a grip on your business.* BenBella Books. (EOS Level 10 Meeting agenda.)

@@ -52,7 +52,7 @@ and **how** it changes as a team matures (developmental consolidation).
 | 3 | [`studies/study3_content_fingerprint`](studies/study3_content_fingerprint) | What does reorganization *mean*? | Coordination, not deliberation — six validated taxonomies converge, corroborated by coding-free measures. |
 | 4 | [`studies/study4_floor_dynamics`](studies/study4_floor_dynamics) | What is it in *floor* terms? | Edelsky F1 ↔ F2; the floor equalizes and de-centralizes at reorganization (event-locked). |
 | 5 | [`studies/study5_team_development`](studies/study5_team_development) | How does it *develop*? | Over 26 weeks teams consolidate (entropy↓, centrality↑, content→deliberation, range↓), replicated across two teams and three lenses. |
-| 6 | [`studies/study6_dialogue_microstructure`](studies/study6_dialogue_microstructure) | At what *unit* does it live? | Topic-episode boundaries *are* reorganization events; meetings follow an open→status→problem→solution→close arc. |
+| 6 | [`studies/study6_dialogue_microstructure`](studies/study6_dialogue_microstructure) | At what *unit* does it live? | Topic-episode boundaries *are* reorganization events; meetings follow an open→status→problem→solution→close arc; on the teams' EOS Level 10 agenda the procedural review reorganizes *more* than the deliberative problem-solving (IDS). |
 
 A reader can begin with Study 1 and proceed in order; each study folder has a self-contained `README.md`
 with rationale, methods, the exact analysis scripts, the result tables they produce, and references.

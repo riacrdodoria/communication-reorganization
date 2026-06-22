@@ -56,6 +56,14 @@ files, and figures are published.)
   only flickers are single-team and contradictory. Maturation (Study 5) modulates the *intensity/depth* of
   reorganization, not its anatomy. `figures/fig_reorg_longitudinal.png`,
   `figures/fig_reorg_taxonomy_longitudinal.png`.
+- **What changes is the baseline, not the excursion.** Per meeting, per class, over weeks (Kendall τ,
+  BH-FDR): the meeting **baseline entropy falls** (τ = −0.42, p < .005, both teams) and the absolute
+  entropy at events falls with it (border −0.39, interior −0.33), but the **excursion above baseline** and
+  the **spike prominence** are flat (border excursion τ = −0.16 n.s.; prominence +0.06 n.s.; early→late
+  baseline 36.0 → 30.6 while the border excursion holds 14.6 → 13.9 and prominence 3.34 → 3.45). The
+  reorganization is a **stereotyped excursion of fixed size riding on a baseline that consolidates
+  downward** — three nested invariances (anatomy, content, excursion depth) plus one change (the resting
+  operating point, = Study 5). `figures/fig_reorg_depth_longitudinal.png`.
 
 ## Interpretation
 A reorganization event is a **redistribution of the speaking floor (F1→F2)** with two triggers — a topic/
@@ -86,6 +94,8 @@ appropriate for border events, coarse for the interior.
 | `reorg_taxonomy_longitudinal.py` | metrics + window codebooks + boundaries | `results/reorg_taxonomy_longitudinal_panel.csv` | **yes** |
 | `fig_reorg_longitudinal.py` | `results/reorg_longitudinal_panel.csv` | `figures/fig_reorg_longitudinal.png` | no |
 | `fig_reorg_taxonomy_longitudinal.py` | `results/reorg_taxonomy_longitudinal_panel.csv` | `figures/fig_reorg_taxonomy_longitudinal.png` | no |
+| `reorg_depth_longitudinal.py` | metrics + boundaries | `results/reorg_depth_longitudinal_panel.csv` | **yes** |
+| `fig_reorg_depth_longitudinal.py` | `results/reorg_depth_longitudinal_panel.csv` | `figures/fig_reorg_depth_longitudinal.png` | no |
 
 The interior-typology validation used two independent annotators on 80 blind windows; only their label
 files (`results/reorg_anno_{A,B}.json`) and the id→(meeting, second, rule-label) map

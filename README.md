@@ -20,7 +20,7 @@ this with dynamical-systems measures of the team's turn-taking series: the Shann
 multi-speaker state, the **percent determinism (%DET)** of its recurrence plot, and a nonlinear-prediction
 **RMSE** computed on the %DET series. Peaks and valleys in these series mark moments of *reorganization*.
 
-Our central thesis, built across the six studies, is that in real teams **reorganization is not (only)
+Our central thesis, built across the seven studies, is that in real teams **reorganization is not (only)
 externally-forced perturbation–recovery — it is an endogenous, bidirectional process organised along a
 single axis: deliberation ↔ coordination**, which in conversation-analytic terms is Edelsky's
 *singly-developed* (F1) ↔ *collaborative* (F2) floor. This axis recurs, convergently, across **what** is
@@ -43,16 +43,17 @@ and **how** it changes as a team matures (developmental consolidation).
 5. **Methodological rigour.** Dynamic claims in this area are easy to over-state; this work benchmarks
    every dynamic claim against null models and validates automated annotation against published practice.
 
-## 3. The six studies (in order)
+## 3. The seven studies (in order)
 
 | # | Folder | Question | Headline result |
 |---|---|---|---|
 | 1 | [`studies/study1_lsh_validation`](studies/study1_lsh_validation) | Is the Last-Speaker-Holds (LSH) representation a valid substrate? | LSH reproduces the standard silence-preserving representation (r ≈ .87–.93). |
 | 2 | [`studies/study2_reorganization_dynamics`](studies/study2_reorganization_dynamics) | What *is* reorganization, dynamically? | Endogenous, supra-autoregressive, a continuum (not two regimes); clean entropy–%DET geometry. |
 | 3 | [`studies/study3_content_fingerprint`](studies/study3_content_fingerprint) | What does reorganization *mean*? | Coordination, not deliberation — six validated taxonomies converge, corroborated by coding-free measures. |
-| 4 | [`studies/study4_floor_dynamics`](studies/study4_floor_dynamics) | What is it in *floor* terms? | Edelsky F1 ↔ F2; the floor equalizes and de-centralizes at reorganization (event-locked). Anatomy: ~⅓ topic-transition + ~⅔ endogenous floor handoff/opening (function: clarify / co-construct / decide); trigger sets depth, not existence. |
+| 4 | [`studies/study4_floor_dynamics`](studies/study4_floor_dynamics) | What is it in *floor* terms? | Edelsky F1 ↔ F2; the floor equalizes and de-centralizes at reorganization (event-locked). |
 | 5 | [`studies/study5_team_development`](studies/study5_team_development) | How does it *develop*? | Over 26 weeks teams consolidate (entropy↓, centrality↑, content→deliberation, range↓), replicated across two teams and three lenses. |
 | 6 | [`studies/study6_dialogue_microstructure`](studies/study6_dialogue_microstructure) | At what *unit* does it live? | Topic-episode boundaries *are* reorganization events; meetings follow an open→status→problem→solution→close arc; on the teams' EOS Level 10 agenda the procedural review reorganizes *more* than the deliberative problem-solving (IDS). |
+| 7 | [`studies/study7_anatomy_of_reorganization`](studies/study7_anatomy_of_reorganization) | What *is* a single reorganization event? | A redistribution of the floor (F1→F2): ~⅓ topic-transition (deeper) + ~⅔ endogenous handoff/opening (function: clarify / co-construct / decide; κ = .51); trigger sets depth, not existence; each taxonomy predicts both perturbations the same way (both coordination). |
 
 A reader can begin with Study 1 and proceed in order; each study folder has a self-contained `README.md`
 with rationale, methods, the exact analysis scripts, the result tables they produce, and references.

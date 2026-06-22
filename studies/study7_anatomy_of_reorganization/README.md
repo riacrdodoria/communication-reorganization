@@ -48,6 +48,15 @@ files, and figures are published.)
   problem/solution, links solution, agreement, commissive), interior carries floor-handoff moves
   (directive, set-question, asks-opinion). `figures/fig_border_interior_taxonomy.png`.
 
+- **The anatomy is developmentally invariant.** Over the ~26 weeks (Kendall τ, per team n = 17 + pooled),
+  neither the *where* nor the *what* of reorganization drifts. Border-share trend pooled τ = −0.01
+  (p = .95; 32.6 % → 32.2 % early→late). A per-meeting coordination−deliberation content composite —
+  continuous (corr with rmse) and event-locked, overall and per taxonomy, at topic vs L10 borders
+  separately — yields **0/11 pooled trends surviving BH-FDR** (q ≈ .98; content-axis 0.262 → 0.230). The
+  only flickers are single-team and contradictory. Maturation (Study 5) modulates the *intensity/depth* of
+  reorganization, not its anatomy. `figures/fig_reorg_longitudinal.png`,
+  `figures/fig_reorg_taxonomy_longitudinal.png`.
+
 ## Interpretation
 A reorganization event is a **redistribution of the speaking floor (F1→F2)** with two triggers — a topic/
 agenda transition (~⅓, deeper, carrying the substance of changing topic) and an endogenous floor handoff
@@ -73,6 +82,10 @@ appropriate for border events, coarse for the interior.
 | `fig_reorg_decomp.py` | `results/reorg_*` | `figures/fig_reorg_decomp.png` | no |
 | `fig_border_interior_taxonomy.py` | `results/reorg_taxonomy_borderinterior.csv` | `figures/fig_border_interior_taxonomy.png` | no |
 | `reorg_anno_kappa.py` | `results/reorg_anno_{A,B,hidden}.json` | console (κ, typology) | no |
+| `reorg_longitudinal.py` | metrics + boundaries | `results/reorg_longitudinal_panel.csv` | **yes** |
+| `reorg_taxonomy_longitudinal.py` | metrics + window codebooks + boundaries | `results/reorg_taxonomy_longitudinal_panel.csv` | **yes** |
+| `fig_reorg_longitudinal.py` | `results/reorg_longitudinal_panel.csv` | `figures/fig_reorg_longitudinal.png` | no |
+| `fig_reorg_taxonomy_longitudinal.py` | `results/reorg_taxonomy_longitudinal_panel.csv` | `figures/fig_reorg_taxonomy_longitudinal.png` | no |
 
 The interior-typology validation used two independent annotators on 80 blind windows; only their label
 files (`results/reorg_anno_{A,B}.json`) and the id→(meeting, second, rule-label) map

@@ -1,0 +1,482 @@
+[
+{
+"id": "E000",
+"mid": "2024.11.11startup_b",
+"c": 2140.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E001",
+"mid": "2024.12.16startup_b",
+"c": 3935.0,
+"rule_primary": "question"
+},
+{
+"id": "E002",
+"mid": "2025.03.24startup_b",
+"c": 2805.25,
+"rule_primary": "handoff"
+},
+{
+"id": "E003",
+"mid": "2025.03.02startup_a",
+"c": 4954.0,
+"rule_primary": "question"
+},
+{
+"id": "E004",
+"mid": "2025.04.07startup_a",
+"c": 3785.0,
+"rule_primary": "question"
+},
+{
+"id": "E005",
+"mid": "2025.03.25startup_a",
+"c": 3499.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E006",
+"mid": "2025.01.13startup_b",
+"c": 1124.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E007",
+"mid": "2024.11.18startup_a",
+"c": 1493.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E008",
+"mid": "2024.12.02startup_b",
+"c": 2922.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E009",
+"mid": "2025.02.24startup_a",
+"c": 3330.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E010",
+"mid": "2025.04.07startup_b",
+"c": 4865.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E011",
+"mid": "2025.04.07startup_a",
+"c": 3494.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E012",
+"mid": "2024.12.23startup_b",
+"c": 2851.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E013",
+"mid": "2024.11.04startup_a",
+"c": 3401.5,
+"rule_primary": "question"
+},
+{
+"id": "E014",
+"mid": "2024.11.04startup_a",
+"c": 3171.8333333333335,
+"rule_primary": "handoff"
+},
+{
+"id": "E015",
+"mid": "2024.12.23startup_a",
+"c": 3948.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E016",
+"mid": "2024.11.04startup_b",
+"c": 2722.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E017",
+"mid": "2024.10.28startup_b",
+"c": 509.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E018",
+"mid": "2025.04.14startup_a",
+"c": 4696.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E019",
+"mid": "2024.11.11startup_a",
+"c": 3412.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E020",
+"mid": "2024.11.11startup_a",
+"c": 2897.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E021",
+"mid": "2025.01.06startup_b",
+"c": 3883.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E022",
+"mid": "2024.10.14startup_a",
+"c": 361.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E023",
+"mid": "2024.11.04startup_b",
+"c": 586.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E024",
+"mid": "2025.02.10startup_b",
+"c": 150.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E025",
+"mid": "2024.10.14startup_b",
+"c": 147.11111111111111,
+"rule_primary": "handoff"
+},
+{
+"id": "E026",
+"mid": "2025.04.14startup_b",
+"c": 3317.5555555555557,
+"rule_primary": "handoff"
+},
+{
+"id": "E027",
+"mid": "2025.01.06startup_b",
+"c": 4831.0,
+"rule_primary": "question"
+},
+{
+"id": "E028",
+"mid": "2025.03.02startup_a",
+"c": 606.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E029",
+"mid": "2025.03.31startup_b",
+"c": 443.0,
+"rule_primary": "question"
+},
+{
+"id": "E030",
+"mid": "2025.03.31startup_a",
+"c": 428.1666666666667,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E031",
+"mid": "2024.12.13startup_a",
+"c": 3329.2727272727275,
+"rule_primary": "new_voice"
+},
+{
+"id": "E032",
+"mid": "2025.04.07startup_b",
+"c": 4152.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E033",
+"mid": "2024.11.18startup_b",
+"c": 2546.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E034",
+"mid": "2025.01.13startup_b",
+"c": 115.0,
+"rule_primary": "opening"
+},
+{
+"id": "E035",
+"mid": "2024.12.09startup_a",
+"c": 3407.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E036",
+"mid": "2025.01.06startup_a",
+"c": 617.7777777777778,
+"rule_primary": "handoff"
+},
+{
+"id": "E037",
+"mid": "2024.12.13startup_a",
+"c": 1722.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E038",
+"mid": "2024.11.11startup_b",
+"c": 3678.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E039",
+"mid": "2024.12.02startup_b",
+"c": 1339.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E040",
+"mid": "2025.01.06startup_a",
+"c": 4440.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E041",
+"mid": "2025.04.14startup_b",
+"c": 730.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E042",
+"mid": "2025.02.24startup_b",
+"c": 794.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E043",
+"mid": "2025.01.13startup_a",
+"c": 1666.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E044",
+"mid": "2025.03.17startup_b",
+"c": 3233.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E045",
+"mid": "2024.12.16startup_b",
+"c": 2186.5,
+"rule_primary": "opening"
+},
+{
+"id": "E046",
+"mid": "2024.10.28startup_b",
+"c": 3295.5,
+"rule_primary": "question"
+},
+{
+"id": "E047",
+"mid": "2025.03.17startup_a",
+"c": 162.5,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E048",
+"mid": "2025.03.31startup_a",
+"c": 4858.0,
+"rule_primary": "question"
+},
+{
+"id": "E049",
+"mid": "2024.11.18startup_b",
+"c": 1648.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E050",
+"mid": "2025.03.17startup_b",
+"c": 5485.75,
+"rule_primary": "handoff"
+},
+{
+"id": "E051",
+"mid": "2024.11.18startup_b",
+"c": 2720.5,
+"rule_primary": "new_voice"
+},
+{
+"id": "E052",
+"mid": "2024.12.02startup_b",
+"c": 4720.0,
+"rule_primary": "question"
+},
+{
+"id": "E053",
+"mid": "2024.11.04startup_b",
+"c": 3016.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E054",
+"mid": "2025.03.25startup_a",
+"c": 2563.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E055",
+"mid": "2024.10.14startup_a",
+"c": 930.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E056",
+"mid": "2025.03.31startup_a",
+"c": 4705.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E057",
+"mid": "2025.03.24startup_b",
+"c": 3320.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E058",
+"mid": "2025.03.31startup_b",
+"c": 2458.285714285714,
+"rule_primary": "handoff"
+},
+{
+"id": "E059",
+"mid": "2024.10.14startup_b",
+"c": 3522.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E060",
+"mid": "2024.12.09startup_a",
+"c": 987.0,
+"rule_primary": "opening"
+},
+{
+"id": "E061",
+"mid": "2025.04.07startup_b",
+"c": 5029.428571428572,
+"rule_primary": "new_voice"
+},
+{
+"id": "E062",
+"mid": "2024.10.28startup_b",
+"c": 3917.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E063",
+"mid": "2024.12.23startup_b",
+"c": 1408.0833333333333,
+"rule_primary": "handoff"
+},
+{
+"id": "E064",
+"mid": "2024.10.14startup_b",
+"c": 1077.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E065",
+"mid": "2024.12.13startup_a",
+"c": 836.3684210526316,
+"rule_primary": "handoff"
+},
+{
+"id": "E066",
+"mid": "2025.03.17startup_a",
+"c": 4710.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E067",
+"mid": "2024.12.09startup_a",
+"c": 4117.0,
+"rule_primary": "question"
+},
+{
+"id": "E068",
+"mid": "2025.02.24startup_a",
+"c": 1551.5,
+"rule_primary": "handoff"
+},
+{
+"id": "E069",
+"mid": "2025.02.10startup_b",
+"c": 3357.0,
+"rule_primary": "question"
+},
+{
+"id": "E070",
+"mid": "2025.01.06startup_b",
+"c": 1675.5,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E071",
+"mid": "2025.03.24startup_b",
+"c": 5206.5,
+"rule_primary": "new_voice"
+},
+{
+"id": "E072",
+"mid": "2024.11.18startup_a",
+"c": 5116.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E073",
+"mid": "2025.01.13startup_a",
+"c": 2366.0975609756097,
+"rule_primary": "new_voice"
+},
+{
+"id": "E074",
+"mid": "2025.03.02startup_a",
+"c": 5018.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E075",
+"mid": "2025.02.24startup_a",
+"c": 2439.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E076",
+"mid": "2025.04.14startup_a",
+"c": 2244.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E077",
+"mid": "2025.02.10startup_b",
+"c": 4763.0,
+"rule_primary": "other/diffuse"
+},
+{
+"id": "E078",
+"mid": "2024.11.11startup_a",
+"c": 2219.0,
+"rule_primary": "handoff"
+},
+{
+"id": "E079",
+"mid": "2024.10.25startup_a",
+"c": 5039.0,
+"rule_primary": "handoff"
+}
+]

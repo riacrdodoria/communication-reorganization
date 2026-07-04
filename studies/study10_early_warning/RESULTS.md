@@ -112,6 +112,50 @@ least some being closer to abrupt, discontinuous shifts than to gradually-warned
 merely a limitation to be caveated away; it is itself a substantive, theoretically relevant finding
 about the character of reorganization.
 
+## Follow-up — which event TYPE has a detectable precursor?
+Joining Study 9's event classification (TRANSITION / INTERIOR_HANDOFF / INTERIOR_OTHER — same detector,
+deterministic onset match, 909/909 join) onto the pre-event features reveals a clean, coherent pattern:
+different event types are anticipatable through **different channels**, and one type is reliably the
+least anticipatable of all.
+
+**No-precursor rate by class** (`data/no_precursor_rate_by_class.csv`):
+| event class | n | % no `entropy_slope` precursor | % no `switch_rate` precursor | % no precursor on both |
+|---|---:|---:|---:|---:|
+| TRANSITION | 468 | 72.9% (χ²(2)=0.25, p=.88, n.s.) | **43.3%** (most anticipatable) | 29.1% |
+| INTERIOR_HANDOFF | 190 | 71.1% | 58.9% | 38.9% |
+| INTERIOR_OTHER | 251 | 72.9% | **61.9%** (least anticipatable) | 39.8% |
+
+The `entropy_slope` no-precursor rate is **flat across event types** (χ²=0.25, p=.88) — the mechanical
+approach-to-a-local-extremum pattern doesn't care what kind of event is coming. But `switch_rate`
+detectability differs sharply by class (χ²(2)=26.87, **p=1.5e-6**) and so does the combined rate
+(χ²=10.96, **p=.004**): **topic/agenda TRANSITIONs are the most anticipatable event type** (only 43%
+show no switch-rate precursor), while **INTERIOR_OTHER events are the least** (62% show none).
+
+**Magnitude of the precursor signal by class** (Kruskal-Wallis + pairwise Mann-Whitney, BH-FDR;
+`data/precursor_magnitude_by_class.csv`):
+| feature | TRANSITION | INTERIOR_HANDOFF | INTERIOR_OTHER | Kruskal-Wallis |
+|---|---:|---:|---:|---|
+| entropy_slope | 0.15 | **0.22** (steepest) | 0.07 (flattest) | H=21.3, p<.001 |
+| det_slope | −0.22 | **−0.26** (steepest) | −0.07 (flattest) | H=22.8, p<.001 |
+| switch_rate | **6.73** (highest) | 5.68 | 4.73 (lowest) | H=49.8, p<.001 |
+| turnlen_trend | 0.70 | 0.68 | **3.08** (turns lengthening, not shortening) | H=42.8, p<.001 |
+| question_density | 0.35 | 0.35 | **0.40** (highest) | H=12.0, p=.002 |
+
+**Reading — two distinct anticipatable "channels," and one abrupt residual class:**
+- **Topic/agenda TRANSITIONs** are anticipated mainly through **rising multi-party switching** (highest
+  switch_rate of the three, and the lowest no-precursor rate on that feature) — consistent with a group
+  audibly winding down or negotiating a topic change through rapid exchange before it happens.
+- **Interior floor handoffs** are anticipated mainly through the **cleanest entropy/%DET ramp** (steepest
+  slopes of the three classes, even though this channel is largely mechanical) — a floor handoff shows
+  the clearest gradual build-up in the reorganization metric itself.
+- **INTERIOR_OTHER — the diffuse/residual interior-event category (also the smallest and least
+  mechanistically clean category in Study 7's mechanism analysis) — is the least anticipatable event
+  type on nearly every measure**: flattest entropy/%DET ramp, lowest switch-rate, highest no-precursor
+  rate, and even an inverted turn-length signature (turns *lengthening*, not shortening, beforehand) and
+  slightly more questions. This is the closest thing in this corpus to a genuinely abrupt reorganization
+  — consistent with T4's finding that a substantial minority of events resist any precursor signature,
+  and pointing to *which* events those disproportionately are.
+
 ## Leakage audit (as required)
 1. **Feature windows are strictly pre-onset.** Every feature is computed over [t_end−W, t_end) with
    t_end = the event onset or baseline pseudo-onset; nothing at or after t_end is used anywhere.
@@ -203,6 +247,9 @@ about the character of reorganization.
 - `src/meso_forecasting.py` → `data/meso_halves.csv`, `data/meso_h1_to_h2eventrate.csv`,
   `data/meso_h1_to_outcomes.csv`.
 - `src/null_precursor_rate.py` → `data/no_precursor_summary.csv`, `data/no_precursor_both.csv`.
+- `src/precursor_by_class.py` → `data/precursor_by_class.csv`, `data/no_precursor_rate_by_class.csv`,
+  `data/precursor_magnitude_by_class.csv`, `data/precursor_magnitude_pairwise_<feature>.csv` (joins
+  Study 9's event classification onto the precursor analysis).
 - `src/fig_early_warning.py` → `fig_early_warning.{png,pdf,svg}`.
 - All data numeric; no verbatim transcript text in any output (question density is a count, not text).
 

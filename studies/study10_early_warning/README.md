@@ -42,6 +42,13 @@ rate (T4). Full leakage audit in `RESULTS.md`.
   replicated in both teams independently — within-meeting self-regulation, not momentum. First-half
   dynamics do **not** forecast Study 8's meeting-rating outcomes (0/9 tests survive BH-FDR), consistent
   with — and not double-publishing — Study 8's own null.
+- **Which event *type* is anticipatable differs by channel** (joining Study 9's event classification):
+  topic/agenda TRANSITIONs are anticipated mainly through rising multi-party switching (lowest
+  no-precursor rate on `switch_rate`, 43%; χ²(2)=26.9, p<.001); interior floor handoffs show the
+  cleanest entropy/%DET ramp of the three classes; and **INTERIOR_OTHER — the diffuse residual interior
+  category — is the least anticipatable on nearly every measure** (flattest entropy/%DET ramp, lowest
+  switch-rate, highest no-precursor rate, even an inverted turn-length signature), the closest thing in
+  this corpus to a genuinely abrupt reorganization.
 
 Full statistics, the complete leakage audit, and honest interpretation: `RESULTS.md`.
 
@@ -65,6 +72,7 @@ Full statistics, the complete leakage audit, and honest interpretation: `RESULTS
 | `classifier_cv.py` | `results/preevent_features.csv` | `results/cv_auc_results.csv`, `results/roc_curves.npz`, `results/single_feature_auc.csv` | no |
 | `meso_forecasting.py` | metrics + Study 8 outcomes | `results/meso_halves.csv`, `results/meso_h1_to_h2eventrate.csv`, `results/meso_h1_to_outcomes.csv` | no |
 | `null_precursor_rate.py` | `results/preevent_features.csv` | `results/no_precursor_summary.csv`, `results/no_precursor_both.csv` | no |
+| `precursor_by_class.py` | Study 9's `events_initiators.csv` + Study 10's precursor data | `results/precursor_by_class.csv`, `results/no_precursor_rate_by_class.csv`, `results/precursor_magnitude_by_class.csv`, `results/precursor_magnitude_pairwise_<feature>.csv` | no |
 | `fig_early_warning.py` | `results/preevent_features.csv`, metrics, `results/cv_auc_results.csv`, `results/roc_curves.npz` | `figures/fig_early_warning.png/pdf/svg` | **yes** |
 
 All published outputs are numeric only; `question_density` and similar features are counts/fractions,

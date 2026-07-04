@@ -1,0 +1,29 @@
+stat_id,description,study,team_a,team_b,pooled,team_a_sig,team_b_sig,same_direction,both_significant,magnitude_ratio,note
+lsh_validity_r,LSH vs standard entropy trajectory (median per-meeting r),Study 1,0.9319918281864872,0.9521959373036992,0.9436765670830488,,,True,,0.9787815634097085,
+bimodality_coefficient,Sarle BC on entropy_g (<0.555 = unimodal/continuum),Study 2,0.1754544800535349,0.1851050362782676,,,,True,,0.947864431898951,both well below 0.555 threshold = continuum in both teams
+supra_ar_ratio,SD(Δentropy) observed / AR(1) null (>1 = supra-autoregressive),Study 2,2.142,2.122,,,,True,,0.9906629318394023,A: obs=0.398 null=0.186 n=43; B: obs=0.401 null=0.189 n=24
+taxonomy_fingerprint_sign_agreement,"Taxonomy 40-category lift: categories with same sign, Team A vs B (37/40; full 40-category profile correlation in Study 11 T2)",Study 3,,,0.925,,,,,,n_categories=40; full vector -> profile_replication.py
+floor_top_share,"Within-meeting r(top_share, %DET), Wilcoxon across meetings",Study 4,0.473,0.557,,True,True,True,True,0.8491921005385995,
+floor_net_central,"Within-meeting r(net_central, %DET), Wilcoxon across meetings",Study 4,0.073,0.132,,False,True,True,False,0.553030303030303,
+floor_eig_central,"Within-meeting r(eig_central, %DET), Wilcoxon across meetings",Study 4,0.046,0.224,,False,True,True,False,0.20535714285714285,
+floor_gini_words,"Within-meeting r(gini_words, %DET), Wilcoxon across meetings",Study 4,0.193,0.226,,True,True,True,True,0.8539823008849557,
+floor_gini_turns,"Within-meeting r(gini_turns, %DET), Wilcoxon across meetings",Study 4,-0.093,-0.03,,False,False,True,False,0.3225806451612903,
+floor_inout_asym,"Within-meeting r(inout_asym, %DET), Wilcoxon across meetings",Study 4,0.324,0.349,,True,True,True,True,0.9283667621776506,
+floor_turnlen_disp,"Within-meeting r(turnlen_disp, %DET), Wilcoxon across meetings",Study 4,0.282,0.28,,True,True,True,True,0.9929078014184399,
+floor_n_active,"Within-meeting r(n_active, %DET), Wilcoxon across meetings",Study 4,-0.383,-0.451,,True,True,True,True,0.8492239467849224,
+floor_part_entropy,"Within-meeting r(part_entropy, %DET), Wilcoxon across meetings",Study 4,-0.53,-0.618,,True,True,True,True,0.8576051779935275,
+boundary_delta_entropy,Δentropy at topic boundary vs interior (±30s),Study 6,10.01,11.67,,True,True,True,True,0.8577549271636675,
+boundary_delta_det,Δ%DET at topic boundary vs interior (±30s),Study 6,-9.57,-14.8,,True,True,True,True,0.6466216216216216,
+review_vs_ids_entropy,"Δentropy review-stages minus IDS, per meeting (paired)",Study 6,1.67,6.54,,False,True,True,False,0.25535168195718655,n_a=16 n_b=16
+review_vs_ids_reorgrate,"Δreorg-event-rate review-stages minus IDS, per meeting (paired)",Study 6,0.82,2.18,,False,True,True,False,0.37614678899082565,
+transition_share_w30,% of reorg events within ±30s of a topic/L10 boundary,Study 7,26.1,38.6,,,,True,,0.6761658031088082,
+long_tau_entropy,Kendall tau: mean entropy vs week,Study 5,-0.471,-0.397,,True,True,True,True,0.8428874734607219,
+long_tau_netcentral,Kendall tau: network centralization vs week,Study 5,0.279,0.5,,False,True,True,False,0.558,
+long_tau_partentropy,Kendall tau: participation entropy vs week,Study 5,-0.368,-0.279,,True,False,True,False,0.7581521739130436,
+s7_tau_baseline,Kendall tau: baseline (resting) entropy vs week,Study 7,-0.471,-0.426,,True,True,True,True,0.9044585987261147,
+s7_tau_excursion,Kendall tau: border-event EXCURSION above baseline vs week,Study 7,-0.191,-0.059,,False,False,True,False,0.3089005235602094,
+facilitator_init_share_vs_null,Facilitator-initiated share (observed) vs talk-time-weighted permutation null mean,Study 9,-0.017,0.029,,False,False,False,False,0.5862068965517242,"A: obs=0.294 null=0.311 p=0.472; B: obs=0.271 null=0.242 p=0.134 (both n.s. = no facilitator initiation premium in EITHER team, the ledger-level replication)"
+quiet_member_init_lift,Initiation lift of the least-talkative member (init_primary),Study 9,1.875,1.353,,,,True,,0.7216,both >1 = quietest member over-initiates relative to talk-time in both teams
+initiator_rank_stability,"Spearman rho, member initiation ranks first-half vs second-half (init_primary)",Study 9,0.9,0.2,,,,True,,0.22222222222222224,NON-REPLICATION candidate: stability may differ sharply by team (see RESULTS.md)
+facilitator_share_vs_week_tau,Kendall tau: facilitator-initiated share vs week (init_primary),Study 9,0.17,0.415,,False,True,True,False,0.4096385542168675,"FLAGGED NON-REPLICATION: significant in Team B only (p=.02); Team A n.s. (p=.34). Not read as evidence for/against P5 (facilitator is external, shared across teams) - see RESULTS.md."
+s8_baseline_entropy_vs_issue_resolution,Spearman rho: baseline_entropy -> issue_resolution_rate (Study 8),Study 8,-0.37,-0.33,,False,False,True,False,0.891891891891892,"DOCUMENTED NULL (pooled q=.223, did not survive FDR in Study 8): A n=17 p=0.144; B n=17 p=0.196. Included per-team for completeness of the ledger, not as a new claim."

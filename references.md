@@ -49,6 +49,7 @@
 - Cronin, M. A., Weingart, L. R., & Todorova, G. (2011). Dynamics in groups: are we there yet? *Academy of Management Annals*, 5(1), 571–612.
 - Klonek, F. E., Gerpott, F. H., Lehmann-Willenbrock, N., & Parker, S. K. (2019). Capturing team dynamics in the wild. *Organizational Research Methods*, 22(2), 411–447.
 - Bolger, N., & Laurenceau, J.-P. (2013). *Intensive Longitudinal Methods*. Guilford Press.
+- Molenaar, P. C. M. (2004). A manifesto on psychology as idiographic science: bringing the person back into scientific psychology, this time forever. *Measurement: Interdisciplinary Research and Perspectives*, 2(4), 201–218.
 - Wagner, A. K., Soumerai, S. B., Zhang, F., & Ross-Degnan, D. (2002). Segmented regression analysis of interrupted time series studies. *Journal of Clinical Pharmacy and Therapeutics*, 27(4), 299–309.
 - Pangakis, N., Wolken, S., & Fasching, N. (2023). Automated annotation with generative AI requires validation. *arXiv:2306.00176*.
 - Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate. *Journal of the Royal Statistical Society B*, 57(1), 289–300.

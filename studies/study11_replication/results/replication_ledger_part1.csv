@@ -1,0 +1,4 @@
+stat_id,description,study,team_a,team_b,pooled,team_a_sig,team_b_sig,same_direction,both_significant,magnitude_ratio,note
+lsh_validity_r,LSH vs standard entropy trajectory (median per-meeting r),Study 1,0.9319918281864873,0.9521959373036991,0.9436765670830487,,,True,,0.9787815634097083,
+bimodality_coefficient,Sarle BC on entropy_g (<0.555 = unimodal/continuum),Study 2,0.1754544800535349,0.18510503627826766,,,,True,,0.947864431898951,both well below 0.555 threshold = continuum in both teams
+supra_ar_ratio,SD(Δentropy) observed / AR(1) null (>1 = supra-autoregressive),Study 2,2.142,2.122,,,,True,,0.9906629318394025,A: obs=0.398 null=0.186 n=43; B: obs=0.401 null=0.189 n=24

@@ -55,3 +55,12 @@ floor. (A) ~1/3 is locked to topic/agenda transitions, ~2/3 is endogenous (hando
 p = .44) but sets its depth (entropy/%DET differ, Kruskal–Wallis p < 1e-7). (C) Over 26 weeks the resting
 baseline entropy falls (consolidation) while the above-baseline excursion is invariant — a stereotyped
 event riding a sinking baseline.
+
+**Figure 11 — `fig_paper_S11_replication_ledger`.** The two teams as an intensive longitudinal
+replication design: every headline effect size from Studies 1–10 (n=148), normalized per-statistic
+(divided by whichever team's estimate is larger in magnitude, sign preserved) and plotted Team A vs
+Team B against the identity line, marker shape/color coding six statistic families. 88% pooled sign
+agreement (114/130 across the four multi-category profile vectors alone); the four profile-vector
+families — taxonomy fingerprint, floor measures, review-vs-IDS contrast, border-vs-interior contrast —
+correlate between teams at Spearman r = 0.84–0.98 (all permutation p < .0001). Two flagged, non-hidden
+non-replications (initiator-rank stability; facilitator-share longitudinal trend) sit off the diagonal.

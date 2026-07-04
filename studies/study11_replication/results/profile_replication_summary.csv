@@ -1,0 +1,5 @@
+profile,n_items,spearman_r,perm_p
+taxonomy_fingerprint_40cat,40,0.9692307692307693,0.0
+floor_measures_9,9,0.9833333333333333,0.0
+review_vs_ids_41cat,41,0.8395470383275264,0.0
+border_interior_40cat,40,0.8444652908067544,0.0

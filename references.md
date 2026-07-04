@@ -53,3 +53,5 @@
 - Pangakis, N., Wolken, S., & Fasching, N. (2023). Automated annotation with generative AI requires validation. *arXiv:2306.00176*.
 - Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate. *Journal of the Royal Statistical Society B*, 57(1), 289–300.
 - Wickman, G. (2011). *Traction: Get a grip on your business.* BenBella Books. (EOS Level 10 Meeting agenda.)
+- Wiltshire, T. J. (2026). [Title/venue as cited]. *Small Group Research*. (Call to anticipate coordination breakdowns and support adaptive teamwork in real time.)
+- Scheffer, M., Bascompte, J., Brock, W. A., Brovkin, V., Carpenter, S. R., Dakos, V., Held, H., van Nes, E. H., Rietkerk, M., & Sugihara, G. (2009). Early-warning signals for critical transitions. *Nature*, 461(7260), 53–59.

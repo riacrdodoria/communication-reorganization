@@ -1,4 +1,4 @@
-definition,team,member,init_share,talk_share,lift,is_leader
+definition,team,member,init_share,talk_share,lift,is_facilitator
 init_primary,startup_a,S1,0.34823529411764703,0.37712986902894924,0.9233829582745561,False
 init_primary,startup_a,S2,0.29411764705882354,0.3013340821430085,0.9760517129928896,True
 init_primary,startup_a,S3,0.1952941176470588,0.1871211800110202,1.0436772450641731,False

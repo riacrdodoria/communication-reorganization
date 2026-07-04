@@ -66,7 +66,7 @@ for defn in DEFS:
             ts = talk_share_team.get(m, np.nan)
             lift = init_share[m] / ts if ts and ts > 0 else np.nan
             lift_rows.append(dict(definition=defn, team=team, member=m, init_share=init_share[m],
-                                   talk_share=ts, lift=lift, is_leader=bool(g[g[defn] == m].leader.iloc[0] == m) if len(g[g[defn]==m]) else False))
+                                   talk_share=ts, lift=lift, is_facilitator=bool(g[g[defn] == m].facilitator.iloc[0] == m) if len(g[g[defn]==m]) else False))
 LIFT = pd.DataFrame(lift_rows)
 LIFT.to_csv(f"{BASE}/data/initiation_lift.csv", index=False)
 print(LIFT[LIFT.definition == "init_primary"].round(3).sort_values(["team", "lift"], ascending=[True, False]).to_string(index=False))

@@ -5,9 +5,9 @@ gap<=8s = one event) and the established boundary/class logic from Study 7 (reor
 TRANSITION = event center within +/-30s of a topic-episode start or EOS L10 stage onset; else
 INTERIOR (further split into handoff/other by whether the dominant speaker changes pre->post).
 
-Leader identification (documented rule): per team, the speaker who most often opens the L10 'segue'
+Facilitator identification (documented rule): per team, the speaker who most often opens the L10 'segue'
 and 'todo' stages (the facilitator role) - computed once from data/l10_stages/*.json + transcripts,
-independently of this script's event analysis. See leader_identification.md for the numbers.
+independently of this script's event analysis. See facilitator_identification.md for the numbers.
 
 Three initiator definitions per event, all computed from raw utterance onset/speaker/text (no
 audio, no new metrics):
@@ -21,7 +21,7 @@ audio, no new metrics):
                   Null if no question in the window.
 
 Speaker ids are pseudonymized per team as S1, S2, ... (numeric order of first appearance in that
-meeting's transcript); the leader is additionally flagged 'L'. Output: events_initiators.csv."""
+meeting's transcript); the facilitator is additionally flagged 'L'. Output: events_initiators.csv."""
 import glob, os, json, re, unicodedata
 import numpy as np, pandas as pd
 
@@ -30,7 +30,7 @@ GM = f"{LSH}/data/metrics_gorman_l8"
 TXT = f"{LSH}/data/text_startup"
 EP = pd.read_csv(f"{LSH}/episode_codes.csv")
 TCRIT = 2.33
-LEADER_RAW_ID = "2"  # documented rule: modal facilitator of segue+todo-review stages, both teams
+FACILITATOR_RAW_ID = "2"  # documented rule: modal facilitator of segue+todo-review stages, both teams
 
 
 def norm(s):
@@ -88,7 +88,7 @@ for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
     for s in speak_all:
         if s not in seen: seen.append(s)
     pseudo = {s: f"S{i+1}" for i, s in enumerate(seen)}
-    leader_pseudo = pseudo.get(LEADER_RAW_ID)
+    facilitator_pseudo = pseudo.get(FACILITATOR_RAW_ID)
 
     g = pd.read_csv(f)
     sec = g.second.to_numpy(float)
@@ -160,10 +160,10 @@ for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
             mid=mid, team=team, date=date, event_onset_s=onset_s, event_class=ev_class, depth=depth,
             init_primary=pseudo.get(init_primary), init_floor=pseudo.get(init_floor),
             init_question=pseudo.get(init_question) if init_question else None,
-            leader=leader_pseudo,
-            leader_primary=int(pseudo.get(init_primary) == leader_pseudo) if init_primary else np.nan,
-            leader_floor=int(pseudo.get(init_floor) == leader_pseudo) if init_floor else np.nan,
-            leader_question=(int(pseudo.get(init_question) == leader_pseudo) if init_question else np.nan),
+            facilitator=facilitator_pseudo,
+            facilitator_primary=int(pseudo.get(init_primary) == facilitator_pseudo) if init_primary else np.nan,
+            facilitator_floor=int(pseudo.get(init_floor) == facilitator_pseudo) if init_floor else np.nan,
+            facilitator_question=(int(pseudo.get(init_question) == facilitator_pseudo) if init_question else np.nan),
         ))
 
 D = pd.DataFrame(rows).sort_values(["team", "date", "event_onset_s"])
@@ -181,6 +181,6 @@ print("\nevent class distribution:\n", D.event_class.value_counts().to_string())
 print("\ninitiator definitions - non-null rate:")
 for c in ["init_primary", "init_floor", "init_question"]:
     print(f"  {c}: {D[c].notna().mean()*100:.1f}% non-null")
-print("\nleader-initiated share by definition:")
-for c in ["leader_primary", "leader_floor", "leader_question"]:
+print("\nfacilitator-initiated share by definition:")
+for c in ["facilitator_primary", "facilitator_floor", "facilitator_question"]:
     print(f"  {c}: {D[c].mean()*100:.1f}%  (n={D[c].notna().sum()})")

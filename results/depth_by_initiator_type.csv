@@ -1,4 +1,4 @@
-definition,team,level,n_leader,n_member,mean_leader,mean_member,test,stat,p
+definition,team,level,n_facilitator,n_member,mean_facilitator,mean_member,test,stat,p
 init_primary,startup_a,event,125,300,9.939020173591386,13.019049630735621,Mann-Whitney U,15647.0,0.007167814741599545
 init_primary,startup_b,event,131,353,11.988709368322317,12.005569444618567,Mann-Whitney U,22988.0,0.9224996210932155
 init_primary,pooled,meeting,33,33,11.301308186222997,12.782989111054263,paired Wilcoxon,176.0,0.06256920890882611

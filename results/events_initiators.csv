@@ -1,4 +1,4 @@
-mid,team,date,event_onset_s,event_class,depth,init_primary,init_floor,init_question,leader,leader_primary,leader_floor,leader_question,week
+mid,team,date,event_onset_s,event_class,depth,init_primary,init_floor,init_question,facilitator,facilitator_primary,facilitator_floor,facilitator_question,week
 2024.10.14startup_a,startup_a,20241014,210.0,TRANSITION,15.905089897449706,S2,S3,,S2,1,0,,0
 2024.10.14startup_a,startup_a,20241014,271.0,INTERIOR_OTHER,12.172085756320833,S2,S2,,S2,1,1,,0
 2024.10.14startup_a,startup_a,20241014,318.0,INTERIOR_HANDOFF,15.559587296243784,S2,S1,S2,S2,1,0,1.0,0

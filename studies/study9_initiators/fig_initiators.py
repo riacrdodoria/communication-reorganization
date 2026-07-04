@@ -1,5 +1,5 @@
 """Figure: who initiates reorganization? Panel A = initiation lift per member (init_primary
-definition); Panel B = leader-initiation share vs week, per team + pooled trend."""
+definition); Panel B = facilitator-initiation share vs week, per team + pooled trend."""
 import os
 import numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg")
@@ -24,46 +24,47 @@ fig, (axA, axB) = plt.subplots(1, 2, figsize=(13, 5.2))
 L = LIFT[LIFT.definition == "init_primary"].copy()
 L = L.sort_values(["team", "lift"], ascending=[True, False])
 x = np.arange(len(L))
-colors = [DELIB if r.is_leader else COORD for _, r in L.iterrows()]
+colors = [DELIB if r.is_facilitator else COORD for _, r in L.iterrows()]
 axA.bar(x, L.lift, color=colors, width=.65, zorder=3)
 axA.axhline(1.0, color=INK, lw=1, ls="--")
-labels = [f"{r.member}{' (L)' if r.is_leader else ''}\n{r.team[-1].upper()}" for _, r in L.iterrows()]
+labels = [f"{r.member}{' (F)' if r.is_facilitator else ''}\n{r.team[-1].upper()}" for _, r in L.iterrows()]
 axA.set_xticks(x); axA.set_xticklabels(labels, fontsize=8)
 axA.set_ylabel("initiation lift  (share of initiations / share of talk-time)")
 axA.set_title("A  Who initiates more than they talk?", loc="left", fontsize=11)
 from matplotlib.patches import Patch
-axA.legend(handles=[Patch(fc=DELIB, label="leader (facilitator)"), Patch(fc=COORD, label="other members")],
+axA.legend(handles=[Patch(fc=DELIB, label="external facilitator (same advisor)"),
+                     Patch(fc=COORD, label="team members")],
            fontsize=8.5, loc="upper right")
-axA.text(.5, .96, "lift > 1: initiates disproportionately to talk-time", transform=axA.transAxes,
+axA.text(.5, 1.09, "lift > 1: initiates disproportionately to talk-time", transform=axA.transAxes,
          ha="center", va="top", fontsize=8, style="italic", color=NEUTRAL)
 
-# --- Panel B: leader-initiation share vs week ---
+# --- Panel B: facilitator-initiation share vs week ---
 sub = D.dropna(subset=["init_primary"]).copy()
-sub["is_leader"] = (sub.init_primary == sub.leader).astype(float)
-per_mtg = sub.groupby(["team", "mid", "week"]).is_leader.mean().reset_index()
+sub["is_facilitator"] = (sub.init_primary == sub.facilitator).astype(float)
+per_mtg = sub.groupby(["team", "mid", "week"]).is_facilitator.mean().reset_index()
 COLT = {"startup_a": COORD, "startup_b": DELIB}
 for team, g in per_mtg.groupby("team"):
     g = g.sort_values("week")
-    axB.plot(g.week, 100 * g.is_leader, "o", color=COLT[team], ms=5, alpha=.75, label=f"team {team[-1].upper()}")
-    z = np.polyfit(g.week, g.is_leader, 1)
+    axB.plot(g.week, 100 * g.is_facilitator, "o", color=COLT[team], ms=5, alpha=.75, label=f"team {team[-1].upper()}")
+    z = np.polyfit(g.week, g.is_facilitator, 1)
     axB.plot(g.week, 100 * np.polyval(z, g.week), "--", color=COLT[team], lw=1.8)
-tau_a, p_a = kendalltau(per_mtg[per_mtg.team == "startup_a"].week, per_mtg[per_mtg.team == "startup_a"].is_leader)
-tau_b, p_b = kendalltau(per_mtg[per_mtg.team == "startup_b"].week, per_mtg[per_mtg.team == "startup_b"].is_leader)
-tau_p, p_p = kendalltau(per_mtg.week, per_mtg.is_leader)
-axB.set_xlabel("week"); axB.set_ylabel("leader-initiated events (% of meeting's events)")
-axB.set_title("B  Does initiation shift to the leader as teams mature?", loc="left", fontsize=11)
+tau_a, p_a = kendalltau(per_mtg[per_mtg.team == "startup_a"].week, per_mtg[per_mtg.team == "startup_a"].is_facilitator)
+tau_b, p_b = kendalltau(per_mtg[per_mtg.team == "startup_b"].week, per_mtg[per_mtg.team == "startup_b"].is_facilitator)
+tau_p, p_p = kendalltau(per_mtg.week, per_mtg.is_facilitator)
+axB.set_xlabel("week"); axB.set_ylabel("facilitator-initiated events (% of meeting's events)")
+axB.set_title("B  Does initiation shift to the facilitator as teams mature?", loc="left", fontsize=11)
 axB.legend(fontsize=8.5, loc="upper left")
 axB.text(.02, .04,
           f"team A: τ={tau_a:+.2f} (p={p_a:.2f})\nteam B: τ={tau_b:+.2f} (p={p_b:.2f}*)\npooled: τ={tau_p:+.2f} (p={p_p:.2f}*)",
           transform=axB.transAxes, va="bottom", ha="left", fontsize=8.4,
           bbox=dict(boxstyle="round,pad=0.35", fc="#f8fafc", ec="#cbd5e1", lw=.7))
 
-fig.suptitle("Study 9 — Who initiates reorganization? Talk-time explains it; a weak, definition-dependent drift toward the leader",
+fig.suptitle("Study 9 — Who initiates reorganization? Talk-time explains it; a weak, definition-dependent drift toward the facilitator",
              fontsize=12, fontweight="bold", x=.01, ha="left", y=1.04)
 fig.text(0.5, -0.05,
          "Figure 9. (A) Initiation lift (init_primary definition): the least-talkative member (S5) initiates far more "
-         "than their talk-time predicts in both teams; the leader's lift is close to 1 (roughly proportional to talk-time). "
-         "(B) Leader-initiated share rises modestly with week in team B (τ=+.41, p=.02) but not team A (n.s.); pooled "
+         "than their talk-time predicts in both teams; the facilitator's lift is close to 1 (roughly proportional to talk-time). "
+         "(B) Facilitator-initiated share rises modestly with week in team B (τ=+.41, p=.02) but not team A (n.s.); pooled "
          "τ=+.27, p=.03 — a weak, definition-dependent trend (null for the init_question definition), reported honestly, "
          "not as a robust finding.",
          ha="center", va="top", fontsize=8.2, color=NEUTRAL, style="italic", wrap=True)

@@ -1,7 +1,7 @@
 # Methods and conventions (shared across studies)
 
 This file documents the constructs, metric definitions, and statistical conventions used throughout the
-eleven studies, so that they are stated once and referenced everywhere.
+twelve studies, so that they are stated once and referenced everywhere.
 
 ## 1. Corpus
 

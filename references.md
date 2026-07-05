@@ -29,6 +29,7 @@
 - Bales, R. F. (1950). *Interaction Process Analysis: A Method for the Study of Small Groups*. Addison-Wesley.
 - Klünder, J., Karras, O., Prenner, N., & Schneider, K. (2020). Do you just discuss or do you solve? Meeting analysis in a software project. *ICSEW/SEmotion*. *(act4teams-SHORT.)*
 - Lehmann-Willenbrock, N., & Kauffeld, S. (2018). The advanced interaction analysis for teams (act4teams) coding scheme. In *The Cambridge Handbook of Group Interaction Analysis*.
+- Lehmann-Willenbrock, N., Allen, J. A., & Kauffeld, S. (2013). A sequential analysis of procedural meeting communication: how teams facilitate their meetings. *Journal of Applied Communication Research*, 41(4), 365–388. *(Socioemotional/humor dynamics in meetings.)*
 - ISO 24617-2 (2012; 2nd ed. 2020). *Language resource management — Semantic annotation framework — Part 2: Dialogue acts*. International Organization for Standardization.
 
 ## Coding-free text-dynamics measures

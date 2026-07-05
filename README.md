@@ -3,7 +3,7 @@
 **An auditable research repository.**
 R. L. Dória & J. C. Gorman.
 
-This repository documents a program of eleven interlocking studies on *communication reorganization* in
+This repository documents a program of twelve interlocking studies on *communication reorganization* in
 real teams, analysed from 34 naturalistic advisory meetings of two early-stage venture teams recorded
 weekly over ~6 months. It is organised for full transparency: every analysis script, every (numeric)
 intermediate and result table, and every figure is included so that an independent reader can audit
@@ -20,7 +20,7 @@ this with dynamical-systems measures of the team's turn-taking series: the Shann
 multi-speaker state, the **percent determinism (%DET)** of its recurrence plot, and a nonlinear-prediction
 **RMSE** computed on the %DET series. Peaks and valleys in these series mark moments of *reorganization*.
 
-Our central thesis, built across the eleven studies, is that in real teams **reorganization is not (only)
+Our central thesis, built across the twelve studies, is that in real teams **reorganization is not (only)
 externally-forced perturbation–recovery — it is an endogenous, bidirectional process organised along a
 single axis: deliberation ↔ coordination**, which in conversation-analytic terms is Edelsky's
 *singly-developed* (F1) ↔ *collaborative* (F2) floor. This axis recurs, convergently, across **what** is
@@ -43,7 +43,7 @@ and **how** it changes as a team matures (developmental consolidation).
 5. **Methodological rigour.** Dynamic claims in this area are easy to over-state; this work benchmarks
    every dynamic claim against null models and validates automated annotation against published practice.
 
-## 3. The eleven studies (in order)
+## 3. The twelve studies (in order)
 
 | # | Folder | Question | Headline result |
 |---|---|---|---|
@@ -58,6 +58,7 @@ and **how** it changes as a team matures (developmental consolidation).
 | 9 | [`studies/study9_initiators`](studies/study9_initiators) | Who initiates reorganization? | The external facilitator (the same advisor across both teams) initiates in exact proportion to talk-time (permutation test, all n.s.) — no facilitator advantage; the most disproportionate initiator is each team's *quietest* member. A weak, team-dependent drift toward the facilitator over time is reported but not read as evidence for leader-centric consolidation (P5), since the facilitator is external, not either team's own internal leader. |
 | 10 | [`studies/study10_early_warning`](studies/study10_early_warning) | Can reorganization be anticipated? | A feasibility probe (not a classifier): a real, mechanism-independent precursor exists (rising speaker-switching, shortening turns, fewer questions before events; rank-biserial ≈.9 at the meeting level) but is only modestly discriminable event-by-event (AUC≈0.66); a meeting's first-half reorganization rate *negatively* predicts its second half (ρ=−.64) — self-regulation, not momentum. |
 | 11 | [`studies/study11_replication`](studies/study11_replication) | Does everything above replicate across the two teams? | Formalizes the corpus as an intensive longitudinal replication design. 26/27 headline statistics agree in direction; the decisive test — four entire multi-category profiles (taxonomy fingerprint, floor measures, review-vs-IDS contrast, border-vs-interior contrast) — correlate between teams at Spearman r = 0.84–0.98 (all permutation p < .0001). Two facilitator-specific statistics are explicitly flagged as non-replicating, not hidden. |
+| 12 | [`studies/study12_socioemotional`](studies/study12_socioemotional) | Does reorganization have a socioemotional face? | Yes, and it is one-sided: agreement, positive affect, and solidarity rise sharply at reorganization events (BH-FDR q<.001, within an 8-category confirmatory family); no negative category survives FDR. The positive signal is a sharp spike coincident with the event itself (circular-shift null p<.02), not a before-the-fact lubricant or after-the-fact repair. Negative affect instead concentrates in the deliberative IDS stage, not at reorganization events. |
 
 A reader can begin with Study 1 and proceed in order; each study folder has a self-contained `README.md`
 with rationale, methods, the exact analysis scripts, the result tables they produce, and references.
@@ -71,7 +72,7 @@ DATA.md                   data description, anonymisation, and availability
 references.md             full bibliography
 requirements.txt          Python dependencies
 src/                      shared module (Gorman-faithful metric construction)
-studies/study1..11/       one folder per study: README + analysis scripts
+studies/study1..12/       one folder per study: README + analysis scripts
 data/                     numeric inputs only (metrics, taxonomy counts, episode boundaries)
 results/                  numeric result tables produced by the analyses
 figures/                  all figures

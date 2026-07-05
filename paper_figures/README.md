@@ -64,3 +64,13 @@ agreement (114/130 across the four multi-category profile vectors alone); the fo
 families — taxonomy fingerprint, floor measures, review-vs-IDS contrast, border-vs-interior contrast —
 correlate between teams at Spearman r = 0.84–0.98 (all permutation p < .0001). Two flagged, non-hidden
 non-replications (initiator-rank stability; facilitator-share longitudinal trend) sit off the diagonal.
+
+**Figure 12 — `fig_paper_S12_socioemotional`.** The socioemotional signature of reorganization. (A)
+Across an 8-category confirmatory family (Bales IPA positive/negative quadrants + act4teams-full
+positive/negative facets), reorganization events show a one-sided positive signature: agreement,
+positive socio-emotional acts, and solidarity rise significantly (BH-FDR q<.001–.0003, within-family);
+no negative category survives FDR. (B) The positive signal is a sharp spike coincident with the event
+itself (rises pre→onset, falls onset→post, both p<.02 by circular-shift null) — not a before-the-fact
+lubricant nor an after-the-fact repair; the negative composite rises into the event but does not
+recede afterward. Two attempted coding-free lexical markers (typed laughter, exclamation density)
+returned null data in this ASR-transcribed corpus (documented, not plotted).

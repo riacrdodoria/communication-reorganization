@@ -74,3 +74,25 @@ itself (rises pre→onset, falls onset→post, both p<.02 by circular-shift null
 lubricant nor an after-the-fact repair; the negative composite rises into the event but does not
 recede afterward. Two attempted coding-free lexical markers (typed laughter, exclamation density)
 returned null data in this ASR-transcribed corpus (documented, not plotted).
+
+## Composite figures for the SGR paper submission
+
+Three multi-study composite figures assembled per an explicit figure storyboard, telling each
+figure's story at a glance rather than one-figure-per-study. Every panel either reuses a study's
+exact underlying data/statistic (never a pixel-cropped image) or is disclosed as a new panel built
+from that study's existing result files. Full sourcing, workarounds, and the grayscale-legibility
+check are documented in `FIGURE_ASSEMBLY_NOTES.md`. The Study 11 replication-ledger figure above
+(Figure 11) serves as the supplementary figure for this submission — no new work was needed there.
+
+- **`fig1_computational_structure`** (Study 1; tests P1) — substrate validity (A), entropy
+  continuum with an L_min=2-vs-L_min=8 saturation-artefact inset (B), and the supra-autoregressive
+  excursion (C).
+- **`fig2_multilevel_structure`** (Study 2; tests P2, P3; corroborated by S9, S12) — the 40-category
+  content fingerprint (A), all 9 floor/centralization measures (B), initiation lift by speaker role
+  (C), and the 8-category affective signature with a timing inset (D).
+- **`fig3_temporal_structure`** (Studies 6, 7; tests P4, P5; extended by S10) — topic-boundary
+  perturbation (A), procedural-review-vs-IDS (B), developmental baseline-vs-excursion consolidation
+  (C), and the within-meeting first-half-vs-second-half reorganization budget (D).
+
+Reproduce: `python fig<k>_<name>.py` (all three read cached numeric data only, except Figure 1's
+`_cache_lmin_comparison.py` helper, which reads transcripts once to build `_cache_lmin_det.csv`).

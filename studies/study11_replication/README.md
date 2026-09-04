@@ -42,10 +42,16 @@ direction, neither CI excludes zero), or NON-REPLICATION (opposite direction).
 ## Results
 
 **T1 — Ledger.** 27/28 comparable rows have both team estimates; **26/27 (96%) agree in direction**
-(the taxonomy-fingerprint row is a placeholder pointing to the fuller T2 vector test). Two rows are
-**explicitly flagged non-replications**, not smoothed over: initiator-rank stability (Study 9: ρ=.90 in
-Team A vs ρ=.20 in Team B) and the facilitator-initiation-share longitudinal trend (Study 9: significant
-in Team B only, τ=.415 p=.02 vs Team A τ=.17 n.s.).
+(the taxonomy-fingerprint row is a placeholder pointing to the fuller T2 vector test). One row is
+**explicitly flagged as a non-replication**, not smoothed over: the facilitator-initiation-share
+longitudinal trend (Study 9: significant in Team B only, τ=+.54 p=.003, vs a small non-significant
+*negative* τ=−.13 in Team A — a genuine sign disagreement). A second row, initiator-rank stability
+(Study 9: ρ=.90 in Team A vs ρ=.20 in Team B), agrees in sign but is flagged for a large magnitude
+difference. **A third facilitator-related statistic — whether the facilitator initiates more or less
+than talk-time predicts — was corrected during review** (Study 9's original facilitator identification
+used a constant raw id that was wrong in 24/34 meetings) and now **replicates strongly in both teams**:
+the facilitator initiates significantly *less* than talk-time predicts (A p=.002, B p<.001), reversing
+the earlier non-significant, sign-disagreeing result.
 
 **T2 — Profile vectors (the strong test).** All four multi-category profiles replicate strongly:
 
@@ -73,7 +79,11 @@ At the same time, two specific claims about the **facilitator's role over time**
 external advisor shared across both teams (Study 9), this dissociation is read as informative, not as
 noise: **the structural, content/floor-level architecture of reorganization is team-general; a
 person-specific facilitation dynamic is not**, and the two should not be conflated when interpreting
-this program's link to P5 (leader-centric consolidation).
+this program's link to P5 (leader-centric consolidation). A third facilitator statistic — whether the
+facilitator initiates disproportionately relative to talk-time — moves the other way after a Study 9
+identification correction: it now replicates strongly (both teams significant, same direction),
+sharpening rather than weakening the program's bottom-up reading (quietest members over-initiate,
+facilitator under-initiates, in both teams).
 
 ## Honest scope
 - n = 2 teams throughout — this is a replication design, not a generalization design (`METHODS.md` §6);

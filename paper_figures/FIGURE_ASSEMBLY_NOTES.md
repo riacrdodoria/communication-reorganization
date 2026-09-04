@@ -65,8 +65,12 @@ new, standalone files.
   *individual* member (S1..S5 per team); the storyboard asks for 3 *role* categories (facilitator /
   most-talkative / quietest). Built from `initiation_lift.csv` by identifying, per team, the
   facilitator (flagged), the highest-talk-share non-facilitator member, and the lowest-talk-share
-  member. Permutation p-range (.57-.83) recomputed exactly from `permutation_facilitator_share.csv`
-  (the storyboard's approximate ".61-.87" was closer to a rounding of the same three numbers).
+  member. **Post-publication correction**: Study 9's facilitator identification originally used a
+  constant raw `speaker_id` that was wrong in 24/34 meetings (see
+  `studies/study9_initiators/facilitator_identification.md`); with the corrected, per-meeting-verified
+  identity, the permutation test reverses from non-significant ("at chance") to significant in all
+  three initiator definitions (p<.01) — the facilitator initiates significantly *less* than talk-time
+  predicts. This panel and its caption were regenerated after the correction.
 - **D (Affective signature)**: reused Study 12's 8-category lift panel A logic and added a small
   pre/at/post timing inset from `socioemotional_timing.csv` (Study 12's own T4 result), which Study
   12's published figure keeps as a separate panel B — compacted here into one inset per the

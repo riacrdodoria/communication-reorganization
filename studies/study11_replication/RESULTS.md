@@ -36,19 +36,32 @@ statistical sample.
 | long_tau_partentropy | 5 | Kendall τ: participation entropy vs week | −0.368 (n.s.) | −0.279 (n.s.) | ✓ | see T3 |
 | s7_tau_baseline | 7 | Kendall τ: baseline (resting) entropy vs week | −0.471 | −0.426 | ✓ | both p<.05 — see T3 |
 | s7_tau_excursion | 7 | Kendall τ: border-event excursion vs week | −0.191 (n.s.) | −0.059 (n.s.) | ✓ | see T3 |
-| facilitator_init_share_vs_null | 9 | facilitator-initiated share (obs − null) | −0.017 | +0.029 | ✗ | both n.s. (A p=.472, B p=.134) — noise around zero, not a real disagreement: no facilitator premium in **either** team |
+| **facilitator_init_share_vs_null** | 9 | facilitator-initiated share (obs − null) | **−0.063 (p=.002)** | **−0.101 (p<.001)** | ✓ | **corrected result** (see below): both teams show the facilitator initiating *significantly less* than talk-time predicts — a real, replicated effect, not noise |
 | quiet_member_init_lift | 9 | initiation lift of least-talkative member | 1.875× | 1.353× | ✓ | both >1 in both teams |
 | **initiator_rank_stability** | 9 | ρ: member-initiation rank, 1st vs 2nd half | **0.900** | **0.200** | ✓ (sign only) | **FLAGGED — magnitude non-replication**: stable in A, not in B |
-| **facilitator_share_vs_week_tau** | 9 | Kendall τ: facilitator-init share vs week | 0.170 (n.s., p=.34) | 0.415 (p=.02) | ✓ (sign only) | **FLAGGED NON-REPLICATION**: significant in Team B only |
+| **facilitator_share_vs_week_tau** | 9 | Kendall τ: facilitator-init share vs week | −0.125 (n.s., p=.48) | +0.537 (p=.003) | ✗ | **FLAGGED NON-REPLICATION** (sign, after correction): n.s./slightly negative in Team A, significant positive in Team B |
 | s8_baseline_entropy_vs_issue_resolution | 8 | ρ: baseline entropy → issue-resolution rate | −0.37 (n.s.) | −0.33 (n.s.) | ✓ | documented null in Study 8 (pooled q=.223); included per-team for ledger completeness |
 
 **27/28 rows have both team estimates (1 is a placeholder for the T2 vector test). Of those 27,
-26 (96%) agree in direction.** The one directional non-agreement (`facilitator_init_share_vs_null`) is
-two non-significant estimates straddling zero in opposite directions — read correctly as "noise around a
-true zero in both teams," not a real disagreement. Two rows are flagged not for sign but for
-**magnitude**: `initiator_rank_stability` and `facilitator_share_vs_week_tau` agree in sign but differ
-sharply in size/significance between teams and are called out explicitly below (see Honest
-interpretation) rather than smoothed into the 26/27 headline number.
+26 (96%) agree in direction.** The one directional non-agreement is now `facilitator_share_vs_week_tau`
+(see the Study 9 identification correction below — this table reflects the corrected facilitator data).
+One row is flagged not for sign but for **magnitude**: `initiator_rank_stability` agrees in sign but
+differs sharply in size/significance between teams and is called out explicitly below rather than
+smoothed into the 26/27 headline number.
+
+**Correction note (Study 9 facilitator identification).** Study 9's original facilitator identification
+used a single constant raw `speaker_id` for all 34 meetings, which was wrong for 24/34 of them (raw ids
+are assigned per meeting, not persistent across meetings — see
+[`../study9_initiators/facilitator_identification.md`](../study9_initiators/facilitator_identification.md)).
+With the corrected, per-meeting-verified facilitator identity, `facilitator_init_share_vs_null` **reverses
+from a non-significant, sign-disagreeing pair (A −0.017 n.s., B +0.029 n.s.) to a significant,
+sign-agreeing pair (A −0.063, p=.002; B −0.101, p<.001)**: the facilitator initiates significantly less
+than talk-time predicts, replicated in both teams. Conversely, `facilitator_share_vs_week_tau` — the
+longitudinal drift toward facilitator-initiation — **changes from a sign-agreeing (both positive) to a
+sign-disagreeing pair** under the correction (Team A goes from a small non-significant positive value to
+a small non-significant *negative* value; Team B's significant positive trend is essentially unchanged).
+Both changes are reported here in full; nothing about the correction was cherry-picked to favor either
+direction.
 
 ## T2 — Profile-vector replication (the strong test)
 
@@ -97,17 +110,26 @@ teams.
 
 Set against that, two specific facilitator-related claims from Study 9 do **not** replicate at the same
 strength: initiator-rank stability (Team A ρ=.90 vs Team B ρ=.20) and the longitudinal drift toward
-facilitator-initiation (significant in Team B only). We read this dissociation as **informative, not as
-a weakness of the design**: it separates a **team-general, structural/content-level** phenomenon (how
-the floor and the taxonomy reorganize) from a **person-specific, facilitation-level** dynamic (whether
-one shared external advisor's role in triggering reorganization drifts over a team's life), and it is
-exactly the facilitation-level claims — the ones with the least *a priori* reason to be identical across
-two teams with different internal composition — that fail to replicate, while the structural claims that
-this program's core thesis actually rests on replicate strongly. This dissociation should not be read as
-evidence against P5 (leader-centric consolidation): Study 9 already established that the person tracked
-here is an external facilitator shared across both teams, not either team's own internal leadership, so
-team-dependent drift in facilitator-initiation speaks to the facilitator's role, not to either team's
-internal leadership structure.
+facilitator-initiation (significant in Team B only; Team A now slightly negative and non-significant
+under the corrected identification — a genuine sign disagreement, not just a magnitude one). We read
+this dissociation as **informative, not as a weakness of the design**: it separates a **team-general,
+structural/content-level** phenomenon (how the floor and the taxonomy reorganize) from a
+**person-specific, facilitation-level** dynamic (whether one shared external advisor's role in
+triggering reorganization drifts over a team's life), and it is exactly the facilitation-level claims —
+the ones with the least *a priori* reason to be identical across two teams with different internal
+composition — that fail to replicate, while the structural claims that this program's core thesis
+actually rests on replicate strongly. This dissociation should not be read as evidence against P5
+(leader-centric consolidation): Study 9 already established that the person tracked here is an external
+facilitator shared across both teams, not either team's own internal leadership, so team-dependent drift
+in facilitator-initiation speaks to the facilitator's role, not to either team's internal leadership
+structure.
+
+**By contrast, the corrected facilitator-vs-null test (`facilitator_init_share_vs_null`) now replicates
+strongly** — both teams show the facilitator initiating significantly *less* than their talk-time
+predicts (A p=.002, B p<.001), where the uncorrected version had shown a non-significant, sign-disagreeing
+pair. This strengthens, not weakens, the program's bottom-up reading: the facilitator under-initiates and
+the quietest members over-initiate, replicated in both teams for both extremes of the talk-time
+distribution.
 
 ## Honest scope
 - n = 2 teams throughout, as everywhere in this program — a replication design, not a generalization
@@ -137,7 +159,11 @@ internal leadership structure.
 > longitudinal drift toward facilitator-initiation) do not replicate at the same strength — a dissociation
 > we read as separating a team-general structural phenomenon from a person-specific facilitation dynamic,
 > consistent with, not contradicting, this program's central thesis that reorganization is organised
-> along a stable, content-general deliberation↔coordination axis.
+> along a stable, content-general deliberation↔coordination axis. A third facilitator-specific statistic
+> — whether the facilitator initiates reorganization more or less than talk-time predicts — replicates
+> strongly in the opposite sense: both teams show the facilitator initiating significantly less than
+> their talk-time predicts (p=.002, p<.001), the same asymmetry, at the other extreme of the talk-time
+> distribution, as the quietest members' over-initiation.
 
 ## Deliverables
 - `src/team_utils.py` — shared `team_of()` per-meeting team assignment.

@@ -60,13 +60,14 @@ ps.statbox(ax, f"Same-sign agreement (all families pooled):\n{n_same}/{n_tot} st
                 f"({100*n_same/n_tot:.0f}%)\nPoints near the dashed y=x line replicate in both\n"
                 "sign AND magnitude; off-diagonal but same-\nquadrant points replicate in sign only.",
            loc="upper left")
-ps.caption(fig, "Figure 11. n = 145 headline statistics spanning validity checks, content-taxonomy "
+ps.caption(fig, f"Figure 11. n = {n_tot} headline statistics spanning validity checks, content-taxonomy "
     "profiles, floor-structure measures, and longitudinal trends, each computed independently in Team "
     "A and Team B using identical methods (Studies 1-10). Values are normalized per statistic (divide "
     "both teams' estimates by whichever is larger in magnitude, preserving sign), so the y=x line "
     "represents perfect cross-team replication and quadrant membership (top-right / bottom-left vs. "
-    "top-left / bottom-right) directly shows sign agreement. Two known, explicitly flagged non-"
-    "replications (initiator-rank stability; facilitator-share longitudinal trend) sit in the off-"
-    "diagonal quadrants among the gray stars/plus markers.", y=-0.045)
+    "top-left / bottom-right) directly shows sign agreement. One explicitly flagged sign non-"
+    "replication (facilitator-share longitudinal trend) sits in an off-diagonal quadrant; a second "
+    "flagged non-replication (initiator-rank stability) agrees in sign but differs sharply in "
+    "magnitude, among the gray stars/plus markers.", y=-0.045)
 fig.tight_layout(rect=[0, 0.05, 1, 1])
 ps.save(fig, "fig_paper_S11_replication_ledger")

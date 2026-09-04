@@ -5,9 +5,11 @@ gap<=8s = one event) and the established boundary/class logic from Study 7 (reor
 TRANSITION = event center within +/-30s of a topic-episode start or EOS L10 stage onset; else
 INTERIOR (further split into handoff/other by whether the dominant speaker changes pre->post).
 
-Facilitator identification (documented rule): per team, the speaker who most often opens the L10 'segue'
-and 'todo' stages (the facilitator role) - computed once from data/l10_stages/*.json + transcripts,
-independently of this script's event analysis. See facilitator_identification.md for the numbers.
+Facilitator identification (corrected): per-meeting raw_speaker_id of the facilitator, verified against
+the researcher's own retained name-labeled source transcripts (not published; raw speaker_id is a
+per-meeting first-appearance index, not a stable cross-meeting identity, so it must be resolved per
+meeting, not assumed constant). See facilitator_identification.md for the corrected numbers and the
+prior (wrong) constant-id approach it replaces.
 
 Three initiator definitions per event, all computed from raw utterance onset/speaker/text (no
 audio, no new metrics):
@@ -30,7 +32,16 @@ GM = f"{LSH}/data/metrics_gorman_l8"
 TXT = f"{LSH}/data/text_startup"
 EP = pd.read_csv(f"{LSH}/episode_codes.csv")
 TCRIT = 2.33
-FACILITATOR_RAW_ID = "2"  # documented rule: modal facilitator of segue+todo-review stages, both teams
+
+# CORRECTED (was a hardcoded "2" for all 34 meetings): raw speaker_id is assigned per meeting by
+# order of first appearance, so it is NOT a stable identifier across meetings and a single constant
+# cannot be right for more than one meeting at a time. The facilitator's true raw_speaker_id per
+# meeting is now read from data/facilitator_raw_id_verified.csv, cross-checked against the
+# researcher's own retained (unpublished) name-labeled source transcripts - 100% internally
+# consistent per meeting (every utterance attributed to the facilitator maps to a single raw
+# speaker_id in that meeting). Distribution across the 34 meetings: raw id "1" in 23 meetings, "2"
+# in 10, "3" in 1 - confirming the old constant ("2") was wrong in 24/34 meetings.
+FACILITATOR_RAW_ID_BY_MID = pd.read_csv(f"{os.path.dirname(__file__)}/../data/facilitator_raw_id_verified.csv").set_index("mid")["facilitator_raw_id"].astype(str).to_dict()
 
 
 def norm(s):
@@ -88,7 +99,7 @@ for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
     for s in speak_all:
         if s not in seen: seen.append(s)
     pseudo = {s: f"S{i+1}" for i, s in enumerate(seen)}
-    facilitator_pseudo = pseudo.get(FACILITATOR_RAW_ID)
+    facilitator_pseudo = pseudo.get(FACILITATOR_RAW_ID_BY_MID.get(mid))
 
     g = pd.read_csv(f)
     sec = g.second.to_numpy(float)

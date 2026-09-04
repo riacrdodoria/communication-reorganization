@@ -124,7 +124,7 @@ from matplotlib.lines import Line2D
 axC.legend(handles=[Line2D([], [], marker="o", ls="", color=ps.COORD, label="Team A"),
                      Line2D([], [], marker="s", ls="", color=ps.DELIB, label="Team B")],
            fontsize=5.8, loc="upper left", frameon=False)
-axC.text(.98, .97, f"facilitator at chance\n(perm. p={PERM.p_perm_two_sided.min():.2f}-{PERM.p_perm_two_sided.max():.2f})\n"
+axC.text(.98, .97, "facilitator initiates less\nthan talk-time predicts\n(perm. p<.01, all 3 defs.)\n"
                     "quiet member lift 1.4-1.9×", transform=axC.transAxes, fontsize=5.8, va="top", ha="right",
           bbox=dict(boxstyle="round,pad=0.25", fc="#f8fafc", ec="#cbd5e1", lw=.5))
 
@@ -159,7 +159,8 @@ ps.caption(fig, "Figure 2. Individual and team-level structure (Study 2, with S9
     "profile replication r=.969 (S11). (B) Nine coding-free floor/centralization measures at events vs "
     "baseline; all nine move in the same direction (floor equalizes, decentralizes), consistent with "
     "Edelsky's (1981) F1-to-F2 transition. (C) Initiation lift by speaker role; the external facilitator "
-    "initiates at chance; the quietest member initiates 1.4-1.9x their talk-time share (S9). (D) "
+    "initiates significantly less than their talk-time predicts (permutation p<.01, all three initiator "
+    "definitions); the quietest member initiates 1.4-1.9x their talk-time share (S9). (D) "
     "Event-vs-baseline lift for eight affect codes (Bales IPA + act4teams pos/neg); agreement, positive "
     "affect, and solidarity rise significantly (q<.001); no negative code survives FDR; the positive "
     "signal peaks coincident with event onset (inset), not before or after (S12).", y=-0.1, fontsize=6.2)

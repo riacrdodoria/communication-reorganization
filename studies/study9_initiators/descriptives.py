@@ -4,11 +4,13 @@
   anyone initiate MORE than they talk?
 - Stability: split each team's meetings into first/second half by week; Spearman r of member
   initiation-rank across halves.
-Talk-time share is computed directly from the transcripts (word count per pseudonymized speaker per
-meeting), not a new metric -- purely descriptive denominator for the lift ratio."""
+Talk-time share is computed directly from the transcripts (word count per verified speaker ROLE per
+meeting; roles are persistent identities, see roles.py), not a new metric -- purely descriptive denominator for the lift ratio."""
 import glob, os, re
 import numpy as np, pandas as pd
 from scipy.stats import spearmanr
+import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'src'))
+from roles import role_map
 
 BASE = os.path.expanduser("~/lsh-work/study9_initiators")
 LSH = os.path.expanduser("~/lsh-work")
@@ -26,10 +28,7 @@ for mid, g in D.groupby("mid"):
     order = onset.argsort()
     spk_raw = tx.speaker_id.astype(str).to_numpy()[order]
     nw = tx.text.astype(str).str.split().apply(len).to_numpy()[order]
-    seen = []
-    for s in spk_raw:
-        if s not in seen: seen.append(s)
-    pseudo = {s: f"S{i+1}" for i, s in enumerate(seen)}
+    pseudo = role_map(mid)  # verified roles, persistent across meetings (was per-meeting S1..Sn)
     tot = nw.sum()
     for s in set(spk_raw):
         tt_rows.append(dict(mid=mid, member=pseudo[s], talk_words=int(nw[spk_raw == s].sum()),
@@ -66,7 +65,7 @@ for defn in DEFS:
             ts = talk_share_team.get(m, np.nan)
             lift = init_share[m] / ts if ts and ts > 0 else np.nan
             lift_rows.append(dict(definition=defn, team=team, member=m, init_share=init_share[m],
-                                   talk_share=ts, lift=lift, is_facilitator=bool(g[g[defn] == m].facilitator.iloc[0] == m) if len(g[g[defn]==m]) else False))
+                                   talk_share=ts, lift=lift, is_facilitator=(m == "FACILITATOR")))
 LIFT = pd.DataFrame(lift_rows)
 LIFT.to_csv(f"{BASE}/data/initiation_lift.csv", index=False)
 print(LIFT[LIFT.definition == "init_primary"].round(3).sort_values(["team", "lift"], ascending=[True, False]).to_string(index=False))

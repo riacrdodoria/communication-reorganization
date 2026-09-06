@@ -1,0 +1,5 @@
+threshold,n,rho,p,null_lo,null_hi
+per-meeting threshold (as published),34,-0.5877769289533995,0.000256965698397391,,
+online threshold (first half only),34,0.03132161955691367,0.8604145569763383,,
+global pooled threshold,34,0.38273491214667676,0.02547855167625555,,
+circular-shift null (per-meeting threshold),34,-0.6991132791740147,,-0.797142857142857,-0.561764705882353

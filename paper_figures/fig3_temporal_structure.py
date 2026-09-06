@@ -53,7 +53,10 @@ te, pe = kendalltau(dep.dropna(subset=["BORDER_ent_exc"]).week, dep.dropna(subse
 
 # ============================================================ Panel D data (new, from Study 10)
 meso = pd.read_csv(f"{S10}/meso_halves.csv")
-rho, prho = spearmanr(meso.h1_event_rate, meso.h2_event_rate)
+# 2026-09-05: per-meeting-threshold rates are negatively coupled by construction; plot the online-threshold rates
+_c1, _c2 = ("h1_event_rate_online", "h2_event_rate_online") if "h1_event_rate_online" in meso.columns else ("h1_event_rate", "h2_event_rate")
+rho, prho = spearmanr(meso[_c1], meso[_c2])
+rho_pub, _ = spearmanr(meso.h1_event_rate, meso.h2_event_rate)
 
 # ============================================================ Layout: 2x2, ~7.0 x 5.5 in
 fig = plt.figure(figsize=(7.0, 5.5))
@@ -92,7 +95,7 @@ for team, g in dep.groupby("team"):
 axC.plot([], [], "o-", color=ps.INK, label="baseline (resting)")
 axC.plot([], [], "^--", color=ps.INK, label="at border events")
 axC.set_xlabel("week", fontsize=7.4); axC.set_ylabel("team-state entropy", fontsize=7.4)
-axC.set_title("C. Consolidation\n(baseline ↓, excursion stable)", loc="left", fontsize=8.6, fontweight="bold", color=ps.COORD)
+axC.set_title("C. Development\n(baseline and excursion both flat)" if (pb >= .05 and pe >= .05) else "C. Development\n(baseline ↓, excursion stable)" if pb < .05 else "C. Development", loc="left", fontsize=8.6, fontweight="bold", color=ps.COORD)
 axC.legend(loc="upper right", fontsize=5.6, frameon=False)
 axC.text(.02, .04, f"baseline τ={tb:+.2f} {ps.stars(pb)}\nexcursion τ={te:+.2f} {ps.stars(pe)}", transform=axC.transAxes,
           fontsize=5.8, va="bottom", ha="left", bbox=dict(boxstyle="round,pad=0.25", fc="#f8fafc", ec="#cbd5e1", lw=.5))
@@ -100,15 +103,15 @@ axC.text(.02, .04, f"baseline τ={tb:+.2f} {ps.stars(pb)}\nexcursion τ={te:+.2f
 # --- D: within-meeting reorganization budget (new, S10 data) ---
 TEAMMARK = {"startup_a": "o", "startup_b": "s"}
 for team, g in meso.groupby("team"):
-    axD.scatter(g.h1_event_rate, g.h2_event_rate, color=ps.TEAM[team], marker=TEAMMARK[team], s=22,
+    axD.scatter(g[_c1], g[_c2], color=ps.TEAM[team], marker=TEAMMARK[team], s=22,
                  alpha=.85, edgecolor="white", lw=.4, zorder=3, label={"startup_a": "Team A", "startup_b": "Team B"}[team])
-zz = np.polyfit(meso.h1_event_rate, meso.h2_event_rate, 1)
-xx = np.linspace(meso.h1_event_rate.min(), meso.h1_event_rate.max(), 50)
+zz = np.polyfit(meso[_c1], meso[_c2], 1)
+xx = np.linspace(meso[_c1].min(), meso[_c1].max(), 50)
 axD.plot(xx, np.polyval(zz, xx), "-", color=ps.INK, lw=1.4, zorder=2)
 axD.set_xlabel("first-half event rate (%)", fontsize=7.2); axD.set_ylabel("second-half event rate (%)", fontsize=7.2)
-axD.set_title("D. Within-meeting budget\n(not momentum, S10)", loc="left", fontsize=8.6, fontweight="bold", color=ps.COORD)
+axD.set_title("D. No within-meeting budget\n(online threshold, S10)" if abs(rho) < .3 else "D. Within-meeting budget\n(online threshold, S10)", loc="left", fontsize=8.6, fontweight="bold", color=ps.COORD)
 axD.legend(loc="upper right", fontsize=5.8, frameon=False)
-axD.text(.98, .04, f"ρ={rho:+.2f}, p={prho:.1e}\n(both teams)", transform=axD.transAxes, fontsize=5.8, va="bottom",
+axD.text(.98, .04, f"ρ={rho:+.2f}, p={prho:.2f} (online thr.)\nper-meeting thr.: ρ={rho_pub:+.2f}, artefact", transform=axD.transAxes, fontsize=5.8, va="bottom",
           ha="right", bbox=dict(boxstyle="round,pad=0.25", fc="#f8fafc", ec="#cbd5e1", lw=.5))
 
 fig.suptitle("Figure 3 — Temporal structure of communication reorganization", fontsize=10.5,
@@ -118,11 +121,12 @@ ps.caption(fig, "Figure 3. Temporal structure (Studies 6, 7; extended by S10). (
     "Wilcoxon, non-circular: boundaries from content, metrics from turn-taking). (B) Reorganization rate "
     "and entropy by EOS Level 10 protocol stage; procedural review (teal) reorganizes significantly more "
     "than problem-solving (IDS; orange). (C) Per-meeting baseline entropy and above-baseline excursion "
-    "over ~26 weeks (Kendall tau); baseline entropy declines (consolidation) while excursion depth is "
-    "flat - a stereotyped event riding a sinking baseline; both teams shown, replicating in direction "
-    "(S11). (D) First-half meeting reorganization rate vs second-half rate (Spearman rho); both teams "
-    "show a negative relationship, indicating a within-meeting reorganization budget rather than "
-    "momentum (S10).", y=-0.1, fontsize=6.2)
+    "over ~26 weeks (Kendall tau); after correcting the speaker count for a transcription-tool line in "
+    "the ten latest meetings, neither the baseline nor the excursion trends significantly - the event "
+    "is developmentally stereotyped in size and its resting point does not drift (S11). (D) First-half vs second-half reorganization rate with an online event threshold (first-half "
+    "statistics only); the association is null. The strong negative association obtained with a "
+    "whole-meeting threshold is reproduced by a circular-shift null, i.e. it is an artefact of that "
+    "threshold; the data do not support a within-meeting reorganization budget (S10).", y=-0.1, fontsize=6.2)
 fig.tight_layout(rect=[0, 0.08, 1, 0.95])
 for ext in ("png", "pdf"):
     fig.savefig(f"{os.path.dirname(__file__)}/fig3_temporal_structure.{ext}", bbox_inches="tight",

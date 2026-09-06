@@ -170,9 +170,15 @@ for r in qa_summary["by_kind"]:
 lines += ["\n## Spot-check sample (n=15 random extracted items, mapping status only — no verbatim quotes here)\n",
           "| mid | kind | mapped | note |", "|---|---|---|---|"]
 for s in spot:
-    note = s.get("desc", "") or (f"value={s.get('value')}" if "value" in s else "")
+    # Published QA doc must carry NO meeting content: LLM paraphrases of to-do/issue descriptions
+    # can name third parties and business specifics, so they are withheld here (they remain in the
+    # local, unpublished annotations JSON). Only content-free status fields are emitted.
     if "resolved" in s:
         note = f"resolved={s['resolved']}"
+    elif "value" in s:
+        note = f"value={s.get('value')}"
+    else:
+        note = "(description withheld — content not published)"
     lines.append(f"| {s['mid']} | {s['kind']} | {s['mapped']} | {note} |")
 open(f"{BASE}/QA_SUMMARY.md", "w").write("\n".join(lines))
 print(f"wrote {BASE}/QA_SUMMARY.md")

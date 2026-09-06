@@ -1,0 +1,6 @@
+variant,n_handoff,n_other,agreement_with_canonical
+"canonical (centre,30s,turns)",275,170,1.0
+"centre,30s,words",258,187,0.6606741573033708
+"onset,15s,words (old S9)",195,250,0.5685393258426966
+"onset,30s,turns",267,178,0.7797752808988764
+"centre,15s,turns",223,222,0.6314606741573033

@@ -38,6 +38,13 @@ Numeric per-window / per-episode / per-meeting tables and the combined statistic
 
 ### `figures/` — all figures (PNG).
 
+### `results/speaker_roles_verified.csv` — per-meeting speaker role map
+`mid, team, raw_id, role, n_utt, n_words`. Roles: FACILITATOR (the same external advisor in every
+meeting), A1–A3 / B1–B3 (team members, fixed roster order), DEVICE (a participant on a shared room device),
+BOT (the transcription tool's announcement line, removed from the canonical transcripts and from the
+metrics on 2026-09-05; kept in the map for traceability). Because `speaker_id` is assigned per meeting
+by order of first appearance, this map is the only valid way to follow a person across meetings.
+
 ## Meeting identifiers
 
 A meeting id encodes the date and team, e.g. `2024.10.14startup_a`. The two teams are anonymised as

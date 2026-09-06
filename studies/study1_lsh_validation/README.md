@@ -15,8 +15,15 @@ and standard metric trajectories within meeting and across validation sessions. 
 validity check: high agreement means LSH is a faithful, simpler substrate.
 
 ## Result
-The LSH and standard representations yield essentially the same reorganization metrics: convergent
-validity **r ≈ .87–.93**. LSH is therefore adopted as the turn-taking substrate throughout.
+The LSH and standard representations yield essentially the same reorganization metrics. **Provenance
+(clarified 2026-09-05):** the convergent-validity figure **r ≈ .87–.93** was obtained on Gorman and
+colleagues' published validation corpora (submarine crews, mean r = .93; surgical teams, mean r = .89)
+with an earlier 1 Hz implementation of the metrics (61 s window, raw bits), not on the present 34
+meetings. On the present corpus, with the Gorman-faithful metrics of `src/gorman_reimpl.py`, the
+correlation between the entropy trajectory of the multi-speaker state series and that of the same series
+with the last state carried forward through silences is **median r = .94** (min .90; `figures/`
+`fig_paper_S1_lsh_validation.png`, `paper_figures/fig_paper_S1.py`). LSH is therefore adopted as the
+turn-taking substrate throughout.
 
 ## Notes
 - This is a methodological validation, not a substantive claim about teams.

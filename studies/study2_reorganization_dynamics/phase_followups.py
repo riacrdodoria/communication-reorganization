@@ -16,15 +16,7 @@ def gini(x):
     xs=np.sort(x); n=len(x); idx=np.arange(1,n+1); return (2*np.sum(idx*xs)/(n*xs.sum()))-(n+1)/n
 def shannon(p):
     p=np.asarray(p,float); p=p[p>0]; p=p/p.sum(); return -(p*np.log2(p)).sum() if len(p) else 0.0
-def degcen(W):
-    N=W.shape[0]
-    if N<3: return np.nan
-    deg=W.sum(0)+W.sum(1); s=deg.sum()
-    if s==0: return np.nan
-    deg=deg/s; return (deg.max()-deg).sum()/(N-1)
-def inout(W):
-    if W.shape[0]<2 or W.sum()==0: return np.nan
-    return np.abs(W.sum(1)-W.sum(0)).max()/W.sum()
+from floor_measures import degree_centralization as degcen, inout_asym as inout  # 2026-09-05 shared, corrected
 def floor_on(sub):
     sps=sorted(sub.sp.unique()); idx={s:i for i,s in enumerate(sps)}; nsp=len(sps)
     if nsp<2 or len(sub)<4: return None

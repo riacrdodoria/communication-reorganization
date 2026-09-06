@@ -1,5 +1,13 @@
 # Study 11 — Results
 
+> **Correction notice (2026-09-05).** The ledger was rebuilt on the bot-cleaned corpus and person-level
+> roles. Changes: the two longitudinal entropy "replications" (T3) no longer exist (τ = −.09 / −.16 and
+> −.09 / −.19, CIs include zero); the initiator-rank-stability and quiet-member rows were label artefacts and
+> now replicate (ρ = .80 / .90; lifts 1.38 / 1.29); the facilitator-share row is significant in both teams
+> (below the talk-time null); the pooled binomial across 130 non-independent items is no longer reported;
+> bootstrap seeds are deterministic. See `README.md`; where this file and `results/` disagree, `results/`
+> is current.
+
 ## Framing
 This program has always reported Team A and Team B separately (`METHODS.md` §6: n=2 teams precludes
 between-team statistical generalisation; direction-consistency is the evidence standard). Study 11 makes

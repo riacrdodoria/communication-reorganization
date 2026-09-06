@@ -27,7 +27,7 @@ x = np.arange(len(L))
 colors = [DELIB if r.is_facilitator else COORD for _, r in L.iterrows()]
 axA.bar(x, L.lift, color=colors, width=.65, zorder=3)
 axA.axhline(1.0, color=INK, lw=1, ls="--")
-labels = [f"{r.member}{' (F)' if r.is_facilitator else ''}\n{r.team[-1].upper()}" for _, r in L.iterrows()]
+labels = [f"{'facil.' if r.is_facilitator else r.member}\n{r.team[-1].upper()}" for _, r in L.iterrows()]
 axA.set_xticks(x); axA.set_xticklabels(labels, fontsize=8)
 axA.set_ylabel("initiation lift  (share of initiations / share of talk-time)")
 axA.set_title("A  Who initiates more than they talk?", loc="left", fontsize=11)

@@ -36,7 +36,7 @@ HIGHLIGHT = {"struct": "structuring", "baskinfo": "asks-info", "bagree": "agree"
 F = pd.read_csv(f"{L}/floor_windows.csv")
 MEAS = [("top_share", "Top-speaker share", "concentration"), ("net_central", "Network centralization", "concentration"),
         ("eig_central", "Eigenvector centrality", "concentration"), ("gini_words", "Participation Gini (words)", "concentration"),
-        ("gini_turns", "Participation Gini (turns)", "concentration"), ("inout_asym", "In-out influence asymmetry", "concentration"),
+        ("gini_turns", "Participation Gini (turns)", "concentration"), ("inout_asym", "Dyadic transition asymmetry", "concentration"),
         ("turnlen_disp", "Turn-length dispersion", "concentration"), ("n_active", "Active speakers/window", "breadth"),
         ("part_entropy", "Participation entropy*", "breadth")]
 rowsB = []
@@ -117,6 +117,7 @@ for xi, cat in enumerate(xcats):
         axC.scatter(xi + (-.08 if team == "startup_a" else .08), val, color=TEAMCOL[team],
                      marker=TEAMMARK[team], s=36, zorder=3, edgecolor="white", lw=.5)
 axC.axhline(1.0, color=ps.INK, lw=1, ls="--")
+_vals=[v for c in roleC for _,v in roleC[c]]; axC.set_ylim(min(_vals)-.25, max(_vals)+.1)  # data-driven limits (was clipping the quietest member)
 axC.set_xticks(range(len(xcats))); axC.set_xticklabels(xcats, fontsize=6.6)
 axC.set_ylabel("initiation lift\n(init. share / talk-time share)", fontsize=6.8)
 axC.set_title("C. Who opens the floor\n(S9)", loc="left", fontsize=8.6, fontweight="bold", color=ps.COORD)
@@ -124,8 +125,11 @@ from matplotlib.lines import Line2D
 axC.legend(handles=[Line2D([], [], marker="o", ls="", color=ps.COORD, label="Team A"),
                      Line2D([], [], marker="s", ls="", color=ps.DELIB, label="Team B")],
            fontsize=5.8, loc="upper left", frameon=False)
-axC.text(.98, .97, "facilitator initiates less\nthan talk-time predicts\n(perm. p<.01, all 3 defs.)\n"
-                    "quiet member lift 1.4-1.9×", transform=axC.transAxes, fontsize=5.8, va="top", ha="right",
+_P = PERM.set_index("definition")
+_below = [d for d in _P.index if _P.loc[d, "observed_facilitator_share"] < _P.loc[d, "null_mean"] and _P.loc[d, "p_perm_two_sided"] < .05]
+_above = [d for d in _P.index if _P.loc[d, "observed_facilitator_share"] > _P.loc[d, "null_mean"] and _P.loc[d, "p_perm_two_sided"] < .05]
+axC.text(.98, .04, f"facilitator opens LESS than\ntalk-time predicts ({len(_below)}/3 defs.)\n"
+                    f"but asks MORE questions ({len(_above)}/3)\n(perm. p<.05)", transform=axC.transAxes, fontsize=5.8, va="bottom", ha="right",
           bbox=dict(boxstyle="round,pad=0.25", fc="#f8fafc", ec="#cbd5e1", lw=.5))
 
 # --- D: affective signature (8 categories + timing inset) ---
@@ -159,8 +163,8 @@ ps.caption(fig, "Figure 2. Individual and team-level structure (Study 2, with S9
     "profile replication r=.969 (S11). (B) Nine coding-free floor/centralization measures at events vs "
     "baseline; all nine move in the same direction (floor equalizes, decentralizes), consistent with "
     "Edelsky's (1981) F1-to-F2 transition. (C) Initiation lift by speaker role; the external facilitator "
-    "initiates significantly less than their talk-time predicts (permutation p<.01, all three initiator "
-    "definitions); the quietest member initiates 1.4-1.9x their talk-time share (S9). (D) "
+    "initiates fewer floor-taking and topic-opening events than their talk-time predicts (permutation "
+    "p<.01) but MORE question-initiated events than predicted (p=.01) (S9). (D) "
     "Event-vs-baseline lift for eight affect codes (Bales IPA + act4teams pos/neg); agreement, positive "
     "affect, and solidarity rise significantly (q<.001); no negative code survives FDR; the positive "
     "signal peaks coincident with event onset (inset), not before or after (S12).", y=-0.1, fontsize=6.2)

@@ -35,13 +35,15 @@ proxies.
 
 ## Results
 **No predictor survives multiple-comparison correction, for any outcome, by any method: 0/42 Spearman
-tests and 0/42 mixed-model tests reach q < .05.** The direct adaptive-function proxy, reorg-event rate,
+tests and 0/36 mixed-model tests reach q < .05** (six mixed models did not converge and are reported as
+such, not counted). The direct adaptive-function proxy, reorg-event rate,
 is null against all three outcomes (ρ = +.08, +.14, −.06 for rating, to-do completion, and issue
-resolution; all n.s., 95% CIs comfortably spanning zero). The single largest unadjusted correlation in
-the whole grid — resting baseline entropy vs. same-meeting issue-resolution rate (ρ = −.41, 95% CI
-[−.65, −.08], p = .017) — does **not** survive FDR (q = .22) and is reported only as a candidate for
-future, better-powered work, directionally consistent with Study 5's consolidation story but not a
-finding here. The inverted-U probe is also null (all p > .18).
+resolution; all n.s., 95% CIs comfortably spanning zero). No unadjusted correlation in the grid reaches
+p < .05 on the corrected corpus (largest: IDS reorganization rate vs same-meeting issue resolution,
+ρ = +.31, p = .075, q = .46). An earlier version singled out resting baseline entropy vs issue resolution
+(ρ = −.41, p = .017) as a candidate; that value was carried by the transcription-tool line that deflated
+entropy in the ten latest meetings (`METHODS.md` §1) and is now ρ = −.23 (p = .18). The inverted-U probe
+is also null.
 
 **This is a genuine, honestly-powered null result for P6 as tested here.** At n = 29–34 meetings and 2
 teams, an effect smaller than |ρ| ≈ .45 is not reliably detectable; the meeting rating outcome is

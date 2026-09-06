@@ -7,7 +7,7 @@ import glob,os,json,numpy as np,pandas as pd
 from pathlib import Path
 from scipy.stats import mannwhitneyu
 
-GM=Path(os.environ.get("GM_DIR","data/metrics_gorman")); COD=Path("data/codebooks2"); COD1=Path("data/codebooks")
+GM=Path(os.environ.get("GM_DIR","data/metrics_gorman_l8")); COD=Path("data/codebooks2"); COD1=Path("data/codebooks")
 TCRIT={"p05":1.65,"p01":2.33}
 
 def peaks(x,t):

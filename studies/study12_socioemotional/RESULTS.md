@@ -1,5 +1,12 @@
 # Study 12 — Results
 
+> **Correction notice (2026-09-05).** One act4teams coding file was keyed 30 s off the 90-s grid (now
+> snapped); permutation p-values are reported at their resolution (p < .0005 with 2,000 shifts); the
+> `bantag` review-vs-IDS test rests on 7 non-zero pairs (`n_nonzero` column); the `bagree`-by-class contrast
+> is weaker under the shared classification rule (H = 10.5, q = .041). Headline results (positive-not-negative
+> face; 27/34 meetings) are unchanged. See `README.md`; where this file and `results/` disagree, `results/`
+> is current.
+
 ## Framing
 The six-taxonomy content layer (Study 3) already codes socioemotional content (Bales IPA
 positive/negative quadrants; act4teams-full positive/negative facets) but has never been examined as

@@ -1,5 +1,12 @@
 # Study 8 — Meeting outcomes: does reorganization matter? (adaptive function, P6)
 
+> **Correction notice (2026-09-05).** Numbers below were computed before the transcription-tool line was
+> removed from ten meetings (`METHODS.md` §1). The null result stands (0/42 Spearman, 0/36 converged mixed
+> models), but the earlier "strongest candidate" (baseline entropy vs issue resolution, ρ = −.41) was carried
+> by that artefact and is now ρ = −.23 (n.s.); the current tables are in `results/` and the summary in
+> `README.md`. The facilitator's to-do ownership is 4.7 % / 3.0 % (earlier 14 % / 31 % used the wrong
+> constant id). Where this file and `results/` disagree, `results/` is current.
+
 ## Hypothesis
 Proposition **P6 (adaptive function)**: teams whose meetings reorganize appropriately rate their
 meetings as more effective and convert more decisions into completed action items. The EOS Level 10

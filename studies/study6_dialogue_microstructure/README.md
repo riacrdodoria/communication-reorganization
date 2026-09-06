@@ -40,7 +40,10 @@ fingerprint (`episode_fingerprint.py`); and an episode typology (`episode_typolo
   come from content/semantics, the metrics from turn-taking only. This reconnects Gorman's
   perturbation→reorganization paradigm to naturalistic data.
 - **A recurring meeting arc.** A soft typology (five discussion types; silhouette ≈ 0.09, i.e. a
-  continuum of tendencies) ordered by within-meeting position: **opening / procedural Q&A** (most
+  continuum of tendencies; note that at this silhouette level the choice of k is unstable — re-running
+  the clustering after the 2026-09-05 corpus correction selected k = 3 at silhouette .093 vs .090 for
+  k = 5; the published five-type labels, which derive from the episode codings and not from the
+  corrected metrics, are retained and the typology is read as descriptive only) ordered by within-meeting position: **opening / procedural Q&A** (most
   reorganized) → **status / information-sharing** → **problem / debate** (highest entropy) → **solution
   exploration / co-construction** (most deliberative) → **closing / socio-emotional**. Discussion types
   map onto reorganization state.
@@ -53,8 +56,10 @@ fingerprint (`episode_fingerprint.py`); and an episode typology (`episode_typolo
   34/34; segue/to-do near-universal; scorecard/rock ~3/4; headlines most-skipped; IDS ≈ 63% of meeting
   time) — an applied/external-validity anchor. Crossing stages with the metrics gives a robust,
   counterintuitive result: the procedural **review** stages (scorecard/rock/to-do) reorganize *more* than
-  the problem-solving **IDS** (per-meeting paired Wilcoxon, n = 32: entropy 37.6 vs 33.5, Δ = +4.1,
-  p = .001; reorg-event rate 4.2% vs 2.7%, Δ = +1.5, p = .009; %DET −1.5, n.s.). The content cross
+  the problem-solving **IDS** (per-meeting paired Wilcoxon, n = 32 — the two final meetings, one per
+  team, have no review stage and drop out: entropy 39.5 vs 35.2 pooled, Δ ≈ +4.5, p ≈ .001; reorg-event
+  rate 4.3 % vs 2.8 %, Δ = +1.5, p = .007; %DET n.s.; corrected corpus — the contrast strengthened
+  slightly after the transcription-tool line was removed). The content cross
   explains it: of 41 taxonomy categories, 23 differ between review and IDS (paired Wilcoxon, BH-FDR), and
   IDS is the deliberative pole — arguable, exploratory talk, opinion, negotiation, and solution
   construction all enriched there, while the review stages carry non-arguable status reporting and
@@ -75,8 +80,14 @@ fingerprint (`episode_fingerprint.py`); and an episode typology (`episode_typolo
   phenomenon; the deliberative interior is where the floor concentrates.
 
 ## Honest scope
-Segmentation is noisy (moderate, above-chance agreement); the model-based segmentation is the higher-
-quality instrument and the unsupervised method corroborates that boundaries are real. The typology is a
+Segmentation is noisy. `validate_segmentation.py` compares two *automatic* segmenters with each other
+(boundary F1 .55 vs .42 for random placement); it is an agreement check, not a validation against human
+segmentation, and the advantage over random shrinks under a spacing-matched null. The χ² on the
+type × stage table (χ²(24) = 432) is reported with Cramér's V = .34 as the meaningful quantity, since
+several cells are sparse and episodes are nested within meetings. Fourteen stage onsets fall 15–50 s
+before the annotated stage quote (the mapping takes the utterance containing the quote); three
+annotated stage layouts (2025-01-06 B, 2025-03-17 B, 2025-03-24 B) are implausible and await manual
+review. The typology is a
 soft clustering (a continuum). Per-episode metrics are noisy (≈ 16 utterances/episode). Episode-level
 annotation should be validated against a human-coded subset before publication. The L10 stage labels are
 annotator-assigned and need the same validation; advisor-led sessions deviate from the textbook L10

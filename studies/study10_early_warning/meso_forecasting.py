@@ -23,7 +23,7 @@ def parse_date_team(mid):
     return int(f"{y}{mo}{d}"), team
 
 
-rows = []
+rows = []; ALL_RM = []; RAW = []
 for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
     mid = os.path.basename(f).replace("_gorman.csv", "")
     date, team = parse_date_team(mid)
@@ -38,15 +38,54 @@ for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
     mid_t = (np.nanmin(sec) + np.nanmax(sec)) / 2
     h1 = sec < mid_t; h2 = sec >= mid_t
     dur1_min = (mid_t - np.nanmin(sec)) / 60; dur2_min = (np.nanmax(sec) - mid_t) / 60
+    # 2026-09-05 (AUDIT S10 #1): a threshold computed from the WHOLE meeting makes the two half-rates
+    # negatively dependent by construction (a busy first half raises the threshold for the second half).
+    # Two artefact-free alternatives: ONLINE = threshold from the first half only, applied to both halves;
+    # GLOBAL = one pooled threshold for the whole corpus (computed after the loop, see below).
+    h1ok = h1 & ok
+    m1, s1 = np.nanmean(rm[h1ok]), np.nanstd(rm[h1ok])
+    is_event_online = rm > m1 + TCRIT * s1
+    ALL_RM.append(rm[ok])
+    RAW.append(dict(mid=mid, rm=rm, ok=ok, h1=h1, h2=h2, dur1=dur1_min, dur2=dur2_min))
     rows.append(dict(
         mid=mid, team=team, date=date,
         h1_baseline_entropy=np.nanmedian(ent[h1]), h1_det_median=np.nanmedian(det[h1]),
         h1_event_rate=10 * np.nansum(is_event[h1 & ok]) / dur1_min if dur1_min > 0 else np.nan,
         h2_event_rate=10 * np.nansum(is_event[h2 & ok]) / dur2_min if dur2_min > 0 else np.nan,
+        h1_event_rate_online=10 * np.nansum(is_event_online[h1 & ok]) / dur1_min if dur1_min > 0 else np.nan,
+        h2_event_rate_online=10 * np.nansum(is_event_online[h2 & ok]) / dur2_min if dur2_min > 0 else np.nan,
     ))
 D = pd.DataFrame(rows).sort_values(["team", "date"])
 D["week"] = D.groupby("team").cumcount()
+# GLOBAL threshold (pooled over all meetings)
+_all = np.concatenate(ALL_RM); gthr = np.nanmean(_all) + TCRIT * np.nanstd(_all)
+for r in RAW:
+    ev = r["rm"] > gthr
+    D.loc[D.mid == r["mid"], "h1_event_rate_global"] = 10 * np.nansum(ev[r["h1"] & r["ok"]]) / r["dur1"]
+    D.loc[D.mid == r["mid"], "h2_event_rate_global"] = 10 * np.nansum(ev[r["h2"] & r["ok"]]) / r["dur2"]
 D.to_csv(f"{BASE}/data/meso_halves.csv", index=False)
+print("=" * 90, "\nT3b - Within-meeting 'budget' (Spearman rho, first-half vs second-half event rate) under three thresholds\n" + "=" * 90)
+sens = []
+for lab, c1, c2 in [("per-meeting threshold (as published)", "h1_event_rate", "h2_event_rate"),
+                    ("online threshold (first half only)", "h1_event_rate_online", "h2_event_rate_online"),
+                    ("global pooled threshold", "h1_event_rate_global", "h2_event_rate_global")]:
+    sub = D[[c1, c2]].dropna(); r, p = spearmanr(sub[c1], sub[c2])
+    sens.append(dict(threshold=lab, n=len(sub), rho=r, p=p)); print(f"  {lab:38s}: n={len(sub)}  rho={r:+.3f}  p={p:.3g}")
+# circular-shift null for the per-meeting-threshold rho: rotate each meeting's rmse series (destroys the
+# first/second-half arrangement, keeps the whole-meeting threshold), recompute the two half-rates
+rng = np.random.default_rng(1010); null = []
+for _ in range(500):
+    a, b = [], []
+    for r in RAW:
+        x = r["rm"][r["ok"]]; k = rng.integers(1, len(x)); xs = np.roll(x, k)
+        thr = np.nanmean(xs) + TCRIT * np.nanstd(xs); ev = xs > thr
+        n1 = int(r["h1"][r["ok"]].sum()); a.append(10 * ev[:n1].sum() / r["dur1"]); b.append(10 * ev[n1:].sum() / r["dur2"])
+    null.append(spearmanr(a, b)[0])
+null = np.array(null); lo, hi = np.percentile(null, [2.5, 97.5])
+print(f"  circular-shift null of the per-meeting-threshold rho: mean={null.mean():+.3f}  95%=[{lo:+.3f},{hi:+.3f}]  -> observed {sens[0]['rho']:+.3f} is {'WITHIN' if lo <= sens[0]['rho'] <= hi else 'OUTSIDE'} the null band")
+sens.append(dict(threshold="circular-shift null (per-meeting threshold)", n=len(RAW), rho=null.mean(), p=np.nan, null_lo=lo, null_hi=hi))
+pd.DataFrame(sens).to_csv(f"{BASE}/data/meso_budget_sensitivity.csv", index=False)
+print("  reading: the negative first->second-half association is produced by the per-meeting threshold, not by a reorganization budget.")
 
 print("=" * 90, "\nT3a - First-half features -> second-half event rate (Spearman)\n" + "=" * 90)
 FEATS = ["h1_baseline_entropy", "h1_det_median", "h1_event_rate"]

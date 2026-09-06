@@ -5,6 +5,9 @@
 and compare the metric magnitude at each event (entropy_g, det_g over +/-10s; rmse peak z).
 Per-meeting z-scored to remove meeting baselines, pooled; Kruskal-Wallis + pairwise Mann-Whitney."""
 import glob,os,json,re,unicodedata,numpy as np,pandas as pd
+import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'src'))
+import reorg_events as RE
+from scipy.stats import wilcoxon, friedmanchisquare
 from scipy.stats import kruskal,mannwhitneyu
 TXT="data/text_startup"; GM="data/metrics_gorman_l8"
 def norm(s):
@@ -42,19 +45,12 @@ for mid in mids:
     tx=pd.read_csv(f"{TXT}/{mid}_transcript.csv")
     tx=pd.DataFrame(dict(onset=pd.to_numeric(tx.onset_seconds,errors="coerce"),spk=tx.speaker_id.astype(str)))
     tx=tx.dropna(subset=["onset"]); tx["nw"]=1  # turn-count weighting is robust for dominance
-    # cluster
-    ev=[]; cur=[]
-    for s in evsec:
-        if cur and s-cur[-1]>8: ev.append(cur);cur=[]
-        cur.append(s)
-    if cur: ev.append(cur)
-    for e in ev:
-        c=float(np.mean(e)); trans=any(abs(c-b)<=30 for b in bd)
+    _on=tx.onset.to_numpy(float); _sp=tx.spk.to_numpy(); _nw=tx.nw.to_numpy(float)
+    for e in RE.cluster_events(evsec):
+        cls0,c,_=RE.classify(e,bd,_on,_sp,_nw)  # canonical rule: centre, ±30 s, turn-count dominance
+        cls={"TRANSITION":"TRANSITION","INTERIOR_HANDOFF":"INT_HANDOFF","INTERIOR_OTHER":"INT_OTHER"}[cls0]
         m=(sec>=c-10)&(sec<=c+10)
         if m.sum()<3: continue
-        if trans: cls="TRANSITION"
-        else:
-            db=dom(tx,c-30,c); da=dom(tx,c,c+30); cls="INT_HANDOFF" if (db and da and db!=da) else "INT_OTHER"
         rows.append(dict(mid=mid,cls=cls,entropy=np.nanmean(ent[m]),det=np.nanmean(det[m]),
                          rmse_z=(np.nanmax(rm[m])-rmean)/rsd))
 D=pd.DataFrame(rows)
@@ -77,5 +73,17 @@ print("\n=== TRANSITION vs INT_HANDOFF (Mann-Whitney, within-meeting z) ===")
 for col in ["entropy_z","det_z","rmse_z_z"]:
     a=D[D.cls=='TRANSITION'][col]; b=D[D.cls=='INT_HANDOFF'][col]
     U,p=mannwhitneyu(a,b); print(f"  {col:10s}: trans {a.mean():+.2f} vs handoff {b.mean():+.2f}  p={p:.3g}")
+# --- 2026-09-05: unit of inference = the meeting (METHODS §6). Per-meeting class means, paired tests. ---
+print("\n=== Meeting-level (n=34): per-meeting mean within-meeting z by class; paired Wilcoxon TRANSITION vs INT_HANDOFF; Friedman across 3 classes ===")
+M=D.groupby(["mid","cls"])[["entropy_z","det_z","rmse_z_z"]].mean().unstack("cls")
+ml_rows=[]
+for col in ["entropy_z","det_z","rmse_z_z"]:
+    sub=M[col].dropna(subset=["TRANSITION","INT_HANDOFF"])
+    d=sub.TRANSITION-sub.INT_HANDOFF; pw=wilcoxon(d).pvalue; n_pos=int((d>0).sum())
+    sub3=M[col].dropna(); pf=friedmanchisquare(sub3.TRANSITION,sub3.INT_HANDOFF,sub3.INT_OTHER).pvalue
+    print(f"  {col:10s}: TRANSITION-HANDOFF mean diff={d.mean():+.2f} SD, higher in {n_pos}/{len(d)} meetings, paired Wilcoxon p={pw:.3g}; Friedman(3 classes, n={len(sub3)}) p={pf:.3g}")
+    ml_rows.append(dict(metric=col,n_pairs=len(d),mean_diff_T_minus_H=d.mean(),n_T_higher=n_pos,wilcoxon_p=pw,n_friedman=len(sub3),friedman_p=pf))
+pd.DataFrame(ml_rows).to_csv("reorg_signature_meeting_level.csv",index=False)
+print("(reading: the classes are ordered TRANSITION > HANDOFF > OTHER on all three metrics; the rmse difference is smaller than the %DET/entropy difference, not absent)")
 D.to_csv("reorg_signature.csv",index=False)
 print("\nwrote reorg_signature.csv")

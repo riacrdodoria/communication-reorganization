@@ -6,7 +6,7 @@ from pathlib import Path
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.decomposition import PCA
-GM=Path(os.environ.get("GM_DIR","data/metrics_gorman")); MET=Path("data/processed/metrics_startup")
+GM=Path(os.environ.get("GM_DIR","data/metrics_gorman_l8")); MET=Path("data/processed/metrics_startup")
 rng=np.random.default_rng(0)
 def build(which):
     rows=[]

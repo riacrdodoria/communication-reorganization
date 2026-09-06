@@ -23,7 +23,7 @@ def load_cb(folder):
     d = {}
     for f in glob.glob(f"{folder}/*_passA.json"):
         mid = os.path.basename(f).replace("_passA.json", "")
-        d[mid] = {int(w["t"]): w for w in json.load(open(f))["windows"]}
+        d[mid] = {int(round(int(w["t"]) / 90) * 90): w for w in json.load(open(f))["windows"]}  # snap to the 90-s grid (one act4teams file is offset)
     return d
 
 
@@ -133,7 +133,7 @@ for cat in FAMILY:
     if len(vals) < 15:
         continue
     p = wilcoxon(vals, zero_method="wilcox", alternative="two-sided").pvalue if np.any(vals != 0) else 1.0
-    res_rows.append(dict(cat=cat, n=len(vals), mean_delta=vals.mean(), p=p))
+    res_rows.append(dict(cat=cat, n=len(vals), n_nonzero=int(np.sum(vals != 0)), mean_delta=vals.mean(), p=p))  # n_nonzero = effective n of the Wilcoxon
 rr = pd.DataFrame(res_rows)
 if len(rr):
     p = np.array(rr["p"]); n = len(p); order = np.argsort(p); ranked = p[order] * n / (np.arange(n) + 1)
@@ -141,6 +141,6 @@ if len(rr):
     rr = rr.sort_values("mean_delta", ascending=False)
     for _, r in rr.iterrows():
         star = "***" if r.q_fdr < .001 else "**" if r.q_fdr < .01 else "*" if r.q_fdr < .05 else "n.s."
-        print(f"  {r['cat']:10}  n={r.n}  review-minus-IDS={r.mean_delta:+.4f}  p={r.p:.4f}  q={r.q_fdr:.4f}  {star}")
+        print(f"  {r['cat']:10}  n={r.n} (non-zero pairs={r.n_nonzero})  review-minus-IDS={r.mean_delta:+.4f}  p={r.p:.4f}  q={r.q_fdr:.4f}  {star}")
 rr.to_csv(f"{OUT}/socioemotional_review_vs_ids.csv", index=False)
 print(f"\nwrote {OUT}/socioemotional_pos_vs_neg.csv, {OUT}/socioemotional_review_vs_ids.csv")

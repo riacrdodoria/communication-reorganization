@@ -19,28 +19,8 @@ def gini(x):
 def shannon(p):
     p=np.asarray(p,float); p=p[p>0]; p=p/p.sum()
     return -(p*np.log2(p)).sum() if len(p) else 0.0
-def degree_centralization(W):
-    # Freeman centralization on total (in+out) degree of weighted directed graph
-    N=W.shape[0]
-    if N<3: return np.nan
-    deg=W.sum(0)+W.sum(1); deg=deg/deg.sum() if deg.sum()>0 else deg
-    dmax=deg.max(); return (dmax-deg).sum()/(N-1)
-def eig_central(W):
-    N=W.shape[0]
-    if N<2 or W.sum()==0: return np.nan
-    A=(W+W.T)/2; v=np.ones(N)/N
-    for _ in range(100):
-        v2=A@v; nrm=np.linalg.norm(v2)
-        if nrm==0: return np.nan
-        v2=v2/nrm
-        if np.allclose(v2,v,atol=1e-9): break
-        v=v2
-    return v.max()  # dominance of the most central speaker
-def inout_asym(W):
-    N=W.shape[0]
-    if N<2 or W.sum()==0: return np.nan
-    out=W.sum(1); inn=W.sum(0); tot=W.sum()
-    return np.abs(out-inn).max()/tot   # who drives transitions (initiator vs responder)
+# 2026-09-05: measures moved to floor_measures.py (normalised centralization, Perron eigenvector, dyadic asymmetry)
+from floor_measures import degree_centralization, eig_central, inout_asym
 
 rows=[]
 for f in sorted(glob.glob(str(TXT/"*_transcript.csv"))):
@@ -85,7 +65,7 @@ LAB={"gini_words":"Gini participation (words)","gini_turns":"Gini participation 
 "part_entropy":"Participation entropy","top_share":"Top-speaker share (quant. dominance)",
 "turnlen_disp":"Turn-length dispersion (Edelsky F1>F2)","n_active":"Active speakers / window",
 "net_central":"Network degree centralization","eig_central":"Max eigenvector centrality",
-"inout_asym":"In-out asymmetry (sequential dom./influence)"}
+"inout_asym":"Dyadic transition asymmetry (who follows whom)"}
 NP=500; rng=np.random.default_rng(0)
 def z(a): a=a-np.nanmean(a); s=np.nanstd(a); return a/s if s>0 else None
 def stf(feat,metric):

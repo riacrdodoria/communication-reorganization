@@ -29,7 +29,8 @@ for team,g in P.groupby("team"):
     ax2.text(.02,.06 if team=="startup_b" else .12,f"{team}: τ={t:+.2f} (p={p:.2f})",
              transform=ax2.transAxes,color=COL[team],fontsize=8.5)
 ax2.set_xlabel("week (within team)"); ax2.set_ylabel("INTERIOR reorg-event rate (% of interior seconds)")
-ax2.set_title("B  Interior reorganization rate over time\nstartup_a weakly declines (consolidation hint, p=.05)",fontsize=10.5,loc="left")
+ta,pa=kendalltau(P[P.team=="startup_a"].sort_values("week").week,P[P.team=="startup_a"].sort_values("week").r_int)
+ax2.set_title("B  Interior reorganization rate over time\n"+(f"startup_a declines (τ={ta:+.2f}, p={pa:.3f})" if pa<.05 else f"no significant trend (startup_a τ={ta:+.2f}, p={pa:.2f})"),fontsize=10.5,loc="left")
 ax2.legend(fontsize=8.5,loc="upper right")
 fig.suptitle("Over 26 weeks the WHERE of reorganization (border vs interior) stays put — only its rate/depth drifts",fontsize=11.5,y=1.0)
 fig.tight_layout(); fig.savefig("fig_reorg_longitudinal.png",dpi=150)

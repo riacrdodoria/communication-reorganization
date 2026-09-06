@@ -30,7 +30,7 @@ new, standalone files.
    extracted/regenerated without reverse-engineering its binning from scratch, which reinforced the
    recommendation independently of the persuasiveness argument.
 3. **Fig 3 Panel C**: Study 7's baseline-vs-excursion panel (`reorg_depth_longitudinal_panel.csv`),
-   not Study 5's broader consolidation panel — it isolates the "sinking baseline, stable peaks"
+   not Study 5's broader panel — after the 2026-09-05 correction it shows "stable baseline, stable peaks"
    dissociation the panel is meant to show.
 
 ## Figure 1 — Computational structure (3 panels, reused: 2, new: 1)

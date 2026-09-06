@@ -3,7 +3,7 @@ Correlate codebooks2 categories with entropy_g/det_g/rmse_g (window-mean over 90
 Stouffer within-meeting circular null. Compare RMSE story old vs new."""
 import glob,os,json,numpy as np,pandas as pd
 from pathlib import Path
-GM=Path(os.environ.get("GM_DIR","data/metrics_gorman")); COD=Path("data/codebooks2"); MET=Path("data/processed/metrics_startup")
+GM=Path(os.environ.get("GM_DIR","data/metrics_gorman_l8")); COD=Path("data/codebooks2"); MET=Path("data/processed/metrics_startup")
 CATS=["arguable","disagree","iam2","bdisagree","explor","disput","delim","iam1","converge","bagree","baskinfo","qset" if False else "nonarg","cumul"]
 CATS=["arguable","disagree","iam2","bdisagree","explor","disput","delim","iam1","arguable","converge","bagree","cumul","nonarg"]
 CATS=sorted(set(["arguable","disagree","iam2","bdisagree","explor","disput","delim","iam1","converge","bagree","cumul","nonarg","baskinfo"]))

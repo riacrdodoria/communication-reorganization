@@ -47,21 +47,33 @@ and **how** it changes as a team matures (developmental consolidation).
 
 | # | Folder | Question | Headline result |
 |---|---|---|---|
-| 1 | [`studies/study1_lsh_validation`](studies/study1_lsh_validation) | Is the Last-Speaker-Holds (LSH) representation a valid substrate? | LSH reproduces the standard silence-preserving representation (r ≈ .87–.93). |
-| 2 | [`studies/study2_reorganization_dynamics`](studies/study2_reorganization_dynamics) | What *is* reorganization, dynamically? | Endogenous, supra-autoregressive, a continuum (not two regimes); clean entropy–%DET geometry. |
-| 3 | [`studies/study3_content_fingerprint`](studies/study3_content_fingerprint) | What does reorganization *mean*? | Coordination, not deliberation — six validated taxonomies converge, corroborated by coding-free measures. |
-| 4 | [`studies/study4_floor_dynamics`](studies/study4_floor_dynamics) | What is it in *floor* terms? | Edelsky F1 ↔ F2; the floor equalizes and de-centralizes at reorganization (event-locked). |
-| 5 | [`studies/study5_team_development`](studies/study5_team_development) | How does it *develop*? | Over 26 weeks teams consolidate (entropy↓, centrality↑, content→deliberation, range↓), replicated across two teams and three lenses. |
+| 1 | [`studies/study1_lsh_validation`](studies/study1_lsh_validation) | Is the Last-Speaker-Holds (LSH) representation a valid substrate? | LSH reproduces the standard silence-preserving representation: r ≈ .87–.93 on Gorman's published validation corpora (earlier 1 Hz implementation), median r = .94 on the present 34 meetings (Gorman-faithful metrics). |
+| 2 | [`studies/study2_reorganization_dynamics`](studies/study2_reorganization_dynamics) | What *is* reorganization, dynamically? | Endogenous and supra-autoregressive (entropy excursions 2.3× the AR(1)/VAR(1) null, L_min = 8 metrics); a continuum, not two regimes (Sarle BC = 0.41 < 0.555); the entropy–%DET coupling is reproduced by shuffling the order of team-state runs, i.e. it is a property of the two metrics, not of temporal organisation. |
+| 3 | [`studies/study3_content_fingerprint`](studies/study3_content_fingerprint) | What does reorganization *mean*? | Coordination, not deliberation — six validated taxonomies converge (28/40 categories at RMSE peaks, 27/40 at %DET valleys; unchanged after the corpus correction). Among coding-free measures, only novelty/topic-shift survives the turn-length control; semantic recurrence and coherence were turn-length artefacts. |
+| 4 | [`studies/study4_floor_dynamics`](studies/study4_floor_dynamics) | What is it in *floor* terms? | Edelsky F1 ↔ F2; the floor equalizes and de-centralizes at reorganization (event-locked; nine measures, corrected network statistics). |
+| 5 | [`studies/study5_team_development`](studies/study5_team_development) | How does it *develop*? | After removing a transcription-tool line that had inflated the speaker count in the ten latest meetings, the previously reported entropy decline vanishes (τ = −.09 / −.16, n.s.). What remains: network centralization rises in Team B (τ = +.43) and in direction in Team A (+.32); content trends 0/82 after FDR. Development is *not* a consolidation of the resting operating point. |
 | 6 | [`studies/study6_dialogue_microstructure`](studies/study6_dialogue_microstructure) | At what *unit* does it live? | Topic-episode boundaries *are* reorganization events; meetings follow an open→status→problem→solution→close arc; on the teams' EOS Level 10 agenda the procedural review reorganizes *more* than the deliberative problem-solving (IDS). |
-| 7 | [`studies/study7_anatomy_of_reorganization`](studies/study7_anatomy_of_reorganization) | What *is* a single reorganization event? | A redistribution of the floor (F1→F2): ~⅓ topic-transition (deeper) + ~⅔ endogenous handoff/opening (function: clarify / co-construct / decide; κ = .51); trigger sets depth, not existence; each taxonomy predicts both perturbations the same way (both coordination). |
+| 7 | [`studies/study7_anatomy_of_reorganization`](studies/study7_anatomy_of_reorganization) | What *is* a single reorganization event? | A redistribution of the floor (F1→F2): ~⅓ topic-transition + ~⅔ endogenous handoff/opening (function: clarify / co-construct / decide; κ = .51). Trigger classes are graded, TRANSITION > HANDOFF > OTHER, on all three metrics at the meeting level (paired Wilcoxon p = .04 / .0002 / .004), and 37/40 taxonomy categories move the same way at both. Developmentally, neither the resting baseline nor the event excursion drifts once the corpus is corrected (0/10 trends survive FDR). |
 | 8 | [`studies/study8_outcomes`](studies/study8_outcomes) | Does reorganization *matter*? | Tests the adaptive-function proposition (P6) against three EOS L10-embedded outcomes (meeting rating, to-do completion, IDS issue resolution). Honest null: 0/42 predictor×outcome tests (Spearman + mixed model) survive BH-FDR; reported transparently as a null, not hidden. |
-| 9 | [`studies/study9_initiators`](studies/study9_initiators) | Who initiates reorganization? | The external facilitator (the same advisor across both teams) initiates in exact proportion to talk-time (permutation test, all n.s.) — no facilitator advantage; the most disproportionate initiator is each team's *quietest* member. A weak, team-dependent drift toward the facilitator over time is reported but not read as evidence for leader-centric consolidation (P5), since the facilitator is external, not either team's own internal leader. |
-| 10 | [`studies/study10_early_warning`](studies/study10_early_warning) | Can reorganization be anticipated? | A feasibility probe (not a classifier): a real, mechanism-independent precursor exists (rising speaker-switching, shortening turns, fewer questions before events; rank-biserial ≈.9 at the meeting level) but is only modestly discriminable event-by-event (AUC≈0.66); a meeting's first-half reorganization rate *negatively* predicts its second half (ρ=−.64) — self-regulation, not momentum. |
-| 11 | [`studies/study11_replication`](studies/study11_replication) | Does everything above replicate across the two teams? | Formalizes the corpus as an intensive longitudinal replication design. 26/27 headline statistics agree in direction; the decisive test — four entire multi-category profiles (taxonomy fingerprint, floor measures, review-vs-IDS contrast, border-vs-interior contrast) — correlate between teams at Spearman r = 0.84–0.98 (all permutation p < .0001). Two facilitator-specific statistics are explicitly flagged as non-replicating, not hidden. |
+| 9 | [`studies/study9_initiators`](studies/study9_initiators) | Who initiates reorganization? | With the facilitator identified per meeting (verified role map) and members tracked as persons rather than per-meeting labels: the external facilitator initiates *fewer* floor-taking and topic-opening events than talk-time predicts (permutation p < .002, both definitions; lift 0.86 / 0.75) but *more* question-initiated events (p = .008); the least-talkative member over-initiates in both teams (lift 1.38 / 1.29); initiator ranks are stable across halves (ρ = .80 / .90). |
+| 10 | [`studies/study10_early_warning`](studies/study10_early_warning) | Can reorganization be anticipated? | A feasibility probe (not a classifier): a real, mechanism-independent precursor exists (rising speaker-switching, shortening turns, fewer questions before events) but is only modestly discriminable event-by-event (AUC ≈ 0.66). The earlier "within-meeting budget" (first-half rate negatively predicting second half) was an artefact of the per-meeting event threshold: with an online threshold ρ = +.03 (n.s.), and a circular-shift null reproduces the negative value. "No detectable precursor" (72 %) equals the criterion's base rate on baseline windows (69 %). |
+| 11 | [`studies/study11_replication`](studies/study11_replication) | Does everything above replicate across the two teams? | Formalizes the corpus as an intensive longitudinal replication design. 26/27 headline statistics agree in direction; the decisive test — four entire multi-category profiles (taxonomy fingerprint, floor measures, review-vs-IDS contrast, border-vs-interior contrast) — correlate between teams at Spearman r = 0.84–0.98 (permutation p < .0001, 0/10,000). Of five longitudinal trends, only network centralization replicates (partially); the entropy trends are null in both teams after the corpus correction. The two person-level statistics previously flagged as non-replicating were label artefacts and replicate once persons are tracked by role. |
 | 12 | [`studies/study12_socioemotional`](studies/study12_socioemotional) | Does reorganization have a socioemotional face? | Yes, and it is one-sided: agreement, positive affect, and solidarity rise sharply at reorganization events (BH-FDR q<.001, within an 8-category confirmatory family); no negative category survives FDR. The positive signal is a sharp spike coincident with the event itself (circular-shift null p<.02), not a before-the-fact lubricant or after-the-fact repair. Negative affect instead concentrates in the deliberative IDS stage, not at reorganization events. |
 
 A reader can begin with Study 1 and proceed in order; each study folder has a self-contained `README.md`
 with rationale, methods, the exact analysis scripts, the result tables they produce, and references.
+
+### Corrections (2026-09-05)
+
+A full code audit of the twelve studies found two corpus-level defects and several analysis defects, all
+now corrected and logged in `METHODS.md` §8. In brief: (1) a transcription-tool announcement line had been
+counted as an extra speaker in the ten latest meetings, deflating entropy there by 20–25 % and manufacturing
+the developmental entropy decline reported earlier in Studies 5 and 7 (now null); (2) the facilitator had
+been identified by a per-meeting label that was wrong in 24 of 34 meetings (Study 9 and the two affected
+Study 11 rows rebuilt on a verified role map); (3) the Study 2 surrogate tests, the bimodality coefficient,
+the Study 3 coding-free corroboration, the Study 10 "budget", and the Study 4 network measures were
+re-derived. Everything that survives is listed in the table above; what did not survive is stated in the
+study READMEs rather than removed.
 
 ## 4. Repository layout
 
@@ -95,7 +107,28 @@ timestamps), and all result tables. Speakers are referred to only by anonymous i
 BP-LIWC2015 dictionary used in Study 3 is licensed and is **not** redistributed (see
 [`studies/study3_content_fingerprint/README.md`](studies/study3_content_fingerprint/README.md)).
 
-## 7. Reproducibility and annotation
+## 7. Future work
+
+The corrected corpus, the verified per-meeting role map and the quote-anchored issue annotations make four
+follow-up questions answerable without new data; they are deliberately left out of the present paper so
+that it stays focused on what reorganization is and when it occurs.
+
+1. **Adaptive function at the issue level.** Every issue raised in the IDS stage has a timestamp and a
+   resolved / not-resolved status. Whether reorganization occurs when an issue is raised, and whether
+   resolved and unresolved issues differ in their reorganization profile, tests the adaptive-function
+   proposition on hundreds of units instead of 34 meetings.
+2. **The facilitator's question as a cue.** The facilitator asks the opening question more often than
+   talk-time predicts while members take the floor. A lagged sequence test (facilitator question at *t*,
+   member-initiated event within the following 30 s, against a circular-shift null) would turn this
+   division of labour into an observable mechanism.
+3. **Member absence as a naturalistic perturbation.** In four meetings one member is absent and in nine a
+   participant joins through a shared room device. These are the closest in-the-wild analogues to the
+   severed-channel perturbations of the laboratory paradigm.
+4. **What the floor-openers say.** With events labelled by initiator role, the taxonomy lifts can be
+   split by who opened the floor, asking whether bottom-up openings carry different content from
+   facilitator-led ones.
+
+## 8. Reproducibility and annotation
 
 Metrics follow the Gorman/Grimm specification (see `METHODS.md`). Interaction-taxonomy annotation was
 performed with large-language-model annotators applied to the published codebook definitions, following

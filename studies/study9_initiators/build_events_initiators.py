@@ -26,6 +26,10 @@ Speaker ids are pseudonymized per team as S1, S2, ... (numeric order of first ap
 meeting's transcript); the facilitator is additionally flagged 'L'. Output: events_initiators.csv."""
 import glob, os, json, re, unicodedata
 import numpy as np, pandas as pd
+import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'src'))
+from roles import role_map
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "src"))
+import reorg_events as RE
 
 LSH = os.path.expanduser("~/lsh-work")
 GM = f"{LSH}/data/metrics_gorman_l8"
@@ -94,12 +98,12 @@ for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
     onset_all, speak_all, text_all, nw_all, end_all = (a[ok] for a in (onset_all, speak_all, text_all, nw_all, end_all))
     order = np.argsort(onset_all)
     onset_all, speak_all, text_all, nw_all, end_all = (a[order] for a in (onset_all, speak_all, text_all, nw_all, end_all))
-    # pseudonymized speaker map: order of first appearance
-    seen = []
-    for s in speak_all:
-        if s not in seen: seen.append(s)
-    pseudo = {s: f"S{i+1}" for i, s in enumerate(seen)}
-    facilitator_pseudo = pseudo.get(FACILITATOR_RAW_ID_BY_MID.get(mid))
+    # speaker labels = verified per-meeting ROLES (persistent across meetings; no names). Replaces the
+    # earlier S1..Sn pseudonyms, which were per-meeting first-appearance order and therefore not a person.
+    pseudo = role_map(mid)
+    assert all(s in pseudo for s in set(speak_all)), (mid, set(speak_all) - set(pseudo))
+    facilitator_pseudo = "FACILITATOR"
+    assert pseudo.get(FACILITATOR_RAW_ID_BY_MID.get(mid)) == facilitator_pseudo, mid
 
     g = pd.read_csv(f)
     sec = g.second.to_numpy(float)
@@ -129,22 +133,16 @@ for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
         prior = np.where(onset_all <= t)[0]
         return speak_all[prior[-1]] if len(prior) else None
 
-    # cluster consecutive event-seconds into discrete events (gap>8s = new event), same as Study 7
-    events = []
-    cur = []
-    for s in evsec:
-        if cur and s - cur[-1] > 8:
-            events.append(cur); cur = []
-        cur.append(s)
-    if cur: events.append(cur)
+    # cluster consecutive event-seconds into discrete events (gap>8s = new event), shared with Study 7
+    events = RE.cluster_events(evsec)
 
     for ev in events:
         onset_s = float(ev[0])
         center = float(np.mean(ev))
-        trans = any(abs(center - b) <= 30 for b in bd)
-        db = dom_speaker(onset_s - 15, onset_s)
-        da = dom_speaker(onset_s, onset_s + 15)
-        ev_class = "TRANSITION" if trans else ("INTERIOR_HANDOFF" if (db and da and db != da) else "INTERIOR_OTHER")
+        # 2026-09-05: event_class now uses the CANONICAL Study 7 rule (centre, ±30 s, turn-count dominance);
+        # the earlier Study 9 rule (onset, ±15 s, word-count dominance) is kept as event_class_s9rule for sensitivity.
+        ev_class, _, _ = RE.classify(ev, bd, onset_all, speak_all, nw_all)
+        ev_class_s9, _, _ = RE.classify(ev, bd, onset_all, speak_all, nw_all, anchor="onset", window=15, weight="words")
         # depth: entropy at event window minus meeting interior baseline
         wmask = (sec >= onset_s) & (sec <= onset_s + 15)
         depth = float(np.nanmean(ent[wmask]) - bent) if wmask.sum() >= 2 else np.nan
@@ -168,7 +166,7 @@ for f in sorted(glob.glob(f"{GM}/*_gorman.csv")):
                 init_question = speak_all[i]; break
 
         rows.append(dict(
-            mid=mid, team=team, date=date, event_onset_s=onset_s, event_class=ev_class, depth=depth,
+            mid=mid, team=team, date=date, event_onset_s=onset_s, event_class=ev_class, event_class_s9rule=ev_class_s9, depth=depth,
             init_primary=pseudo.get(init_primary), init_floor=pseudo.get(init_floor),
             init_question=pseudo.get(init_question) if init_question else None,
             facilitator=facilitator_pseudo,

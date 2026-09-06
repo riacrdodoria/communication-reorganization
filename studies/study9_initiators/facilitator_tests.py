@@ -36,7 +36,9 @@ for defn in DEFS:
             draws.extend((picks == facilitator_m).tolist())
         null_shares.append(np.mean(draws))
     null_shares = np.array(null_shares)
-    p_perm = float(np.mean(null_shares >= obs_share)) if obs_share >= null_shares.mean() else float(np.mean(null_shares <= obs_share))
+    # Phipson & Smyth (2010): p = (b+1)/(N+1), so p is never reported as 0 (minimum 1/(N+1))
+    b = int(np.sum(null_shares >= obs_share)) if obs_share >= null_shares.mean() else int(np.sum(null_shares <= obs_share))
+    p_perm = (b + 1) / (len(null_shares) + 1)
     p_two = min(1.0, 2 * p_perm)
     perm_rows.append(dict(definition=defn, n=len(sub), observed_facilitator_share=obs_share,
                            null_mean=null_shares.mean(), null_sd=null_shares.std(),
@@ -44,7 +46,7 @@ for defn in DEFS:
                            p_perm_two_sided=p_two))
     print(f"{defn:14s}: observed facilitator share={obs_share:.3f}  talk-time-weighted null={null_shares.mean():.3f} "
           f"+/-{null_shares.std():.3f} (95% null CI [{np.percentile(null_shares,2.5):.3f},{np.percentile(null_shares,97.5):.3f}])"
-          f"  p={p_two:.4f}  seed=9, {NPERM} runs")
+          f"  {('p<' + format(2/NPERM, '.3f')) if p_two < 2/NPERM else 'p=' + format(p_two, '.3f')}  seed=9, {NPERM} runs")
 PERM = pd.DataFrame(perm_rows)
 PERM.to_csv(f"{BASE}/data/permutation_facilitator_share.csv", index=False)
 

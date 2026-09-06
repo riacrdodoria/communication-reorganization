@@ -68,7 +68,8 @@ add("lsh_validity_r", "LSH vs standard entropy trajectory (median per-meeting r)
 print("\n=== 2. Bimodality coefficient ===")
 def sarle_bc(x):
     x = x[np.isfinite(x)]
-    g1 = skew(x); k = kurtosis(x, fisher=False); n = len(x)
+    # Sarle BC = (g1^2+1) / (excess_kurtosis + 3(n-1)^2/((n-2)(n-3))); fixed 2026-09-05 (Pearson kurtosis had been used, inflating the denominator by 3)
+    g1 = skew(x); k = kurtosis(x); n = len(x)
     return (g1 ** 2 + 1) / (k + (3 * (n - 1) ** 2) / ((n - 2) * (n - 3)))
 ent_by_team = {t: [] for t in TEAMS}
 for f in glob.glob(f"{GM}/*_gorman.csv"):

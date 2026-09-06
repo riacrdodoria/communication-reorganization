@@ -32,14 +32,24 @@ for feat in ["entropy_slope", "switch_rate"]:
             no_prec = abs(r[feat] - mu) <= sd  # within 1 SD of this meeting's own baseline
             n_no_precursor += int(no_prec)
             per_event_flag.append(dict(mid=mid, event_id=r.event_id, feature=feat, no_precursor=no_prec))
+    # 2026-09-05 (AUDIT S10 #2): the same criterion applied to the BASELINE windows themselves gives the
+    # base rate of 'within 1 SD' (about 68% under normality). Report it next to the event rate.
+    nb_tot = 0; nb_in = 0
+    for mid, g in D.groupby("mid"):
+        bl = g[g.label == 0][feat].dropna()
+        if len(bl) < 5 or bl.std() == 0: continue
+        nb_tot += len(bl); nb_in += int((np.abs(bl - bl.mean()) <= bl.std()).sum())
     rows.append(dict(feature=feat, n_events=n_total, n_no_precursor=n_no_precursor,
-                      pct_no_precursor=100 * n_no_precursor / n_total if n_total else np.nan))
+                      pct_no_precursor=100 * n_no_precursor / n_total if n_total else np.nan,
+                      pct_baseline_within_1sd=100 * nb_in / nb_tot if nb_tot else np.nan,
+                      excess_vs_baseline=(100 * n_no_precursor / n_total - 100 * nb_in / nb_tot) if (n_total and nb_tot) else np.nan))
     pd.DataFrame(per_event_flag).to_csv(f"{BASE}/data/no_precursor_flags_{feat}.csv", index=False)
 
 R = pd.DataFrame(rows)
 R.to_csv(f"{BASE}/data/no_precursor_summary.csv", index=False)
 print("=" * 90, "\nT4 - Proportion of events with NO detectable precursor (within 1 SD of meeting's own baseline)\n" + "=" * 90)
 print(R.round(1).to_string(index=False))
+print("  (pct_baseline_within_1sd = base rate of the criterion on non-event windows; 'no precursor' is only informative relative to it)")
 
 # how many events lack a precursor on BOTH features (genuinely abrupt on the two clearest signals)
 e = pd.read_csv(f"{BASE}/data/no_precursor_flags_entropy_slope.csv")[["mid", "event_id", "no_precursor"]].rename(columns={"no_precursor": "no_prec_entropy"})

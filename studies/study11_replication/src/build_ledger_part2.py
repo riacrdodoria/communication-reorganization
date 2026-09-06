@@ -7,6 +7,12 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(__file__))
 from team_utils import team_of, TEAMS, NICE
 
+def fmt_perm_p(p, n_perm):
+    """Permutation p cannot be below 1/n_perm (two-sided: 2/n_perm); report the floor, never 0.000."""
+    floor = 2.0 / n_perm
+    return f"p<{floor:.3f}" if p < floor else f"p={p:.3f}"
+
+
 LSH = os.path.expanduser("~/lsh-work")
 GM = f"{LSH}/data/metrics_gorman_l8"
 OUT = os.path.dirname(__file__) + "/../data"
@@ -215,7 +221,7 @@ for team in TEAMS:
             draws.extend((picks == fac).tolist())
         null_shares.append(np.mean(draws))
     null_shares = np.array(null_shares)
-    p_perm = 2 * min(np.mean(null_shares >= obs), np.mean(null_shares <= obs))
+    p_perm = min(1.0, 2 * (min(np.sum(null_shares >= obs), np.sum(null_shares <= obs)) + 1) / (len(null_shares) + 1))  # Phipson & Smyth (2010)
     if team == "startup_a":
         obs_a, null_a, p_a = obs, null_shares.mean(), p_perm
     else:
@@ -223,8 +229,10 @@ for team in TEAMS:
 add("facilitator_init_share_vs_null", "Facilitator-initiated share (observed) vs talk-time-weighted permutation null mean", "Study 9",
     round(obs_a - null_a, 3), round(obs_b - null_b, 3),
     a_sig=bool(p_a < .05), b_sig=bool(p_b < .05),
-    note=f"A: obs={obs_a:.3f} null={null_a:.3f} p={p_a:.3f}; B: obs={obs_b:.3f} null={null_b:.3f} p={p_b:.3f} "
-         f"(both n.s. = no facilitator initiation premium in EITHER team, the ledger-level replication)")
+    note=f"A: obs={obs_a:.3f} null={null_a:.3f} {fmt_perm_p(p_a, 1000)}; B: obs={obs_b:.3f} null={null_b:.3f} {fmt_perm_p(p_b, 1000)} "
+         + ("(facilitator share BELOW its talk-time null in both teams)" if (p_a < .05 and p_b < .05 and obs_a < null_a and obs_b < null_b)
+            else "(facilitator share ABOVE its talk-time null in both teams)" if (p_a < .05 and p_b < .05)
+            else "(significant in one team only)" if (p_a < .05 or p_b < .05) else "(n.s. in both teams)"))
 
 # 11b. quiet-member initiation lift, per team (S5 = quietest member by talk share)
 q_lifts = {}
@@ -234,7 +242,7 @@ for team in TEAMS:
     q_lifts[team] = quiet.lift
 add("quiet_member_init_lift", "Initiation lift of the least-talkative member (init_primary)", "Study 9",
     round(q_lifts["startup_a"], 3), round(q_lifts["startup_b"], 3),
-    note="both >1 = quietest member over-initiates relative to talk-time in both teams")
+    note=("both >1 = least-talkative member over-initiates relative to talk-time in both teams (person-level roles)" if (q_lifts["startup_a"] > 1 and q_lifts["startup_b"] > 1) else "least-talkative member does not over-initiate in both teams"))
 
 # 11c. initiator-rank stability (Spearman rho, halves), per team
 for team in TEAMS:
@@ -244,7 +252,8 @@ for team in TEAMS:
     else: stab_b = val
 add("initiator_rank_stability", "Spearman rho, member initiation ranks first-half vs second-half (init_primary)", "Study 9",
     round(stab_a, 2), round(stab_b, 2),
-    note="NON-REPLICATION candidate: stability may differ sharply by team (see RESULTS.md)")
+    note=("initiator ranks stable across halves in both teams (person-level roles)" if (stab_a >= .7 and stab_b >= .7)
+          else "initiator-rank stability differs by team (person-level roles)"))
 
 # 11d. longitudinal tau of facilitator initiation share, per team (KNOWN non-replication)
 for team in TEAMS:
@@ -254,8 +263,11 @@ for team in TEAMS:
     else: fac_tau_b, fac_p_b = val_t, val_p
 add("facilitator_share_vs_week_tau", "Kendall tau: facilitator-initiated share vs week (init_primary)", "Study 9",
     round(fac_tau_a, 3), round(fac_tau_b, 3), a_sig=bool(fac_p_a < .05), b_sig=bool(fac_p_b < .05),
-    note="FLAGGED NON-REPLICATION: significant in Team B only (p=.02); Team A n.s. (p=.34). "
-         "Not read as evidence for/against P5 (facilitator is external, shared across teams) - see RESULTS.md.")
+    note=(f"Team A p={fac_p_a:.3f}, Team B p={fac_p_b:.3f}: "
+          + ("significant in both teams. " if (fac_p_a < .05 and fac_p_b < .05)
+             else "FLAGGED NON-REPLICATION: significant in one team only. " if (fac_p_a < .05 or fac_p_b < .05)
+             else "n.s. in both teams. ")
+          + "Not read as evidence for/against P5 (facilitator is external, shared across teams) - see RESULTS.md."))
 
 # ============================================================ 12. S8 outcome null
 print("\n=== 12. Study 8 baseline_entropy -> issue_resolution_rate, per team (documented null) ===")

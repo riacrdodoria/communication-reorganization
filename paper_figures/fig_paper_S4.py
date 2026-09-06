@@ -12,7 +12,7 @@ MEAS=[("top_share","Top-speaker share","concentration"),
       ("net_central","Network centralization","concentration"),
       ("eig_central","Eigenvector centrality","concentration"),
       ("gini_words","Participation Gini (words)","concentration"),
-      ("inout_asym","In–out influence asymmetry","concentration"),
+      ("inout_asym","Dyadic transition asymmetry","concentration"),
       ("turnlen_disp","Turn-length dispersion (F1>F2)","concentration"),
       ("n_active","Active speakers / window","breadth"),
       ("part_entropy","Participation entropy*","breadth")]

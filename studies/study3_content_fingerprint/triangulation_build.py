@@ -136,13 +136,21 @@ for f in sorted(glob.glob(str(TXT/"*_transcript.csv"))):
             coh=np.nanmean(sub["coh"]),nov=np.nanmean(sub["nov"]),
             word_entropy=shannon(cnt),ttr=len(cnt)/max(1,ntok),mtld=mtld_one(alltok),
             hapax=sum(1 for c in cnt.values() if c==1)/max(1,len(cnt)),
-            lsm=np.nanmean(sub["lsm"]),
+            lsm_curated=np.nanmean(sub["lsm"]),  # curated function-word list; the BP-LIWC2015 LSM is merged below
             turn_len=sub["nw"].mean(),latency=np.nanmean(sub["lat"]),
             transition_entropy=tent,n_turns=len(sub),
             connective=conn,content_overlap=np.nanmean(ov) if ov else np.nan,
             words_per_turn=sub["nw"].mean()))
     print(f"  {mid}: windows={sum(1 for r in rows if r['mid']==mid)}",flush=True)
 out=pd.DataFrame(rows)
+# 2026-09-05: merge the BP-LIWC2015 LSM (liwc_lsm.py -> liwc_lsm_windows.csv) explicitly, instead of the
+# earlier undocumented manual overwrite of the `lsm` column. Both LSM variants are kept, named unambiguously.
+import os
+if os.path.exists("liwc_lsm_windows.csv"):
+    L=pd.read_csv("liwc_lsm_windows.csv")[["mid","bin","liwc_lsm"]]
+    out=out.merge(L,on=["mid","bin"],how="left"); print(f"merged liwc_lsm for {out.liwc_lsm.notna().sum()} windows")
+else:
+    print("WARNING: liwc_lsm_windows.csv not found; liwc_lsm column absent (run liwc_lsm.py first)")
 out.to_csv("triangulation_windows.csv",index=False)
 print(f"\nsaved triangulation_windows.csv  rows={len(out)}  meetings={out.mid.nunique()}")
 print(out.describe().loc[['mean','std','min','max']].round(3).T.to_string())

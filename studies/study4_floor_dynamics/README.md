@@ -22,9 +22,14 @@ null). Network measures are additionally recomputed on longer windows and per me
 - **All nine measures track reorganization coherently.** At reorganization the floor **equalizes and
   de-centralizes**: top-speaker share ↓ (r ≈ .52 vs %DET), participation Gini ↓, participation entropy ↑,
   turn-length dispersion ↓ (Edelsky's "neutralization" of F2), more active speakers, network
-  centralization and top eigenvector-centrality ↓, in–out asymmetry ↓.
+  centralization and top eigenvector-centrality ↓, dyadic transition asymmetry ↓. (Network measures
+  corrected 2026-09-05, `src/floor_measures.py`: Freeman centralization normalised to [0,1] so it is not
+  mechanically tied to the number of active speakers; principal eigenvector by eigendecomposition
+  instead of a non-converging power iteration; the earlier in–out asymmetry, which for a single
+  transition sequence reduces to ≈ 1/n_transitions, replaced by the share of non-reciprocated dyadic
+  transitions. Directions and significance of all nine measures are unchanged.)
 - **Event-locked confirmation.** Snapshots in ±45 s of entropy peaks vs valleys show, on the non-
-  tautological structure measures (top-speaker share, network centralization, in–out asymmetry), the same
+  tautological structure measures (top-speaker share, network centralization, dyadic asymmetry), the same
   F2-at-peak / F1-at-valley pattern — confirming it is floor *structure*, not just participation counts,
   that reorganizes.
 - **Scale.** Network-centrality effects strengthen on longer windows and per meeting (e.g. per-meeting
@@ -38,12 +43,13 @@ Because the floor account *is* the reorganization, the metrics let us dissect a 
 mechanism and content. That grew into its own study — see
 [`studies/study7_anatomy_of_reorganization`](../study7_anatomy_of_reorganization). Headline: a
 reorganization is a redistribution of the speaking floor (F1→F2); **~⅓ topic/agenda transition (deeper) +
-~⅔ endogenous floor handoff/opening** (function: clarify / co-construct / decide); the trigger sets depth,
-not existence; and each taxonomy predicts both perturbations the same way (both coordination).
+~⅔ endogenous floor handoff/opening** (function: clarify / co-construct / decide); the trigger grades the
+event (TRANSITION > HANDOFF > OTHER on all three metrics); and each taxonomy predicts both perturbations
+the same way (both coordination).
 
 ## Honest scope
 Participation entropy ≈ the Gorman entropy (r ≈ .81) and is a sanity check, not independent evidence; the
-independent crosses are top-speaker share, in–out asymmetry, and the F1/F2 index. Network measures need
+independent crosses are top-speaker share, dyadic transition asymmetry, and the F1/F2 index. Network measures need
 ≥ 300 s windows to be reliable. Interruptions, overlaps, and precise floor-transfer offsets require
 audio and are noted as future work.
 

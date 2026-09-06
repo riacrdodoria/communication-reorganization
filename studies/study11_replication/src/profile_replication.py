@@ -71,7 +71,7 @@ def perm_test_spearman(a, b, n_perm=10000, seed=1100):
     for i in range(n_perm):
         perm = rr.permutation(n)
         null[i] = spearmanr(a, np.asarray(b)[perm])[0]
-    p_perm = np.mean(np.abs(null) >= abs(r_obs))
+    p_perm = (np.sum(np.abs(null) >= abs(r_obs)) + 1) / (n_perm + 1)  # Phipson & Smyth (2010); never 0
     return r_obs, p_perm, null
 
 

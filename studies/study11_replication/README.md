@@ -41,49 +41,50 @@ direction, neither CI excludes zero), or NON-REPLICATION (opposite direction).
 
 ## Results
 
-**T1 — Ledger.** 27/28 comparable rows have both team estimates; **26/27 (96%) agree in direction**
-(the taxonomy-fingerprint row is a placeholder pointing to the fuller T2 vector test). One row is
-**explicitly flagged as a non-replication**, not smoothed over: the facilitator-initiation-share
-longitudinal trend (Study 9: significant in Team B only, τ=+.54 p=.003, vs a small non-significant
-*negative* τ=−.13 in Team A — a genuine sign disagreement). A second row, initiator-rank stability
-(Study 9: ρ=.90 in Team A vs ρ=.20 in Team B), agrees in sign but is flagged for a large magnitude
-difference. **A third facilitator-related statistic — whether the facilitator initiates more or less
-than talk-time predicts — was corrected during review** (Study 9's original facilitator identification
-used a constant raw id that was wrong in 24/34 meetings) and now **replicates strongly in both teams**:
-the facilitator initiates significantly *less* than talk-time predicts (A p=.002, B p<.001), reversing
-the earlier non-significant, sign-disagreeing result.
+**T1 — Ledger (rebuilt 2026-09-05 on the corrected corpus and person-level roles).** 27/28 comparable
+rows have both team estimates; **26/27 (96%) agree in direction** (the taxonomy-fingerprint row is a
+placeholder pointing to the fuller T2 vector test). One row is **flagged as a non-replication**: the
+facilitator-initiation-share longitudinal trend (Study 9: Team B τ = +.52, p = .004; Team A τ = −.08,
+p = .65). Two rows that an earlier version flagged — initiator-rank stability (ρ = .90 vs .20) and the
+quiet-member lift — were artefacts of per-meeting speaker labels; on verified persons they replicate
+(stability ρ = .80 / .90; least-talkative member lift 1.38 / 1.29). The facilitator's initiation share
+replicates in both teams (below its talk-time null, A p = .01, B p < .002). Rows that depend on absolute
+entropy (bimodality coefficient, the longitudinal taus, baseline entropy) changed value with the corpus
+correction; rows built on within-meeting contrasts, ranks, %DET or event rates did not.
 
 **T2 — Profile vectors (the strong test).** All four multi-category profiles replicate strongly:
 
 | Family | n categories | Spearman r (A vs B) | permutation p | sign agreement |
 |---|---|---|---|---|
-| Taxonomy fingerprint (Study 3) | 40 | **0.969** | <1e-4 | 37/40 (92%) |
-| Floor measures (Study 4) | 9 | **0.983** | <1e-3 | 9/9 (100%) |
-| Review-vs-IDS content contrast (Study 6) | 41 | **0.840** | <1e-3 | 32/41 (78%) |
-| Border-vs-interior content contrast (Study 7) | 40 | **0.844** | <1e-3 | 36/40 (90%) |
-| **Pooled across all four** | 130 | — | — | **114/130 (88%), binomial p = 1.0e-19** |
+| Taxonomy fingerprint (Study 3) | 40 | **0.965** | 1e-4 (0/10,000) | 38/40 (95%) |
+| Floor measures (Study 4) | 9 | **0.967** | < 1e-4 | 9/9 (100%) |
+| Review-vs-IDS content contrast (Study 6) | 41 | **0.840** | < 1e-4 | 32/41 (78%) |
+| Border-vs-interior content contrast (Study 7) | 40 | **0.856** | < 1e-4 | 36/40 (90%) |
+| **Pooled across all four** | 130 | — | — | **115/130 (88%)** (descriptive; the 130 items are not independent, so the binomial p is not reported) |
 
-**T3 — Longitudinal.** Of the 5 trends: 2 fully **REPLICATE** (both CIs exclude zero: mean-entropy
-consolidation τ=−.47/−.40; baseline-entropy consolidation τ=−.47/−.43), 1 **PARTIALLY replicates**
-(network centralization: same direction, only Team B's CI excludes zero), and 2 are same-direction but
-**underpowered at n=17 meetings/team** (participation entropy; border-event excursion) — no trend
-reverses sign.
+**T3 — Longitudinal (corrected).** Of the 5 trends, **1 partially replicates** (network centralization:
+τ = +.07 / +.38, only Team B's CI excludes zero) and 4 are same-direction with both CIs including zero:
+mean entropy τ = −.09 / −.16, participation entropy −.38 / −.29, baseline entropy −.09 / −.19, border
+excursion +.12 / +.25. An earlier version reported two full replications (mean-entropy and
+baseline-entropy "consolidation", τ ≈ −.4 to −.5 in both teams); both were produced by the
+transcription-tool line that deflated entropy in the ten latest meetings of both teams (`METHODS.md`
+§1, §8) and do not exist in the cleaned corpus. The bootstrap seeds are now deterministic, so every
+interval in `results/longitudinal_bootstrap.csv` regenerates exactly.
 
 ## Honest interpretation
 The program's central claim — a stable, content-general deliberation↔coordination axis along which
 reorganization is organised — replicates as a *shape*, not merely a sign, across two independently
 run teams: four entire multi-category profiles correlate at r = 0.84–0.98 between teams. This is
 different from, and stronger than, simply noting that most individual numbers point the same way.
-At the same time, two specific claims about the **facilitator's role over time** do not replicate
-(rank stability, longitudinal drift toward facilitator-initiation) — and because the facilitator is an
-external advisor shared across both teams (Study 9), this dissociation is read as informative, not as
-noise: **the structural, content/floor-level architecture of reorganization is team-general; a
-person-specific facilitation dynamic is not**, and the two should not be conflated when interpreting
-this program's link to P5 (leader-centric consolidation). A third facilitator statistic — whether the
-facilitator initiates disproportionately relative to talk-time — moves the other way after a Study 9
-identification correction: it now replicates strongly (both teams significant, same direction),
-sharpening rather than weakening the program's bottom-up reading (quietest members over-initiate,
-facilitator under-initiates, in both teams).
+At the same time, the one claim about the **facilitator's role over time** (a drift toward
+facilitator-initiation) holds in one team only — and because the facilitator is an external advisor
+shared across both teams (Study 9), this is read as informative, not as noise: **the structural,
+content/floor-level architecture of reorganization is team-general; a person-specific facilitation
+dynamic is not**. The person-level statistics that do replicate (facilitator under-initiates floor-taking
+events, least-talkative member over-initiates, initiator ranks stable) support the program's bottom-up
+reading in both teams. What does *not* replicate — because it does not exist once the corpus is
+corrected — is developmental consolidation of the resting entropy: the corpus offers no evidence that
+the teams' turn-taking baseline drifts over six months.
 
 ## Honest scope
 - n = 2 teams throughout — this is a replication design, not a generalization design (`METHODS.md` §6);
@@ -92,8 +93,9 @@ facilitator under-initiates, in both teams).
 - T2's permutation null shuffles category *labels* within each already-observed vector; it tests whether
   the specific pairing of categories (not just their marginal distribution) matches across teams, which
   is the correct null for a profile-shape claim.
-- The 2 flagged non-replications are retained and reported exactly as data showed them, not adjusted, re-run
-  with a friendlier method, or omitted.
+- The flagged non-replication is retained and reported exactly as the data show it. The label-shuffle
+  permutation in T2 tests whether the *pairing* of categories matches across teams; it does not test
+  whether between-team similarity exceeds within-team (split-half) similarity, which is not attempted.
 
 ## Scripts
 | script | reads | writes | needs transcripts? |

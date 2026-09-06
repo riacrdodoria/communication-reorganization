@@ -6,26 +6,8 @@ import glob,os,re,numpy as np,pandas as pd
 from pathlib import Path
 from scipy.stats import pearsonr
 GM=Path("data/metrics_gorman_l8"); TXT=Path("data/text_startup")
-def degree_centralization(W):
-    N=W.shape[0]
-    if N<3: return np.nan
-    deg=W.sum(0)+W.sum(1); s=deg.sum()
-    if s==0: return np.nan
-    deg=deg/s; return (deg.max()-deg).sum()/(N-1)
-def eig_central(W):
-    N=W.shape[0]
-    if N<2 or W.sum()==0: return np.nan
-    A=(W+W.T)/2; v=np.ones(N)/N
-    for _ in range(200):
-        v2=A@v; nrm=np.linalg.norm(v2)
-        if nrm==0: return np.nan
-        v2=v2/nrm
-        if np.allclose(v2,v,atol=1e-10): break
-        v=v2
-    return v.max()
-def inout_asym(W):
-    if W.shape[0]<2 or W.sum()==0: return np.nan
-    return np.abs(W.sum(1)-W.sum(0)).max()/W.sum()
+# 2026-09-05: measures moved to floor_measures.py (normalised centralization, Perron eigenvector, dyadic asymmetry)
+from floor_measures import degree_centralization, eig_central, inout_asym
 def build_W(seq,idx,nsp):
     W=np.zeros((nsp,nsp))
     for a,c in zip(seq[:-1],seq[1:]):

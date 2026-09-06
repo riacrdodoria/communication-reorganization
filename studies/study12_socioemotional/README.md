@@ -44,24 +44,31 @@ this program; disclosed, not hidden), with a circular-shift null (2,000 seeded r
 METHODS.md §6 convention).
 
 ## Results
-- **Reorganization has a positive, not a negative, socioemotional face.** `bagree` (+0.265),
-  `pos` (+0.208), and `bsolid` (+0.148) all rise significantly at events (BH-FDR q<.001-.0003, 27-31/34
-  meetings same-direction); no negative category survives FDR (`btensh` closest, q=.050 n.s.).
-  `bantag` is too rare (10/34 meetings) for the paired test. The positive-vs-negative composite
+- **Reorganization has a positive, not a negative, socioemotional face.** `bagree` (+0.266),
+  `pos` (+0.198), and `bsolid` (+0.142) all rise significantly at events (BH-FDR q ≤ .001, 26–31/34
+  meetings same-direction; family of 7 after `bantag` is excluded as too rare, 10/34 meetings); no
+  negative category survives FDR (`btensh` closest, q = .055 n.s.). (Corrected 2026-09-05: one
+  act4teams coding file had its windows keyed 30 s off the 90-s grid, so 39 % of that meeting read as
+  zero affect; windows are now snapped to the grid.) The positive-vs-negative composite
   asymmetry is itself significant (paired Wilcoxon p=1.06e-4, 27/34 meetings positive>negative).
 - **A third, independent coding corroborates this without being folded into the family test**:
   act4teams-SHORT's `coop` (praising/thanking) already shows a strong lift in Study 3's original test
   (+0.168, q<.0001), while `cprod` (backbiting) does not (n.s.) — the same positive-not-negative
   pattern from a third coding pass.
 - **The positive signature is a sharp spike coincident with the event, not a lubricant or a repair.**
-  Positive-composite density rises pre→onset and falls onset→post (both circular-shift p<.02); the
-  negative composite rises into the event but does **not** significantly recede afterward.
-- **`bagree` is concentrated at topic/agenda TRANSITIONs**, not floor handoffs (Kruskal-Wallis
-  H=19.41, q=.0005; TRANSITION > HANDOFF > INTERIOR_OTHER) — the only category surviving FDR in the
-  event-class split.
+  Positive-composite density rises pre→onset and falls onset→post (circular-shift p = .001 and
+  p < .0005, 2,000 shifts); the negative composite rises into the event but does **not** significantly
+  recede afterward. At the 90-s grain "coincident" cannot be separated from "within 90 s before".
+- **`bagree` is somewhat concentrated at topic/agenda TRANSITIONs** (Kruskal-Wallis H = 10.5,
+  q = .041; TRANSITION 1.44 > HANDOFF 1.30 ≈ OTHER 1.27 per window) — the only category surviving FDR
+  in the event-class split, and a weaker contrast than first reported (the class split now uses the
+  shared classification rule, `METHODS.md` §4).
 - **IDS (deliberation), not the procedural review, is where tension concentrates**: `bdisagree`,
-  `neg`, and `bantag` are all significantly *higher* in IDS than in review stages (BH-FDR q=.022-.048);
-  no positive category differs by stage.
+  `neg`, and `bantag` are all *higher* in IDS than in review stages (BH-FDR q = .016, .016, .048);
+  the `bantag` test rests on only 7 non-zero meeting pairs (column `n_nonzero` in
+  `results/socioemotional_review_vs_ids.csv`) and is not counted as a headline; no positive category
+  differs by stage. Stage windows are assigned by their start time, so the window straddling a stage
+  boundary belongs to the earlier stage (34 such windows; midpoint assignment gives q .038 / .038 / .048).
 - **Two proposed lexical markers returned null data**, honestly reported as a boundary condition of
   this ASR-transcribed, spoken corpus, not as a design failure.
 

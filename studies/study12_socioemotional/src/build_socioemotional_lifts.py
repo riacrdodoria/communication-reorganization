@@ -27,7 +27,7 @@ def load_cb(folder):
     d = {}
     for f in glob.glob(f"{folder}/*_passA.json"):
         mid = os.path.basename(f).replace("_passA.json", "")
-        d[mid] = {int(w["t"]): w for w in json.load(open(f))["windows"]}
+        d[mid] = {int(round(int(w["t"]) / 90) * 90): w for w in json.load(open(f))["windows"]}  # snap to the 90-s grid (one act4teams file is offset)
     return d
 
 

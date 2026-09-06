@@ -5,15 +5,16 @@ internal ARC? Run on BOTH segmentations (LLM-8 high-quality, unsup-34 scale).
 import glob,os,numpy as np,pandas as pd
 from scipy.stats import wilcoxon
 GM="data/metrics_gorman_l8"; TXT="data/text_startup"; B=30
+# NOTE 2026-09-05: LLM-8 indices for 2025.04.14 a/b shifted by -1 after the transcription-bot row was removed (remove_bot_rows.py).
 llm={
 "2024.10.14startup_a":[12,24,79,128,195,267,365,385,444,475],
 "2024.12.09startup_a":[45,97,144,203,238,261,337,372,431,476,495],
 "2025.02.24startup_a":[19,41,78,100,125,220,287,351],
-"2025.04.14startup_a":[27,92,162,433,460,472],
+"2025.04.14startup_a":[26,91,161,432,459,471],
 "2024.10.14startup_b":[40,86,263,421,613,806],
 "2024.12.16startup_b":[57,91,113,177,214,257,291,305,373,421,477,557,601],
 "2025.02.24startup_b":[22,62,158,203,391],
-"2025.04.14startup_b":[111,232,350,384]}
+"2025.04.14startup_b":[110,231,349,383]}
 UE=pd.read_csv("episodes_unsup.csv")
 def utt_to_sec(mid,idxs):
     df=pd.read_csv(f"{TXT}/{mid}_transcript.csv"); on=pd.to_numeric(df["onset_seconds"],errors="coerce").dropna().to_numpy()

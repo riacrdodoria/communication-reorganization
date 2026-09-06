@@ -1,5 +1,13 @@
 # Study 10 — Anticipating reorganization (early-warning signatures)
 
+> **Correction notice (2026-09-05).** Two conclusions in this file are withdrawn: the within-meeting
+> "budget" (first-half rate negatively predicting second-half rate, ρ = −.64) is an artefact of the
+> per-meeting event threshold (online threshold ρ = +.03; circular-shift null reproduces −.64;
+> `results/meso_budget_sensitivity.csv`), and the "no detectable precursor" percentages are at the base rate
+> of the ±1 SD criterion on non-event windows (69 %; `results/no_precursor_summary.csv`). The corpus was also
+> cleaned (913 events) and the trigger classes now come from the shared rule (`METHODS.md` §4). See
+> `README.md` for the current statement; where this file and `results/` disagree, `results/` is current.
+
 ## Framing
 Wiltshire (2026, *SGR*) closes by calling the field to move beyond post hoc description toward
 anticipating coordination breakdowns and supporting adaptive teamwork in real time. This is a

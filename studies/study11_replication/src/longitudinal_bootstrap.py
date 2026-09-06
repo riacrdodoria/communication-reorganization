@@ -3,6 +3,7 @@
 meeting-clustered bootstrap CI (resample meetings with replacement WITHIN team, recompute tau, 2000
 reps, percentile CI), and an explicit replicate / non-replicate / indeterminate verdict per trend."""
 import os, sys
+import zlib
 import numpy as np, pandas as pd
 from scipy.stats import kendalltau
 sys.path.insert(0, os.path.dirname(__file__))
@@ -47,7 +48,8 @@ for stat_id, study, panel, col, desc in TRENDS:
     res = {}
     for team in TEAMS:
         sub = panel[panel.team == team]
-        tau, lo, hi, n = boot_tau(sub, col, seed=rng_seed + hash(stat_id + team) % 10000)
+        # seed is deterministic across processes (was hash(), which is salted per interpreter run)
+        tau, lo, hi, n = boot_tau(sub, col, seed=rng_seed + zlib.crc32((stat_id + team).encode()) % 10000)
         excl_zero = (lo > 0) or (hi < 0)
         res[team] = dict(tau=tau, lo=lo, hi=hi, n=n, excl_zero=excl_zero)
         print(f"  {NICE[team]}: tau={tau:+.3f}  95% CI [{lo:+.3f}, {hi:+.3f}]  (n={n})  "

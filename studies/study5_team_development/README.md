@@ -13,6 +13,16 @@ consistency**, not statistical power; single p-values are secondary to whether t
 direction. The series carry one long mid-January→February gap (a real ~4–6 week summer break, confirmed
 in the source recordings), which is described as such and not interpreted as a perturbation.
 
+## Correction (2026-09-05) — read this first
+An earlier version of this study reported that **mean entropy declines** over the 26 weeks in both teams
+(τ = −0.47 / −0.40) and read this, together with Study 7, as *consolidation of the resting operating
+point*. That result was an artefact. From 17 March 2025 the transcription tool inserted one automatic
+announcement line at the start of each recording; in the ten affected meetings — the last five weeks of
+**both** teams — that line was carried as an extra anonymous speaker, so the entropy normaliser
+(%MaxEnt = H / n_speakers) was inflated by one and entropy was deflated by 20–25 % exactly in the late
+meetings. With the line removed (`METHODS.md` §1) the entropy trend is null (τ = −0.09 / −0.16). All
+numbers below are from the corrected corpus; the earlier consolidation reading is withdrawn.
+
 ## Method
 A per-meeting panel of reorganization, floor, and content summaries (`longitudinal_poc.py` →
 `results/longitudinal_panel.csv`; `longitudinal_taxonomy.py` →
@@ -21,26 +31,32 @@ time-series / segmented regression around the gap (`interrupted_ts.py`); and a w
 analysis (`proposal_h.py` → `results/proposal_h_panel.csv`) using proxies robust to the sliding window
 (dynamic range, event rate, episode duration).
 
-## Results — three independent lenses converge on consolidation
-- **Structure.** Mean entropy **declines** over 26 weeks in both teams (Kendall τ = −0.47*, −0.40*) and
-  network centrality **rises** (+0.32, +0.41*): the floor consolidates / centralizes (toward F1).
-- **Content.** Coordinative/procedural categories decline while exploratory reasoning and disagreement
-  rise; the coordination−deliberation balance drifts toward **deliberation** (pooled pre-trend −0.092**).
-- **Capacity.** The within-meeting dynamic range **contracts** (entropy range τ = −0.13, −0.41*): teams
-  explore less of the F1↔F2 space as they mature.
+## Results — what develops, and what does not
+- **Structure.** Mean entropy: τ = −0.09 (A), −0.16 (B), both n.s. Mean %DET: +0.19, +0.15, n.s.
+  Reorganization-event rate: −0.37* (A), +0.13 (B) — opposite directions. **Network centralization
+  rises** in both teams (+0.32, +0.43*; the only structural trend that replicates in direction with one
+  team significant; Study 11 bootstrap: partial replication). Top-speaker share +0.26 / +0.25, n.s.
+- **Content.** No single category trend survives BH-FDR (0/82 category × team tests). Five categories
+  agree in direction with at least one team at p < .10 (asks-opinion ↓, structuring ↓, convergence ↓,
+  non-arguable ↓, exploratory ↑). The coordination−deliberation balance composite drifts weakly toward
+  deliberation in both teams (τ = −0.13, −0.26), not significantly.
+- **Capacity.** Entropy range τ = +0.21 (A), −0.03 (B); %DET range −0.13, −0.31; valley depth +0.07,
+  +0.34; episode duration −0.15, +0.10. No capacity proxy replicates in direction with a significant team.
 
-Together: **maturation = consolidation / crystallization** — teams settle into a more fixed, deliberative,
-leader-centric operating point (a routinization reading; Feldman & Pentland 2003). A Law-of-Requisite-
-Variety hook (declining variety may reduce future adaptability) is noted as theory, not a tested claim.
+Together: over 26 weeks the teams' turn-taking **does not consolidate**. The resting entropy, the %DET
+level and the size of reorganization excursions (Study 7) are developmentally flat; the one replicated
+drift is a mild centralization of the transition network. The Law-of-Requisite-Variety hook and the
+routinization reading offered earlier are no longer supported by these data and are dropped.
 
-The gap itself shows **no consistent structural effect** in the interrupted time-series (the level change
-is opposite in sign across the two teams); a small, suggestive content "re-coordination" after the gap is
-reported as exploratory only.
+The gap shows **no consistent structural effect** in the interrupted time-series (entropy level change
+−10.0 in Team A vs +6.7 in Team B; pooled −1.2).
 
 ## Honest scope
-Effects are modest (τ ≈ 0.13–0.47; few per-team p < .05); the strength is replication across two teams ×
-three lenses. Entropy range and level co-decline and are partly mechanically linked (bounded metric), so
-the range-contraction is not fully independent evidence.
+Effects are small (|τ| ≤ 0.43; one per-team p < .05 per lens); with 17 meetings per team the bootstrap
+intervals (Study 11) include zero for every trend except Team B's centralization. The earlier trend was
+produced by a data defect that was invisible in the anonymised metrics and only surfaced when the
+name-labelled source transcripts were re-inspected; the metrics in `data/metrics_gorman_l8/` are now the
+cleaned series.
 
 ## Scripts
 | script | reads | writes |

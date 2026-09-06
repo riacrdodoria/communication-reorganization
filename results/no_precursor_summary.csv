@@ -1,3 +1,3 @@
-feature,n_events,n_no_precursor,pct_no_precursor
-entropy_slope,909,659,72.49724972497249
-switch_rate,884,457,51.69683257918552
+feature,n_events,n_no_precursor,pct_no_precursor,pct_baseline_within_1sd,excess_vs_baseline
+entropy_slope,913,656,71.85104052573932,68.96677619569186,2.8842643300474577
+switch_rate,889,451,50.73115860517435,68.75259013675922,-18.021431531584874

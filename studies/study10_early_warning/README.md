@@ -9,8 +9,8 @@ detectable signature relative to matched non-event baselines? (2) **meso** — d
 dynamics predict the meeting's own second half and its Study-8 outcome rating?
 
 ## Method
-909 reorganization events (34 meetings; same detector as Studies 2/6/7/9: RMSE > mean+2.33 SD, 8 s gap
-clustering). Six features over the **[−60, 0) s window before onset** (30/90 s reruns for
+913 reorganization events (34 meetings, bot-cleaned corpus; same detector as Studies 2/6/7/9: RMSE >
+mean+2.33 SD, 8 s gap clustering). Six features over the **[−60, 0) s window before onset** (30/90 s reruns for
 sensitivity): `entropy_slope`, `det_slope` (mechanically tied to the metric itself — see caveat below),
 and four independent turn-taking/text features with **no mechanical link** to how the reorganization
 metric is computed — `switch_rate`, `turnlen_trend`, `question_density`, `gap_trend`. Each event is
@@ -33,18 +33,25 @@ rate (T4). Full leakage audit in `RESULTS.md`.
   (full model incl. entropy/%DET slope: AUC = 0.68 [0.65, 0.72]). Real, above chance, but modest — the
   central honest tension of this study: near-ceiling *meeting-level* consistency coexists with modest
   *event-level* discriminability.
-- **72.5% of events show no detectable `entropy_slope` precursor** and **51.7% show none on
-  `switch_rate`** by a conservative, meeting-internal (±1 SD) criterion; **35.1% show none on either**.
-  Read honestly against the critical-transitions literature: a majority of these reorganizations are not
-  reliably "ramped into" by the measured features — some may be closer to abrupt, discontinuous shifts.
-- **A genuine meso-level finding, independent of the early-warning question**: a meeting's first-half
-  reorganization rate *negatively* predicts its own second-half rate (Spearman ρ = −0.64, q < .001),
-  replicated in both teams independently — within-meeting self-regulation, not momentum. First-half
-  dynamics do **not** forecast Study 8's meeting-rating outcomes (0/9 tests survive BH-FDR), consistent
-  with — and not double-publishing — Study 8's own null.
+- **"No detectable precursor" must be read against the criterion's base rate (corrected 2026-09-05).**
+  By the meeting-internal ±1 SD criterion, 71.9 % of events show no `entropy_slope` precursor and 50.7 %
+  none on `switch_rate`; 34.0 % none on either. But the same criterion classifies **69 %** of ordinary
+  baseline windows as "within 1 SD" (`results/no_precursor_summary.csv`, column
+  `pct_baseline_within_1sd`). The `entropy_slope` figure is therefore the base rate (+2.9 points) and
+  says nothing about abruptness; only `switch_rate` (−18 points below base rate) carries information,
+  and it says that half of the events *are* preceded by a detectable switching ramp. The earlier
+  reading of these percentages as evidence for abrupt transitions is withdrawn.
+- **No within-meeting "budget" (corrected 2026-09-05).** An earlier version reported that a meeting's
+  first-half reorganization rate negatively predicts its second half (ρ = −0.64) and read it as
+  self-regulation. That association is produced by the event threshold, which is computed from the whole
+  meeting: a busy first half raises the threshold for the second half. Under an **online** threshold
+  (first-half statistics only) ρ = +0.03 (p = .86); under a single global threshold ρ = +0.38; and a
+  circular-shift null that keeps the per-meeting threshold reproduces the negative value (null mean
+  −0.70, 95 % [−0.80, −0.56]; `results/meso_budget_sensitivity.csv`). First-half dynamics do **not**
+  forecast Study 8's outcomes (0/9 tests survive BH-FDR), consistent with Study 8's own null.
 - **Which event *type* is anticipatable differs by channel** (joining Study 9's event classification):
   topic/agenda TRANSITIONs are anticipated mainly through rising multi-party switching (lowest
-  no-precursor rate on `switch_rate`, 43%; χ²(2)=26.9, p<.001); interior floor handoffs show the
+  no-precursor rate on `switch_rate`; χ²(2) = 25.7, p < .001; mean switch rate 6.7 vs 5.3 / 5.1); interior floor handoffs show the
   cleanest entropy/%DET ramp of the three classes; and **INTERIOR_OTHER — the diffuse residual interior
   category — is the least anticipatable on nearly every measure** (flattest entropy/%DET ramp, lowest
   switch-rate, highest no-precursor rate, even an inverted turn-length signature), the closest thing in
@@ -57,12 +64,13 @@ Full statistics, the complete leakage audit, and honest interpretation: `RESULTS
 - A single fixed regularization default is used for the classifier (no tuning), by design, given the
   guardrail against AUC-chasing at this sample size.
 - The event/RMSE detection threshold is computed per meeting from that meeting's own full RMSE series
-  (established convention throughout this program) — this is appropriate for retrospective analysis but
-  is not purely causal/online, which is precisely why this study is framed as a feasibility probe and
-  not a specification for a live monitoring system.
-- The "no detectable precursor" percentage depends on a disclosed, reasonable but not unique threshold
-  (±1 SD); the AUC results (T2) corroborate the same qualitative picture using a model-based criterion
-  that does not depend on this specific choice.
+  (established convention throughout this program). This is appropriate for the event-level analyses
+  (T1, T2), but it makes any *within-meeting* comparison of event rates across time dependent by
+  construction — which is what produced the withdrawn "budget" result; the online threshold is the
+  right instrument for such comparisons and is now reported alongside.
+- The "no detectable precursor" percentage depends on a ±1 SD criterion whose base rate on non-event
+  windows is ≈ 69 %; it is reported only relative to that base rate. The classifier drops rows with an
+  undefined `gap_trend` (about 60 % of rows; `n_rows` is printed with every AUC).
 
 ## Scripts
 | script | reads | writes | needs transcripts? |
@@ -70,7 +78,7 @@ Full statistics, the complete leakage audit, and honest interpretation: `RESULTS
 | `build_preevent_features.py` | transcripts + metrics + episode/L10 boundaries | `results/preevent_features{,_w30,_w90}.csv` | **yes** |
 | `paired_tests.py` | `results/preevent_features*.csv` | `results/paired_tests_w{30,60,90}.csv`, `results/paired_tests_all_windows.csv` | no |
 | `classifier_cv.py` | `results/preevent_features.csv` | `results/cv_auc_results.csv`, `results/roc_curves.npz`, `results/single_feature_auc.csv` | no |
-| `meso_forecasting.py` | metrics + Study 8 outcomes | `results/meso_halves.csv`, `results/meso_h1_to_h2eventrate.csv`, `results/meso_h1_to_outcomes.csv` | no |
+| `meso_forecasting.py` | metrics + Study 8 outcomes | `results/meso_halves.csv` (per-meeting, online and global thresholds), `results/meso_budget_sensitivity.csv`, `results/meso_h1_to_h2eventrate.csv`, `results/meso_h1_to_outcomes.csv` | no |
 | `null_precursor_rate.py` | `results/preevent_features.csv` | `results/no_precursor_summary.csv`, `results/no_precursor_both.csv` | no |
 | `precursor_by_class.py` | Study 9's `events_initiators.csv` + Study 10's precursor data | `results/precursor_by_class.csv`, `results/no_precursor_rate_by_class.csv`, `results/precursor_magnitude_by_class.csv`, `results/precursor_magnitude_pairwise_<feature>.csv` | no |
 | `fig_early_warning.py` | `results/preevent_features.csv`, metrics, `results/cv_auc_results.csv`, `results/roc_curves.npz` | `figures/fig_early_warning.png/pdf/svg` | **yes** |

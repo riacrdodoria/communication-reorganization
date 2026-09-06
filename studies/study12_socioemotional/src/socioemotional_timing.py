@@ -28,7 +28,7 @@ def load_cb(folder):
     d = {}
     for f in glob.glob(f"{folder}/*_passA.json"):
         mid = os.path.basename(f).replace("_passA.json", "")
-        d[mid] = {int(w["t"]): w for w in json.load(open(f))["windows"]}
+        d[mid] = {int(round(int(w["t"]) / 90) * 90): w for w in json.load(open(f))["windows"]}  # snap to the 90-s grid (one act4teams file is offset)
     return d
 
 
@@ -100,13 +100,15 @@ def run(cats, label):
                 vals_ap.append(r[1] - r[0]); vals_pa.append(r[2] - r[1])
         null_at_minus_pre[i] = np.mean(vals_ap) if vals_ap else np.nan
         null_post_minus_at[i] = np.mean(vals_pa) if vals_pa else np.nan
-    p_null_ap = np.mean(np.abs(null_at_minus_pre) >= abs(obs_at_minus_pre))
-    p_null_pa = np.mean(np.abs(null_post_minus_at) >= abs(obs_post_minus_at))
+    # Phipson & Smyth (2010): (b+1)/(N+1); never reported as 0
+    p_null_ap = (np.nansum(np.abs(null_at_minus_pre) >= abs(obs_at_minus_pre)) + 1) / (N_NULL + 1)
+    p_null_pa = (np.nansum(np.abs(null_post_minus_at) >= abs(obs_post_minus_at)) + 1) / (N_NULL + 1)
 
     print(f"  [{label}]  n_meetings={len(dfm)}")
     print(f"    pre={dfm['pre'].mean():.4f}  at={dfm['at'].mean():.4f}  post={dfm['post'].mean():.4f}")
-    print(f"    at-pre = {obs_at_minus_pre:+.4f}  Wilcoxon p={p_pre_at:.4f}  circular-shift-null p={p_null_ap:.4f}")
-    print(f"    post-at = {obs_post_minus_at:+.4f}  Wilcoxon p={p_at_post:.4f}  circular-shift-null p={p_null_pa:.4f}")
+    fp = lambda p: (f"p<{1/N_NULL:.4f}" if p < 1/N_NULL else f"p={p:.4f}")  # null p floored at 1/N_NULL
+    print(f"    at-pre = {obs_at_minus_pre:+.4f}  Wilcoxon p={p_pre_at:.4f}  circular-shift-null {fp(p_null_ap)}")
+    print(f"    post-at = {obs_post_minus_at:+.4f}  Wilcoxon p={p_at_post:.4f}  circular-shift-null {fp(p_null_pa)}")
     return dict(label=label, n=len(dfm), pre=dfm["pre"].mean(), at=dfm["at"].mean(), post=dfm["post"].mean(),
                 at_minus_pre=obs_at_minus_pre, p_at_minus_pre=p_pre_at, p_null_at_minus_pre=p_null_ap,
                 post_minus_at=obs_post_minus_at, p_post_minus_at=p_at_post, p_null_post_minus_at=p_null_pa)

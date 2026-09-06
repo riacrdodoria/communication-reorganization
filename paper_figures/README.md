@@ -19,10 +19,11 @@ adopted as a faithful, simpler substrate.
 
 **Figure 2 — `fig_paper_S2_dynamics`.** What reorganization is, dynamically. (A) Pooled across all
 meeting-seconds, entropy and %DET form one continuous manifold — not two discrete regimes (Sarle bimodality
-coefficient = 0.18 < 0.555; the earlier bimodality was a %DET-saturation artefact removed by L_min = 8).
-(B) The dispersion of pre→post entropy excursions at reorganization is ~2× and outside the 95% interval of
-AR(1) and VAR(1) surrogates (200 each) — genuine structure beyond trivial oscillation. (C) Ascending and
-descending limbs of the cycle are symmetric (median 51 vs 52 s; paired Wilcoxon p = .64, n.s.).
+coefficient = 0.41 < 0.555; the earlier bimodality was a %DET-saturation artefact removed by L_min = 8).
+(B) The dispersion of pre→post entropy excursions at reorganization (14.8 %MaxEnt) is 2.3× and outside the
+95% interval of AR(1) and VAR(1) surrogates (6.5; 200 each, L_min = 8 metrics) — genuine structure beyond
+trivial oscillation. (C) Ascending and descending limbs of the cycle are symmetric (median 51 vs 52 s;
+paired Wilcoxon p = .79, n.s.).
 
 **Figure 3 — `fig_paper_S3_taxonomy_fingerprint`.** The content fingerprint of reorganization. Across all
 six validated coding schemes, categories enriched when communication reorganizes are coordinative/
@@ -31,17 +32,17 @@ solution-construction are suppressed (orange). Bars = mean within-meeting densit
 events (RMSE > mean + 2.33 SD) vs baseline; Wilcoxon signed-rank + BH-FDR; 28/40 categories significant.
 
 **Figure 4 — `fig_paper_S4_floor_dynamics`.** Reorganization in conversational-floor terms (Edelsky F1↔F2).
-Floor-concentration measures (top-speaker share, network/eigenvector centralization, Gini, influence
-asymmetry, turn-length dispersion) correlate positively with %DET (high when stable = F1); floor breadth
+Floor-concentration measures (top-speaker share, network/eigenvector centralization, Gini, dyadic
+transition asymmetry, turn-length dispersion) correlate positively with %DET (high when stable = F1); floor breadth
 rises as %DET falls. Reorganization is the floor equalizing and de-centralizing (F1→F2). Bars = mean
 within-meeting r with %DET; Wilcoxon across meetings. Participation entropy* is the near-tautological
 sanity check.
 
-**Figure 5 — `fig_paper_S5_development`.** Over ~17 weekly meetings per team, dynamics (team-state
-entropy ↓) and floor structure (network centralization ↑, leader eigenvector-centrality ↑, participation
-entropy ↓) all move toward a fixed, leader-centric operating point with less moment-to-moment
-reorganization — consolidation/routinization, replicated across both teams. Trends are Mann-Kendall
-(Kendall τ), pooled and per team; dashed = OLS fit.
+**Figure 5 — `fig_paper_S5_development`.** Over ~17 weekly meetings per team, team-state entropy is
+developmentally flat once the transcription-tool line is removed from the ten latest meetings (τ = −.09 /
+−.16, n.s.); network centralization rises (τ = +.32 / +.43, Team B significant) and participation entropy
+drifts down (n.s.). The earlier "consolidation toward a leader-centric operating point" reading is
+withdrawn (`METHODS.md` §8). Trends are Mann-Kendall (Kendall τ), pooled and per team; dashed = OLS fit.
 
 **Figure 6 — `fig_paper_S6_microstructure`.** (A) In ±30 s of a topic-episode boundary, team-state entropy
 rises and %DET falls vs episode interiors — topic transitions are the naturalistic perturbation that drives
@@ -51,10 +52,11 @@ reorganization is coordination, not deliberation. Paired Wilcoxon.
 
 **Figure 7 — `fig_paper_S7_anatomy`.** Anatomy of a reorganization event: a redistribution of the speaking
 floor. (A) ~1/3 is locked to topic/agenda transitions, ~2/3 is endogenous (handoffs/openings mid-topic).
-(B) The trigger does not determine whether a reorganization occurs (equal RMSE prediction-error spike,
-p = .44) but sets its depth (entropy/%DET differ, Kruskal–Wallis p < 1e-7). (C) Over 26 weeks the resting
-baseline entropy falls (consolidation) while the above-baseline excursion is invariant — a stereotyped
-event riding a sinking baseline.
+(B) The trigger grades the event: TRANSITION > HANDOFF > OTHER on entropy, %DET and the RMSE spike
+(meeting-level paired Wilcoxon p = .04 / .0002 / .004; Kruskal–Wallis on within-meeting z p < 1e-7 for
+entropy and %DET). (C) Over 26 weeks neither the resting baseline entropy nor the above-baseline excursion
+drifts (τ = −.16 and +.13, both n.s.; 0/10 developmental trends survive FDR) — a stereotyped event on a
+stable baseline.
 
 **Figure 11 — `fig_paper_S11_replication_ledger`.** The two teams as an intensive longitudinal
 replication design: every headline effect size from Studies 1–10 (n=148), normalized per-statistic

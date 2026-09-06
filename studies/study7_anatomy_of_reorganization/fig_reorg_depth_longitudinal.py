@@ -1,7 +1,7 @@
 """Figure: what consolidates is the BASELINE, not the reorganization excursion.
 A: per-meeting baseline entropy vs entropy-at-border-events over weeks (parallel decline = constant gap).
-B: pooled Kendall tau — baseline & absolute event entropy fall (FDR**), but spike prominence and the
-   above-baseline excursion are flat."""
+B: pooled Kendall tau per measure with BH-FDR; title text is derived from the data (after the 2026-09-05
+   transcription-bot correction no trend survives FDR)."""
 import numpy as np,pandas as pd
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -20,8 +20,8 @@ for team in COL: ax1.plot([],[],"-",color=COL[team],lw=2,label=team)
 ax1.plot([],[],"o-",color="#555",label="baseline entropy (resting)")
 ax1.plot([],[],"^--",color="#555",label="entropy AT border events")
 ax1.set_xlabel("week (within team)"); ax1.set_ylabel("team-state entropy")
-ax1.set_title("A  Baseline slides down; the event sits a constant gap above it\n"
-              "(both lines fall in parallel → the excursion is preserved)",fontsize=10,loc="left")
+ax1.set_title("A  Baseline entropy and entropy at border events over weeks\n"
+              "(the event sits a roughly constant gap above the baseline)",fontsize=10,loc="left")
 ax1.legend(fontsize=7.8,loc="upper right",ncol=1)
 
 MEAS=[("base_ent","baseline entropy"),("BORDER_ent_abs","entropy @ border (abs)"),
@@ -41,7 +41,8 @@ for i,(c,lab) in enumerate(MEAS):
              va="center",ha="left" if taus[i]>=0 else "right",fontsize=8)
 ax2.axvline(0,color="#333",lw=.8); ax2.set_yticks(y); ax2.set_yticklabels([m[1] for m in MEAS],fontsize=8.3)
 ax2.set_xlim(-0.6,0.4); ax2.set_xlabel("pooled Kendall τ over weeks (red = ↓, FDR-sig)")
-ax2.set_title("B  What changes vs what is invariant\nbaseline & absolute fall (FDR**); excursion & prominence flat",fontsize=10,loc="left")
-fig.suptitle("Maturation lowers the resting operating point — the reorganization excursion keeps its size",fontsize=11.5,y=1.0)
+nsig=int((q<.05).sum())
+ax2.set_title("B  What changes vs what is invariant\n"+(f"{nsig} of {len(MEAS)} trends survive FDR" if nsig else "no trend survives FDR: baseline, excursion and prominence all flat"),fontsize=10,loc="left")
+fig.suptitle("Over weeks, neither the resting operating point nor the reorganization excursion drifts significantly",fontsize=11.5,y=1.0)
 fig.tight_layout(); fig.savefig("fig_reorg_depth_longitudinal.png",dpi=150)
 print("wrote fig_reorg_depth_longitudinal.png")

@@ -32,28 +32,28 @@ members as "facilitator" and (mechanically) mislabeling the true facilitator as 
 correctness fix applied throughout Study 9 (event-level `facilitator` flag in `events_initiators.csv`
 and everything computed from it) and propagated to Study 11's replication ledger and the manuscript.
 
-**Why the original share-based rule (segue/todo modal speaker) undershot 100%.** With the benefit of
-per-meeting verification, `segue` alone (the opening check-in prompt) is the more reliable of the two
-signals — its anchor quotes read as generic host-style prompts ("any more news from you to share")
-addressed to the team, consistent with a facilitation act. `todo`'s anchor quote is noisier: in several
-meetings it captures a team member's status report rather than the facilitator's own prompt, which is
-why `segue`-only and `todo`-only speaker attributions disagree within the same meeting more often than
-expected under a single consistent rule. This is documented here as the reason the original modal-share
-approach (correctly) reported shares well below 100% instead of treating that as a red flag before
-hardcoding a constant.
+**Why the original share-based rule (segue/todo modal speaker) undershot 100%.** With per-meeting
+verification, the `segue` stage (the opening check-in) is the more reliable of the two signals: its anchor
+utterance is a host-style prompt addressed to the team. The `todo` anchor is noisier: in several meetings it
+captures a member's status report rather than the facilitator's own prompt, which is why `segue`-only and
+`todo`-only attributions disagree within the same meeting more often than a single consistent rule would
+allow. The modal-share approach therefore (correctly) reported shares well below 100 %; that should have
+been read as a red flag before a constant was hardcoded.
 
-**Corroborating (unaffected) check — to-do ownership** (Study 8 raw extraction): the facilitator is not
-the most common to-do **owner** in either team's corrected data. This is exactly the expected pattern for
-an **external advisory role**: driving structure and assigning work to the team, not doing the team's
-own work.
+**Corroborating (unaffected) check — to-do ownership** (Study 8 raw extraction, recomputed with the
+per-meeting identification): the facilitator owns **4.7 %** (Team A) and **3.0 %** (Team B) of the to-dos
+assigned in meetings — the smallest share of any participant. (Figures of 14 % / 31 % that circulated in an
+earlier draft were computed with the wrong constant id.) This is the expected pattern for an external
+advisory role: driving structure and assigning work to the team, not doing the team's own work.
 
 **What this analysis does *not* establish.** It does not identify each team's own internal leader (e.g.,
 a founder/CEO or informal lead among the startup's own staff). That would require a different
 operationalization and is flagged as a natural follow-up, not attempted here.
 
-**Pseudonymization.** In all Study 9 outputs, speakers are relabelled `S1, S2, ...` per team **per
-meeting** by order of first appearance in that meeting's transcript — the **facilitator flag** is what
-is tracked consistently across meetings (via the corrected per-meeting raw-id lookup), not a fixed
-pseudonym tied to the raw numeric id, and not a claim that "S1"/"S2"/etc. refer to the same real person
-across different meetings for the *other* (non-facilitator) team members either — that remains a known
-simplification of the per-meeting pseudonymization scheme, unrelated to the facilitator correction here.
+**Speaker labels (2026-09-05).** Study 9 outputs no longer use per-meeting pseudonyms `S1, S2, ...`.
+Every speaker is labelled by a verified, persistent ROLE (`results/speaker_roles_verified.csv`, built the
+same way as the facilitator map: FACILITATOR, A1–A3, B1–B3, DEVICE; no names), so that lifts, rank
+stability and the "least-talkative member" refer to persons. The earlier pseudonym scheme was a known
+simplification that turned out to matter: with it, the label `S5` existed only in the eight meetings where
+the transcription-tool line took an early id, which is what produced the spurious Team-A/Team-B stability
+contrast reported in the first version of this study and of Study 11.

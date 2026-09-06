@@ -14,7 +14,7 @@ MEAS={ # measure:(label, family)
 "turnlen_disp":("Turn-length dispersion (Edelsky F1>F2)","F"),
 "net_central":("Network degree centralization","N"),
 "eig_central":("Max eigenvector centrality","N"),
-"inout_asym":("In-out asymmetry (influence / seq. dom.)","I")}
+"inout_asym":("Dyadic transition asymmetry (who follows whom)","I")}
 FAMCOL={"P":"#2E7D8C","F":"#e6ab02","N":"#7570b3","I":"#d95f02"}
 FAMLAB={"P":"Participation / dominance","F":"Floor regime (Edelsky F1/F2)","N":"Network centrality","I":"Influence / sequential dominance"}
 NP=500; rng=np.random.default_rng(0)

@@ -1,7 +1,7 @@
 definition,team,gini,n_events
 init_primary,startup_a,0.23484848484848486,429
-init_primary,startup_b,0.2198347107438016,484
+init_primary,startup_b,0.11776859504132231,484
 init_floor,startup_a,0.2733100233100233,429
-init_floor,startup_b,0.2545454545454545,484
+init_floor,startup_b,0.1549586776859504,484
 init_question,startup_a,0.35729613733905574,233
-init_question,startup_b,0.3555555555555555,261
+init_question,startup_b,0.2346743295019158,261

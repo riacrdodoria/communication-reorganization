@@ -52,7 +52,8 @@ operationalization and is flagged as a natural follow-up, not attempted here.
 
 **Speaker labels (2026-09-05).** Study 9 outputs no longer use per-meeting pseudonyms `S1, S2, ...`.
 Every speaker is labelled by a verified, persistent ROLE (`results/speaker_roles_verified.csv`, built the
-same way as the facilitator map: FACILITATOR, A1–A3, B1–B3, DEVICE; no names), so that lifts, rank
+same way as the facilitator map: FACILITATOR, A1–A3, B1–B3; no names; one Team B member's shared team
+account, used in nine meetings, is mapped to that member's role), so that lifts, rank
 stability and the "least-talkative member" refer to persons. The earlier pseudonym scheme was a known
 simplification that turned out to matter: with it, the label `S5` existed only in the eight meetings where
 the transcription-tool line took an early id, which is what produced the spurious Team-A/Team-B stability

@@ -25,11 +25,11 @@ in that meeting; 1,000 seeded draws; two-sided p = (b + 1)/(N + 1).
 | definition | team | events | FACILITATOR | members (desc.) | Gini |
 |---|---|---:|---:|---|---:|
 | init_primary | A | 429 | 170 | A1 121, A2 93, A3 45 | 0.235 |
-| init_primary | B | 484 | 158 | B1 124, B3 84, DEVICE 62, B2 56 | 0.220 |
+| init_primary | B | 484 | 158 | B1 124, B2 118, B3 84 | 0.118 |
 | init_floor | A | 429 | 188 | A1 115, A2 84, A3 42 | 0.273 |
-| init_floor | B | 484 | 171 | B1 127, B3 77, B2 57, DEVICE 52 | 0.255 |
+| init_floor | B | 484 | 171 | B1 127, B2 109, B3 77 | 0.155 |
 | init_question | A | 233 | 124 | A1 52, A2 40, A3 17 | 0.357 |
-| init_question | B | 261 | 124 | B1 48, B3 43, B2 28, DEVICE 18 | 0.356 |
+| init_question | B | 261 | 124 | B1 48, B2 46, B3 43 | 0.235 |
 
 ### T2b — Initiation lift (share of initiations ÷ share of talk-time), `init_primary`
 | team | person | init share | talk share | lift |
@@ -40,12 +40,11 @@ in that meeting; 1,000 seeded draws; two-sided p = (b + 1)/(N + 1).
 | A | A3 (least talk) | .105 | .076 | **1.38** |
 | B | FACILITATOR | .326 | .435 | **0.75** |
 | B | B1 | .256 | .283 | 0.91 |
-| B | B2 (least talk) | .116 | .089 | **1.29** |
-| B | DEVICE | .128 | .094 | 1.37 |
-| B | B3 | .174 | .099 | 1.75 |
+| B | B2 | .244 | .183 | 1.33 |
+| B | B3 (least talk) | .174 | .099 | **1.75** |
 
-`init_floor`: facilitator 0.95 / 0.81; least-talkative 1.29 / 1.32. `init_question`: facilitator **1.16 /
-1.09** (the only definition on which the facilitator over-initiates); least-talkative 0.96 / 1.20.
+`init_floor`: facilitator 0.95 / 0.81; least-talkative 1.29 / 1.60. `init_question`: facilitator **1.16 /
+1.09** (the only definition on which the facilitator over-initiates); least-talkative 0.96 / 1.66.
 
 ### T3 — Facilitator vs talk-time-weighted null
 | definition | n | observed share | null mean | null 95 % | p |
@@ -61,13 +60,14 @@ INTERIOR_HANDOFF 39.6 %, INTERIOR_OTHER 36.5 %.
 ### T2c — Rank stability (first vs second half of each team's run, Spearman ρ)
 | definition | Team A | Team B |
 |---|---:|---:|
-| init_primary | .80 (p = .20) | .90 (p = .04) |
+| init_primary | .80 | .20 |
 | init_floor | 1.00 | 1.00 |
-| init_question | 1.00 | 1.00 |
+| init_question | 1.00 | .40 |
 
-(With 4–5 persons per team the p-values are uninformative; the point is that the ordering is preserved
-in both teams on every definition. The earlier ρ = .90 vs .20 contrast compared per-meeting labels, not
-persons, and is withdrawn.)
+(With four persons per team the p-values are uninformative. Team A's ordering is preserved on every
+definition. In Team B the facilitator moves from third to first initiator between halves on the primary
+definition (H1: B1 81, B2 71, FAC 70, B3 47; H2: FAC 88, B2 47, B1 43, B3 37) while the members' order
+among themselves is unchanged; this is the same phenomenon as the τ = +.52 drift in T4.)
 
 ### T4 — Facilitator share vs week (Kendall τ, per-meeting share)
 | definition | Team A | Team B | pooled |
@@ -89,17 +89,19 @@ evidence for or against P5: the facilitator is an external advisor, not either t
 ## Honest interpretation
 Talk-time explains most of who initiates; the residual is *anti*-facilitator on the floor-taking
 definitions and *pro*-facilitator on the question definition. The consistent over-initiator is the
-least-talkative member (both teams, two of three definitions). Initiator roles are stable within each
-team's run. Who initiates does not change what kind of event follows, nor how deep it is.
+least-talkative member (both teams, on every definition in Team B and two of three in Team A).
+Initiator roles are stable within Team A's run; in Team B the facilitator's share rises in the second
+half. Who initiates does not change what kind of event follows, nor how deep it is.
 
 ## Paper paragraph (drop-in)
 > Across 913 reorganization events, the external facilitator — present in every meeting of both teams
 > and holding 44–46 % of the talk-time — initiated fewer floor-taking and topic-opening events than a
 > talk-time-weighted null predicts (observed share .36 and .39 vs null .44; permutation p < .002 for both
 > definitions; lift 0.86 and 0.75 in the two teams), but more question-initiated events (.50 vs .45,
-> p = .008). The least-talkative member of each team initiated 1.3–1.4× their talk-time share, and
-> initiator rankings were stable across the first and second halves of each team's run (Spearman ρ ≥ .80
-> on all definitions). Event class and event depth did not depend on initiator type.
+> p = .008). The least-talkative member of each team initiated 1.4–1.7× their talk-time share. Initiator
+> rankings were stable across the first and second halves of Team A's run (Spearman ρ ≥ .80 on all
+> definitions); in Team B the facilitator's share rose in the second half (τ = +.52). Event class and
+> event depth did not depend on initiator type.
 
 ## Deliverables
 `results/events_initiators.csv` (913 rows; per event: meeting, week, onset, class under both rules,

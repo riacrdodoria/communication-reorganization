@@ -1,7 +1,7 @@
 definition,team,n_members,rho,p,H1_counts,H2_counts
 init_primary,startup_a,4,0.7999999999999999,0.20000000000000007,"{'A1': 71, 'A2': 41, 'A3': 29, 'FACILITATOR': 101}","{'A1': 50, 'A2': 52, 'A3': 16, 'FACILITATOR': 69}"
-init_primary,startup_b,5,0.8999999999999998,0.03738607346849875,"{'B1': 81, 'B2': 33, 'B3': 47, 'DEVICE': 38, 'FACILITATOR': 70}","{'B1': 43, 'B2': 23, 'B3': 37, 'DEVICE': 24, 'FACILITATOR': 88}"
+init_primary,startup_b,4,0.19999999999999998,0.8,"{'B1': 81, 'B2': 71, 'B3': 47, 'FACILITATOR': 70}","{'B1': 43, 'B2': 47, 'B3': 37, 'FACILITATOR': 88}"
 init_floor,startup_a,4,1.0,0.0,"{'A1': 72, 'A2': 48, 'A3': 27, 'FACILITATOR': 95}","{'A1': 43, 'A2': 36, 'A3': 15, 'FACILITATOR': 93}"
-init_floor,startup_b,5,0.9999999999999999,1.4042654220543672e-24,"{'B1': 76, 'B2': 33, 'B3': 50, 'DEVICE': 30, 'FACILITATOR': 80}","{'B1': 51, 'B2': 24, 'B3': 27, 'DEVICE': 22, 'FACILITATOR': 91}"
+init_floor,startup_b,4,1.0,0.0,"{'B1': 76, 'B2': 63, 'B3': 50, 'FACILITATOR': 80}","{'B1': 51, 'B2': 46, 'B3': 27, 'FACILITATOR': 91}"
 init_question,startup_a,4,1.0,0.0,"{'A1': 27, 'A2': 21, 'A3': 11, 'FACILITATOR': 70}","{'A1': 25, 'A2': 19, 'A3': 6, 'FACILITATOR': 54}"
-init_question,startup_b,5,0.9999999999999999,1.4042654220543672e-24,"{'B1': 28, 'B2': 15, 'B3': 24, 'DEVICE': 14, 'FACILITATOR': 64}","{'B1': 20, 'B2': 13, 'B3': 19, 'DEVICE': 4, 'FACILITATOR': 60}"
+init_question,startup_b,4,0.39999999999999997,0.6,"{'B1': 28, 'B2': 29, 'B3': 24, 'FACILITATOR': 64}","{'B1': 20, 'B2': 17, 'B3': 19, 'FACILITATOR': 60}"

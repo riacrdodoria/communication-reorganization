@@ -45,9 +45,10 @@ direction, neither CI excludes zero), or NON-REPLICATION (opposite direction).
 rows have both team estimates; **26/27 (96%) agree in direction** (the taxonomy-fingerprint row is a
 placeholder pointing to the fuller T2 vector test). One row is **flagged as a non-replication**: the
 facilitator-initiation-share longitudinal trend (Study 9: Team B τ = +.52, p = .004; Team A τ = −.08,
-p = .65). Two rows that an earlier version flagged — initiator-rank stability (ρ = .90 vs .20) and the
-quiet-member lift — were artefacts of per-meeting speaker labels; on verified persons they replicate
-(stability ρ = .80 / .90; least-talkative member lift 1.38 / 1.29). The facilitator's initiation share
+p = .65). The quiet-member lift replicates on verified persons (least-talkative member 1.38 / 1.75). Initiator-rank
+stability agrees in sign but differs in magnitude (ρ = .80 vs .20 on the primary definition; 1.00 / 1.00
+on the floor definition): in Team B the facilitator moves from third to first initiator between halves,
+the same phenomenon as the flagged longitudinal drift, so the two flags are one finding, not two. The facilitator's initiation share
 replicates in both teams (below its talk-time null, A p = .01, B p < .002). Rows that depend on absolute
 entropy (bimodality coefficient, the longitudinal taus, baseline entropy) changed value with the corpus
 correction; rows built on within-meeting contrasts, ranks, %DET or event rates did not.
@@ -81,7 +82,7 @@ facilitator-initiation) holds in one team only — and because the facilitator i
 shared across both teams (Study 9), this is read as informative, not as noise: **the structural,
 content/floor-level architecture of reorganization is team-general; a person-specific facilitation
 dynamic is not**. The person-level statistics that do replicate (facilitator under-initiates floor-taking
-events, least-talkative member over-initiates, initiator ranks stable) support the program's bottom-up
+events, least-talkative member over-initiates) support the program's bottom-up
 reading in both teams. What does *not* replicate — because it does not exist once the corpus is
 corrected — is developmental consolidation of the resting entropy: the corpus offers no evidence that
 the teams' turn-taking baseline drifts over six months.

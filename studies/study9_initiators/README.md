@@ -12,7 +12,8 @@ order of first appearance, that constant was wrong in 24/34 meetings (`facilitat
 **(2)** The same per-meeting labelling had also been used to follow *members* across meetings (initiation
 lift, rank stability, "quietest member"); those statistics were therefore comparing labels, not persons.
 Every person-level statistic now uses the verified per-meeting role map (`results/speaker_roles_verified.csv`,
-`src/roles.py`: FACILITATOR, A1–A3, B1–B3, DEVICE). The corpus was also cleaned of a transcription-tool
+`src/roles.py`: FACILITATOR, A1–A3, B1–B3; one Team B member used a shared team account in nine meetings
+and is mapped to the same role). The corpus was also cleaned of a transcription-tool
 line in ten meetings (`METHODS.md` §1), which changes the event set slightly (913 events instead of 909).
 
 ## Rationale and gap
@@ -42,8 +43,8 @@ permutation test (1,000 seeded runs; p reported as (b+1)/(N+1), floor p < .002) 
 Wilcoxon for event depth by initiator type.
 
 ## Results
-- **Concentration is moderate and similar across teams.** Gini of initiations per person: 0.24 / 0.22
-  (`init_primary`), 0.27 / 0.26 (`init_floor`), 0.36 / 0.36 (`init_question`) for Teams A / B. The
+- **Concentration is moderate, lower in Team B.** Gini of initiations per person: 0.24 / 0.12
+  (`init_primary`), 0.27 / 0.16 (`init_floor`), 0.36 / 0.24 (`init_question`) for Teams A / B. The
   facilitator is the single most frequent initiator in absolute terms (40 % / 33 % of `init_primary`
   events) — but they also hold 46 % / 44 % of the talk-time.
 - **The facilitator opens the floor *less* than talk-time predicts, but asks the opening question
@@ -54,11 +55,13 @@ Wilcoxon for event depth by initiator type.
   (`init_question`). The facilitator's initiations are questions; the floor-taking and topic-opening moves
   that start a reorganization belong disproportionately to members.
 - **The least-talkative member over-initiates in both teams.** `init_primary` lift 1.38 (A3, 7.6 % of
-  talk-time) and 1.29 (B2, 8.9 %); the largest lift in Team B is B3 (1.75, 9.9 % talk-time). The
-  most-talkative member sits at ≈1.0 / 0.91.
-- **Initiator ranks are stable.** First vs second half of each team's run, Spearman ρ = .80 / .90
-  (`init_primary`), 1.00 / 1.00 (`init_floor` and `init_question`). The earlier "Team A stable, Team B
-  unstable" contrast (ρ .90 vs .20) was a label artefact of per-meeting pseudonyms.
+  talk-time) and 1.75 (B3, 9.9 %); on the other definitions 1.29 / 1.60 (`init_floor`) and 0.96 / 1.66
+  (`init_question`). The most-talkative member sits at ≈1.0 / 0.91.
+- **Initiator ranks are stable in Team A, definition-dependent in Team B.** First vs second half of each
+  team's run, Spearman ρ: Team A .80 / 1.00 / 1.00 (`init_primary` / `init_floor` / `init_question`);
+  Team B .20 / 1.00 / .40. Team B's instability on the primary and question definitions is the same
+  phenomenon as its longitudinal drift (below): the facilitator moves from third to first initiator in the
+  second half of Team B's run while the members' order among themselves is unchanged.
 - **Event class does not depend on who initiates.** χ²(2) = 2.8 / 3.6 / 1.8 (p = .24 / .16 / .40) for the
   three definitions; the facilitator initiates 34–40 % of each class.
 - **Facilitator share vs week.** Kendall τ = −0.08 (A, p = .65) and +0.52 (B, p = .004) for
@@ -76,9 +79,9 @@ questions as one of its cues.
 
 ## Honest scope
 Two teams, one facilitator: the facilitator effect is a single person's style and cannot be generalised.
-The "quietest member" is the person with the least talk-time over 17 meetings; the DEVICE role in Team B
-(a participant on a shared room device) is treated as one person because their utterances were labelled
-as one source. The permutation null conditions on per-meeting talk-time shares; a person who talks a lot
+The "quietest member" is the person with the least talk-time over 17 meetings. One Team B member joined
+nine meetings through a shared team account; the name-labelled alignment shows the two accounts never
+co-occur and are mapped to one role. The permutation null conditions on per-meeting talk-time shares; a person who talks a lot
 *because* they initiate a lot would depress their own lift. The handoff/other split is rule-sensitive
 (`METHODS.md` §4) but no result here conditions on it.
 

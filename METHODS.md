@@ -25,8 +25,9 @@ coincided with the removed line.
 **Speaker identity.** The anonymous `speaker_id` is assigned *per meeting* by order of first appearance and
 is therefore not a persistent identity across meetings. Any analysis that aggregates over a person across
 meetings (Study 9, Study 11) uses the verified per-meeting role map `results/speaker_roles_verified.csv`
-(`src/roles.py`): FACILITATOR (the same external advisor in every meeting of both teams), A1–A3 / B1–B3
-(team members), DEVICE (a participant on a shared room device). The map was built by aligning each
+(`src/roles.py`): FACILITATOR (the same external advisor in every meeting of both teams) and A1–A3 / B1–B3
+(team members; one Team B member joined nine meetings through a shared team account rather than a
+personal one and is mapped to the same role, B2). The map was built by aligning each
 anonymised transcript with the researcher's retained, name-labelled source transcript; the source files and
 the name→role key are not distributed.
 

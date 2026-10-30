@@ -14,9 +14,10 @@ LAB = {"agenda": "Pulso script stage", "topic": "semantic topic", "event": "reor
        "floor": "extended floor turn (≥30 s)", "novelty": "lexical novelty peak"}
 STAGE_LAB = {"segue": "check-in", "scorecard": "scorecard", "rock_review": "rocks", "headlines": "headlines", "todo": "to-dos", "ids": "IDS", "conclude": "close"}
 INK, MUTED = ps.INK, ps.NEUTRAL
-fig = plt.figure(figsize=(7.2, 6.6))
+fig = plt.figure(figsize=(7.2, 7.0))
 gs = fig.add_gridspec(2, 2, height_ratios=[1.0, 1.25], width_ratios=[1.35, 1.0], hspace=.55, wspace=.55)
-axA = fig.add_subplot(gs[0, :]); axB = fig.add_subplot(gs[1, 0]); axC = fig.add_subplot(gs[1, 1])
+axA = fig.add_subplot(gs[0, :]); axB = fig.add_subplot(gs[1, 0])
+gsr = gs[1, 1].subgridspec(2, 1, hspace=.95); axC = fig.add_subplot(gsr[0]); axD = fig.add_subplot(gsr[1])
 
 # --- A: one meeting ------------------------------------------------------------------------------------------
 import sys; sys.path.insert(0, os.path.expanduser("~/lsh-work/study13_metric_extensions/src")); import common as C
@@ -63,7 +64,22 @@ for yy, nm in zip(y, NAMES):
 axC.set_xscale("log"); axC.minorticks_off(); axC.grid(axis="y", visible=False); axC.set_xlim(30, 3000); axC.set_xticks([60, 120, 300, 600]); axC.set_xticklabels(["1", "2", "5", "10"], fontsize=6.4)
 axC.set_yticks(y); axC.set_yticklabels(short, fontsize=6.4); axC.axhline(2.5, color=MUTED, lw=.5, ls=":")
 axC.set_xlabel("median segment length (min, log scale)", fontsize=6.8)
-axC.set_title("C. Time scale of each division", loc="left", fontsize=8.8, fontweight="bold", color=ps.COORD)
+axC.set_title("C. Time scale", loc="left", fontsize=8.8, fontweight="bold", color=ps.COORD)
+
+# --- D: floor state at each kind of boundary (T2 of floor_cycle.py) -------------------------------------------
+SB = pd.read_csv(f"{R}/floor_cycle_T2_boundaries.csv").set_index("boundary").loc[NAMES]
+yd = np.arange(6)[::-1]
+axD.axvline(0, color=MUTED, lw=.7, ls=":")
+for yy, nm in zip(yd, NAMES):
+    for st, mk, off in [("F1", "o", .14), ("F2", "s", -.14)]:
+        v = np.log2(SB.loc[nm, f"{st}_ratio"]); sig = SB.loc[nm, f"{st}_p_enrich"] < .01 or SB.loc[nm, f"{st}_p_deplete"] < .01
+        axD.scatter(v, yy + off, marker=mk, s=18, facecolor=INK if sig else "white", edgecolor=INK, lw=.7, zorder=3)
+axD.set_yticks(yd); axD.set_yticklabels(short, fontsize=6.4); axD.set_xlim(-1.4, 1.0); axD.set_xticks([-1, 0, 1]); axD.set_xticklabels(["0.5×", "chance", "2×"], fontsize=6.2)
+axD.axhline(2.5, color=MUTED, lw=.5, ls=":"); axD.grid(axis="y", visible=False)
+axD.set_xlabel("boundaries in this floor state / expected", fontsize=6.6)
+axD.text(0, -.62, "○ F1: one speaker holds the floor (top share ≥ .70)\n□ F2: collaborative floor (≥ 3 active, top share < .50)\nfilled = differs from chance, p < .01", fontsize=5.4, color=MUTED, va="top", transform=axD.transAxes)
+axD.set_ylim(-.6, 6.1)
+axD.set_title("D. Floor state at each boundary", loc="left", fontsize=8.8, fontweight="bold", color=ps.COORD, pad=12)
 
 for ext in ("png", "pdf"):
     fig.savefig(f"{os.path.dirname(__file__)}/fig_partitions.{ext}", bbox_inches="tight", facecolor="white", dpi=600 if ext == "png" else None)

@@ -195,3 +195,43 @@ Observed / expected share of reference boundaries with a target boundary within 
 | novelty | 1.09 | 1.04 | 1.03 | 1.16* | 1.14* | — |
 The same two-family pattern holds at ±15 s and ±60 s (`results/partitions_summary.txt`). Figure:
 `paper_figures/fig_partitions.png`.
+
+## 14. Floor states and the two clocks (`floor_cycle.py`)
+Floor state every 5 s (60-s windows): F1 = top-speaker share ≥ .70 (46 % of time); F2 = ≥ 3 active speakers and top
+share < .50 (19 %); MIX otherwise (36 %). Median dwell: F1 45 s, F2 20 s, MIX 20 s.
+
+**Boundaries by floor state** (observed / expected from 300 circular shifts; all listed ratios p < .01 except where n.s.):
+| Boundary | n | F1 | MIX | F2 |
+|---|---|---|---|---|
+| Agenda stage | 165 | 0.58 | 1.20 | 1.58 |
+| Topic | 936 | 0.59 | 1.13 | 1.63 |
+| Reorganization event | 913 | 0.47 | 1.31 | 1.68 |
+| Entropy level shift | 1,318 | 1.36 | 0.83 | 0.44 |
+| Extended floor turn onset | 1,543 | 1.03 (n.s.) | 1.23 | 0.42 |
+| Lexical novelty peak | 842 | 1.03 (n.s.) | 0.98 (n.s.) | 0.98 (n.s.) |
+
+Content by state (mean of meeting means): residual topic entropy F1 −.025, MIX +.025, F2 +.003 (F1 vs F2 p = 3.5e-5);
+residual novelty F1 +.004, F2 −.002 (p = .06).
+
+**Long turns.** 1,543 turns ≥ 30 s; an event within [−10, +60] s of the turn end in 28.8 % (circular-shift expectation
+28.4 %, ratio 1.01, p = .35; 10–30 s turns 34.9 %). Logit with meeting fixed effects: residual novelty OR .85 (p = .036),
+log duration OR .76 (p = .052), facilitator OR .85 (p = .21). Lexical uptake of the long turn by other speakers in the
+next 120 s exceeds a far-turn null by +.025 (p = 1.3e-8); OLS with meeting fixed effects: event follows b = +.0105
+(p = .030), facilitator turn b = −.013 (p = .005), novelty n.s. Caveat: others talk more after events, which can raise
+uptake. Events preceded by a long-turn end (53 % of events) do not differ in topic entropy or novelty from other events.
+
+**Two origins of topics** (936 topics: opened by a long turn only 22.6 %, by an event only 28.7 %, both 13.2 %,
+neither 35.4 %). Individual vs collective, within-meeting Wilcoxon (34 meetings): duration 4.16 vs 2.40 min (p < .001);
+mean entropy 34.2 vs 48.0 %MaxEnt (p < .001); events per minute .31 vs .40 (p = .19); novelty in the first minute
+.019 vs .004 (p = .07); facilitator as opener .35 vs .31 (p = .33). Review stages have more collectively opened topics
+(34 %) than IDS (27 %).
+
+**Centralization** (570 five-minute blocks, Poisson GLM with meeting fixed effects, IDS indicator): collective
+boundaries (events + topics) RR .861 per SD of degree centralization in the same block (p < .001) and RR .949 in the
+next block controlling for the current count (p = .048); individual boundaries (long turns + level shifts) RR 1.03
+(p = .21) and 1.01 (p = .65).
+
+**By stage** (±30 s, 500 circular shifts): topic→event 1.76 (review) and 1.47 (IDS); event→floor 0.69 and 0.78;
+topic→floor 0.66 and 0.82 (all p = .002); level→floor 1.08 (n.s.) and 1.16 (p = .002); novelty→level 1.22 and 1.12
+(p ≤ .012). Figure: `paper_figures/fig_partitions.png`, panel D.
+

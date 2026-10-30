@@ -1,0 +1,64 @@
+T1. INJECT -> INTEGRATE (long turns >= 30 s vs 10-30 s turns)
+  long (>=30 s): n=1543; event within [-10, +60] s of turn end 0.288; uptake 0.1026 vs far null 0.0766
+  short (10-30 s): n=3536; event within [-10, +60] s of turn end 0.349; uptake 0.0794 vs far null 0.0539
+  long-turn ends followed by an event: observed 444 vs circular-shift 437.5 (ratio 1.01, p=0.347)
+  logit event60 (long turns, meeting FE, n=1458): novelty OR=0.854 p=0.036; log duration OR=0.759 p=0.052; facilitator OR=0.851 p=0.205
+  integration (uptake minus null) mean +0.0251 (meeting-level Wilcoxon p=1.3e-08)
+  OLS integration: novelty b=-0.0029 p=0.300; event follows b=+0.0105 p=0.030; facilitator b=-0.0130 p=0.005; log dur b=-0.0021 p=0.679
+  events preceded by a long-turn end (within 60 s): 0.534 of events; topic entropy at them +0.0449 vs other events +0.0277 (p=0.134); novelty -0.0021 vs -0.0116 (p=0.278)
+
+T2. FLOOR STATES (5-s grid, 60-s windows)
+  time share: {'F1': 0.455, 'MIX': 0.357, 'F2': 0.188}
+  novelty_res by state (mean of meeting means): F1 +0.0038  MIX -0.0014  F2 -0.0021; F1 vs F2 Wilcoxon p=5.9e-02
+  topic_entropy_res by state (mean of meeting means): F1 -0.0249  MIX +0.0247  F2 +0.0029; F1 vs F2 Wilcoxon p=3.5e-05
+  state at boundary, observed / circular-shift expected:
+    agenda   n=165   F1 0.58 (p+=1.000, p-=0.003)  MIX 1.20  F2 1.58 (p+=0.003, p-=1.000)
+    topic    n=936   F1 0.59 (p+=1.000, p-=0.003)  MIX 1.13  F2 1.63 (p+=0.003, p-=1.000)
+    event    n=913   F1 0.47 (p+=1.000, p-=0.003)  MIX 1.31  F2 1.68 (p+=0.003, p-=1.000)
+    level    n=1318  F1 1.36 (p+=0.003, p-=1.000)  MIX 0.83  F2 0.44 (p+=1.000, p-=0.003)
+    floor    n=1543  F1 1.03 (p+=0.086, p-=0.927)  MIX 1.23  F2 0.42 (p+=1.000, p-=0.003)
+    novelty  n=842   F1 1.03 (p+=0.249, p-=0.764)  MIX 0.98  F2 0.98 (p+=0.641, p-=0.399)
+  run transitions P(next | current): nxt       F1     F2    MIX | state                      | F1     0.000  0.001  0.999 | F2     0.003  0.000  0.997 | MIX    0.536  0.464  0.000
+  median dwell (s): {'F1': 45.0, 'F2': 20.0, 'MIX': 20.0}
+
+T3. TWO ORIGINS OF TOPICS
+  share: {'neither': 0.354, 'collective': 0.287, 'individual': 0.226, 'both': 0.132}
+  dur_min         individual 4.162  collective 2.397  both 4.567  neither 2.789 | ind vs coll within meeting p=0.000 (n=34)
+  events_per_min  individual 0.309  collective 0.403  both 0.332  neither 0.292 | ind vs coll within meeting p=0.191 (n=34)
+  n_spk           individual 3.193  collective 3.309  both 3.339  neither 3.350 | ind vs coll within meeting p=0.442 (n=34)
+  entropy         individual 34.163  collective 47.989  both 33.002  neither 44.852 | ind vs coll within meeting p=0.000 (n=34)
+  nov_first60     individual 0.019  collective 0.004  both 0.014  neither 0.010 | ind vs coll within meeting p=0.070 (n=34)
+  fac_opener      individual 0.349  collective 0.312  both 0.290  neither 0.284 | ind vs coll within meeting p=0.327 (n=34)
+  class by stage: cls      both  collective  individual  neither | row_0                                          | IDS     0.109       0.269       0.254    0.368 | other   0.254       0.275       0.190    0.282 | review  0.116       0.344       0.177    0.363
+
+T4. CENTRALIZATION AND THE TWO CLOCKS (5-min blocks)
+  collective same block: centralization RR=0.861 p=0.000 | next block: centralization RR=0.949 p=0.048; top share RR=0.974 p=0.370
+  individual same block: centralization RR=1.026 p=0.207 | next block: centralization RR=1.009 p=0.654; top share RR=1.040 p=0.079
+  blocks: 570; mean collective 2.98, individual 4.69 per 5 min
+
+T5. THE TWO CLOCKS BY STAGE (+/-30 s, 500 circular shifts)
+stage            IDS  review
+ref     target              
+event   floor   0.78    0.69
+        topic   1.57    1.55
+level   floor   1.16    1.08
+novelty floor   1.12    1.14
+        level   1.12    1.22
+topic   event   1.47    1.76
+        floor   0.82    0.66
+  p enrichment / depletion:
+ stage     ref target   n  ratio  p_enrich  p_deplete
+review   topic  event 215  1.761     0.002      1.000
+review   event  topic 234  1.546     0.002      1.000
+review   event  floor 234  0.685     1.000      0.002
+review   topic  floor 215  0.660     1.000      0.002
+review   level  floor 302  1.082     0.090      0.926
+review novelty  floor 198  1.137     0.064      0.962
+review novelty  level 198  1.218     0.010      0.994
+   IDS   topic  event 579  1.469     0.002      1.000
+   IDS   event  topic 501  1.568     0.002      1.000
+   IDS   event  floor 501  0.778     1.000      0.002
+   IDS   topic  floor 579  0.815     1.000      0.002
+   IDS   level  floor 804  1.161     0.002      1.000
+   IDS novelty  floor 542  1.115     0.004      0.998
+   IDS novelty  level 542  1.122     0.012      0.990

@@ -154,4 +154,7 @@ only as a bound.
   states (LSH-WD), validated against hand-coded laboratory data in Study 1; pure LSH is a robustness
   variant. (ii) Study 2's supra-autoregressive excursion amplitude does not exceed a run-shuffle null
   that holds the turn-length mix fixed (p = .169); excursion frequency does (1.93×, p = .005). Study 2
-  now reports both. (iii) Study 13 added (metric extensions against run-shuffle nulls).
+  now reports both. (iii) Study 13 added (metric extensions against run-shuffle nulls). (iv) Two Study 13
+  findings retracted the same day after artifact checks: reduced reciprocity and facilitator advantage near
+  events (explained by local entropy) and routinization in both teams (absences, facilitator share and
+  tool change in Team A; facilitator concentration in Team B).

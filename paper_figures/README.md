@@ -102,3 +102,10 @@ check are documented in `FIGURE_ASSEMBLY_NOTES.md`. The Study 11 replication-led
 
 Reproduce: `python fig<k>_<name>.py` (all three read cached numeric data only, except Figure 1's
 `_cache_lmin_comparison.py` helper, which reads transcripts once to build `_cache_lmin_det.csv`).
+
+**2026-10-30.** `fig_reconstruction` (Study 1): one minute in three representations (true standard, pure LSH,
+LSH-WD), within-session agreement by metric, event timing and silence share by reconstruction, and session means;
+same logic as the earlier Last-Speaker-Holds validation figures. `fig1_computational_structure`
+panel C now shows excursion size against AR(1), VAR(1) and run-order shuffle nulls and excursion frequency against the
+run-order shuffle. `fig_partitions` (Study 13): six divisions of meeting time and their co-occurrence.
+

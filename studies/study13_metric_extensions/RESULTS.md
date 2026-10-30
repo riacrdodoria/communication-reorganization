@@ -67,7 +67,7 @@ With a 30-s gap, by trigger class (variance): TRANSITION 29/34 (p < .0001), INTE
   1.01 vs 1.01; 300 s 1.19 vs 1.02 (p = .10); 600 s 1.28 vs 1.07 (p = .018). Events are refractory at
   30–60 s and cluster at the 10-min scale.
 
-## 5. Routinization across weeks (`routinization.py`; Kendall τ with week, 17 meetings per team)
+## 5. Routinization across weeks (`routinization.py`; Kendall τ with week, 17 meetings per team) — see §11 before using
 | Measure | Team A τ (p) | Team B τ (p) |
 |---|---|---|
 | Markov entropy rate of speaker transitions | −.54 (.002) | −.38 (.034) |
@@ -75,7 +75,7 @@ With a 30-s gap, by trigger class (variance): TRANSITION 29/34 (p < .0001), INTE
 | Distance to previous meeting's transition matrix | +.15 (.45) | +.10 (.63) |
 | Multiscale-entropy complexity index (`multiscale.py`) | −.47 (.01) | −.12 (.54) |
 
-## 6. Turn allocation (`rem.py`; conditional logit, 16,298 choice sets, 45,960 candidate rows)
+## 6. Turn allocation (`rem.py`; conditional logit, 16,298 choice sets, 45,960 candidate rows) — near-event rows retracted, see §11
 | Term | M1 OR (p) | Interaction with near-event (±30 s) | with IDS | with week (z) |
 |---|---|---|---|---|
 | Reciprocity (candidate held turn t−1) | 1.48 (1e-51) | ×0.86 (.004) | ×0.89 (.036) | ×0.95 (.065) |
@@ -83,7 +83,8 @@ With a 30-s gap, by trigger class (variance): TRANSITION 29/34 (p < .0001), INTE
 | Participation share so far | 11.9 (5e-87) | ×0.93 (.77) | ×4.24 (1e-8) | ×0.89 (.36) |
 | Facilitator role | 1.18 (2e-10) | ×0.86 (.006) | ×1.13 (.021) | ×1.06 (.038) |
 
-Interactions from the joint model M5 (AIC 24,108.6 vs 24,238.0 for M1). Team-specific week trends:
+Interactions from the joint model M5 (AIC 24,108.5 vs 24,238.0 for M1; refitted 2026-10-30 with up to 3,000
+BFGS iterations after one fit had not converged; changes are in the third decimal). Team-specific week trends:
 reciprocity × week Team A −.018 (p = .56), Team B +.046 (p = .044); facilitator × week Team A +.045
 (p = .27), Team B +.089 (p = .003).
 
@@ -132,3 +133,65 @@ Lead–lag around event onset (standardized residuals): topic entropy rises from
 Cross-speaker lexical uptake .077 vs .025 for far-apart turn pairs (ratio 3.26, p = 1e-10);
 self-continuation .084 (above cross-speaker, p = .003); uptake near events .078 vs baseline .075 (p = .55).
 Mean novelty rises with week in Team B (τ = +.43, p = .017; Team A +.31, p = .09).
+
+## 11. Artifact checks (`rem_artifacts.py`, `routinization_artifacts.py`)
+**Turn allocation near events.** Controls: interactions of every base term with local %MaxEnt (z within meeting) and
+with the number of distinct speakers in the previous 60 s. Placebo: entropy peaks above the meeting's 90th percentile
+that are ≥ 90 s from any event.
+| Model | reciprocity × near OR (p) | facilitator × near OR (p) |
+|---|---|---|
+| Near-event terms only | 0.866 (.007) | 0.862 (.006) |
+| + local-entropy controls | 0.998 (.98) | 0.962 (.49) |
+| Placebo peaks only | 0.851 (.065) | 0.819 (.026) |
+| Circular-shift null, controlled model (100 shifts) | p = .59 | p = .27 |
+Local entropy itself carries the effect (reciprocity × entropy OR .745, facilitator × entropy OR .785, both p < 1e-9).
+The near-event moderation is therefore not event-specific.
+
+**Routinization.** Decomposition: H_ind = entropy rate expected from turn shares alone; S = H_ind − H_obs.
+| Kendall τ with week | Team A | Team B |
+|---|---|---|
+| H_obs, all meetings | −.54 (.002) | −.38 (.034) |
+| H_obs, three members present | −.44 (.042) | −.47 (.016) |
+| H_obs, before the transcription-tool change (weeks 1–12) | −.09 (.74) | −.52 (.021) |
+| S (structure beyond shares) | +.00 (1.0) | +.38 (.034) |
+| Facilitator turn share | +.37 (.042) | +.57 (.001) |
+| Member-to-member excess over shares | −.12 (.54) | −.47 (.008) |
+Pooled OLS with absence and tool covariates: week b = −.013 (p = .135); absence b = −.32 (p < .001); tool n.s.
+Meetings with a member absent have the lowest entropy rates (0.86 vs 1.27).
+
+## 12. Change-point anatomy (`cp_anatomy.py`; 1,318 PELT change points)
+| Property | Observed | Null | p |
+|---|---|---|---|
+| Mean absolute level shift (%MaxEnt), vs change points of 20 run-shuffles per meeting | 26.2 | 29.3 | 3.5e-10 |
+| Change points beyond the shuffle's 95th percentile | 1.7 % | 5 % | — |
+| Within 15 s of a long-turn (≥ 30 s) start or end, vs circular shift | .543 | .415 | 3.6e-8 |
+| Dominant floor holder differs before vs after (60 s) | .485 | .432 | 1.7e-5 |
+| Mean distance to nearest event (s) | 128 | 132 | .046 |
+| Strong change points (n = 22): distance to nearest event (s) | 52 | 127 | .004 |
+Stage distribution of change points equals the stage distribution of meeting time (IDS 61 %). The facilitator
+dominates the minute after a downward shift in 52 % of cases vs 49 % of random minutes. Content within ±15 s:
+residual novelty +0.14 (p = .001), residual topic entropy −0.17 (p = 3e-5); long-turn boundaries without a change
+point show the same direction (+0.18, −0.15), so the content signature belongs to extended floor turns generally.
+
+## 13. Divisions of meeting time (`partitions.py`; 34 meetings, 1,000 circular shifts)
+| Division | Boundaries | Per hour | Median segment |
+|---|---|---|---|
+| Agenda (Pulso / L10 stage) | 165 | 3.2 | 6.4 min |
+| Topic episode | 936 | 17.9 | 2.6 min |
+| Reorganization event | 913 | 17.5 | 1.8 min |
+| Entropy level shift (PELT) | 1,318 | 25.4 | 1.8 min |
+| Extended floor turn (≥ 30 s) | 1,543 | 29.8 | 1.6 min |
+| Lexical novelty peak | 842 | 16.2 | 2.2 min |
+
+Observed / expected share of reference boundaries with a target boundary within ±30 s (* enrichment p < .01,
+° depletion p < .01):
+| ref \ target | agenda | topic | event | level | floor | novelty |
+|---|---|---|---|---|---|---|
+| agenda | — | 1.55* | 1.49* | 1.01 | 1.02 | 1.01 |
+| topic | 1.56* | — | 1.62* | 1.00 | 0.80° | 1.04 |
+| event | 1.49* | 1.59* | — | 1.07 | 0.80° | 1.03 |
+| level | 1.01 | 1.02 | 1.12* | — | 1.16* | 1.15* |
+| floor | 0.99 | 0.78° | 0.85° | 1.19* | — | 1.09* |
+| novelty | 1.09 | 1.04 | 1.03 | 1.16* | 1.14* | — |
+The same two-family pattern holds at ±15 s and ±60 s (`results/partitions_summary.txt`). Figure:
+`paper_figures/fig_partitions.png`.

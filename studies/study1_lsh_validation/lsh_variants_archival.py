@@ -54,7 +54,7 @@ def build(utts, n, kind):
 
 inv = pd.read_csv(CAN / "inventory.csv"); inv = inv[inv.status.astype(str).eq("processed")]
 raw_files = {Path(p).stem: p for p in glob.glob(f"{RAW}/*/*.xls*")}
-rows = []
+rows = []; EXCERPT = ("J11T1-OutputsT4",); excerpt = {}
 for row in inv.itertuples(index=False):
     tid = str(row.team_id); stem = {"J5S2a": "J5S2BatchUtt-CzP0"}.get(tid, tid)
     if stem not in raw_files: print("no raw file for", tid); continue
@@ -67,9 +67,13 @@ for row in inv.itertuples(index=False):
         v = build(utts, n, kind); states = nsp + (1 if (v == 0).any() else 0); mv = metrics(v, states); eb = events(mv.rmse.to_numpy()); oa, ob = overlap(ea, eb)
         rows.append(dict(team_id=tid, domain=row.domain, variant=kind, n_utts=len(utts), words_per_utt=n_words / max(1, len(utts)), silence_true=100 * (std == 0).mean(), silence_variant=100 * (v == 0).mean(),
                          r_entropy=rr(ms.entropy.to_numpy(), mv.entropy.to_numpy()), r_det=rr(ms.det.to_numpy(), mv.det.to_numpy()), r_rmse=rr(ms.rmse.to_numpy(), mv.rmse.to_numpy()),
-                         bias_entropy=mv.entropy.mean() - ms.entropy.mean(), bias_det=mv.det.mean() - ms.det.mean(), n_events_std=len(ea), n_events_var=len(eb), events_std_matched=oa, events_var_matched=ob))
+                         bias_entropy=mv.entropy.mean() - ms.entropy.mean(), bias_det=mv.det.mean() - ms.det.mean(), n_events_std=len(ea), n_events_var=len(eb), events_std_matched=oa, events_var_matched=ob,
+                         mean_entropy_std=ms.entropy.mean(), mean_entropy_var=mv.entropy.mean(), mean_det_std=ms.det.mean(), mean_det_var=mv.det.mean(),
+                         mean_rmse_std=np.nanmean(ms.rmse.to_numpy()), mean_rmse_var=np.nanmean(mv.rmse.to_numpy())))
+        if tid == EXCERPT[0]: excerpt[kind] = v; excerpt["standard"] = std
         r0 = rows[-1]; print(f"{tid:22s} {kind:9s} sil {r0['silence_true']:4.1f}->{r0['silence_variant']:4.1f}  r ent {r0['r_entropy']:.3f} det {r0['r_det']:.3f} rmse {r0['r_rmse']:.3f}  bias ent {r0['bias_entropy']:+.1f}  events {len(ea)}/{len(eb)} matched {oa:.2f}", flush=True)
 T = pd.DataFrame(rows); T.to_csv(OUT / "lsh_variants_team.csv", index=False)
+if excerpt: np.savez(OUT / "lsh_variants_excerpt.npz", **excerpt)  # 2 Hz speaker codes of one surgical session, for the representation diagram
 S = T.groupby(["variant"]).agg(n=("team_id", "count"), r_entropy=("r_entropy", "mean"), r_det=("r_det", "mean"), r_rmse=("r_rmse", "mean"), events_std_matched=("events_std_matched", "mean"), events_var_matched=("events_var_matched", "mean"),
                               bias_entropy=("bias_entropy", "mean"), bias_det=("bias_det", "mean"), silence_variant=("silence_variant", "mean"), silence_true=("silence_true", "mean")).round(3)
 S.to_csv(OUT / "lsh_variants_summary.csv"); print("\nSUMMARY (15 sessions)\n" + S.to_string())

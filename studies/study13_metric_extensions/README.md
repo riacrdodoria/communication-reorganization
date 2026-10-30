@@ -30,6 +30,9 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
 | Multiscale | `multiscale.py` | window sweep 15–240 s; DFA; multiscale sample entropy |
 | Turn allocation | `rem.py` | relational-event (conditional-logit) model of who takes the next turn; moderation by events, IDS stage, week |
 | State space grid | `ssg.py` | active speakers × top-speaker share grid by stage and near events |
+| Artifact checks | `rem_artifacts.py`, `routinization_artifacts.py` | turn-allocation effects near events controlled for local entropy, with placebo entropy peaks and a circular-shift null; routinization decomposed into participation concentration vs transition structure, with attendance and tool-change controls (`meeting_covariates.csv`) |
+| Change-point anatomy | `cp_anatomy.py` | what PELT level shifts are: size vs shuffle, long-turn boundaries, dominant speaker, content, events |
+| Divisions of meeting time | `partitions.py` | co-occurrence of six boundary sets (agenda stage, topic, event, level shift, extended floor turn, novelty peak) vs circular shifts |
 | Content (label-free) | `content.py` | TF-IDF lexical novelty, topic entropy (KMeans), cross-speaker uptake; turn-length controlled |
 
 ## Headline results (details and all numbers in `RESULTS.md`)
@@ -48,12 +51,21 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
   metric window touches post-onset data: 32/34 meetings, p < .0001; lag-5 autocorrelation 25/34,
   p = .0004; still present with a 60-s gap). Entropy shows no such signal. This extends Study 10, whose
   slope features were partly definitional.
-- **The floor opens at reorganization.** In the turn-allocation model, reciprocity (OR 1.48 overall) and
-  the facilitator's advantage (OR 1.18) both weaken within ±30 s of an event (interaction ORs .86 and .86,
-  p = .007 and .006). In IDS the rich-get-richer effect of prior participation is four times larger.
-- **Routinization across weeks.** The Markov entropy rate of speaker transitions declines in both teams
-  (τ = −.54 and −.38), member-to-member transitions decline (τ = −.38 and −.59), and the facilitator's
-  turn-allocation advantage grows with week (p = .03).
+- **Retracted after artifact checks: "the floor opens at reorganization" and "routinization in both teams".**
+  The weaker reciprocity and facilitator advantage near events vanish once local entropy is controlled
+  (interaction ORs .998 and .962; non-event entropy peaks show the same raw pattern; circular-shift null
+  p = .59 and .27): high-entropy stretches are by definition distributed talk. The declining transition
+  entropy is explained in Team A by absences, rising facilitator share and the last meetings (no trend in
+  weeks 1–12, no change in structure beyond participation shares) and in Team B mainly by the facilitator
+  concentrating turns, with a modest rise in structure beyond shares (τ = +.38, p = .034).
+- **What the blind change points are.** PELT level shifts are as frequent as in run-shuffled meetings and
+  *smaller* (26.2 vs 29.3 %MaxEnt); 54 % fall within 15 s of the start or end of an extended floor turn
+  (≥ 30 s) vs 42 % by chance. They mark one speaker taking or yielding the floor, not agenda or topic changes.
+- **Two clocks in a meeting.** Six boundary sets form two families: collective transitions (agenda stage,
+  topic, reorganization event; mutual co-occurrence 1.5–1.6× chance within ±30 s) and individual floor flow
+  (level shift, extended floor turn, lexical novelty peak; 1.1–1.2×). Across families the relation is null
+  or negative: topic boundaries and events are rarer than chance at the onset of an extended floor turn
+  (0.78–0.85×, p = .001).
 - **Events are bursty and refractory.** Burstiness .071 vs −.036 under a uniform null (p = 6e-8); Allan
   factor below 1 at 30–60 s and above 1 at 10 min.
 - **Content mixes at events.** Lexical topic entropy is higher at events (residual d = +.35, 33/34

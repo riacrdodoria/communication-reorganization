@@ -1,0 +1,21 @@
+Change points: 1318 in 34 meetings; strong (|shift| > 95th pct of shuffle cps): 22 (1.7%; 5% expected)
+|shift| observed 26.20 vs shuffle cps 29.28 %MaxEnt (Wilcoxon p=3.5e-10)
+
+Anatomy, all cps (observed vs circular shift):
+  within 15 s of a long-turn start/end     0.543 vs 0.415  (Wilcoxon p=3.6e-08)
+  dominant floor holder changes            0.485 vs 0.432  (Wilcoxon p=1.7e-05)
+  mean distance to event (s)               127.799 vs 132.088  (Wilcoxon p=4.6e-02)
+  mean distance to stage boundary (s)      639.939 vs 633.193  (Wilcoxon p=5.4e-01)
+  mean distance to topic boundary (s)      75.524 vs 76.905  (Wilcoxon p=7.1e-01)
+Anatomy, strong cps only:
+  within 15 s of a long-turn start/end     0.655 vs 0.444  (Wilcoxon p=4.2e-02)
+  dominant floor holder changes            0.238 vs 0.422  (Wilcoxon p=3.6e-01)
+  mean distance to event (s)               51.845 vs 126.622  (Wilcoxon p=4.0e-03)
+  mean distance to stage boundary (s)      421.762 vs 607.052  (Wilcoxon p=1.2e-01)
+  mean distance to topic boundary (s)      62.083 vs 77.456  (Wilcoxon p=2.2e-01)
+
+Share of cps near a long-turn boundary: all 0.544; strong 0.727
+Downward cps (entropy falls) 653: dominant after = {'FACILITATOR': 0.519, 'B1': 0.142, 'A1': 0.138, 'A2': 0.07, 'B2': 0.067, 'B3': 0.034, 'A3': 0.029}
+Upward cps (entropy rises) 665: dominant before = {'FACILITATOR': 0.541, 'B1': 0.143, 'A1': 0.129, 'A2': 0.066, 'B2': 0.062, 'A3': 0.03, 'B3': 0.029}
+Content at cps (standardized, +/-15 s vs > 45 s): novelty_res +0.143 (p=1.0e-03); topic_entropy_res -0.167 (p=2.9e-05)
+cps by stage group (share of all cps): {'IDS': 0.61, 'review': 0.229, 'other': 0.161}

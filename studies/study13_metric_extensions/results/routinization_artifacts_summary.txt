@@ -1,0 +1,18 @@
+H_obs = observed entropy rate; H_ind = expected from turn shares alone; S = H_ind - H_obs (structure beyond shares).
+mm = member-to-member transition share; mm_excess = observed minus expected from shares.
+
+Team A, all meetings: H_obs -0.54 (p=0.002, n=17); H_ind -0.44 (p=0.013, n=17); S +0.00 (p=1.000, n=17); fac_turn_share +0.37 (p=0.042, n=17); mm_obs -0.38 (p=0.034, n=17); mm_ind -0.43 (p=0.017, n=17); mm_excess -0.12 (p=0.542, n=17)
+Team A, 3 members present: H_obs -0.44 (p=0.042, n=13); H_ind -0.41 (p=0.057, n=13); S +0.08 (p=0.765, n=13); fac_turn_share +0.18 (p=0.435, n=13); mm_obs -0.21 (p=0.367, n=13); mm_ind -0.36 (p=0.100, n=13); mm_excess -0.03 (p=0.952, n=13)
+Team A, before tool change: H_obs -0.09 (p=0.737, n=12); H_ind -0.12 (p=0.638, n=12); S -0.24 (p=0.311, n=12); fac_turn_share -0.21 (p=0.381, n=12); mm_obs +0.18 (p=0.459, n=12); mm_ind +0.06 (p=0.841, n=12); mm_excess +0.12 (p=0.638, n=12)
+
+Team B, all meetings: H_obs -0.38 (p=0.034, n=17); H_ind -0.35 (p=0.052, n=17); S +0.38 (p=0.034, n=17); fac_turn_share +0.57 (p=0.001, n=17); mm_obs -0.59 (p=0.001, n=17); mm_ind -0.50 (p=0.005, n=17); mm_excess -0.47 (p=0.008, n=17)
+Team B, 3 members present: H_obs -0.47 (p=0.016, n=15); H_ind -0.43 (p=0.027, n=15); S +0.43 (p=0.027, n=15); fac_turn_share +0.54 (p=0.004, n=15); mm_obs -0.56 (p=0.003, n=15); mm_ind -0.54 (p=0.004, n=15); mm_excess -0.50 (p=0.008, n=15)
+Team B, before tool change: H_obs -0.52 (p=0.021, n=12); H_ind -0.42 (p=0.063, n=12); S +0.30 (p=0.197, n=12); fac_turn_share +0.58 (p=0.009, n=12); mm_obs -0.61 (p=0.005, n=12); mm_ind -0.58 (p=0.009, n=12); mm_excess -0.33 (p=0.153, n=12)
+
+OLS H_obs    : week b=-0.0126 p=0.135 | absent b=-0.322 p=0.000 | tool b=-0.075 p=0.388
+OLS H_ind    : week b=-0.0072 p=0.230 | absent b=-0.418 p=0.000 | tool b=-0.076 p=0.223
+OLS S        : week b=+0.0054 p=0.131 | absent b=-0.096 p=0.002 | tool b=-0.001 p=0.970
+OLS mm_obs   : week b=-0.0125 p=0.019 | absent b=-0.034 p=0.404 | tool b=-0.022 p=0.672
+OLS mm_excess: week b=-0.0059 p=0.044 | absent b=+0.030 p=0.188 | tool b=+0.011 p=0.707
+
+Mean by attendance:            H_obs  H_ind      S | n_members                      | 2          0.859  0.938  0.078 | 3          1.265  1.410  0.145

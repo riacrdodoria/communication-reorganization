@@ -36,23 +36,23 @@ M4  logLik=-12059.1  AIC=24134.3
   share_x_ids        b=+1.445 (OR 4.24)  z=+5.76  p=8.4e-09
   fac_x_ids          b=+0.133 (OR 1.14)  z=+2.49  p=1.3e-02
 
-M5  logLik=-12038.3  AIC=24108.6
-  recip              b=+0.505 (OR 1.66)  z=+10.81  p=3.0e-27
-  recency            b=-0.417 (OR 0.66)  z=-14.19  p=1.0e-45
-  share              b=+1.822 (OR 6.18)  z=+8.94  p=4.0e-19
-  fac                b=+0.151 (OR 1.16)  z=+3.23  p=1.3e-03
-  recip_x_near       b=-0.153 (OR 0.86)  z=-2.85  p=4.4e-03
-  recip_x_week_z     b=-0.050 (OR 0.95)  z=-1.85  p=6.5e-02
-  recip_x_ids        b=-0.112 (OR 0.89)  z=-2.10  p=3.6e-02
+M5  logLik=-12038.3  AIC=24108.5
+  recip              b=+0.505 (OR 1.66)  z=+10.81  p=3.2e-27
+  recency            b=-0.416 (OR 0.66)  z=-14.17  p=1.3e-45
+  share              b=+1.838 (OR 6.29)  z=+9.02  p=2.0e-19
+  fac                b=+0.150 (OR 1.16)  z=+3.20  p=1.4e-03
+  recip_x_near       b=-0.152 (OR 0.86)  z=-2.83  p=4.6e-03
+  recip_x_week_z     b=-0.050 (OR 0.95)  z=-1.86  p=6.3e-02
+  recip_x_ids        b=-0.112 (OR 0.89)  z=-2.10  p=3.5e-02
   recency_x_near     b=-0.031 (OR 0.97)  z=-0.91  p=3.6e-01
-  recency_x_week_z   b=-0.058 (OR 0.94)  z=-3.38  p=7.2e-04
-  recency_x_ids      b=-0.115 (OR 0.89)  z=-3.43  p=5.9e-04
-  share_x_near       b=-0.077 (OR 0.93)  z=-0.30  p=7.7e-01
-  share_x_week_z     b=-0.122 (OR 0.89)  z=-0.91  p=3.6e-01
-  share_x_ids        b=+1.445 (OR 4.24)  z=+5.72  p=1.1e-08
-  fac_x_near         b=-0.150 (OR 0.86)  z=-2.76  p=5.8e-03
-  fac_x_week_z       b=+0.061 (OR 1.06)  z=+2.08  p=3.8e-02
-  fac_x_ids          b=+0.125 (OR 1.13)  z=+2.31  p=2.1e-02
+  recency_x_week_z   b=-0.059 (OR 0.94)  z=-3.43  p=6.1e-04
+  recency_x_ids      b=-0.116 (OR 0.89)  z=-3.46  p=5.4e-04
+  share_x_near       b=-0.092 (OR 0.91)  z=-0.36  p=7.2e-01
+  share_x_week_z     b=-0.143 (OR 0.87)  z=-1.07  p=2.9e-01
+  share_x_ids        b=+1.424 (OR 4.15)  z=+5.63  p=1.8e-08
+  fac_x_near         b=-0.149 (OR 0.86)  z=-2.73  p=6.2e-03
+  fac_x_week_z       b=+0.063 (OR 1.07)  z=+2.17  p=3.0e-02
+  fac_x_ids          b=+0.127 (OR 1.14)  z=+2.36  p=1.8e-02
 
 Team A: recip x week b=-0.018 p=5.6e-01; fac x week b=+0.045 p=2.7e-01
 

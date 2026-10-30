@@ -1,6 +1,6 @@
 """Composite Figure 1 — Computational structure of communication reorganization (Study 1; tests P1).
 Story: naturalistic reorganization is real - the metric is faithful, the dynamic is a graded
-continuum (not two regimes), and its excursions exceed chance.
+continuum (not two regimes), and its excursions are more frequent than turn-preserving chance.
 Panel A reuses the per-meeting LSH-vs-standard correlation distribution (Study 1 logic).
 Panel B is a new panel: pooled entropy distribution + Gaussian overlay + Sarle BC, with an inset
 comparing %DET saturation at L_min=2 (old/artefact) vs L_min=8 (current) - this inset was an
@@ -15,7 +15,7 @@ import glob, os, sys
 import numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import pearsonr, skew, kurtosis, norm
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "src"))
+sys.path.insert(0, os.path.expanduser("~/lsh-work"))
 import gorman_reimpl as gr
 import paper_style as ps
 ps.setup()
@@ -69,6 +69,12 @@ LM = pd.read_csv(os.path.dirname(__file__) + "/_cache_lmin_det.csv")
 _sv=pd.read_csv(f"{L}/surrogate_validation_results.csv").iloc[0]
 obs=float(_sv.obs_sd); ar=(float(_sv.AR1_sd_mean),float(_sv.AR1_sd_lo),float(_sv.AR1_sd_hi)); var=(float(_sv.VAR1_sd_mean),float(_sv.VAR1_sd_lo),float(_sv.VAR1_sd_hi))
 _ratio=obs/ar[0]
+# 2026-10-30: run-order shuffle null (state totals and run lengths kept = turn-length mix kept), 200 surrogate corpora,
+# from study13_metric_extensions/runshuffle_study1.py
+_rs=pd.read_csv(f"{L}/study13_metric_extensions/results/runshuffle_study1.csv", keep_default_na=False); _o=_rs[_rs.kind=="observed"].iloc[0]; _n=_rs[_rs.kind=="null"]
+def _ratio_row(col):
+    m=_n[col].mean(); lo,hi=np.percentile(_n[col],[2.5,97.5]); return _o[col]/m, lo/m, hi/m
+RS_amp=_ratio_row("sd_excursion"); RS_n=_ratio_row("n_peaks")
 
 # ============================================================ Panel D data (new: representative
 # meeting entropy + %DET time series with reorganization events marked)
@@ -89,7 +95,7 @@ axA.boxplot(R.r, positions=[0], widths=.34, vert=True, showfliers=False,
             medianprops=dict(color=ps.INK, lw=1.3), boxprops=dict(color=ps.NEUTRAL),
             whiskerprops=dict(color=ps.NEUTRAL), capprops=dict(color=ps.NEUTRAL))
 axA.set_xticks([]); axA.set_xlim(-.5, .5); axA.set_ylim(min(.78, R.r.min() - .02), 1.0)
-axA.set_ylabel("within-meeting r\n(LSH vs standard entropy)", fontsize=8)
+axA.set_ylabel("within-meeting r\n(LSH-WD vs LSH-filled entropy)", fontsize=8)
 axA.set_title("A. Substrate validity", loc="left", fontsize=9, fontweight="bold", color=ps.COORD)
 axA.text(.5, .04, f"median r = {R.r.median():.2f}\n(all meetings ≥ {R.r.min():.2f})",
           transform=axA.transAxes, ha="center", va="bottom", fontsize=6.6, color=ps.INK,
@@ -115,18 +121,20 @@ axIns.set_xticks([0, 1]); axIns.set_xticklabels(["L_min=2\n(old)", "L_min=8\n(no
 axIns.set_ylim(0, 112); axIns.set_yticks([]); axIns.tick_params(length=2)
 axIns.set_title("windows ≥95% DET", fontsize=5.4, pad=1.5)
 
-# --- C: supra-autoregressive ---
-x = np.arange(3)
-axC.bar(0, obs, .6, color=ps.DELIB, zorder=3)
-axC.bar(1, ar[0], .6, color="#b9c2cc", zorder=3); axC.bar(2, var[0], .6, color="#b9c2cc", zorder=3)
-axC.errorbar(1, ar[0], yerr=[[ar[0] - ar[1]], [ar[2] - ar[0]]], fmt="none", ecolor=ps.INK, capsize=3, lw=1)
-axC.errorbar(2, var[0], yerr=[[var[0] - var[1]], [var[2] - var[0]]], fmt="none", ecolor=ps.INK, capsize=3, lw=1)
-axC.text(0, obs * 0.5, f"{obs:.1f}", ha="center", va="center", fontsize=7, fontweight="bold", color="white")
-axC.set_xticks(x); axC.set_xticklabels(["observed", "AR(1)\nnull", "VAR(1)\nnull"], fontsize=6.8)
-axC.set_ylabel("SD of pre→post\nentropy change (%MaxEnt)", fontsize=7.6); axC.set_ylim(0, obs * 1.25)
-axC.set_title("C. Excursion exceeds\nAR chance", loc="left", fontsize=9, fontweight="bold", color=ps.COORD)
-axC.text(.97, .95, f"observed {obs/ar[0]:.1f}×\nnull (outside 95% CI)", transform=axC.transAxes, ha="right",
-          va="top", fontsize=6.6, color=ps.INK, bbox=dict(boxstyle="round,pad=0.3", fc="#f8fafc", ec="#cbd5e1", lw=.6))
+# --- C: amplitude vs three nulls, frequency vs the turn-preserving null (ratio observed / null mean) ---
+labs=["size\nAR(1)","size\nVAR(1)","size\nshuffle","count\nshuffle"]
+vals=[obs/ar[0], obs/var[0], RS_amp[0], RS_n[0]]
+nlo=[ar[1]/ar[0], var[1]/var[0], RS_amp[1], RS_n[1]]; nhi=[ar[2]/ar[0], var[2]/var[0], RS_amp[2], RS_n[2]]
+xc=np.arange(4)
+for i in xc:
+    axC.plot([i,i],[nlo[i],nhi[i]],color="#9aa5b1",lw=5,solid_capstyle="butt",zorder=2)
+    beyond = vals[i]>nhi[i]
+    axC.scatter(i,vals[i],s=34,color=ps.DELIB if beyond else ps.NEUTRAL,edgecolor="white",lw=.5,zorder=3)
+    axC.text(i,vals[i]+.1,f"{vals[i]:.2f}×",fontsize=6.2,ha="center",va="bottom",color=ps.INK)
+axC.axhline(1,color=ps.INK,lw=.7,ls=":")
+axC.set_xticks(xc); axC.set_xticklabels(labs,fontsize=6.4); axC.set_xlim(-.5,3.5); axC.set_ylim(0.5,2.7)
+axC.set_ylabel("observed / null mean\n(grey bar = null 95% interval)",fontsize=7.2)
+axC.set_title("C. Excursions: more frequent,\nnot larger, than chance",loc="left",fontsize=9,fontweight="bold",color=ps.COORD)
 
 # --- D: representative meeting, entropy + %DET time series, events marked ---
 tmin = (TS.second - TS.second.min()) / 60
@@ -150,16 +158,17 @@ axD.text(.01, .04, "dashed lines = reorganization event onsets\n(RMSE > mean+2.3
 fig.suptitle("Figure 1 — Computational structure of communication reorganization", fontsize=10.5,
              fontweight="bold", x=.01, ha="left", y=1.04)
 ps.caption(fig, "Figure 1. Computational structure of communication reorganization (Study 1). (A) "
-    "Within-meeting correlation between the Last-Speaker-Holds (LSH) team-state series and the standard "
-    "silence-state representation, across 34 meetings (median r = .94; all ≥ .90). (B) Distribution of "
+    "Within-meeting correlation between the word-timed (LSH-WD) team-state series and its "
+    "pure-LSH counterpart, across 34 meetings (median r = .94; all ≥ .90). (B) Distribution of "
     "team-state entropy across pooled meeting-seconds, with Gaussian fit overlay; the Sarle bimodality "
     f"coefficient (BC = {BC:.2f}) falls well below the bimodality threshold (0.555) - a single graded continuum. "
     "Inset: the earlier apparent bimodality was a %DET-saturation artefact at L_min=2 (92% of windows "
-    "≥95% DET), resolved by the current L_min=8 correction (28% ≥95%). (C) SD of the pre-to-post entropy "
-    "excursion, observed vs AR(1)/VAR(1) surrogates (200 runs each); observed exceeds the surrogate 95% CI "
-    f"by ~{_ratio:.1f}x (L_min=8 metrics, %MaxEnt units), establishing that reorganization is supra-autoregressive. (D) A representative ~25-minute "
+    "≥95% DET), resolved by the current L_min=8 correction (28% ≥95%). (C) Entropy excursions at peaks, observed relative to the null mean: "
+    "the amplitude (SD of the pre-to-post change) exceeds AR(1) and VAR(1) surrogates but not the run-order shuffle that keeps "
+    "the turn-length mix; the number of excursions exceeds the run-order shuffle (200 surrogate corpora). "
+    "Size = SD of the pre-to-post entropy change at peaks; count = number of peaks; grey bars = null 95% intervals. (D) A representative ~25-minute "
     "slice of one meeting: entropy (teal) and %DET (orange) move in step, with entropy rising and %DET "
-    "falling at each reorganization event onset (dashed lines).", y=-0.11, fontsize=6.4)
+    "falling at each reorganization event onset (dashed lines).", y=-0.17, fontsize=6.4)
 fig.tight_layout(rect=[0, 0.1, 1, 0.95])
 for ext in ("png", "pdf"):
     fig.savefig(f"{os.path.dirname(__file__)}/fig1_computational_structure.{ext}", bbox_inches="tight",

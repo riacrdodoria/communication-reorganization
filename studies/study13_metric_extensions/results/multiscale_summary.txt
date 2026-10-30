@@ -1,0 +1,11 @@
+(a) Window sweep: mean standardized contrast across meetings (Wilcoxon p)
+  W= 15s  event +0.74 (p=1.2e-10)  boundary +0.75 (p=1.2e-10)  review-IDS +0.11 (p=1.1e-02)
+  W= 30s  event +0.88 (p=1.2e-10)  boundary +0.86 (p=1.2e-10)  review-IDS +0.16 (p=7.3e-03)
+  W= 60s  event +0.94 (p=1.2e-10)  boundary +0.86 (p=1.2e-10)  review-IDS +0.25 (p=1.1e-03)
+  W=120s  event +0.87 (p=1.2e-10)  boundary +0.83 (p=1.2e-10)  review-IDS +0.39 (p=4.0e-04)
+  W=240s  event +0.70 (p=5.0e-09)  boundary +0.70 (p=1.2e-10)  review-IDS +0.57 (p=7.4e-05)
+(b) DFA alpha, speaker switches: 0.741 vs run-shuffled 0.736 (Wilcoxon p=1.2e-01); %MaxEnt(15 s): 1.120 vs 1.112 (p=5.0e-02)
+(c) MSE complexity index (switch counts, scales 1-28 s): 11.22 vs run-shuffled 10.90 (Wilcoxon p=4.6e-04)
+    MSE curve obs/null by scale: 1:0.20/0.17 4:0.48/0.44 7:0.71/0.66 10:0.92/0.87 13:1.11/1.06 16:1.30/1.23 19:1.44/1.40 22:1.57/1.55 25:1.66/1.70 28:1.83/1.83
+  Team A: alpha_switch vs week tau=+0.00 (p=1.00); MSE CI vs week tau=-0.47 (p=0.01)
+  Team B: alpha_switch vs week tau=+0.03 (p=0.90); MSE CI vs week tau=-0.12 (p=0.54)

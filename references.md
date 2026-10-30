@@ -55,5 +55,20 @@
 - Pangakis, N., Wolken, S., & Fasching, N. (2023). Automated annotation with generative AI requires validation. *arXiv:2306.00176*.
 - Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate. *Journal of the Royal Statistical Society B*, 57(1), 289–300.
 - Wickman, G. (2011). *Traction: Get a grip on your business.* BenBella Books. (EOS Level 10 Meeting agenda.)
-- Wiltshire, T. J. (2026). [Title/venue as cited]. *Small Group Research*. (Call to anticipate coordination breakdowns and support adaptive teamwork in real time.)
+- Wiltshire, T. J. (2026). Multiscale coordination dynamics: Reflections and opportunities for advancing groups and teams research. *Small Group Research*, 57(3), 475–484. https://doi.org/10.1177/10464964261430685
 - Scheffer, M., Bascompte, J., Brock, W. A., Brovkin, V., Carpenter, S. R., Dakos, V., Held, H., van Nes, E. H., Rietkerk, M., & Sugihara, G. (2009). Early-warning signals for critical transitions. *Nature*, 461(7260), 53–59.
+
+### Study 1 (reconstruction test)
+- Gorman, J. C., Grimm, D. A., Stevens, R. H., Galloway, T., Willemsen-Dunlap, A. M., & Halpin, D. J. (2020). Measuring real-time team cognition during team training. *Human Factors*, 62(5), 825–860. https://doi.org/10.1177/0018720819852791
+
+### Study 13 (metric extensions)
+- Butts, C. T. (2008). A relational event framework for social action. *Sociological Methodology*, 38(1), 155–200. https://doi.org/10.1111/j.1467-9531.2008.00203.x
+- Costa, M., Goldberger, A. L., & Peng, C.-K. (2002). Multiscale entropy analysis of complex physiologic time series. *Physical Review Letters*, 89(6), 068102. https://doi.org/10.1103/PhysRevLett.89.068102
+- Goh, K.-I., & Barabási, A.-L. (2008). Burstiness and memory in complex systems. *EPL*, 81(4), 48002. https://doi.org/10.1209/0295-5075/81/48002
+- Gorman, J. C., & Wiltshire, T. J. (2024). A typology for the application of team coordination dynamics across increasing levels of dynamic complexity. *Human Factors*, 66(1), 5–16. https://doi.org/10.1177/00187208221085826
+- Hollenstein, T. (2013). *State space grids: Depicting dynamics across development.* Springer. https://doi.org/10.1007/978-1-4614-5007-8
+- Kaspar, F., & Schuster, H. G. (1987). Easily calculable measure for the complexity of spatiotemporal patterns. *Physical Review A*, 36(2), 842–848. https://doi.org/10.1103/PhysRevA.36.842
+- Lempel, A., & Ziv, J. (1976). On the complexity of finite sequences. *IEEE Transactions on Information Theory*, 22(1), 75–81. https://doi.org/10.1109/TIT.1976.1055501
+- Lewis, M. D., Lamey, A. V., & Douglas, L. (1999). A new dynamic systems method for the analysis of early socioemotional development. *Developmental Science*, 2(4), 457–475. https://doi.org/10.1111/1467-7687.00090
+- Peng, C.-K., Buldyrev, S. V., Havlin, S., Simons, M., Stanley, H. E., & Goldberger, A. L. (1994). Mosaic organization of DNA nucleotides. *Physical Review E*, 49(2), 1685–1689. https://doi.org/10.1103/PhysRevE.49.1685
+- Truong, C., Oudre, L., & Vayatis, N. (2020). Selective review of offline change point detection methods. *Signal Processing*, 167, 107299. https://doi.org/10.1016/j.sigpro.2019.107299

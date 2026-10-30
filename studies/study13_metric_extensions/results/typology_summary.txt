@@ -1,0 +1,12 @@
+Counts by system and team:
+team     A   B
+system        
+I       17  16
+III      0   1
+
+Entropy SD relative to run-shuffled surrogates: mean ratio 0.95 (range 0.85-1.07)
+System I: n=33 events/10min 2.97 mean entropy 35.8 sd 17.4
+System III: n=1 events/10min 2.19 mean entropy 37.8 sd 19.1
+Team A: system rank vs week tau=+nan p=nan
+Team B: system rank vs week tau=+0.17 p=0.41
+system rank vs event rate tau=-0.20 p=0.169

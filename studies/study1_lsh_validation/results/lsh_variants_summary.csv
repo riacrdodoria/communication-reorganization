@@ -1,0 +1,5 @@
+variant,n,r_entropy,r_det,r_rmse,events_std_matched,events_var_matched,bias_entropy,bias_det,silence_variant,silence_true
+LSH,15,0.908,0.819,0.53,0.512,0.484,-2.937,14.991,0.0,27.75
+LSH-CAP10,15,0.758,0.785,0.422,0.388,0.42,4.944,7.934,23.097,27.75
+LSH-CAP3,15,0.892,0.924,0.641,0.522,0.538,1.372,-2.808,54.483,27.75
+LSH-WD,15,0.966,0.943,0.731,0.647,0.648,1.345,2.653,24.001,27.75

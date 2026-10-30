@@ -1,0 +1,23 @@
+novelty            event    d=-0.161  positive 10/34  Wilcoxon p=5.2e-03
+novelty            boundary d=-0.113  positive 11/34  Wilcoxon p=2.0e-02
+novelty_res        event    d=-0.156  positive 9/34  Wilcoxon p=1.1e-03
+novelty_res        boundary d=-0.062  positive 12/34  Wilcoxon p=1.8e-01
+topic_entropy      event    d=+0.687  positive 34/34  Wilcoxon p=1.2e-10
+topic_entropy      boundary d=+0.616  positive 34/34  Wilcoxon p=1.2e-10
+topic_entropy_res  event    d=+0.349  positive 33/34  Wilcoxon p=8.1e-10
+topic_entropy_res  boundary d=+0.256  positive 34/34  Wilcoxon p=1.2e-10
+
+Cross-speaker uptake: 0.077 vs far-turn null 0.025 (ratio 3.26; Wilcoxon p=1.2e-10)
+Self-continuation: 0.084 vs null 0.025 (Wilcoxon p=1.2e-10); self minus cross +0.007 (p=3.0e-03)
+Uptake near events (+/-30 s) 0.078 vs baseline (>=90 s) 0.075 (Wilcoxon p=5.5e-01)
+Team A uptake_ratio vs week: tau=-0.01 p=0.968
+Team A selfcont vs week: tau=+0.18 p=0.349
+Team A mean_novelty vs week: tau=+0.31 p=0.091
+Team B uptake_ratio vs week: tau=-0.21 p=0.271
+Team B selfcont vs week: tau=+0.19 p=0.308
+Team B mean_novelty vs week: tau=+0.43 p=0.017
+
+Lead-lag (event onset at 0; standardized residual novelty / topic entropy):
+offset     -60    -50    -40    -30    -20    -10     0      10     20     30     40     50     60
+nov_res -0.069 -0.088 -0.090 -0.118 -0.124 -0.109 -0.094 -0.084 -0.062 -0.023 -0.004  0.034  0.037
+te_res  -0.006 -0.006  0.084  0.123  0.187  0.236  0.266  0.260  0.180  0.089  0.013 -0.053 -0.066

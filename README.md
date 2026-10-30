@@ -3,7 +3,7 @@
 **An auditable research repository.**
 R. L. Dória & J. C. Gorman.
 
-This repository documents a program of twelve interlocking studies on *communication reorganization* in
+This repository documents a program of thirteen interlocking studies on *communication reorganization* in
 real teams, analysed from 34 naturalistic advisory meetings of two early-stage venture teams recorded
 weekly over ~6 months. It is organised for full transparency: every analysis script, every (numeric)
 intermediate and result table, and every figure is included so that an independent reader can audit
@@ -43,11 +43,11 @@ and **how** it changes as a team matures (developmental consolidation).
 5. **Methodological rigour.** Dynamic claims in this area are easy to over-state; this work benchmarks
    every dynamic claim against null models and validates automated annotation against published practice.
 
-## 3. The twelve studies (in order)
+## 3. The thirteen studies (in order)
 
 | # | Folder | Question | Headline result |
 |---|---|---|---|
-| 1 | [`studies/study1_lsh_validation`](studies/study1_lsh_validation) | Is the Last-Speaker-Holds (LSH) representation a valid substrate? | LSH reproduces the standard silence-preserving representation: r ≈ .87–.93 on Gorman's published validation corpora (earlier 1 Hz implementation), median r = .94 on the present 34 meetings (Gorman-faithful metrics). |
+| 1 | [`studies/study1_lsh_validation`](studies/study1_lsh_validation) | How should the turn-taking series be reconstructed from an onset-only transcript? | On Gorman et al. (2020) laboratory teams with hand-coded onsets and offsets, the word-timed reconstruction used for every metric (LSH-WD: onset + 0.5 s per word, then silence) reproduces the true silence-preserving series best (entropy r = .97, %DET .94, RMSE .73, 65 % of events matched), ahead of pure Last-Speaker-Holds (.91 / .82 / .53 / 51 %) and fixed holding caps. Pure LSH is kept as a robustness variant. |
 | 2 | [`studies/study2_reorganization_dynamics`](studies/study2_reorganization_dynamics) | What *is* reorganization, dynamically? | Endogenous and supra-autoregressive (entropy excursions 2.3× the AR(1)/VAR(1) null, L_min = 8 metrics); a continuum, not two regimes (Sarle BC = 0.41 < 0.555); the entropy–%DET coupling is reproduced by shuffling the order of team-state runs, i.e. it is a property of the two metrics, not of temporal organisation. |
 | 3 | [`studies/study3_content_fingerprint`](studies/study3_content_fingerprint) | What does reorganization *mean*? | Coordination, not deliberation — six validated taxonomies converge (28/40 categories at RMSE peaks, 27/40 at %DET valleys; unchanged after the corpus correction). Among coding-free measures, only novelty/topic-shift survives the turn-length control; semantic recurrence and coherence were turn-length artefacts. |
 | 4 | [`studies/study4_floor_dynamics`](studies/study4_floor_dynamics) | What is it in *floor* terms? | Edelsky F1 ↔ F2; the floor equalizes and de-centralizes at reorganization (event-locked; nine measures, corrected network statistics). |
@@ -59,9 +59,17 @@ and **how** it changes as a team matures (developmental consolidation).
 | 10 | [`studies/study10_early_warning`](studies/study10_early_warning) | Can reorganization be anticipated? | A feasibility probe (not a classifier): a real, mechanism-independent precursor exists (rising speaker-switching, shortening turns, fewer questions before events) but is only modestly discriminable event-by-event (AUC ≈ 0.66). The earlier "within-meeting budget" (first-half rate negatively predicting second half) was an artefact of the per-meeting event threshold: with an online threshold ρ = +.03 (n.s.), and a circular-shift null reproduces the negative value. "No detectable precursor" (72 %) equals the criterion's base rate on baseline windows (69 %). |
 | 11 | [`studies/study11_replication`](studies/study11_replication) | Does everything above replicate across the two teams? | Formalizes the corpus as an intensive longitudinal replication design. 26/27 headline statistics agree in direction; the decisive test — four entire multi-category profiles (taxonomy fingerprint, floor measures, review-vs-IDS contrast, border-vs-interior contrast) — correlate between teams at Spearman r = 0.84–0.98 (permutation p < .0001, 0/10,000). Of five longitudinal trends, only network centralization replicates (partially); the entropy trends are null in both teams after the corpus correction. Of the person-level statistics, the least-talkative-member lift replicates; initiator-rank stability and the facilitator's longitudinal share differ by team, both reflecting the facilitator's rising share in Team B's second half. |
 | 12 | [`studies/study12_socioemotional`](studies/study12_socioemotional) | Does reorganization have a socioemotional face? | Yes, and it is one-sided: agreement, positive affect, and solidarity rise sharply at reorganization events (BH-FDR q<.001, within an 8-category confirmatory family); no negative category survives FDR. The positive signal is a sharp spike coincident with the event itself (circular-shift null p<.02), not a before-the-fact lubricant or after-the-fact repair. Negative affect instead concentrates in the deliberative IDS stage, not at reorganization events. |
+| 13 | [`studies/study13_metric_extensions`](studies/study13_metric_extensions) | Which dynamical system is this, can events be anticipated, and which metrics are interchangeable? | Against a run-shuffle null that holds the turn-length mix fixed: meetings are System I (fixed point) at every cut, but the setpoint relocates with agenda stage and topic episode (eta² above null, p < .001); %DET variance rises before events (32/34 meetings, leakage-free); the floor opens at events (reciprocity and facilitator advantage drop); speaker-transition entropy declines over weeks in both teams; lexical topic mixing peaks at events. Corrects Study 2: excursion amplitude is not beyond the run-shuffle null, excursion frequency is. |
 
 A reader can begin with Study 1 and proceed in order; each study folder has a self-contained `README.md`
 with rationale, methods, the exact analysis scripts, the result tables they produce, and references.
+
+### Corrections (2026-10-30)
+
+The turn-taking substrate was described as Last-Speaker-Holds throughout; every metric was in fact computed
+on word-timed multi-speaker states. Study 1 now validates that reconstruction directly and `METHODS.md` §2
+describes it. Study 13 adds a run-shuffle null under which Study 2's excursion amplitude no longer exceeds
+chance while excursion frequency does; Study 2 reports both.
 
 ### Corrections (2026-09-05)
 
@@ -84,7 +92,7 @@ DATA.md                   data description, anonymisation, and availability
 references.md             full bibliography
 requirements.txt          Python dependencies
 src/                      shared module (Gorman-faithful metric construction)
-studies/study1..12/       one folder per study: README + analysis scripts
+studies/study1..13/       one folder per study: README + analysis scripts
 data/                     numeric inputs only (metrics, taxonomy counts, episode boundaries)
 results/                  numeric result tables produced by the analyses
 figures/                  all figures

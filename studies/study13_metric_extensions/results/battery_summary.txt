@@ -1,0 +1,66 @@
+Mean within-meeting Spearman correlations:
+           entropy   det    RR   LAM    TT    LZ  condH  switch  active  top_share  silence
+entropy       1.00 -0.80 -0.98 -0.82 -0.88  0.54   0.80    0.78    0.69      -0.85     0.39
+det          -0.80  1.00  0.80  0.86  0.96 -0.82  -0.94   -0.91   -0.57       0.68    -0.43
+RR           -0.98  0.80  1.00  0.80  0.88 -0.53  -0.76   -0.73   -0.61       0.87    -0.39
+LAM          -0.82  0.86  0.80  1.00  0.87 -0.74  -0.91   -0.90   -0.59       0.69    -0.41
+TT           -0.88  0.96  0.88  0.87  1.00 -0.79  -0.94   -0.90   -0.59       0.76    -0.44
+LZ            0.54 -0.82 -0.53 -0.74 -0.79  1.00   0.85    0.83    0.35      -0.44     0.33
+condH         0.80 -0.94 -0.76 -0.91 -0.94  0.85   1.00    0.98    0.63      -0.65     0.43
+switch        0.78 -0.91 -0.73 -0.90 -0.90  0.83   0.98    1.00    0.66      -0.62     0.40
+active        0.69 -0.57 -0.61 -0.59 -0.59  0.35   0.63    0.66    1.00      -0.53     0.23
+top_share    -0.85  0.68  0.87  0.69  0.76 -0.44  -0.65   -0.62   -0.53       1.00    -0.23
+silence       0.39 -0.43 -0.39 -0.41 -0.44  0.33   0.43    0.40    0.23      -0.23     1.00
+
+PCA variance explained: [0.67  0.102 0.086]
+            PC1   PC2   PC3
+entropy   -0.34 -0.32 -0.11
+det        0.33 -0.25 -0.07
+RR         0.33  0.33  0.17
+LAM        0.28 -0.30 -0.14
+TT         0.33  0.14  0.06
+LZ        -0.30  0.40  0.20
+condH     -0.35  0.18  0.13
+switch    -0.35  0.18  0.18
+active    -0.26 -0.37  0.10
+top_share  0.28  0.33  0.23
+silence   -0.09  0.38 -0.88
+
+Sensitivity (standardized difference, Wilcoxon across meetings):
+anchor     boundary  event
+metric                    
+LAM           -0.75  -0.89
+LZ             0.79   0.99
+RR            -0.80  -0.86
+TT            -0.85  -0.91
+active         0.75   0.74
+condH          0.99   1.18
+det           -0.88  -1.13
+entropy        0.86   0.94
+silence        0.19   0.34
+switch         1.01   1.16
+top_share     -0.63  -0.69
+
+   metric   anchor  mean_d  n_pos  n      p
+  entropy    event  0.9442     34 34 0.0000
+  entropy boundary  0.8570     34 34 0.0000
+      det    event -1.1348      0 34 0.0000
+      det boundary -0.8795      0 34 0.0000
+       RR    event -0.8621      0 34 0.0000
+       RR boundary -0.8011      0 34 0.0000
+      LAM    event -0.8890      0 34 0.0000
+      LAM boundary -0.7529      0 34 0.0000
+       TT    event -0.9089      0 34 0.0000
+       TT boundary -0.8481      0 34 0.0000
+       LZ    event  0.9919     34 34 0.0000
+       LZ boundary  0.7937     34 34 0.0000
+    condH    event  1.1826     34 34 0.0000
+    condH boundary  0.9877     34 34 0.0000
+   switch    event  1.1558     34 34 0.0000
+   switch boundary  1.0079     34 34 0.0000
+   active    event  0.7382     34 34 0.0000
+   active boundary  0.7489     33 34 0.0000
+top_share    event -0.6865      0 34 0.0000
+top_share boundary -0.6340      0 34 0.0000
+  silence    event  0.3386     25 34 0.0001
+  silence boundary  0.1940     23 34 0.0052

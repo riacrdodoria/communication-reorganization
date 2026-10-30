@@ -1,0 +1,18 @@
+review vs ids:
+  cells_per10      review 7.434 vs ids 2.761  (paired n=32, Wilcoxon p=1.7e-07)
+  dispersion       review 0.953 vs ids 0.945  (paired n=32, Wilcoxon p=1.8e-01)
+  visit_s          review 14.604 vs ids 16.444  (paired n=32, Wilcoxon p=1.5e-03)
+  attractor_share  review 0.205 vs ids 0.200  (paired n=32, Wilcoxon p=8.5e-01)
+  same attractor cell in 9/32 meetings; attractor (active*10+share bin) modal review: [31] ids: [24]
+near_event vs baseline:
+  cells_per10      near_event 9.776 vs baseline 3.444  (paired n=34, Wilcoxon p=1.2e-10)
+  dispersion       near_event 0.940 vs baseline 0.941  (paired n=34, Wilcoxon p=7.4e-01)
+  visit_s          near_event 11.791 vs baseline 16.326  (paired n=34, Wilcoxon p=1.2e-10)
+  attractor_share  near_event 0.220 vs baseline 0.219  (paired n=34, Wilcoxon p=7.2e-01)
+  same attractor cell in 2/34 meetings; attractor (active*10+share bin) modal near_event: [31] baseline: [24]
+Team A IDS visit_s vs week: tau=+0.29 p=0.109
+Team A IDS dispersion vs week: tau=-0.40 p=0.027
+Team A IDS attractor_share vs week: tau=+0.29 p=0.109
+Team B IDS visit_s vs week: tau=+0.16 p=0.393
+Team B IDS dispersion vs week: tau=-0.16 p=0.393
+Team B IDS attractor_share vs week: tau=+0.03 p=0.903

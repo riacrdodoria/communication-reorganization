@@ -1,0 +1,14 @@
+A. Periodicity (System II/III) by cut: share of segments with p < .05 (5% expected by chance)
+  fixed_10min  n= 574  periodic share 0.026  (binomial p vs .05 = 1.00)
+  fixed_20min  n= 259  periodic share 0.012  (binomial p vs .05 = 1.00)
+  fixed_5min   n=1200  periodic share 0.030  (binomial p vs .05 = 1.00)
+  stage        n=  82  periodic share 0.000  (binomial p vs .05 = 1.00)
+
+B. Does the fixed point move? Between-segment share of %MaxEnt variance (eta^2), observed vs run-shuffled meeting
+  agenda stages : 0.097 vs 0.055; meetings p<.05: 11/34; Wilcoxon p=4.3e-04
+  topic episodes: 0.368 vs 0.281; meetings p<.05: 15/34; Wilcoxon p=8.8e-07
+
+C. Data-driven regimes (PELT change points in %MaxEnt)
+  change points per meeting 38.8 vs run-shuffled 40.1 (Wilcoxon p=2.3e-02); median regime length 1.8 min
+  distance to nearest stage boundary 640 s vs circular-shift 633 s; meetings p<.05 1/34; Wilcoxon p=5.2e-01
+  distance to nearest topic boundary 76 s vs circular-shift 77 s; meetings p<.05 4/34; Wilcoxon p=5.9e-01

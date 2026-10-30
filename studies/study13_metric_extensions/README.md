@@ -1,0 +1,76 @@
+# Study 13 — Metric extensions: system type, early warning, turn allocation, routinization, and content
+
+## Rationale and gap
+Studies 2–12 describe reorganization with the three Gorman/Grimm metrics (%MaxEnt, %DET, RMSE events).
+Wiltshire (2026, *Small Group Research*) asks for three things this program had not yet done systematically:
+(1) placing a team in a dynamical-systems typology rather than describing excursions, (2) comparing
+metrics to learn which are interchangeable, and (3) following trajectories across time scales.
+Gorman and Wiltshire (2024) give the typology: System I (fixed point), II (periodic), III (changing
+periodic). This study runs, on the same 34 meetings and the same substrate, a set of quantitative
+extensions that need no human or model-based content coding. Every test uses the **run-shuffle null**
+(the order of team-state runs is permuted; each state's total time and the run-length distribution are
+kept), which is stricter than the AR(1)/VAR(1) surrogates of Study 2 because it holds the turn-length mix
+fixed.
+
+## Method (one script per item; all read `~/lsh-work` locally, write numeric outputs to `results/`)
+Substrate: `data/metrics_gorman_l8` and the 2 Hz team-state series of `src/gorman_reimpl.py`
+(multi-speaker states reconstructed from onsets with word-timed durations; see `METHODS.md` §2 and
+Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shared loaders: `common.py`.
+
+| Item | Script | What it tests |
+|---|---|---|
+| Run-shuffle check of Study 2 | `runshuffle_study1.py` | excursion amplitude, number of peaks, series SD vs 200 run-shuffled corpora |
+| Typology between meetings | `typology.py` | System I/II/III per meeting (periodicity 1–5 min in thirds, 200 surrogates) |
+| Typology within meetings | `system_within.py` | 10-min segments, step 5 min, 100 surrogates per segment |
+| Which cut? | `system_cuts.py` | periodicity under 5/10/20-min windows and L10 stages; fixed-point relocation (eta²) by stage and topic episode; blind PELT change points and their alignment with boundaries |
+| Critical slowing down | `csd.py`, `csd_gap.py` | rolling variance and lag-5 autocorrelation trends before events vs matched baselines; `csd_gap.py 30` is the leakage-free version |
+| Event rhythm | `rhythm.py` | burstiness, memory, Allan factor of event onsets |
+| Routinization | `routinization.py` | Markov entropy rate of speaker transitions and member-to-member transitions across weeks |
+| Metric battery | `battery.py` | 11 window metrics (incl. RR, LAM, TT, LZ76, conditional entropy): correlation, PCA, event and boundary sensitivity |
+| Multiscale | `multiscale.py` | window sweep 15–240 s; DFA; multiscale sample entropy |
+| Turn allocation | `rem.py` | relational-event (conditional-logit) model of who takes the next turn; moderation by events, IDS stage, week |
+| State space grid | `ssg.py` | active speakers × top-speaker share grid by stage and near events |
+| Content (label-free) | `content.py` | TF-IDF lexical novelty, topic entropy (KMeans), cross-speaker uptake; turn-length controlled |
+
+## Headline results (details and all numbers in `RESULTS.md`)
+- **Correction to Study 2.** Against the run-shuffle null the peak-excursion amplitude is *not* beyond
+  chance (SD 14.82 vs 12.94 [9.72, 16.56], p = .169). What exceeds the null is the **number** of entropy
+  peaks (49 vs 25.4, p = .005), and the series is slightly more regulated than its shuffles (SD 17.41 vs
+  18.25). The amplitude reflects the turn-length mix; the temporal organization is in how often
+  excursions occur and where they occur.
+- **System I everywhere, with a moving setpoint.** 33/34 meetings are System I. Within meetings, the
+  share of periodic segments never exceeds the 5 % chance rate under any cut (5, 10, 20 min, or agenda
+  stage). But the fixed point **relocates**: agenda stages and topic episodes explain more entropy
+  variance than in run-shuffled meetings (eta² .097 vs .055, p = 4e-4; .368 vs .281, p = 9e-7). Blind
+  change-point detection does not recover this structure, so the meeting's own units (stage, topic,
+  event) are the right cuts and fixed windows are only a robustness check.
+- **Early warning.** Rolling variance of %DET rises before events (with a 30-s gap so that no centred
+  metric window touches post-onset data: 32/34 meetings, p < .0001; lag-5 autocorrelation 25/34,
+  p = .0004; still present with a 60-s gap). Entropy shows no such signal. This extends Study 10, whose
+  slope features were partly definitional.
+- **The floor opens at reorganization.** In the turn-allocation model, reciprocity (OR 1.48 overall) and
+  the facilitator's advantage (OR 1.18) both weaken within ±30 s of an event (interaction ORs .86 and .86,
+  p = .007 and .006). In IDS the rich-get-richer effect of prior participation is four times larger.
+- **Routinization across weeks.** The Markov entropy rate of speaker transitions declines in both teams
+  (τ = −.54 and −.38), member-to-member transitions decline (τ = −.38 and −.59), and the facilitator's
+  turn-allocation advantage grows with week (p = .03).
+- **Events are bursty and refractory.** Burstiness .071 vs −.036 under a uniform null (p = 6e-8); Allan
+  factor below 1 at 30–60 s and above 1 at 10 min.
+- **Content mixes at events.** Lexical topic entropy is higher at events (residual d = +.35, 33/34
+  meetings) and at topic boundaries (34/34), while lexical novelty relative to the previous 5 min is
+  slightly *lower* (d = −.16). Reorganization recombines present content before new content appears.
+  The numbers show that content changes; what changes is the question for the human-coded follow-up.
+- **Robustness.** All 11 battery metrics move together at events and boundaries (PC1 = 67 %); the event
+  contrast peaks at the 60-s window used throughout.
+- **Not supported.** DFA does not differ from the run-shuffle null; the state-space-grid rate measures
+  depend on segment length and are not interpreted.
+
+## Files not shipped
+`results/battery_windows.csv` (8 MB) and `results/content_windows.csv` (4 MB) are regenerated by
+`battery.py` and `content.py`. `content.py` reads transcript text locally; only numeric outputs are kept.
+
+## References
+Butts (2008); Costa, Goldberger & Peng (2002); Dakos et al. (2012); Goh & Barabási (2008); Gorman &
+Wiltshire (2024); Hollenstein (2013); Kaspar & Schuster (1987); Lempel & Ziv (1976); Lewis, Lamey &
+Douglas (1999); Peng et al. (1994); Scheffer et al. (2009); Truong, Oudre & Vayatis (2020); Wiltshire
+(2026). See `references.md`.

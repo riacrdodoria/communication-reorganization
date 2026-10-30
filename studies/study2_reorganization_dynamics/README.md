@@ -30,6 +30,13 @@ trivial oscillation.
   at peaks is 14.8 %MaxEnt against 6.5 [5.6, 7.4] under AR(1) and 6.5 [5.4, 7.8] under VAR(1) surrogates
   (200 runs each, 49 events; `results/surrogate_validation_results.csv`) — 2.3× the null, outside its 95 %
   interval. (The earlier 0.405 vs 0.190 was the same ratio in raw bits from the retired implementation.)
+  **Qualified 2026-10-30 (Study 13).** AR(1)/VAR(1) surrogates do not keep the turn-length mix. Against
+  the stricter run-order shuffle (state totals and run lengths kept, 200 surrogate corpora,
+  `studies/study13_metric_extensions/runshuffle_study1.py`) the amplitude is **not** beyond chance:
+  14.82 vs 12.94 [9.72, 16.56], p = .169. What does exceed the run-shuffle null is how **often**
+  excursions occur (49 peaks vs 25.4, p = .005), and the entropy series is slightly more regulated than
+  its shuffles (SD 17.41 vs 18.25). The amplitude therefore reflects the turn-length mix; temporal
+  organization lies in excursion frequency and in where excursions fall (topic boundaries, Studies 6–7).
 - The **entropy ↔ %DET coupling is a property of the two metrics, not of temporal organisation.** The
   pre-to-post changes are strongly anticorrelated (r = −.78) and exceed the VAR(1) null (−.33), but the
   run-order shuffle — which keeps each team state's total time and destroys *when* it occurs — reproduces

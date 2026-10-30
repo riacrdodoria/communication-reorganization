@@ -1,0 +1,29 @@
+Segments: 574 (10 min, step 5 min) in 34 meetings
+Class shares overall:
+cls
+I      0.979
+III    0.017
+II     0.003
+
+Class shares by stage group (rows sum to 1):
+cls              I     II    III
+stage_group                     
+IDS          0.975  0.005  0.019
+open/close   0.986  0.000  0.014
+pre          1.000  0.000  0.000
+review       0.985  0.000  0.015
+
+Events per segment by class:
+     mean  count
+cls             
+I     2.9    562
+II    0.5      2
+III   3.4     10
+
+Segments with weaker restoring force than shuffled (lag-30 s AC above null, p<.05): 63/574; mean AC obs 0.440 vs null 0.405
+Within meeting, events per segment periodic (II+III) minus non-periodic (I): mean +0.08, Wilcoxon p=0.844, n=8
+Class shares, segments that contain a stage change vs not:
+cls          I    II    III
+changes                    
+False    0.984  0.00  0.016
+True     0.971  0.01  0.019

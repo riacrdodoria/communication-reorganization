@@ -1,0 +1,9 @@
+Utterance onsets: B mean 0.073 (range 0.00-0.36); memory M +0.136
+Events: B mean 0.071 vs uniform null -0.036; meetings with p<.05: 10/34; Wilcoxon B-null p=6.24e-08; memory M -0.047 (Wilcoxon vs 0 p=0.113)
+Allan factor T= 30s: observed 0.88 vs null 1.00 (Wilcoxon p=3.74e-07)
+Allan factor T= 60s: observed 0.90 vs null 1.00 (Wilcoxon p=1.28e-03)
+Allan factor T=120s: observed 1.01 vs null 1.01 (Wilcoxon p=1.00e+00)
+Allan factor T=300s: observed 1.19 vs null 1.02 (Wilcoxon p=1.01e-01)
+Allan factor T=600s: observed 1.28 vs null 1.07 (Wilcoxon p=1.78e-02)
+Team A: event burstiness vs week tau=+0.07 (p=0.72); utterance B vs week tau=+0.26 (p=0.15)
+Team B: event burstiness vs week tau=-0.13 (p=0.49); utterance B vs week tau=-0.16 (p=0.39)

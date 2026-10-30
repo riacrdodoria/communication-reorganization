@@ -1,0 +1,12 @@
+Team A H_rate           mean 1.071  trend tau=-0.54 p=0.002
+Team A dist_prev        mean 0.249  trend tau=+0.15 p=0.450 | perm-order null p=0.536; mean consecutive distance 0.249
+Team A dist_first3      mean 0.225  trend tau=+0.38 p=0.062
+Team A stationarity     mean 0.188  trend tau=-0.10 p=0.598
+Team A member_to_member mean 0.332  trend tau=-0.38 p=0.034
+Team A fac_to_member    mean 1.000  trend tau=+nan p=nan
+Team B H_rate           mean 1.317  trend tau=-0.38 p=0.034
+Team B dist_prev        mean 0.210  trend tau=+0.10 p=0.626 | perm-order null p=0.707; mean consecutive distance 0.210
+Team B dist_first3      mean 0.215  trend tau=+0.25 p=0.233
+Team B stationarity     mean 0.267  trend tau=+0.28 p=0.129
+Team B member_to_member mean 0.474  trend tau=-0.59 p=0.001
+Team B fac_to_member    mean 1.000  trend tau=+nan p=nan

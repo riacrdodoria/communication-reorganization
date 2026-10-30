@@ -1,0 +1,59 @@
+Turns (choice sets): 16298; candidate rows: 45960; meetings: 34
+
+M1  logLik=-12115.0  AIC=24238.0
+  recip              b=+0.394 (OR 1.48)  z=+15.12  p=1.1e-51
+  recency            b=-0.492 (OR 0.61)  z=-29.84  p=1.4e-195
+  share              b=+2.480 (OR 11.94)  z=+19.77  p=5.2e-87
+  fac                b=+0.168 (OR 1.18)  z=+6.40  p=1.6e-10
+
+M2  logLik=-12101.0  AIC=24218.0
+  recip              b=+0.448 (OR 1.57)  z=+13.39  p=6.5e-41
+  recency            b=-0.481 (OR 0.62)  z=-22.51  p=3.6e-112
+  share              b=+2.580 (OR 13.20)  z=+16.20  p=5.0e-59
+  fac                b=+0.225 (OR 1.25)  z=+6.68  p=2.4e-11
+  recip_x_near       b=-0.144 (OR 0.87)  z=-2.70  p=6.9e-03
+  recency_x_near     b=-0.028 (OR 0.97)  z=-0.84  p=4.0e-01
+  share_x_near       b=-0.260 (OR 0.77)  z=-1.00  p=3.2e-01
+  fac_x_near         b=-0.149 (OR 0.86)  z=-2.75  p=6.0e-03
+
+M3  logLik=-12104.1  AIC=24224.2
+  recip              b=+0.390 (OR 1.48)  z=+14.75  p=3.1e-49
+  recency            b=-0.497 (OR 0.61)  z=-29.84  p=1.1e-195
+  share              b=+2.422 (OR 11.26)  z=+19.12  p=1.7e-81
+  fac                b=+0.182 (OR 1.20)  z=+6.68  p=2.4e-11
+  recip_x_week_z     b=-0.048 (OR 0.95)  z=-1.81  p=7.1e-02
+  recency_x_week_z   b=-0.062 (OR 0.94)  z=-3.63  p=2.9e-04
+  share_x_week_z     b=-0.082 (OR 0.92)  z=-0.61  p=5.4e-01
+  fac_x_week_z       b=+0.062 (OR 1.06)  z=+2.13  p=3.3e-02
+
+M4  logLik=-12059.1  AIC=24134.3
+  recip              b=+0.445 (OR 1.56)  z=+11.08  p=1.6e-28
+  recency            b=-0.423 (OR 0.66)  z=-16.69  p=1.6e-62
+  share              b=+1.848 (OR 6.34)  z=+10.67  p=1.4e-26
+  fac                b=+0.076 (OR 1.08)  z=+1.89  p=5.8e-02
+  recip_x_ids        b=-0.099 (OR 0.91)  z=-1.86  p=6.3e-02
+  recency_x_ids      b=-0.115 (OR 0.89)  z=-3.43  p=5.9e-04
+  share_x_ids        b=+1.445 (OR 4.24)  z=+5.76  p=8.4e-09
+  fac_x_ids          b=+0.133 (OR 1.14)  z=+2.49  p=1.3e-02
+
+M5  logLik=-12038.3  AIC=24108.6
+  recip              b=+0.505 (OR 1.66)  z=+10.81  p=3.0e-27
+  recency            b=-0.417 (OR 0.66)  z=-14.19  p=1.0e-45
+  share              b=+1.822 (OR 6.18)  z=+8.94  p=4.0e-19
+  fac                b=+0.151 (OR 1.16)  z=+3.23  p=1.3e-03
+  recip_x_near       b=-0.153 (OR 0.86)  z=-2.85  p=4.4e-03
+  recip_x_week_z     b=-0.050 (OR 0.95)  z=-1.85  p=6.5e-02
+  recip_x_ids        b=-0.112 (OR 0.89)  z=-2.10  p=3.6e-02
+  recency_x_near     b=-0.031 (OR 0.97)  z=-0.91  p=3.6e-01
+  recency_x_week_z   b=-0.058 (OR 0.94)  z=-3.38  p=7.2e-04
+  recency_x_ids      b=-0.115 (OR 0.89)  z=-3.43  p=5.9e-04
+  share_x_near       b=-0.077 (OR 0.93)  z=-0.30  p=7.7e-01
+  share_x_week_z     b=-0.122 (OR 0.89)  z=-0.91  p=3.6e-01
+  share_x_ids        b=+1.445 (OR 4.24)  z=+5.72  p=1.1e-08
+  fac_x_near         b=-0.150 (OR 0.86)  z=-2.76  p=5.8e-03
+  fac_x_week_z       b=+0.061 (OR 1.06)  z=+2.08  p=3.8e-02
+  fac_x_ids          b=+0.125 (OR 1.13)  z=+2.31  p=2.1e-02
+
+Team A: recip x week b=-0.018 p=5.6e-01; fac x week b=+0.045 p=2.7e-01
+
+Team B: recip x week b=+0.046 p=4.4e-02; fac x week b=+0.089 p=3.3e-03

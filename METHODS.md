@@ -33,9 +33,16 @@ the name→role key are not distributed.
 
 ## 2. Turn-taking representation
 
-- **Last-Speaker-Holds (LSH).** Each second inherits the most recent speaker to have taken the floor,
-  preserving floor-holding continuity. Study 1 validates LSH against the standard active-speaker
-  representation (in which silence and floor gaps are separate states).
+- **Representation used for every metric (clarified 2026-10-30).** All metrics are computed on the
+  multi-speaker team states below, reconstructed from utterance onsets with word-timed durations; grid
+  cells covered by no utterance form the empty (silence) state. We call this onset-only reconstruction
+  **LSH-WD**. Study 1 shows, on Gorman et al. (2020) laboratory teams with hand-coded onsets and
+  offsets, that it reproduces the true silence-preserving series better than pure Last-Speaker-Holds or
+  fixed holding caps. Earlier text described the substrate as Last-Speaker-Holds throughout; that
+  description was wrong, the numbers were not.
+- **Last-Speaker-Holds (LSH, pure).** Each second inherits the most recent speaker to have taken the
+  floor (no empty state). It is used only as a robustness variant (Study 1) and for the onset-based
+  floor-holder label of Study 9 (`init_floor`).
 - **Multi-speaker team states.** For the dynamical metrics we form binary multi-speaker states (overlaps
   allowed), with each utterance occupying the grid from its onset to onset + 0.5 · (number of words),
   i.e. a 2-words-per-second interpolation, sampled at 2 Hz (`src/gorman_reimpl.py`).
@@ -143,3 +150,8 @@ only as a bound.
   Study 7 trigger→magnitude contrast re-tested at the meeting level. (vii) Turn-transition network
   measures corrected (`src/floor_measures.py`): Freeman centralization normalised, principal eigenvector by
   eigendecomposition, degenerate in/out asymmetry replaced by dyadic transition asymmetry.
+- **2026-10-30.** (i) The turn-taking substrate is described correctly (§2): word-timed multi-speaker
+  states (LSH-WD), validated against hand-coded laboratory data in Study 1; pure LSH is a robustness
+  variant. (ii) Study 2's supra-autoregressive excursion amplitude does not exceed a run-shuffle null
+  that holds the turn-length mix fixed (p = .169); excursion frequency does (1.93×, p = .005). Study 2
+  now reports both. (iii) Study 13 added (metric extensions against run-shuffle nulls).

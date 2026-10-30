@@ -1,0 +1,8 @@
+det_g     ALL              n=34 variance tau ev +0.055 vs base -0.108 (diff>0 in 32/34, p=0.0000) | lag-5 AC tau ev +0.016 vs base -0.032 (diff>0 in 25/34, p=0.0004)
+det_g     INTERIOR_HANDOFF n=34 variance tau ev +0.037 vs base -0.096 (diff>0 in 25/34, p=0.0030) | lag-5 AC tau ev +0.027 vs base -0.039 (diff>0 in 20/34, p=0.0643)
+det_g     INTERIOR_OTHER   n=34 variance tau ev +0.024 vs base -0.076 (diff>0 in 24/34, p=0.0249) | lag-5 AC tau ev +0.026 vs base -0.020 (diff>0 in 20/34, p=0.0941)
+det_g     TRANSITION       n=34 variance tau ev +0.076 vs base -0.072 (diff>0 in 29/34, p=0.0000) | lag-5 AC tau ev +0.018 vs base -0.033 (diff>0 in 22/34, p=0.0196)
+entropy_g ALL              n=34 variance tau ev -0.001 vs base -0.005 (diff>0 in 16/34, p=0.9328) | lag-5 AC tau ev -0.011 vs base -0.002 (diff>0 in 16/34, p=0.4070)
+entropy_g INTERIOR_HANDOFF n=34 variance tau ev +0.052 vs base +0.008 (diff>0 in 21/34, p=0.0484) | lag-5 AC tau ev +0.012 vs base +0.012 (diff>0 in 14/34, p=0.5207)
+entropy_g INTERIOR_OTHER   n=34 variance tau ev -0.023 vs base +0.002 (diff>0 in 13/34, p=0.3092) | lag-5 AC tau ev -0.027 vs base -0.018 (diff>0 in 19/34, p=0.7613)
+entropy_g TRANSITION       n=34 variance tau ev -0.017 vs base -0.012 (diff>0 in 17/34, p=0.8395) | lag-5 AC tau ev -0.015 vs base -0.001 (diff>0 in 15/34, p=0.4070)

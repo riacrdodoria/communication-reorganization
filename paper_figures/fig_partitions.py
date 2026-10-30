@@ -10,7 +10,7 @@ ps.setup()
 R = os.path.expanduser("~/lsh-work/study13_metric_extensions/results")
 P = pd.read_csv(f"{R}/partitions_pairs.csv"); S = pd.read_csv(f"{R}/partitions_scale.csv").set_index("partition"); B = json.load(open(f"{R}/partitions_bounds.json"))
 NAMES = ["agenda", "topic", "event", "level", "floor", "novelty"]
-LAB = {"agenda": "Pulso script stage", "topic": "semantic topic", "event": "reorganization event", "level": "entropy level shift",
+LAB = {"agenda": "Pulso script stage", "topic": "lexical topic (TF-IDF tiling)", "event": "reorganization event", "level": "entropy level shift",
        "floor": "extended floor turn (≥30 s)", "novelty": "lexical novelty peak"}
 STAGE_LAB = {"segue": "check-in", "scorecard": "scorecard", "rock_review": "rocks", "headlines": "headlines", "todo": "to-dos", "ids": "IDS", "conclude": "close"}
 INK, MUTED = ps.INK, ps.NEUTRAL
@@ -47,7 +47,7 @@ for i in range(6):
         if i == j: axB.add_patch(plt.Rectangle((j - .5, i - .5), 1, 1, color="white")); continue
         r = M.iloc[i, j]; star = "*" if pe.iloc[i, j] < .01 else ("°" if pdp.iloc[i, j] < .01 else "")
         axB.text(j, i, f"{r:.2f}{star}", ha="center", va="center", fontsize=5.6, color=INK)
-short = ["script", "topic", "event", "level", "floor", "novelty"]
+short = ["script", "lex. topic", "event", "level", "floor", "novelty"]
 axB.set_xticks(range(6)); axB.set_xticklabels(short, fontsize=6.4, rotation=35, ha="right"); axB.set_yticks(range(6)); axB.set_yticklabels(short, fontsize=6.4)
 for v in (2.5,): axB.axhline(v, color=INK, lw=.8); axB.axvline(v, color=INK, lw=.8)
 axB.set_xlabel("target boundary", fontsize=6.8); axB.set_ylabel("reference boundary", fontsize=6.8)

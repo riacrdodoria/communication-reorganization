@@ -1,0 +1,9 @@
+LLM boundaries: 63 in 8 meetings; 5.2 per hour
+  LLM -> TILE   1.15 (p=0.216) | TILE -> LLM 1.15 (p=0.246)
+  LLM -> EMB    0.96 (p=0.699) | EMB -> LLM 0.95 (p=0.713)
+  LLM -> NETC   1.11 (p=0.206) | NETC -> LLM 1.12 (p=0.228)
+  LLM -> NETG   1.08 (p=0.347) | NETG -> LLM 1.07 (p=0.375)
+  LLM -> AGENDA 2.51 (p=0.006) | AGENDA -> LLM 2.58 (p=0.006)
+  LLM -> event: 1.35 (p enrich=0.050)
+  LLM -> extended floor turn: 1.04 (p enrich=0.451)
+  LLM boundaries by floor state (obs/expected): {'F1': 0.54, 'MIX': 1.38, 'F2': 1.36} n=63

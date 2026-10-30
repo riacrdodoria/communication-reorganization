@@ -33,6 +33,7 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
 | Artifact checks | `rem_artifacts.py`, `routinization_artifacts.py` | turn-allocation effects near events controlled for local entropy, with placebo entropy peaks and a circular-shift null; routinization decomposed into participation concentration vs transition structure, with attendance and tool-change controls (`meeting_covariates.csv`) |
 | Change-point anatomy | `cp_anatomy.py` | what PELT level shifts are: size vs shuffle, long-turn boundaries, dominant speaker, content, events |
 | Floor states and the two clocks | `floor_cycle.py` | F1/MIX/F2 floor states at each boundary type; long-turn ends, novelty and lexical uptake; two origins of topics; centralization and boundary rates in 5-min blocks; the two clocks by stage |
+| Topic triangulation | `topic_semantics_cache.py`, `topic_triangulation.py`, `topic_llm_check.py` | topic boundaries from sentence embeddings (multilingual MiniLM), a lemma co-occurrence semantic network (spaCy pt, Louvain communities) and semantic-network change, against the original lexical tiling, the agenda and an earlier LLM segmentation; text-shuffle null; topic-transition markers and pauses as independent cues |
 | Divisions of meeting time | `partitions.py` | co-occurrence of six boundary sets (agenda stage, topic, event, level shift, extended floor turn, novelty peak) vs circular shifts |
 | Content (label-free) | `content.py` | TF-IDF lexical novelty, topic entropy (KMeans), cross-speaker uptake; turn-length controlled |
 
@@ -67,7 +68,16 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
   (level shift, extended floor turn, lexical novelty peak; 1.1–1.2×). Across families the relation is null
   or negative: topic boundaries and events are rarer than chance at the onset of an extended floor turn
   (0.78–0.85×, p = .001).
-- **Agenda and topic transitions happen in the collaborative floor.** Classifying every 5 s as F1 (one speaker
+- **Correction: the lexical topic boundaries are largely a turn-taking artifact.** Shuffling utterance texts
+  while keeping every onset, speaker and length reproduces most of what the original TF-IDF tiling shows: its
+  boundaries fall in the collaborative floor (1.65 observed vs 1.61 shuffled), coincide with events (1.62 vs
+  1.52) and avoid extended floor turns (0.81 vs 0.83). Semantic segmentations (embeddings, semantic networks)
+  agree with each other (1.33–1.42×), carry topic-transition markers (1.16×) and pauses, and shift most at agenda
+  boundaries (d = +.27), but sit at chance in floor state and with events; continuous semantic change is larger
+  when one speaker holds the floor and smaller at reorganization events (d = −.16). Coarse LLM topics (8
+  meetings) align with the agenda (2.5×) and weakly with events (1.35×, p = .05). Claims about topic boundaries
+  below hold for the agenda; the topic part needs semantic or human boundaries.
+- **Agenda and topic transitions happen in the collaborative floor** (topic part: see the correction above). Classifying every 5 s as F1 (one speaker
   holds ≥ 70 % of the talk), F2 (≥ 3 active, none above 50 %) or mixed: agenda, topic and event boundaries fall in
   F2 at 1.6–1.7× chance and in F1 at 0.5–0.6×; level shifts fall in F1 (1.36×). Agenda and topic boundaries are
   independent of the turn-taking metrics. Lexical topic mixing is lowest in F1. Topics opened by an extended floor

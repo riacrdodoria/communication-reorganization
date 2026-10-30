@@ -235,3 +235,26 @@ next block controlling for the current count (p = .048); individual boundaries (
 topic→floor 0.66 and 0.82 (all p = .002); level→floor 1.08 (n.s.) and 1.16 (p = .002); novelty→level 1.22 and 1.12
 (p ≤ .012). Figure: `paper_figures/fig_partitions.png`, panel D.
 
+## 15. Topic triangulation (`topic_triangulation.py`, `topic_llm_check.py`)
+Segmentations: EMB (sentence embeddings, paraphrase-multilingual-MiniLM-L12-v2), NETC (Louvain communities of the
+meeting's lemma co-occurrence network; 406 lemmas, 7.0 communities, modularity .22 on average), NETG (weighted Jaccard
+between the semantic networks of the minute before and after), TILE (original lexical tiling), AGENDA, and LLM topics
+(8 meetings). Time-based TextTiling depth, boundaries above mean + 0.5 SD, ≥ 60 s apart. Text-shuffle null: texts
+permuted across utterances within word-count quintiles (20 per meeting).
+
+| Segmentation | Per hour (shuffled) | Marker ±15 s (shuffled) | Pause ±15 s | F2 ratio (shuffled, 95 %) | → event (shuffled) | → floor turn (shuffled) |
+|---|---|---|---|---|---|---|
+| EMB | 27.3 (28.7) | 1.06 n.s. (1.00) | 1.14 | 1.00 (0.82 [0.76, 0.89]) | 1.02 n.s. (0.92) | 1.15 (1.15) |
+| NETC | 27.7 (30.1) | 1.17 (1.01) | 1.13 | 1.08 (0.91 [0.86, 0.98]) | 1.06 (0.97) | 1.08 (1.11) |
+| NETG | 23.5 (23.9) | 1.16 (1.04) | 1.13 | 1.03 (1.05 [0.95, 1.17]) | 1.06 (1.12) | 1.02 (1.02) |
+| TILE | 17.9 (17.9) | 1.46 (1.38) | 1.44 | 1.65 (1.61 [1.55, 1.72]) | 1.62 (1.52) | 0.81 (0.83) |
+| AGENDA | 3.2 | 2.37 | 1.46 | 1.63 | 1.49 | 1.03 |
+| LLM (8 meetings) | 5.2 | — | — | 1.36 (F1 0.54) | 1.35 (p = .05) | 1.04 |
+
+Agreement (±30 s): EMB–NETC 1.33, EMB–NETG 1.42, NETC–NETG 1.38, semantic–TILE 1.14–1.19, semantic–AGENDA 1.05–1.18
+(n.s.), TILE–AGENDA 1.57, LLM–AGENDA 2.51, LLM–semantic 0.96–1.11 (n.s.).
+Continuous semantic shift (z within meeting): at agenda boundaries EMB +.14 (p = .033), NETC +.16 (p = .012), NETG
++.27 (p = 6.5e-6); at events EMB −.16 (p = 9e-4), NETC +.05 n.s., NETG −.06 n.s.; by floor state EMB F1 +.12, MIX −.03,
+F2 −.18 (F2 − F1 p = 2.5e-6), NETG F1 +.03, F2 −.07 (p = .009).
+Utterance embeddings and lemmas are computed locally (`topic_semantics_cache.py`) and not distributed.
+

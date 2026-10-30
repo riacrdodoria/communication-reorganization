@@ -1,0 +1,41 @@
+1. SEGMENTATIONS: boundaries per hour (observed | text-shuffle mean)
+  EMB      27.3 |  28.7
+  NETC     27.7 |  30.1
+  NETG     23.5 |  23.9
+  TILE     17.9 |  17.9
+  AGENDA    3.2 |   nan
+  semantic networks: 406 lemmas, 7.0 communities, modularity 0.22 (mean per meeting)
+
+2. AGREEMENT between segmentations (+/-30 s, observed / circular expectation; * p < .01)
+          EMB   NETC   NETG   TILE AGENDA
+EMB         —  1.33*  1.42*  1.14*   1.18
+NETC    1.34*      —  1.38*  1.14*   1.15
+NETG    1.42*  1.37*      —  1.19*   1.06
+TILE    1.14*  1.15*  1.18*      —  1.57*
+AGENDA   1.18   1.16   1.05  1.55*      —
+
+3. INDEPENDENT CUES within +/-15 s of boundaries (observed / circular; p enrichment)
+  EMB     n=1416  topic-transition marker 1.06 (p=0.090) [text-shuffle 1.00] | long pause 1.14 (p=0.005)
+  NETC    n=1441  topic-transition marker 1.17 (p=0.005) [text-shuffle 1.01] | long pause 1.13 (p=0.005)
+  NETG    n=1221  topic-transition marker 1.16 (p=0.005) [text-shuffle 1.04] | long pause 1.13 (p=0.005)
+  TILE    n=936   topic-transition marker 1.46 (p=0.005) [text-shuffle 1.38] | long pause 1.44 (p=0.005)
+  AGENDA  n=165   topic-transition marker 2.37 (p=0.005) [text-shuffle nan] | long pause 1.46 (p=0.005)
+
+4. FLOOR STATE AT BOUNDARIES (observed / circular expectation); text-shuffle segmentations give the method's own share
+  EMB     F2 1.00 vs text-shuffle 0.82 [0.76, 0.89] (p=0.048) | F1 0.98 vs 1.07
+  NETC    F2 1.08 vs text-shuffle 0.91 [0.86, 0.98] (p=0.048) | F1 0.90 vs 1.02
+  NETG    F2 1.03 vs text-shuffle 1.05 [0.95, 1.17] (p=0.667) | F1 0.89 vs 0.94
+  TILE    F2 1.65 vs text-shuffle 1.61 [1.55, 1.72] (p=0.190) | F1 0.59 vs 0.62
+  AGENDA  F2 1.63 | F1 0.58 (not lexical: no text-shuffle)
+
+5. RELATION TO REORGANIZATION EVENTS AND EXTENDED FLOOR TURNS (+/-30 s; observed vs text-shuffle)
+  EMB     -> event 1.02 (p=0.308) [text-shuffle 0.92] | -> extended floor turn 1.15 (p depletion 1.000) [text-shuffle 1.15]
+  NETC    -> event 1.06 (p=0.030) [text-shuffle 0.97] | -> extended floor turn 1.08 (p depletion 1.000) [text-shuffle 1.11]
+  NETG    -> event 1.06 (p=0.040) [text-shuffle 1.12] | -> extended floor turn 1.02 (p depletion 0.821) [text-shuffle 1.02]
+  TILE    -> event 1.62 (p=0.005) [text-shuffle 1.52] | -> extended floor turn 0.81 (p depletion 0.005) [text-shuffle 0.83]
+  AGENDA  -> event 1.49 (p=0.005) [text-shuffle nan] | -> extended floor turn 1.03 (p depletion 0.672) [text-shuffle nan]
+
+6. CONTINUOUS SEMANTIC SHIFT (1 - similarity of the minute before vs after), standardized within meeting
+  EMB   at events d=-0.163 (p=9.0e-04) | at agenda boundaries d=+0.142 (p=3.3e-02) | by state F1 +0.123 MIX -0.027 F2 -0.175 (F2-F1 p=2.5e-06)
+  NETC  at events d=+0.045 (p=3.6e-01) | at agenda boundaries d=+0.163 (p=1.2e-02) | by state F1 -0.008 MIX +0.043 F2 -0.028 (F2-F1 p=5.2e-01)
+  NETG  at events d=-0.058 (p=1.3e-01) | at agenda boundaries d=+0.266 (p=6.5e-06) | by state F1 +0.033 MIX +0.024 F2 -0.069 (F2-F1 p=9.1e-03)

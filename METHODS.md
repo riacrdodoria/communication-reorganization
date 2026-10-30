@@ -158,3 +158,11 @@ only as a bound.
   findings retracted the same day after artifact checks: reduced reciprocity and facilitator advantage near
   events (explained by local entropy) and routinization in both teams (absences, facilitator share and
   tool change in Team A; facilitator concentration in Team B).
+- **2026-10-30 (topic boundaries).** A text-shuffle null shows that the lexical TextTiling topic boundaries
+  (`data/episodes_fine.csv`, utterance-count blocks) owe most of their relation to the floor and to reorganization
+  events to turn-taking rhythm rather than content (Study 13 §15). Semantic segmentations (embeddings, semantic
+  networks) validate against transition markers, pauses and the agenda but are not concentrated at events or in the
+  collaborative floor. Results that use topic-episode boundaries (the TRANSITION trigger class, Studies 6 and 7, and
+  the Study 13 divisions of time) should be read with this in mind; the agenda-based parts are unaffected. Re-deriving
+  the trigger classes from the agenda and from semantic or human topic boundaries is pending.
+

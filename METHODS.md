@@ -169,4 +169,7 @@ only as a bound.
   retracted: events detected with the same rule on run-shuffled series show the same rise, and isolated events show
   none. Event clustering is mostly a property of the detection procedure. From now on, event-based results are
   compared with events detected on run-shuffled series, not with random time points.
+- **2026-10-31 (initiators).** Against surrogate events, the shares of reorganization events initiated by the
+  facilitator and by the quietest member equal those at surrogate events. The Study 9 lift of the quietest member over
+  talk time therefore describes floor-taking in general, not reorganization specifically.
 

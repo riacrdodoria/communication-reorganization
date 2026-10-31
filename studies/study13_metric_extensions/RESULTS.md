@@ -354,3 +354,178 @@ Depth by agenda relation (mean z): {'anticipates': 0.093, 'at': 0.363, 'interior
 Floor before -> after (share): floor_after      F1     F2    MIX | floor_before                      | F1            0.124  0.112  0.156 | F2            0.066  0.078  0.083 | MIX           0.135  0.110  0.138
 Sample: 90 moments in 32 meetings; per stratum {'anticipates agenda transition': 10, 'interior, deepest': 10, 'first of an aftershock pair': 10, 'strong early warning': 10, 'no early warning (control)': 10, 'highest topic mixing': 10, 'followed by member questions': 10, 'long turn taken up, event follows': 10, 'long turn taken up, no event': 10}
 ```
+
+## 18. Surrogate-event null, language channels, longitudinal panel
+```
+Meetings 34; surrogate sets per meeting 20; quietest members {'A': 'A3', 'B': 'B3'}
+
+EVENT-ANCHORED STATISTICS: observed vs surrogate events (z; p for observed above / below surrogates)
+  agenda_coinc    observed 0.079 vs surrogate 0.055 (ratio 1.43, z +2.7, p_high 0.048, p_low 1.000)
+  agenda_anticip  observed 0.067 vs surrogate 0.042 (ratio 1.60, z +3.9, p_high 0.048, p_low 1.000)
+  llm_coinc       observed 0.243 vs surrogate 0.167 (ratio 1.45, z +5.6, p_high 0.048, p_low 1.000)
+  member_q45      observed 0.964 vs surrogate 0.671 (ratio 1.44, z +10.2, p_high 0.048, p_low 1.000)
+  open_dur        observed 9.381 vs surrogate 11.035 (ratio 0.85, z -2.3, p_high 0.952, p_low 0.095)
+  open_question   observed 0.320 vs surrogate 0.367 (ratio 0.87, z -2.7, p_high 1.000, p_low 0.048)
+  init_fac        observed 0.344 vs surrogate 0.335 (ratio 1.03, z +0.4, p_high 0.333, p_low 0.714)
+  init_quiet      observed 0.150 vs surrogate 0.141 (ratio 1.06, z +0.7, p_high 0.286, p_low 0.762)
+  floor_coinc     observed 0.373 vs surrogate 0.478 (ratio 0.78, z -6.5, p_high 1.000, p_low 0.048)
+
+EVENT SIGNATURE (within-meeting z; observed minus surrogate; lags with observed outside the surrogate 95 % band marked)
+  novelty_res       -120:-0.04 -90:-0.04 -60:-0.08 -30:-0.10* +0:-0.07 +30:-0.03 +60:-0.03 +90:-0.02 +120:-0.04
+  topic_entropy_res -120:-0.00 -90:+0.01 -60:+0.09* -30:+0.21* +0:+0.27* +30:+0.13* +60:+0.03 +90:-0.00 +120:-0.01
+  sem_shift         -120:-0.02 -90:-0.05 -60:-0.09* -30:-0.16* +0:-0.07* +30:-0.16* +60:-0.15* +90:+0.00 +120:+0.01
+  ret_res           -120:+0.05 -90:+0.08* -60:+0.16* -30:+0.19* +0:+0.30* +30:+0.19* +60:+0.04 +90:+0.01 +120:-0.03
+  sentiment         -120:+0.03 -90:+0.04 -60:+0.04 -30:+0.06 +0:+0.07 +30:+0.05 +60:+0.07* +90:+0.06* +120:+0.07
+  collective        -120:-0.05 -90:-0.01 -60:+0.00 -30:+0.02 +0:+0.05 +30:+0.05 +60:+0.06* +90:+0.04 +120:+0.04
+  question          -120:+0.01 -90:+0.04* -60:+0.03 -30:+0.07* +0:+0.07* +30:+0.04 +60:+0.02 +90:-0.00 +120:-0.03
+  lsm_res           -120:+0.03 -90:+0.03 -60:+0.05* -30:+0.02 +0:-0.03 +30:-0.07* +60:-0.00 +90:-0.04 +120:-0.08*
+  ttr_res           -120:-0.05* -90:-0.00 -60:-0.04 -30:+0.03 +0:+0.03 +30:-0.00 +60:+0.01 +90:+0.02 +120:+0.02
+  entropy           (definitional) -120:+0.08* -90:+0.08* -60:+0.19* -30:+0.41* +0:+0.72* +30:+0.48* +60:+0.22* +90:+0.12* +120:+0.13*
+  det               (definitional) -120:-0.06 -90:-0.09* -60:-0.23* -30:-0.58* +0:-0.82* +30:-0.80* +60:-0.37* +90:-0.14* +120:-0.12*
+  top_share         (definitional) -120:-0.03 -90:-0.05* -60:-0.15* -30:-0.32* +0:-0.53* +30:-0.32* +60:-0.09* +90:-0.07* +120:-0.08*
+  switch            (definitional) -120:+0.07* -90:+0.10* -60:+0.23* -30:+0.54* +0:+0.83* +30:+0.76* +60:+0.37* +90:+0.14* +120:+0.13*
+
+(1) TRAJECTORIES OVER WEEKS (Kendall tau per team; q = BH-FDR across all measures; * q < .05, + p < .05)
+  turn-taking     entropy                            A -0.10   B -0.16   week x team p=0.635
+  turn-taking     entropy_sd                         A +0.18   B -0.03   week x team p=0.249
+  turn-taking     det                                A +0.19   B +0.16   week x team p=0.536
+  turn-taking     switch                             A -0.25   B -0.25   week x team p=0.408
+  turn-taking     active                             A -0.57*  B -0.40+  week x team p=0.905
+  turn-taking     F1                                 A +0.32   B +0.26   week x team p=0.509
+  turn-taking     F2                                 A -0.40+  B -0.24   week x team p=0.810
+  floor & roles   fac_word_share                     A +0.12   B +0.50+  week x team p=0.051
+  floor & roles   member_gini                        A -0.09   B +0.18   week x team p=0.639
+  floor & roles   centralization                     A +0.25   B +0.41+  week x team p=0.358
+  agenda & events ids_share                          A -0.18   B +0.16   week x team p=0.171
+  agenda & events event_rate                         A +0.06   B -0.18   week x team p=0.182
+  agenda & events event_excess                       A +0.01   B -0.16   week x team p=0.153
+  agenda & events event_depth                        A +0.01   B +0.07   week x team p=0.665
+  agenda & events events_anticipate_agenda           A -0.04   B -0.39+  week x team p=0.230
+  content         novelty                            A -0.26   B -0.07   week x team p=0.276
+  content         topic_mixing                       A +0.00   B +0.13   week x team p=0.644
+  content         sem_shift                          A +0.25   B +0.26   week x team p=0.355
+  content         return_earlier                     A -0.22   B -0.28   week x team p=0.418
+  content         new_lemmas_per_h                   A -0.51+  B -0.45+  week x team p=0.973
+  content         ttr                                A +0.21   B +0.12   week x team p=0.837
+  language        sentiment                          A -0.35   B -0.09   week x team p=0.244
+  language        sentiment_sd                       A -0.10   B +0.18   week x team p=0.258
+  language        collective                         A -0.18   B -0.41+  week x team p=0.418
+  language        question                           A +0.10   B +0.21   week x team p=0.526
+  language        lsm                                A +0.18   B +0.06   week x team p=0.616
+  continuity      carryover_prev                     A +0.15   B +0.03   week x team p=0.960
+  continuity      recurrence_all_prior               A +0.15   B -0.50+  week x team p=0.008
+  outcomes        rating_mean                        A +0.23   B +0.15   week x team p=0.939
+  outcomes        n_todos_assigned                   A -0.06   B -0.20   week x team p=0.563
+  outcomes        n_issues_raised                    A -0.28   B +0.18   week x team p=0.078
+  outcomes        issue_resolution_rate_same_meeting A +0.25   B +0.29   week x team p=0.596
+  outcomes        todo_completion_rate               A +0.22   B -0.14   week x team p=0.329
+
+(2) VARIANCE OF WINDOW-LEVEL CHANNELS: between teams / between meetings within team / within meetings
+          channel  between_team  between_meeting  within_meeting
+          entropy         0.013            0.095           0.892
+              det         0.033            0.091           0.875
+        top_share         0.022            0.046           0.932
+           switch         0.039            0.117           0.844
+      novelty_res         0.000            0.000           1.000
+topic_entropy_res         0.000            0.000           1.000
+        sem_shift         0.000            0.046           0.953
+          ret_res         0.008            0.049           0.944
+        sentiment         0.003            0.055           0.942
+       collective         0.007            0.065           0.928
+         question         0.012            0.077           0.911
+          lsm_res         0.010            0.017           0.973
+          ttr_res         0.001            0.052           0.947
+
+(3) TEAM SIGNATURE: leave-one-meeting-out classification of team (accuracy; permutation p, 500)
+  turn-taking only   accuracy 0.68 (permutation p=0.030)
+  floor & roles      accuracy 0.62 (permutation p=0.119)
+  content            accuracy 0.59 (permutation p=0.214)
+  language           accuracy 0.74 (permutation p=0.010)
+
+(4) CONVERGENCE: distance between the teams' standardized profiles at the same week index
+  weeks 17; distance first third 1.41, last third 1.48; trend tau=-0.04 p=0.839
+
+(5) INTER-MEETING LINKS
+  lag-1 stability (mean of the two teams' Spearman rho between consecutive meetings): new_lemmas_per_h +0.61, recurrence_all_prior +0.42, collective +0.31, centralization +0.29, fac_word_share +0.29, sem_shift +0.23, active +0.22, n_issues_raised +0.17, events_anticipate_agenda +0.15, n_todos_assigned +0.12, ids_share +0.08, rating_mean +0.04, event_rate +0.03, sentiment +0.00, carryover_prev -0.03, ttr -0.03, sentiment_sd -0.05, F2 -0.06, novelty -0.06, switch -0.07, todo_completion_rate -0.08, event_excess -0.10, topic_mixing -0.10, member_gini -0.11, return_earlier -0.11, event_depth -0.14, F1 -0.18, question -0.19, issue_resolution_rate_same_meeting -0.19, entropy_sd -0.21, lsm -0.30, entropy -0.43, det -0.45
+  cross-lagged (standardized beta of X in meeting w predicting Y in meeting w+1, controlling Y in w and team); top 12:
+    novelty              -> next sentiment              beta=+0.45 p=0.011 q=1.00 n=32
+    F2                   -> next event_rate             beta=+0.43 p=0.041 q=1.00 n=32
+    F2                   -> next rating_mean            beta=+0.53 p=0.067 q=1.00 n=28
+    lsm                  -> next centralization         beta=+0.35 p=0.086 q=1.00 n=32
+    lsm                  -> next fac_word_share         beta=+0.38 p=0.090 q=1.00 n=32
+    topic_mixing         -> next event_rate             beta=+0.29 p=0.108 q=1.00 n=32
+    collective           -> next fac_word_share         beta=-0.42 p=0.111 q=1.00 n=32
+    n_issues_raised      -> next fac_word_share         beta=+0.27 p=0.120 q=1.00 n=32
+    n_todos_assigned     -> next sentiment              beta=-0.31 p=0.136 q=1.00 n=32
+    n_issues_raised      -> next event_rate             beta=-0.28 p=0.137 q=1.00 n=32
+    centralization       -> next sentiment              beta=-0.32 p=0.145 q=1.00 n=32
+    n_todos_assigned     -> next event_rate             beta=-0.30 p=0.151 q=1.00 n=32
+
+(6) CROSS-FAMILY LINKS AT THE MEETING LEVEL (team-demeaned Spearman, BH-FDR across all pairs); q < .10:
+  entropy_sd                 ~ event_depth                    rho=+0.78 q=0.000
+  fac_word_share             ~ collective                     rho=-0.60 q=0.005
+  F2                         ~ centralization                 rho=-0.59 q=0.007
+  switch                     ~ sem_shift                      rho=-0.59 q=0.007
+  switch                     ~ member_gini                    rho=-0.58 q=0.007
+  active                     ~ centralization                 rho=-0.58 q=0.007
+  F1                         ~ return_earlier                 rho=-0.58 q=0.008
+  active                     ~ return_earlier                 rho=+0.56 q=0.012
+  switch                     ~ return_earlier                 rho=+0.55 q=0.014
+  det                        ~ return_earlier                 rho=-0.55 q=0.015
+  entropy                    ~ member_gini                    rho=-0.54 q=0.021
+  F2                         ~ sem_shift                      rho=-0.53 q=0.025
+  fac_word_share             ~ question                       rho=+0.52 q=0.028
+  entropy                    ~ centralization                 rho=-0.52 q=0.029
+  fac_word_share             ~ recurrence_all_prior           rho=-0.51 q=0.045
+  F2                         ~ return_earlier                 rho=+0.50 q=0.045
+  topic_mixing               ~ collective                     rho=-0.49 q=0.047
+  det                        ~ member_gini                    rho=+0.49 q=0.051
+  det                        ~ sem_shift                      rho=+0.48 q=0.055
+  det                        ~ centralization                 rho=+0.48 q=0.055
+  F1                         ~ centralization                 rho=+0.48 q=0.055
+  active                     ~ sem_shift                      rho=-0.47 q=0.065
+  member_gini                ~ lsm                            rho=+0.47 q=0.067
+  F1                         ~ sem_shift                      rho=+0.46 q=0.072
+  switch                     ~ centralization                 rho=-0.46 q=0.075
+  det                        ~ sentiment_sd                   rho=+0.46 q=0.075
+  active                     ~ fac_word_share                 rho=-0.46 q=0.075
+  member_gini                ~ topic_mixing                   rho=-0.45 q=0.078
+  return_earlier             ~ collective                     rho=+0.45 q=0.088
+  entropy                    ~ sem_shift                      rho=-0.45 q=0.088
+  topic_mixing               ~ lsm                            rho=-0.44 q=0.093
+  event_depth                ~ question                       rho=-0.44 q=0.094
+  F2                         ~ sentiment_sd                   rho=-0.44 q=0.096
+
+(LLM topics, qualitative side) trajectories: llm_topics_per_h A -0.04 B -0.10, llm_problem_share A +0.13 B +0.21, llm_decision_share A +0.11 B +0.04
+
+Moment-level links (mean within-meeting Spearman; sign agreement over meetings; Wilcoxon p). |rho| >= .10 and p < .001:
+  switch             ~ topic_entropy_res  rho=+0.27  34/34  p=1.2e-10
+  F1                 ~ topic_entropy_res  rho=-0.15  34/34  p=1.2e-10
+  entropy            ~ ret_res            rho=+0.32  34/34  p=1.2e-10
+  top_share          ~ ret_res            rho=-0.30  34/34  p=1.2e-10
+  F1                 ~ ret_res            rho=-0.24  34/34  p=1.2e-10
+  switch             ~ ret_res            rho=+0.38  34/34  p=1.2e-10
+  det                ~ ret_res            rho=-0.37  34/34  p=1.2e-10
+  det                ~ topic_entropy_res  rho=-0.28  34/34  p=1.2e-10
+  topic_entropy_res  ~ ret_res            rho=+0.20  33/34  p=2.3e-10
+  top_share          ~ topic_entropy_res  rho=-0.18  33/34  p=2.3e-10
+  sem_shift          ~ ttr_res            rho=+0.19  33/34  p=2.3e-10
+  entropy            ~ topic_entropy_res  rho=+0.18  33/34  p=3.5e-10
+  F2                 ~ ret_res            rho=+0.18  32/34  p=8.1e-10
+  collective         ~ question           rho=-0.27  33/34  p=2.9e-09
+  sem_shift          ~ ret_res            rho=-0.19  33/34  p=6.4e-09
+  sentiment          ~ question           rho=-0.22  30/34  p=1.6e-08
+  novelty_res        ~ topic_entropy_res  rho=-0.15  30/34  p=2.9e-08
+  novelty_res        ~ ttr_res            rho=+0.12  31/34  p=2.9e-08
+  switch             ~ sem_shift          rho=-0.15  31/34  p=5.2e-08
+  sentiment          ~ collective         rho=+0.19  32/34  p=6.2e-08
+  top_share          ~ sem_shift          rho=+0.13  30/34  p=2.0e-07
+  det                ~ sem_shift          rho=+0.13  30/34  p=1.3e-06
+  sentiment          ~ ttr_res            rho=+0.13  26/34  p=1.9e-06
+  novelty_res        ~ collective         rho=-0.14  28/34  p=3.2e-06
+  entropy            ~ sem_shift          rho=-0.12  29/34  p=4.1e-06
+  ret_res            ~ collective         rho=+0.13  27/34  p=4.7e-05
+  entropy            ~ collective         rho=+0.13  29/34  p=5.6e-05
+  collective         ~ ttr_res            rho=-0.12  25/34  p=1.4e-04
+```
+Lag-1 permutation tests (5,000, order shuffled within team): entropy −.43 (p = .030), %DET −.45 (p = .024), facilitator word share +.29 (p = .043), centralization +.29 (p = .036), "a gente" +.31 (p = .026).

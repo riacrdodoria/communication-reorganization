@@ -1,0 +1,27 @@
+Meetings 34; surrogate sets per meeting 20; quietest members {'A': 'A3', 'B': 'B3'}
+
+EVENT-ANCHORED STATISTICS: observed vs surrogate events (z; p for observed above / below surrogates)
+  agenda_coinc    observed 0.079 vs surrogate 0.055 (ratio 1.43, z +2.7, p_high 0.048, p_low 1.000)
+  agenda_anticip  observed 0.067 vs surrogate 0.042 (ratio 1.60, z +3.9, p_high 0.048, p_low 1.000)
+  llm_coinc       observed 0.243 vs surrogate 0.167 (ratio 1.45, z +5.6, p_high 0.048, p_low 1.000)
+  member_q45      observed 0.964 vs surrogate 0.671 (ratio 1.44, z +10.2, p_high 0.048, p_low 1.000)
+  open_dur        observed 9.381 vs surrogate 11.035 (ratio 0.85, z -2.3, p_high 0.952, p_low 0.095)
+  open_question   observed 0.320 vs surrogate 0.367 (ratio 0.87, z -2.7, p_high 1.000, p_low 0.048)
+  init_fac        observed 0.344 vs surrogate 0.335 (ratio 1.03, z +0.4, p_high 0.333, p_low 0.714)
+  init_quiet      observed 0.150 vs surrogate 0.141 (ratio 1.06, z +0.7, p_high 0.286, p_low 0.762)
+  floor_coinc     observed 0.373 vs surrogate 0.478 (ratio 0.78, z -6.5, p_high 1.000, p_low 0.048)
+
+EVENT SIGNATURE (within-meeting z; observed minus surrogate; lags with observed outside the surrogate 95 % band marked)
+  novelty_res       -120:-0.04 -90:-0.04 -60:-0.08 -30:-0.10* +0:-0.07 +30:-0.03 +60:-0.03 +90:-0.02 +120:-0.04
+  topic_entropy_res -120:-0.00 -90:+0.01 -60:+0.09* -30:+0.21* +0:+0.27* +30:+0.13* +60:+0.03 +90:-0.00 +120:-0.01
+  sem_shift         -120:-0.02 -90:-0.05 -60:-0.09* -30:-0.16* +0:-0.07* +30:-0.16* +60:-0.15* +90:+0.00 +120:+0.01
+  ret_res           -120:+0.05 -90:+0.08* -60:+0.16* -30:+0.19* +0:+0.30* +30:+0.19* +60:+0.04 +90:+0.01 +120:-0.03
+  sentiment         -120:+0.03 -90:+0.04 -60:+0.04 -30:+0.06 +0:+0.07 +30:+0.05 +60:+0.07* +90:+0.06* +120:+0.07
+  collective        -120:-0.05 -90:-0.01 -60:+0.00 -30:+0.02 +0:+0.05 +30:+0.05 +60:+0.06* +90:+0.04 +120:+0.04
+  question          -120:+0.01 -90:+0.04* -60:+0.03 -30:+0.07* +0:+0.07* +30:+0.04 +60:+0.02 +90:-0.00 +120:-0.03
+  lsm_res           -120:+0.03 -90:+0.03 -60:+0.05* -30:+0.02 +0:-0.03 +30:-0.07* +60:-0.00 +90:-0.04 +120:-0.08*
+  ttr_res           -120:-0.05* -90:-0.00 -60:-0.04 -30:+0.03 +0:+0.03 +30:-0.00 +60:+0.01 +90:+0.02 +120:+0.02
+  entropy           (definitional) -120:+0.08* -90:+0.08* -60:+0.19* -30:+0.41* +0:+0.72* +30:+0.48* +60:+0.22* +90:+0.12* +120:+0.13*
+  det               (definitional) -120:-0.06 -90:-0.09* -60:-0.23* -30:-0.58* +0:-0.82* +30:-0.80* +60:-0.37* +90:-0.14* +120:-0.12*
+  top_share         (definitional) -120:-0.03 -90:-0.05* -60:-0.15* -30:-0.32* +0:-0.53* +30:-0.32* +60:-0.09* +90:-0.07* +120:-0.08*
+  switch            (definitional) -120:+0.07* -90:+0.10* -60:+0.23* -30:+0.54* +0:+0.83* +30:+0.76* +60:+0.37* +90:+0.14* +120:+0.13*

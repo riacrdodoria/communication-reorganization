@@ -34,6 +34,7 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
 | Change-point anatomy | `cp_anatomy.py` | what PELT level shifts are: size vs shuffle, long-turn boundaries, dominant speaker, content, events |
 | Floor states and the two clocks | `floor_cycle.py` | F1/MIX/F2 floor states at each boundary type; long-turn ends, novelty and lexical uptake; two origins of topics; centralization and boundary rates in 5-min blocks; the two clocks by stage |
 | Topic triangulation | `topic_semantics_cache.py`, `topic_triangulation.py`, `topic_llm_check.py` | topic boundaries from sentence embeddings (multilingual MiniLM), a lemma co-occurrence semantic network (spaCy pt, Louvain communities) and semantic-network change, against the original lexical tiling, the agenda and an earlier LLM segmentation; text-shuffle null; topic-transition markers and pauses as independent cues |
+| LLM topic segmentation (all 34 meetings) | `llm_topics_PROTOCOL.md`, `llm_topics_analysis.py` | one LLM agent per meeting with identical instructions, content only (row numbers and text; no speakers or times), topics and subtopics with kind and confidence; validated against the agenda, the other segmentations, transition markers, pauses and semantic shift; floor state and reorganization events by topic kind. Labels are not distributed. |
 | Divisions of meeting time | `partitions.py` | co-occurrence of six boundary sets (agenda stage, topic, event, level shift, extended floor turn, novelty peak) vs circular shifts |
 | Content (label-free) | `content.py` | TF-IDF lexical novelty, topic entropy (KMeans), cross-speaker uptake; turn-length controlled |
 
@@ -77,7 +78,14 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
   when one speaker holds the floor and smaller at reorganization events (d = −.16). Coarse LLM topics (8
   meetings) align with the agenda (2.5×) and weakly with events (1.35×, p = .05). Claims about topic boundaries
   below hold for the agenda; the topic part needs semantic or human boundaries.
-- **Agenda and topic transitions happen in the collaborative floor** (topic part: see the correction above). Classifying every 5 s as F1 (one speaker
+- **Content-only LLM topics restore the topic link.** An LLM segmentation of all 34 meetings that saw only the
+  text (no speakers, no times) is the best-validated content segmentation: it agrees with the agenda (5.2×), carries
+  topic-transition markers (1.91×) and pauses (1.51×), and shows a semantic jump at its boundaries (d = +.39). Its
+  topic boundaries coincide with reorganization events (1.48×; 1.61× for high-confidence boundaries) and fall outside
+  the singly-held floor (F1 0.53×, F2 1.47×). Text style can still reveal multi-party talk, so this is not fully
+  independent of turn-taking; it is reported as qualitative corroboration, outside the turn-taking paper.
+- **Agenda and topic transitions happen in the collaborative floor** (topic part: see the correction and the LLM
+  result above). Classifying every 5 s as F1 (one speaker
   holds ≥ 70 % of the talk), F2 (≥ 3 active, none above 50 %) or mixed: agenda, topic and event boundaries fall in
   F2 at 1.6–1.7× chance and in F1 at 0.5–0.6×; level shifts fall in F1 (1.36×). Agenda and topic boundaries are
   independent of the turn-taking metrics. Lexical topic mixing is lowest in F1. Topics opened by an extended floor

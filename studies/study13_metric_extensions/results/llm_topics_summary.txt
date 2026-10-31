@@ -1,0 +1,38 @@
+(1) files: 34/34 valid; problems: []
+    topics per hour 10.1; subtopics per hour 22.0; median topic 3.6 min
+    kinds (share of topics): {'report': 0.347, 'problem': 0.311, 'procedural': 0.165, 'decision': 0.098, 'social': 0.066, 'other': 0.013}
+(2) test-retest vs earlier LLM (8 meetings): old found in new 0.49 (ratio 3.06, p=0.003); new found in old 0.29 (ratio 3.20, p=0.003); n old 63, new 114
+(3) agreement (+/-30 s, observed / circular; * p < .01)
+    LLMT -> AGENDA 5.15* | AGENDA -> LLMT 5.04*
+    LLMT -> TILE   1.59* | TILE -> LLMT 1.57*
+    LLMT -> EMB    1.27* | EMB -> LLMT 1.26*
+    LLMT -> NETC   1.27* | NETC -> LLMT 1.27*
+    LLMT -> NETG   1.18* | NETG -> LLMT 1.19*
+    LLMS -> AGENDA 0.76 | AGENDA -> LLMS 0.77
+    LLMS -> TILE   1.28* | TILE -> LLMS 1.26*
+    LLMS -> EMB    1.16* | EMB -> LLMS 1.14*
+    LLMS -> NETC   1.07* | NETC -> LLMS 1.06
+    LLMS -> NETG   1.13* | NETG -> LLMS 1.12*
+(4) independent cues within +/-15 s (observed / circular)
+    LLMT: topic-transition marker 1.91 (p=0.003) | long pause 1.51 (p=0.003)
+    LLMS: topic-transition marker 1.28 (p=0.003) | long pause 1.25 (p=0.003)
+(5) embedding semantic shift at LLM topic boundaries d=+0.390 (p=8.1e-10); at subtopic boundaries d=+0.049 (p=2.1e-01)
+(6) floor state at boundaries (observed / circular)
+    LLMT n=525: F1 0.53  MIX 1.34  F2 1.47
+    LLMS n=1144: F1 0.63  MIX 1.26  F2 1.38
+    LLMT starting a 'report' topic n=193: F1 0.61  MIX 1.24  F2 1.51
+    LLMT starting a 'problem' topic n=174: F1 0.52  MIX 1.39  F2 1.43
+    LLMT starting a 'decision' topic n=55: F1 0.26  MIX 1.60  F2 1.44
+    LLMT starting a 'procedural' topic n=89: F1 0.51  MIX 1.29  F2 1.56
+(7) relation to reorganization events and extended floor turns (+/-30 s)
+    LLMT n=525: -> event 1.48 (p=0.003) | -> extended floor turn 1.03 (p depletion=0.784)
+    LLMS n=1144: -> event 1.23 (p=0.003) | -> extended floor turn 1.05 (p depletion=0.947)
+    LLMT 'report' n=193: -> event 1.55 (p=0.003) | -> floor turn 1.24 (p dep=1.000)
+    LLMT 'problem' n=174: -> event 1.24 (p=0.060) | -> floor turn 1.18 (p dep=0.977)
+    LLMT 'decision' n=55: -> event 1.57 (p=0.010) | -> floor turn 0.58 (p dep=0.010)
+    LLMT 'procedural' n=89: -> event 1.50 (p=0.020) | -> floor turn 0.61 (p dep=0.003)
+    LLMT confidence high n=325: -> event 1.61 (p=0.003)
+    LLMT confidence medium n=198: -> event 1.24 (p=0.023)
+(8) events within +/-30 s of an LLM topic boundary 0.248, of an agenda boundary 0.076, of either 0.255; of a subtopic boundary only 0.365 (mean over meetings)
+(9) LLM topics by origin: share {'neither': 0.318, 'individual': 0.309, 'collective': 0.206, 'both': 0.168}; median duration (min) {'both': 4.17, 'collective': 3.21, 'individual': 4.06, 'neither': 3.1}; individual vs collective within meeting p=0.068
+    origin by kind (row shares): origin      both  collective  individual  neither | kind                                              | decision    0.07        0.33        0.18     0.42 | other       0.33        0.50        0.00     0.17 | problem     0.17        0.14        0.37     0.32 | procedural  0.11        0.27        0.17     0.45 | report      0.22        0.18        0.36     0.24 | social      0.00        0.50        0.38     0.12

@@ -258,3 +258,26 @@ Continuous semantic shift (z within meeting): at agenda boundaries EMB +.14 (p =
 F2 −.18 (F2 − F1 p = 2.5e-6), NETG F1 +.03, F2 −.07 (p = .009).
 Utterance embeddings and lemmas are computed locally (`topic_semantics_cache.py`) and not distributed.
 
+## 16. LLM topic segmentation of all 34 meetings (`llm_topics_analysis.py`, protocol `llm_topics_PROTOCOL.md`)
+One agent per meeting, identical instructions, input = row number and utterance text only. 525 topic boundaries
+(10.1 per hour, median topic 3.6 min) and 1,144 subtopic boundaries (22.0 per hour). Topic kinds: report 34.7 %,
+problem 31.1 %, procedural 16.5 %, decision 9.8 %, social 6.6 %. Test-retest against the earlier 8-meeting LLM
+segmentation: 49 % of earlier boundaries found within ±30 s (3.1× chance).
+
+| Measure (±30 s unless noted; observed / circular expectation) | Topics | Subtopics |
+|---|---|---|
+| Agenda | 5.15 | 0.76 n.s. |
+| Lexical tiling | 1.59 | 1.28 |
+| Embeddings / semantic communities / network change | 1.27 / 1.27 / 1.18 | 1.16 / 1.07 / 1.13 |
+| Topic-transition marker (±15 s) | 1.91 | 1.28 |
+| Long pause (±15 s) | 1.51 | 1.25 |
+| Embedding semantic shift, d (±15 s vs ≥ 60 s) | +0.39 (p = 8e-10) | +0.05 n.s. |
+| Floor state F1 / MIX / F2 | 0.53 / 1.34 / 1.47 | 0.63 / 1.26 / 1.38 |
+| Reorganization events | 1.48 | 1.23 |
+| Extended floor turn | 1.03 n.s. | 1.05 n.s. |
+All listed ratios p < .01 unless marked. By kind of the new topic, events: report 1.55, decision 1.57, procedural
+1.50 (p ≤ .02), problem 1.24 (p = .06); decision and procedural topics start away from extended floor turns (0.58,
+0.61; p ≤ .01). High-confidence topic boundaries 1.61× with events. Of reorganization events (mean over meetings),
+24.8 % fall within ±30 s of an LLM topic boundary, 7.6 % of an agenda boundary, 25.5 % of either, and 36.5 % only of
+a subtopic boundary.
+

@@ -14,10 +14,11 @@ T = pd.read_csv(f"{R}/lsh_variants_team.csv"); Z = np.load(f"{R}/lsh_variants_ex
 DOM = {"submarine": "#4C72B0", "surgical": "#C44E52"}
 VAR = {"LSH": ("pure LSH", ps.NEUTRAL), "LSH-WD": ("LSH-WD", ps.COORD)}
 
-fig = plt.figure(figsize=(7.2, 7.4))
-gs = fig.add_gridspec(3, 6, height_ratios=[0.8, 1.0, 1.0], hspace=.75, wspace=1.2)
+fig = plt.figure(figsize=(7.2, 10.4))
+gs = fig.add_gridspec(5, 6, height_ratios=[0.8, 1.0, 1.0, 0.8, 0.9], hspace=.85, wspace=1.2)
 axA = fig.add_subplot(gs[0, :]); axB = fig.add_subplot(gs[1, :4]); axC = fig.add_subplot(gs[1, 4]); axC2 = fig.add_subplot(gs[1, 5])
 axD = [fig.add_subplot(gs[2, 2 * k:2 * k + 2]) for k in range(3)]
+axE1 = fig.add_subplot(gs[3, :3]); axE2 = fig.add_subplot(gs[3, 3:]); axF = fig.add_subplot(gs[4, :])
 
 # --- A: one minute, three rows -------------------------------------------------------------------------------
 std = Z["standard"]; L0 = 60
@@ -88,8 +89,31 @@ for ax, (m, lab) in zip(axD, [("entropy", "Entropy (%MaxEnt)"), ("det", "%DET"),
     ax.set_xlim(a - pad, b + pad); ax.set_ylim(a - pad, b + pad); ax.set_aspect("equal", adjustable="box")
     ax.set_xlabel(f"true standard", fontsize=6.6); ax.set_ylabel("reconstruction", fontsize=6.6); ax.tick_params(labelsize=5.8)
     ax.set_title(lab, fontsize=7.6, color=ps.INK)
-    ax.text(.03, .97, "\n".join(txt), transform=ax.transAxes, va="top", fontsize=5.4, color=ps.INK)
+    ax.text(.03, .97, "\n".join(txt), transform=ax.transAxes, va="top", fontsize=5.4, color=ps.INK, bbox=dict(fc="white", ec="none", alpha=.85, pad=1))
 axD[0].text(-.35, 1.22, "D. Session means (filled = LSH-WD, open = pure LSH)", transform=axD[0].transAxes, fontsize=8.6, fontweight="bold", color=ps.COORD)
+
+# --- E: the whole session under the three representations -------------------------------------------------
+TR = pd.read_csv(f"{R}/fig1_traces.csv"); REP = {"true standard": (ps.INK, "-", 1.1), "pure LSH": (ps.NEUTRAL, ":", 1.0), "LSH-WD": (ps.COORD, "--", 1.0)}
+for ax, v, lab in [(axE1, "entropy", "%MaxEnt"), (axE2, "det", "%DET (L_min = 8)")]:
+    w = TR.pivot_table(index="second", columns="rep", values=v)
+    for rep, (c, ls, lw) in REP.items(): ax.plot(w.index / 60, w[rep], ls, color=c, lw=lw, label=rep)
+    ax.axvspan(b0 / 60, (b0 + 60) / 60, color="#f2d7c4", alpha=.6, lw=0)
+    rr = {rep: np.corrcoef(w["true standard"], w[rep])[0, 1] for rep in ["pure LSH", "LSH-WD"]}
+    ax.text(.01, .97, f"r with true standard: LSH-WD {rr['LSH-WD']:.2f}, pure LSH {rr['pure LSH']:.2f}", transform=ax.transAxes, fontsize=5.4, va="top", color=ps.INK, bbox=dict(fc="white", ec="none", alpha=.85, pad=1))
+    ax.set_ylabel(lab, fontsize=6.4); ax.set_xlabel("minutes", fontsize=6.4); ax.tick_params(labelsize=5.8)
+axE2.legend(*axE1.get_legend_handles_labels(), fontsize=5.6, frameon=False, loc="lower right", bbox_to_anchor=(1, 1.0), ncol=3)
+axE1.set_title("E. The whole session (shaded: the minute in A)", loc="left", fontsize=8.6, fontweight="bold", color=ps.COORD)
+# --- F: the 34 meetings ---------------------------------------------------------------------------------------
+CF = pd.read_csv(f"{R}/corpus_lsh_vs_standard.csv"); CP = pd.read_csv(f"{R}/corpus_lsh_pure_vs_published.csv")
+for i, (col, lab) in enumerate([("r_entropy", "Entropy"), ("r_det", "%DET"), ("r_rmse", "RMSE")]):
+    for j, (d, c, nm) in enumerate([(CF, "#7fa7c9", "LSH-filled"), (CP, ps.NEUTRAL, "pure LSH")]):
+        x0 = i * 3 + j
+        axF.boxplot(d[col], positions=[x0], widths=.6, showfliers=False, patch_artist=True, boxprops=dict(facecolor=c, alpha=.35, color=c), medianprops=dict(color=c, lw=1.4), whiskerprops=dict(color=c), capprops=dict(color=c))
+        axF.scatter(x0 + rng.uniform(-.15, .15, len(d)), d[col], s=6, color=c, zorder=3); axF.text(x0, 1.02, f"{d[col].median():.2f}", ha="center", fontsize=5.8, color=ps.INK)
+axF.set_xticks([0.5, 3.5, 6.5]); axF.set_xticklabels(["Entropy", "%DET", "RMSE"], fontsize=6.8); axF.set_ylim(.3, 1.07); axF.axhline(.8, color=ps.NEUTRAL, ls=":", lw=.8)
+axF.set_ylabel("within-meeting r with\nthe series used here", fontsize=6.4); axF.tick_params(labelsize=5.8)
+axF.legend(handles=[Patch(facecolor="#7fa7c9", alpha=.5, label="same series, silences filled by the last speaker"), Patch(facecolor=ps.NEUTRAL, alpha=.5, label="pure LSH from onsets")], fontsize=5.6, frameon=False, loc="lower left")
+axF.set_title("F. The 34 meetings: how much the choice of representation matters (numbers = medians)", loc="left", fontsize=8.6, fontweight="bold", color=ps.COORD)
 
 for ext in ("png", "pdf"):
     fig.savefig(f"{os.path.dirname(__file__)}/fig_reconstruction.{ext}", bbox_inches="tight", facecolor="white", dpi=600 if ext == "png" else None)

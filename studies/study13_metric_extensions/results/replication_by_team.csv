@@ -1,0 +1,20 @@
+headline,A,A_p,B,B_p,unit,null,note
+Reconstruction beats pure LSH: entropy r,0.9702213232285924,,0.9615068962511394,,LSH-WD (pure LSH 0.93 / 0.89),true standard,"A = submarine, B = surgical"
+Reconstruction beats pure LSH: %DET r,0.9463512807571333,,0.9402064482408186,,LSH-WD (pure LSH 0.84 / 0.80),true standard,"A = submarine, B = surgical"
+Reconstruction beats pure LSH: RMSE r,0.7327149362150468,,0.730080575396917,,LSH-WD (pure LSH 0.52 / 0.54),true standard,"A = submarine, B = surgical"
+Reconstruction beats pure LSH: events matched,0.6650910119170107,,0.6302579365079365,,LSH-WD (pure LSH 0.48 / 0.54),true standard,"A = submarine, B = surgical"
+Excursions more frequent than turn-preserving chance,1.9469026548672568,0.009900990099009901,1.9704433497536948,0.009900990099009901,observed / run-shuffle peaks,run-shuffle (100),
+Setpoint relocates across agenda stages (eta2 excess),0.028997137465609828,0.023223876953125,0.05557827445562531,0.010986328125,eta2 observed - null,run-shuffle (200),
+No periodic segments beyond chance (10-min cuts),0.025,,0.027210884353741496,,share periodic (chance .05),run-shuffle (100),
+Events coincide with agenda transitions,1.103831385162069,0.3333333333333333,1.7251837812871837,0.047619047619047616,observed / surrogate events,surrogate events (20),
+Events anticipate the next agenda stage (15-60 s),1.5699354510887218,0.047619047619047616,1.6318128185719536,0.047619047619047616,observed / surrogate events,surrogate events (20),
+Member questions follow event onset (45 s),1.4490692796262874,0.047619047619047616,1.4219953398670757,0.047619047619047616,observed / surrogate events,surrogate events (20),
+Events avoid extended floor turns,0.8021288468856094,0.047619047619047616,0.7629321443964027,0.047619047619047616,observed / surrogate events,surrogate events (20),
+Opening turn is rarely a question,0.9073102062380363,0.14285714285714285,0.8393696474201539,0.09523809523809523,observed / surrogate events,surrogate events (20),
+Topic mixing rises at events,0.3113391801654194,0.047619047619047616,0.2292567780943987,0.047619047619047616,z observed - surrogate,surrogate events (20),
+Return to earlier subjects at events,0.33602445367193,0.047619047619047616,0.270683122918824,0.047619047619047616,z observed - surrogate,surrogate events (20),
+Agenda transitions fall in the collaborative floor,2.164111812443643,,1.3018322082931535,,observed / circular-shift expected,circular shift (100),
+Centralized stretches have fewer events,0.8771805100105149,0.008835467453060896,0.8088137638792905,1.4848112177615893e-05,rate ratio per SD,"Poisson, meeting FE",
+Speaker switching goes with return to earlier subjects,0.3797073886331381,1.52587890625e-05,0.3750662484699959,1.52587890625e-05,mean within-meeting rho,Wilcoxon over meetings,
+Floor narrows over weeks (active speakers),-0.5735294117647058,0.0009013347020841902,-0.39705882352941174,0.027329794647271987,Kendall tau,—,
+Consecutive meetings alternate in organization (%DET lag-1),-0.5117647058823529,0.04272344816333178,-0.37941176470588234,0.14722713386289268,Spearman rho,—,

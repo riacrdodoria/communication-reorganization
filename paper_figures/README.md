@@ -109,3 +109,10 @@ same logic as the earlier Last-Speaker-Holds validation figures. `fig1_computati
 panel C now shows excursion size against AR(1), VAR(1) and run-order shuffle nulls and excursion frequency against the
 run-order shuffle. `fig_partitions` (Study 13): six divisions of meeting time and their co-occurrence.
 
+**2026-10-31, Paper 1 figure set.** `fig_reconstruction` (Figure 1: representations, agreement with hand-coded data,
+event timing and silence, session means, a whole session, the 34 meetings), `fig2_dynamics` (Figure 2), `fig3_agenda_floor`
+(Figure 3), `fig4_event_signature` (Figure 4), `fig_longitudinal` (Figure 5), `figS1_method_traps` (S1),
+`fig_emotion_decision` (S2, exploratory) and `figS3_llm_topics` (S3, exploratory and not validated). Per-team replication
+of every headline: `studies/study13_metric_extensions/replication_by_team.py`. The per-second archival series behind
+Figure 1E are not shipped.
+

@@ -1,0 +1,20 @@
+FINDINGS BY TEAM (A | B); p from the null named; same direction marked
+  Reconstruction beats pure LSH: entropy r                   A +0.970           | B +0.962           [LSH-WD (pure LSH 0.93 / 0.89); true standard] A = submarine, B = surgical
+  Reconstruction beats pure LSH: %DET r                      A +0.946           | B +0.940           [LSH-WD (pure LSH 0.84 / 0.80); true standard] A = submarine, B = surgical
+  Reconstruction beats pure LSH: RMSE r                      A +0.733           | B +0.730           [LSH-WD (pure LSH 0.52 / 0.54); true standard] A = submarine, B = surgical
+  Reconstruction beats pure LSH: events matched              A +0.665           | B +0.630           [LSH-WD (pure LSH 0.48 / 0.54); true standard] A = submarine, B = surgical
+  Excursions more frequent than turn-preserving chance       A +1.947 p=0.010   | B +1.970 p=0.010   [observed / run-shuffle peaks; run-shuffle (100)] 
+  Setpoint relocates across agenda stages (eta2 excess)      A +0.029 p=0.023   | B +0.056 p=0.011   [eta2 observed - null; run-shuffle (200)] 
+  No periodic segments beyond chance (10-min cuts)           A +0.025           | B +0.027           [share periodic (chance .05); run-shuffle (100)] 
+  Events coincide with agenda transitions                    A +1.104 p=0.333   | B +1.725 p=0.048   [observed / surrogate events; surrogate events (20)] 
+  Events anticipate the next agenda stage (15-60 s)          A +1.570 p=0.048   | B +1.632 p=0.048   [observed / surrogate events; surrogate events (20)] 
+  Member questions follow event onset (45 s)                 A +1.449 p=0.048   | B +1.422 p=0.048   [observed / surrogate events; surrogate events (20)] 
+  Events avoid extended floor turns                          A +0.802 p=0.048   | B +0.763 p=0.048   [observed / surrogate events; surrogate events (20)] 
+  Opening turn is rarely a question                          A +0.907 p=0.143   | B +0.839 p=0.095   [observed / surrogate events; surrogate events (20)] 
+  Topic mixing rises at events                               A +0.311 p=0.048   | B +0.229 p=0.048   [z observed - surrogate; surrogate events (20)] 
+  Return to earlier subjects at events                       A +0.336 p=0.048   | B +0.271 p=0.048   [z observed - surrogate; surrogate events (20)] 
+  Agenda transitions fall in the collaborative floor         A +2.164           | B +1.302           [observed / circular-shift expected; circular shift (100)] 
+  Centralized stretches have fewer events                    A +0.877 p=0.009   | B +0.809 p=0.000   [rate ratio per SD; Poisson, meeting FE] 
+  Speaker switching goes with return to earlier subjects     A +0.380 p=0.000   | B +0.375 p=0.000   [mean within-meeting rho; Wilcoxon over meetings] 
+  Floor narrows over weeks (active speakers)                 A -0.574 p=0.001   | B -0.397 p=0.027   [Kendall tau; —] 
+  Consecutive meetings alternate in organization (%DET lag-1) A -0.512 p=0.043   | B -0.379 p=0.147   [Spearman rho; —] 

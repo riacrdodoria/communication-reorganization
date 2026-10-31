@@ -281,3 +281,76 @@ All listed ratios p < .01 unless marked. By kind of the new topic, events: repor
 24.8 % fall within ±30 s of an LLM topic boundary, 7.6 % of an agenda boundary, 25.5 % of either, and 36.5 % only of
 a subtopic boundary.
 
+## 17. Sequence dynamics, content dynamics II and moment atlas
+Full outputs: `results/seqdyn_summary.txt`, `results/content2_summary.txt`, `results/atlas_summary.txt`; event-rate curves in `results/seqdyn_intensity.csv`; the 90-moment stratified sample in `results/atlas_sample.csv`.
+
+```
+A1. PARTICIPATION SHIFTS IN THE 2 MIN BEFORE EVENTS ([-150, -30] s) vs ENTROPY-MATCHED BASELINES (meeting means; Wilcoxon)
+  ret       pre-event 0.687 vs baseline 0.688  diff -0.001  meetings + 17/34  p=0.866
+  broaden   pre-event 0.312 vs baseline 0.312  diff -0.000  meetings + 17/34  p=0.946
+  reentry   pre-event 0.062 vs baseline 0.069  diff -0.007  meetings + 16/34  p=0.343
+  fac_in    pre-event 0.365 vs baseline 0.370  diff -0.005  meetings + 15/34  p=0.499
+  m2m       pre-event 0.264 vs baseline 0.265  diff -0.001  meetings + 19/34  p=0.987
+  question  pre-event 0.389 vs baseline 0.412  diff -0.023  meetings + 13/34  p=0.031
+A2. THE TURN THAT OPENS AN EVENT vs 5 ENTROPY-MATCHED TURNS >= 90 s FROM EVENTS
+  ret       opening 0.639 vs matched 0.644  p=0.775
+  broaden   opening 0.361 vs matched 0.351  p=0.964
+  reentry   opening 0.070 vs matched 0.073  p=0.376
+  fac_in    opening 0.343 vs matched 0.364  p=0.201
+  m2m       opening 0.277 vs matched 0.290  p=0.662
+  question  opening 0.321 vs matched 0.395  p=0.001
+  dur       opening 9.615 vs matched 13.149  p=0.000
+B1. EVENT RATE AFTER EACH TRIGGER (observed / meeting rate; 95 % circular-shift band); lags in s
+  event                      -120:1.19 -105:1.02 -90:1.08 -75:1.65+ -60:1.75+ -45:1.72+ -30:1.17 -15:0.26- +0:0.22- +15:1.13 +30:1.70+ +45:1.83+ +60:1.59+ +75:1.08 +90:1.04 +105:1.21 +120:0.94 +135:1.16 +150:1.20 +165:0.95 +180:1.21 +195:1.04 +210:1.09 +225:0.98 +240:1.08 +255:1.02 +270:1.12
+  agenda                     -120:1.42 -105:1.34 -90:0.84 -75:1.42 -60:1.84+ -45:1.17 -30:2.09+ -15:1.74+ +0:0.99 +15:0.91 +30:1.34 +45:1.35 +60:0.94 +75:1.21 +90:1.23 +105:0.72 +120:1.11 +135:0.75 +150:1.04 +165:0.87 +180:1.36 +195:1.08 +210:1.08 +225:1.18 +240:0.98 +255:0.90 +270:0.70
+  long-turn end              -120:1.05 -105:1.00 -90:0.69- -75:0.83- -60:0.63- -45:0.30- -30:0.58- -15:0.77- +0:1.06 +15:0.93 +30:0.92 +45:1.15 +60:1.01 +75:1.04 +90:1.02 +105:0.97 +120:0.95 +135:0.92 +150:0.99 +165:0.89 +180:1.04 +195:1.07 +210:1.09 +225:0.80- +240:0.99 +255:1.00 +270:1.08
+  question (facilitator)     -120:1.07 -105:1.05 -90:0.97 -75:1.02 -60:1.13 -45:1.14+ -30:1.42+ -15:1.30+ +0:1.01 +15:1.17+ +30:1.17+ +45:1.00 +60:1.13 +75:1.04 +90:0.96 +105:1.06 +120:0.92 +135:0.92 +150:1.01 +165:0.98 +180:0.97 +195:1.00 +210:0.95 +225:0.98 +240:1.03 +255:0.95 +270:1.15+
+  question (member)          -120:0.97 -105:1.13+ -90:1.11 -75:1.07 -60:1.23+ -45:1.23+ -30:1.65+ -15:1.49+ +0:1.19+ +15:1.40+ +30:1.16+ +45:1.05 +60:1.02 +75:1.09 +90:1.08 +105:1.04 +120:1.07 +135:1.12 +150:0.97 +165:0.98 +180:1.11 +195:1.12 +210:0.91 +225:0.91 +240:1.02 +255:1.03 +270:1.09
+  re-entry (>=120 s silent)  -120:0.81 -105:0.58- -90:0.62- -75:0.77- -60:0.63- -45:0.92 -30:1.19 -15:1.33+ +0:1.21 +15:1.45+ +30:1.14 +45:1.17 +60:0.85 +75:1.11 +90:1.20 +105:1.06 +120:0.78 +135:1.13 +150:1.21 +165:1.22+ +180:0.90 +195:1.08 +210:1.00 +225:0.91 +240:0.79 +255:1.04 +270:1.31+
+B2. HAWKES (gamma kernels, meeting baselines)
+  Poisson AIC 11582.4 | self-excitation only AIC 11501.0 | self + agenda AIC 11498.5
+  branching ratio (share of events triggered by earlier events) 0.191; self kernel mode 49 s, mean 54 s
+  agenda excitation: events per agenda onset 0.077; kernel mode 201 s, mean 202 s
+
+C. CONTENT RECURRENCE
+  return to an earlier subject (>= 10 min before, same meeting)
+    at events d=+0.127 (p=1.8e-02); 2 min before events d=+0.024 (p=8.7e-01); F1 -0.122 vs F2 +0.083 (p=8.9e-05)
+  recurrence from earlier weeks (same team minus other team)
+    at events d=-0.045 (p=3.4e-01); 2 min before events d=+0.056 (p=2.5e-01); F1 +0.034 vs F2 -0.104 (p=8.8e-03)
+  team A: mean cross-week recurrence +0.0086 (> 0 means own past dominates; p=1.5e-04); trend over weeks tau=+0.15 p=0.450
+  team B: mean cross-week recurrence +0.0194 (> 0 means own past dominates; p=3.1e-05); trend over weeks tau=-0.50 p=0.006
+  event rate (per 10 min) by cross-week recurrence tercile: low 3.07, mid 3.58, high 3.01 (high - low p=0.789)
+
+D. VOCABULARY DIFFUSION (lemmas new to the team after week 2, >= 5 uses)
+  team A: 470 new lemmas; adopted by another role later 0.90
+    A1           introduces 0.34 of new lemmas (word share 0.28, lift 1.19); adoption 0.91
+    A2           introduces 0.15 of new lemmas (word share 0.18, lift 0.84); adoption 0.96
+    A3           introduces 0.10 of new lemmas (word share 0.08, lift 1.26); adoption 1.00
+    FACILITATOR  introduces 0.42 of new lemmas (word share 0.46, lift 0.91); adoption 0.84
+  team B: 495 new lemmas; adopted by another role later 0.91
+    B1           introduces 0.29 of new lemmas (word share 0.28, lift 1.02); adoption 0.96
+    B2           introduces 0.26 of new lemmas (word share 0.18, lift 1.42); adoption 0.92
+    B3           introduces 0.11 of new lemmas (word share 0.10, lift 1.08); adoption 0.98
+    FACILITATOR  introduces 0.34 of new lemmas (word share 0.43, lift 0.79); adoption 0.83
+  introductions within +/-30 s of an event: ratio 1.04 (p enrich=0.316); adoption of lemmas introduced near events vs elsewhere:
+    near 0.92 (n=251) vs elsewhere 0.90 (n=714)
+    logit adoption: near event OR=1.33 p=0.295; facilitator introducer OR=0.31 p=0.000
+
+E. LEXICAL MARKERS (per 100 words, residualized on log words and speakers; standardized differences)
+  marker              at event     2 min before      F2 minus F1   IDS minus review
+  collective          +0.043           +0.001           +0.106**           -0.247**
+  self                +0.054           -0.004           +0.066             +0.204**
+  addressee           -0.089           -0.101           -0.180**           +0.396**
+  hedge               +0.052           +0.008           +0.129**           +0.103  
+  certainty           -0.015           +0.010           -0.024             +0.047  
+  contrast            +0.078           +0.043            +0.095*           -0.062  
+  action              +0.036           +0.008           -0.010             +0.087  
+  question            -0.023           -0.033           -0.044             +0.332**
+  (* p < .05, ** p < .01, Wilcoxon over 34 meetings)
+
+Events: 913. Agenda relation: {'interior': 0.858, 'anticipates': 0.12, 'at': 0.022}
+Aftershocks: 0.311 of events follow another within 30-75 s
+Depth by agenda relation (mean z): {'anticipates': 0.093, 'at': 0.363, 'interior': -0.022}
+Floor before -> after (share): floor_after      F1     F2    MIX | floor_before                      | F1            0.124  0.112  0.156 | F2            0.066  0.078  0.083 | MIX           0.135  0.110  0.138
+Sample: 90 moments in 32 meetings; per stratum {'anticipates agenda transition': 10, 'interior, deepest': 10, 'first of an aftershock pair': 10, 'strong early warning': 10, 'no early warning (control)': 10, 'highest topic mixing': 10, 'followed by member questions': 10, 'long turn taken up, event follows': 10, 'long turn taken up, no event': 10}
+```

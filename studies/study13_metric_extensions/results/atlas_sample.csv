@@ -1,0 +1,91 @@
+stratum,mid,team,onset_s,agenda,depth,early_warning_tau,topic_mix,member_questions_45s,floor_before,floor_after,llm_topic_boundary
+anticipates agenda transition,2024.10.28startup_b,B,1399.0,anticipates,29.666173588818623,0.393939393939394,0.2397889028341026,3.0,F1,F2,False
+anticipates agenda transition,2025.04.14startup_a,A,5243.0,anticipates,39.51969245386514,0.21212121212121218,0.2538276787781968,3.0,MIX,F2,False
+anticipates agenda transition,2025.03.02startup_a,A,659.0,anticipates,22.156445541547388,0.39124579124579134,-0.1068086973490721,0.0,MIX,F1,True
+anticipates agenda transition,2025.03.17startup_a,A,199.0,anticipates,26.904088355526003,-0.358922558922559,,1.0,F1,MIX,False
+anticipates agenda transition,2025.02.10startup_b,B,5366.0,anticipates,33.663832156737435,-0.23771043771043776,0.0172732696009425,1.0,MIX,F2,True
+anticipates agenda transition,2025.03.31startup_b,B,1148.0,anticipates,29.471788300121503,0.02760942760942761,-0.0490605486728381,1.0,MIX,F2,True
+anticipates agenda transition,2024.10.28startup_b,B,5133.0,anticipates,21.646306789937658,-0.13265993265993267,0.13236121876648005,0.0,F1,F2,True
+anticipates agenda transition,2024.11.18startup_b,B,310.0,anticipates,25.754223528470128,-0.2875420875420876,,0.0,F1,F2,True
+anticipates agenda transition,2025.03.31startup_b,B,1420.0,anticipates,27.33835644990613,-0.4127946127946129,0.11545367925638804,0.0,MIX,F1,False
+anticipates agenda transition,2025.03.02startup_a,A,5176.0,anticipates,18.92542086354928,-0.4208754208754209,0.16567740579590925,0.0,F1,MIX,True
+"interior, deepest",2025.04.14startup_b,B,3986.0,interior,38.766359441866,-0.16094276094276097,-0.09549776638327331,2.0,MIX,F2,False
+"interior, deepest",2024.11.18startup_a,A,3103.0,interior,31.393306029816912,-0.6148148148148149,-0.0062773357297239984,1.0,MIX,F2,True
+"interior, deepest",2024.11.04startup_a,A,2236.0,interior,38.62144964053215,-0.030303030303030304,-0.054955882452687954,2.0,MIX,F2,False
+"interior, deepest",2024.10.14startup_b,B,976.0,interior,36.11275108342165,0.14882154882154883,0.1220180909624973,1.0,MIX,F2,False
+"interior, deepest",2025.02.24startup_a,A,1503.0,interior,37.55385594124319,-0.03434343434343434,-0.3392471358940756,1.0,F2,F2,False
+"interior, deepest",2025.04.07startup_a,A,1749.0,interior,50.256570873087675,0.004713804713804714,-0.0781684764672771,1.0,F2,F2,False
+"interior, deepest",2025.01.13startup_a,A,2408.0,interior,33.22430283298179,0.521885521885522,-0.0172766382912592,1.0,F1,F1,False
+"interior, deepest",2024.11.11startup_a,A,3411.0,interior,27.277728088127937,-0.23905723905723908,0.0338858106370429,1.0,F2,F2,False
+"interior, deepest",2025.01.06startup_a,A,4230.0,interior,43.469500946488225,0.23367003367003372,0.13519362613308322,1.0,F2,F2,False
+"interior, deepest",2025.03.17startup_a,A,1641.0,interior,31.392281502017124,0.855892255892256,-0.2583069919263557,2.0,MIX,F2,False
+first of an aftershock pair,2025.04.14startup_b,B,3986.0,interior,38.766359441866,-0.16094276094276097,-0.09549776638327331,2.0,MIX,F2,False
+first of an aftershock pair,2024.11.18startup_a,A,3103.0,interior,31.393306029816912,-0.6148148148148149,-0.0062773357297239984,1.0,MIX,F2,True
+first of an aftershock pair,2024.11.04startup_a,A,2236.0,interior,38.62144964053215,-0.030303030303030304,-0.054955882452687954,2.0,MIX,F2,False
+first of an aftershock pair,2025.02.24startup_a,A,1503.0,interior,37.55385594124319,-0.03434343434343434,-0.3392471358940756,1.0,F2,F2,False
+first of an aftershock pair,2025.04.07startup_a,A,1749.0,interior,50.256570873087675,0.004713804713804714,-0.0781684764672771,1.0,F2,F2,False
+first of an aftershock pair,2024.10.28startup_b,B,1399.0,anticipates,29.666173588818623,0.393939393939394,0.2397889028341026,3.0,F1,F2,False
+first of an aftershock pair,2024.11.11startup_a,A,3411.0,interior,27.277728088127937,-0.23905723905723908,0.0338858106370429,1.0,F2,F2,False
+first of an aftershock pair,2025.01.06startup_a,A,4230.0,interior,43.469500946488225,0.23367003367003372,0.13519362613308322,1.0,F2,F2,False
+first of an aftershock pair,2024.12.16startup_b,B,4976.0,interior,27.598912024869215,-0.10033670033670035,0.09455694888247215,2.0,F1,F2,True
+first of an aftershock pair,2025.03.31startup_b,B,1204.0,interior,34.63507631720725,-0.21885521885521889,-0.0872800568187844,0.0,MIX,MIX,True
+strong early warning,2024.11.18startup_b,B,98.0,interior,3.8985251663836,0.9905723905723908,,0.0,MIX,MIX,True
+strong early warning,2025.03.24startup_b,B,97.0,interior,9.629098440235644,0.956902356902357,,1.0,MIX,F1,False
+strong early warning,2025.01.06startup_a,A,77.0,interior,18.328472411035833,0.9973063973063975,,2.0,MIX,MIX,False
+strong early warning,2024.11.04startup_b,B,112.0,interior,12.382589720272923,0.9232323232323233,,3.0,MIX,F1,True
+strong early warning,2024.11.11startup_a,A,110.0,interior,4.831362114861584,0.9757575757575759,,0.0,F1,F1,True
+strong early warning,2025.04.07startup_b,B,95.0,interior,-6.821736974517684,0.9326599326599327,,2.0,MIX,F1,False
+strong early warning,2024.10.28startup_b,B,115.0,interior,1.4806989604812486,0.987878787878788,,1.0,MIX,MIX,True
+strong early warning,2024.11.18startup_a,A,70.0,interior,6.637729523833961,0.9986531986531988,,0.0,MIX,MIX,True
+strong early warning,2024.10.28startup_b,B,4364.0,interior,10.686629447081517,0.9784511784511785,-0.1643477505812716,1.0,F1,F1,False
+strong early warning,2025.04.14startup_a,A,384.0,interior,19.316398492837372,0.9824915824915826,0.2163460880225162,2.0,MIX,MIX,False
+no early warning (control),2024.12.09startup_a,A,721.0,interior,8.175884175024137,-0.7144781144781145,-0.0828923159251843,0.0,F1,MIX,False
+no early warning (control),2025.03.31startup_a,A,283.0,interior,-11.46489406699299,-0.9973063973063975,,1.0,MIX,MIX,False
+no early warning (control),2024.10.14startup_b,B,856.0,anticipates,-3.9867787750157575,-0.8060606060606063,-0.5095550430106485,1.0,F1,F1,False
+no early warning (control),2025.04.07startup_a,A,276.0,interior,6.012857353343804,-0.8962962962962965,,2.0,F1,MIX,False
+no early warning (control),2024.10.14startup_b,B,4503.0,interior,26.08811414822636,-0.7872053872053872,0.1281657548250738,1.0,F2,F2,False
+no early warning (control),2025.02.10startup_b,B,3509.0,interior,29.007938399637705,-0.8020202020202022,-0.1325023471034956,1.0,F1,F2,False
+no early warning (control),2025.04.14startup_a,A,337.0,interior,6.649010651163685,-0.9973063973063975,0.1325196058376357,3.0,MIX,MIX,True
+no early warning (control),2025.01.13startup_b,B,1692.0,interior,25.6579215146653,-0.7050505050505051,0.2689537368690978,0.0,MIX,F2,False
+no early warning (control),2025.01.13startup_b,B,380.0,anticipates,19.460077992675327,-0.6942760942760944,0.09512150999318829,3.0,MIX,F2,True
+no early warning (control),2025.04.07startup_b,B,5022.0,interior,9.875307813675192,-0.6390572390572391,0.1028751526614864,1.0,F1,F2,False
+highest topic mixing,2025.03.25startup_a,A,3835.0,interior,16.33008722446101,-0.21616161616161622,0.3169457018538417,0.0,F1,MIX,False
+highest topic mixing,2024.12.23startup_b,B,489.0,interior,0.969765517280912,-0.0760942760942761,0.37542776021731133,2.0,F1,F2,False
+highest topic mixing,2025.04.14startup_a,A,3051.0,interior,11.00376479504061,0.28080808080808084,0.38289341514364805,0.0,F2,MIX,False
+highest topic mixing,2025.03.31startup_a,A,2320.0,interior,9.13886586533956,-0.07744107744107745,0.29718551603578,2.0,F1,MIX,True
+highest topic mixing,2025.04.14startup_b,B,3693.0,interior,9.5008443952776,0.28080808080808084,0.3178099544596051,0.0,F1,MIX,True
+highest topic mixing,2024.12.02startup_b,B,792.0,anticipates,6.4214577687558005,0.7292929292929294,0.3520452623061655,1.0,MIX,F2,True
+highest topic mixing,2025.04.14startup_b,B,4039.0,interior,26.14901881374963,-0.1703703703703704,0.3052472563650016,1.0,F2,MIX,False
+highest topic mixing,2025.01.13startup_a,A,3447.0,interior,12.97554231807775,-0.36430976430976436,0.3574917443312578,1.0,F1,F1,False
+highest topic mixing,2024.12.16startup_b,B,3417.0,interior,5.01515063347842,0.8531986531986533,0.2928798471553725,2.0,F2,F2,False
+highest topic mixing,2024.12.16startup_b,B,3674.0,interior,17.122070779251636,0.7535353535353536,0.28224437712971134,1.0,F2,MIX,False
+followed by member questions,2025.04.14startup_b,B,3986.0,interior,38.766359441866,-0.16094276094276097,-0.09549776638327331,2.0,MIX,F2,False
+followed by member questions,2024.11.04startup_a,A,2236.0,interior,38.62144964053215,-0.030303030303030304,-0.054955882452687954,2.0,MIX,F2,False
+followed by member questions,2024.10.28startup_b,B,1399.0,anticipates,29.666173588818623,0.393939393939394,0.2397889028341026,3.0,F1,F2,False
+followed by member questions,2025.03.17startup_a,A,1641.0,interior,31.392281502017124,0.855892255892256,-0.2583069919263557,2.0,MIX,F2,False
+followed by member questions,2024.12.16startup_b,B,4976.0,interior,27.598912024869215,-0.10033670033670035,0.09455694888247215,2.0,F1,F2,True
+followed by member questions,2025.02.24startup_a,A,1546.0,interior,34.91061799296727,-0.2821548821548822,0.0597704905238904,2.0,F2,MIX,True
+followed by member questions,2024.10.25startup_a,A,2484.0,interior,33.360216920995555,-0.43030303030303035,-0.0211755457744633,2.0,F1,F2,False
+followed by member questions,2025.04.07startup_b,B,1484.0,interior,30.366289827547018,-0.13804713804713808,-0.03256537369464075,2.0,F1,MIX,False
+followed by member questions,2024.12.13startup_a,A,1413.0,interior,34.22308412037901,-0.8437710437710438,0.054093267409630996,4.0,MIX,F2,True
+followed by member questions,2025.01.06startup_b,B,2852.0,interior,43.25027178423176,0.2646464646464647,0.0535724402345899,2.0,MIX,F2,False
+"long turn taken up, event follows",2025.03.24startup_b,B,330.0,,,,,,,,
+"long turn taken up, event follows",2025.03.24startup_b,B,1812.0,,,,,,,,
+"long turn taken up, event follows",2024.11.04startup_a,A,2495.0,,,,,,,,
+"long turn taken up, event follows",2024.12.23startup_a,A,5187.0,,,,,,,,
+"long turn taken up, event follows",2025.04.14startup_a,A,4678.0,,,,,,,,
+"long turn taken up, event follows",2024.11.18startup_a,A,1477.0,,,,,,,,
+"long turn taken up, event follows",2024.11.18startup_b,B,1884.0,,,,,,,,
+"long turn taken up, event follows",2024.11.11startup_a,A,792.0,,,,,,,,
+"long turn taken up, event follows",2025.01.06startup_b,B,2155.0,,,,,,,,
+"long turn taken up, event follows",2024.11.11startup_a,A,1363.0,,,,,,,,
+"long turn taken up, no event",2025.04.07startup_a,A,1329.0,,,,,,,,
+"long turn taken up, no event",2024.12.23startup_a,A,2671.0,,,,,,,,
+"long turn taken up, no event",2025.04.07startup_a,A,1627.0,,,,,,,,
+"long turn taken up, no event",2024.10.14startup_a,A,5016.0,,,,,,,,
+"long turn taken up, no event",2024.11.18startup_a,A,3756.0,,,,,,,,
+"long turn taken up, no event",2024.11.04startup_b,B,1453.0,,,,,,,,
+"long turn taken up, no event",2024.12.09startup_a,A,4940.0,,,,,,,,
+"long turn taken up, no event",2025.03.17startup_b,B,2110.0,,,,,,,,
+"long turn taken up, no event",2024.11.04startup_b,B,1107.0,,,,,,,,
+"long turn taken up, no event",2024.12.16startup_b,B,4194.0,,,,,,,,

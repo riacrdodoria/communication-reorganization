@@ -35,6 +35,9 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
 | Floor states and the two clocks | `floor_cycle.py` | F1/MIX/F2 floor states at each boundary type; long-turn ends, novelty and lexical uptake; two origins of topics; centralization and boundary rates in 5-min blocks; the two clocks by stage |
 | Topic triangulation | `topic_semantics_cache.py`, `topic_triangulation.py`, `topic_llm_check.py` | topic boundaries from sentence embeddings (multilingual MiniLM), a lemma co-occurrence semantic network (spaCy pt, Louvain communities) and semantic-network change, against the original lexical tiling, the agenda and an earlier LLM segmentation; text-shuffle null; topic-transition markers and pauses as independent cues |
 | LLM topic segmentation (all 34 meetings) | `llm_topics_PROTOCOL.md`, `llm_topics_analysis.py` | one LLM agent per meeting with identical instructions, content only (row numbers and text; no speakers or times), topics and subtopics with kind and confidence; validated against the agenda, the other segmentations, transition markers, pauses and semantic shift; floor state and reorganization events by topic kind. Labels are not distributed. |
+| Sequence-only conversation dynamics | `sequence_dynamics.py` | participation shifts (sequence-only adaptation of Gibson, 2003) before events against entropy-matched baselines; the turn that opens an event; event rate after events, agenda onsets, long-turn ends, questions and re-entries; Hawkes model with gamma kernels |
+| Content dynamics II | `content_dynamics2.py` | return to earlier subjects within a meeting; recurrence from earlier weeks (own team minus other team); diffusion of new vocabulary; lexical markers by event, floor state and agenda stage |
+| Moment atlas | `moment_atlas.py` | event features and a stratified, statistically defined sample of 90 moments for qualitative follow-up (times only) |
 | Divisions of meeting time | `partitions.py` | co-occurrence of six boundary sets (agenda stage, topic, event, level shift, extended floor turn, novelty peak) vs circular shifts |
 | Content (label-free) | `content.py` | TF-IDF lexical novelty, topic entropy (KMeans), cross-speaker uptake; turn-length controlled |
 
@@ -103,6 +106,19 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
   contrast peaks at the 60-s window used throughout.
 - **Not supported.** DFA does not differ from the run-shuffle null; the state-space-grid rate measures
   depend on segment length and are not interpreted.
+
+**Data limits.** Transcripts give utterance onsets at 1-s resolution, speakers and text. There are no offsets, so
+response latency, overlap and true silence cannot be measured; back-channels are mostly absent (3.3 % of utterances),
+and question marks are the transcriber's punctuation. Pause-based cues used in the topic analyses are estimates from
+word counts and are secondary.
+
+- **Sequence and content findings without coding.** Participation-shift composition does not distinguish the minutes
+  before events once entropy is matched. Events come in pairs (a second event 1.7–1.8× more likely 30–60 s later;
+  Hawkes branching ratio .19) and anticipate agenda transitions (1.8–2.1× in the 15–60 s before the next stage); the
+  turn that opens an event is short (9.6 vs 13.1 s) and rarely a question, while members' questions rise 15–45 s
+  after onset. At events the content resembles subjects from 10 or more minutes earlier (d = +.13). The collaborative
+  floor uses more "a gente", hedges and contrast and less "você"; IDS uses more "você" and questions. New vocabulary
+  comes disproportionately from members, and terms the facilitator introduces are adopted less (OR .31).
 
 ## Files not shipped
 `results/battery_windows.csv` (8 MB), `results/content_windows.csv` (4 MB) and

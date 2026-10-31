@@ -1,0 +1,5 @@
+Events: 913. Agenda relation: {'interior': 0.858, 'anticipates': 0.12, 'at': 0.022}
+Aftershocks: 0.311 of events follow another within 30-75 s
+Depth by agenda relation (mean z): {'anticipates': 0.093, 'at': 0.363, 'interior': -0.022}
+Floor before -> after (share): floor_after      F1     F2    MIX | floor_before                      | F1            0.124  0.112  0.156 | F2            0.066  0.078  0.083 | MIX           0.135  0.110  0.138
+Sample: 90 moments in 32 meetings; per stratum {'anticipates agenda transition': 10, 'interior, deepest': 10, 'first of an aftershock pair': 10, 'strong early warning': 10, 'no early warning (control)': 10, 'highest topic mixing': 10, 'followed by member questions': 10, 'long turn taken up, event follows': 10, 'long turn taken up, no event': 10}

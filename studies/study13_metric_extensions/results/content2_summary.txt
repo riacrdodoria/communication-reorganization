@@ -1,0 +1,35 @@
+C. CONTENT RECURRENCE
+  return to an earlier subject (>= 10 min before, same meeting)
+    at events d=+0.127 (p=1.8e-02); 2 min before events d=+0.024 (p=8.7e-01); F1 -0.122 vs F2 +0.083 (p=8.9e-05)
+  recurrence from earlier weeks (same team minus other team)
+    at events d=-0.045 (p=3.4e-01); 2 min before events d=+0.056 (p=2.5e-01); F1 +0.034 vs F2 -0.104 (p=8.8e-03)
+  team A: mean cross-week recurrence +0.0086 (> 0 means own past dominates; p=1.5e-04); trend over weeks tau=+0.15 p=0.450
+  team B: mean cross-week recurrence +0.0194 (> 0 means own past dominates; p=3.1e-05); trend over weeks tau=-0.50 p=0.006
+  event rate (per 10 min) by cross-week recurrence tercile: low 3.07, mid 3.58, high 3.01 (high - low p=0.789)
+
+D. VOCABULARY DIFFUSION (lemmas new to the team after week 2, >= 5 uses)
+  team A: 470 new lemmas; adopted by another role later 0.90
+    A1           introduces 0.34 of new lemmas (word share 0.28, lift 1.19); adoption 0.91
+    A2           introduces 0.15 of new lemmas (word share 0.18, lift 0.84); adoption 0.96
+    A3           introduces 0.10 of new lemmas (word share 0.08, lift 1.26); adoption 1.00
+    FACILITATOR  introduces 0.42 of new lemmas (word share 0.46, lift 0.91); adoption 0.84
+  team B: 495 new lemmas; adopted by another role later 0.91
+    B1           introduces 0.29 of new lemmas (word share 0.28, lift 1.02); adoption 0.96
+    B2           introduces 0.26 of new lemmas (word share 0.18, lift 1.42); adoption 0.92
+    B3           introduces 0.11 of new lemmas (word share 0.10, lift 1.08); adoption 0.98
+    FACILITATOR  introduces 0.34 of new lemmas (word share 0.43, lift 0.79); adoption 0.83
+  introductions within +/-30 s of an event: ratio 1.04 (p enrich=0.316); adoption of lemmas introduced near events vs elsewhere:
+    near 0.92 (n=251) vs elsewhere 0.90 (n=714)
+    logit adoption: near event OR=1.33 p=0.295; facilitator introducer OR=0.31 p=0.000
+
+E. LEXICAL MARKERS (per 100 words, residualized on log words and speakers; standardized differences)
+  marker              at event     2 min before      F2 minus F1   IDS minus review
+  collective          +0.043           +0.001           +0.106**           -0.247**
+  self                +0.054           -0.004           +0.066             +0.204**
+  addressee           -0.089           -0.101           -0.180**           +0.396**
+  hedge               +0.052           +0.008           +0.129**           +0.103  
+  certainty           -0.015           +0.010           -0.024             +0.047  
+  contrast            +0.078           +0.043            +0.095*           -0.062  
+  action              +0.036           +0.008           -0.010             +0.087  
+  question            -0.023           -0.033           -0.044             +0.332**
+  (* p < .05, ** p < .01, Wilcoxon over 34 meetings)

@@ -1,0 +1,2 @@
+Share of inter-event intervals of 30-75 s: observed 0.316 vs surrogate 0.277 (p=0.015)
+Burstiness B of inter-event intervals: observed +0.071 vs surrogate +0.031 (p=0.022)

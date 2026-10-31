@@ -53,10 +53,10 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
   variance than in run-shuffled meetings (eta² .097 vs .055, p = 4e-4; .368 vs .281, p = 9e-7). Blind
   change-point detection does not recover this structure, so the meeting's own units (stage, topic,
   event) are the right cuts and fixed windows are only a robustness check.
-- **Early warning.** Rolling variance of %DET rises before events (with a 30-s gap so that no centred
-  metric window touches post-onset data: 32/34 meetings, p < .0001; lag-5 autocorrelation 25/34,
-  p = .0004; still present with a 60-s gap). Entropy shows no such signal. This extends Study 10, whose
-  slope features were partly definitional.
+- **Retracted: early warning.** The rise of %DET variance before events is reproduced exactly by events detected
+  with the same rule on run-shuffled series (+.141 observed vs +.146 surrogate, p = .99) and disappears for isolated
+  events (+.025, p = .61). It is produced by threshold selection looking backwards (Boettiger & Hastings, 2012) and by
+  preceding events inside the window (`csd_tautology.py`).
 - **Retracted after artifact checks: "the floor opens at reorganization" and "routinization in both teams".**
   The weaker reciprocity and facilitator advantage near events vanish once local entropy is controlled
   (interaction ORs .998 and .962; non-event entropy peaks show the same raw pattern; circular-shift null
@@ -113,8 +113,9 @@ and question marks are the transcriber's punctuation. Pause-based cues used in t
 word counts and are secondary.
 
 - **Sequence and content findings without coding.** Participation-shift composition does not distinguish the minutes
-  before events once entropy is matched. Events come in pairs (a second event 1.7–1.8× more likely 30–60 s later;
-  Hawkes branching ratio .19) and anticipate agenda transitions (1.8–2.1× in the 15–60 s before the next stage); the
+  before events once entropy is matched. Event pairing is mostly produced by the detection procedure (30–75 s
+  intervals 31.6 % observed vs 27.7 % for events detected on run-shuffled series, p = .015; burstiness .071 vs .031,
+  p = .022), so the Hawkes branching ratio of .19 overstates self-excitation. Events and anticipate agenda transitions (1.8–2.1× in the 15–60 s before the next stage); the
   turn that opens an event is short (9.6 vs 13.1 s) and rarely a question, while members' questions rise 15–45 s
   after onset. At events the content resembles subjects from 10 or more minutes earlier (d = +.13). The collaborative
   floor uses more "a gente", hedges and contrast and less "você"; IDS uses more "você" and questions. New vocabulary

@@ -165,4 +165,8 @@ only as a bound.
   collaborative floor. Results that use topic-episode boundaries (the TRANSITION trigger class, Studies 6 and 7, and
   the Study 13 divisions of time) should be read with this in mind; the agenda-based parts are unaffected. Re-deriving
   the trigger classes from the agenda and from semantic or human topic boundaries is pending.
+- **2026-10-30 (event-based nulls).** The Study 13 early-warning result (rising %DET variance before events) is
+  retracted: events detected with the same rule on run-shuffled series show the same rise, and isolated events show
+  none. Event clustering is mostly a property of the detection procedure. From now on, event-based results are
+  compared with events detected on run-shuffled series, not with random time points.
 

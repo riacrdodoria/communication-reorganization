@@ -1,0 +1,5 @@
+Events re-detected: 913 (published 913); surrogate series yield 26.2 events per meeting vs 26.9 observed
+Rise of %DET variance before events (Kendall tau, event minus baseline; meeting means):
+  all events                                       observed +0.141 (>0 in 28/34, p=5.0e-07) | surrogate events +0.146 (p vs 0 2.3e-10) | observed minus surrogate -0.006 (p=9.9e-01)
+  isolated events (no event in the previous 4 min) observed +0.025 (>0 in 18/34, p=6.1e-01) | surrogate events +0.060 (p vs 0 5.0e-04) | observed minus surrogate -0.035 (p=4.5e-01)
+  isolated events per meeting: 6.6

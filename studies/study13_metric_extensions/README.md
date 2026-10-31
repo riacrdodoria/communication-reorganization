@@ -41,6 +41,7 @@ Study 1). Events: the 913 RMSE events of Study 9 (`events_initiators.csv`). Shar
 | Surrogate-event null | `surrogate_events.py`, `event_null_battery.py` | 20 sets of events per meeting detected with the published rule on run-shuffled series; every event-anchored statistic and the multi-channel event signature compared with them |
 | Language channels | `features_cache.py`, `channels.py`, `channels_crosscorr.py` | sentiment (pysentimiento Portuguese model), language style matching from function-word classes, lexical richness, on one 5-s grid with all other channels; moment-level cross-channel links |
 | Longitudinal, inter-meeting | `longitudinal_panel.py` | one row per meeting with every family of measures and Study 8 outcomes: trajectories, variance levels, team signature, convergence, lag-1 stability, cross-lagged links, cross-family network |
+| Persons, emotions, decisions | `emotion_cache.py`, `person_emotion_decision.py` | per-person trajectories; 28 GoEmotions categories (pysentimiento Portuguese model) by floor state, stage, week and around events against surrogate events; decision-moment lexicons (agreement, commitment, deadline) with convergent validity against Study 8 to-dos |
 | Divisions of meeting time | `partitions.py` | co-occurrence of six boundary sets (agenda stage, topic, event, level shift, extended floor turn, novelty peak) vs circular shifts |
 | Content (label-free) | `content.py` | TF-IDF lexical novelty, topic entropy (KMeans), cross-speaker uptake; turn-length controlled |
 
@@ -139,6 +140,12 @@ word counts and are secondary.
   link survives FDR.
 - **Turn-taking and content move together.** Moment by moment, speaker switching goes with topic mixing (ρ = +.27)
   and return to earlier subjects (+.38), and %DET with less return (−.37), in 34/34 meetings.
+
+- **Stance-taking at reorganization (model- and lexicon-based, not human-validated).** Around events, approval and
+  disapproval rise and curiosity and confusion fall relative to surrogate events; explicit agreement ("fica combinado",
+  "fechado") follows events 1.52× more often than it follows surrogate events. Commitments and deadlines occur when one
+  speaker holds the floor (1.4×). The decision lexicons are a weak instrument (convergent validity with Study 8 to-dos
+  ρ ≤ .32). No individual trajectory survives FDR.
 
 ## Files not shipped
 `results/battery_windows.csv` (8 MB), `results/content_windows.csv` (4 MB) and

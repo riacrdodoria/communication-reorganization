@@ -1,0 +1,43 @@
+D. DECISION MOMENTS (lexicons)
+  utterances flagged: agreement 0.978% (n=171), commitment 0.750% (n=131), deadline 1.751% (n=306)
+  convergent validity: agreement  per hour ~ to-dos assigned (Study 8) rho=-0.24 p=0.165 n=34
+  convergent validity: commitment per hour ~ to-dos assigned (Study 8) rho=+0.32 p=0.061 n=34
+  convergent validity: deadline   per hour ~ to-dos assigned (Study 8) rho=+0.02 p=0.915 n=34
+  convergent validity: any        per hour ~ to-dos assigned (Study 8) rho=+0.00 p=0.983 n=34
+  share of utterances flagged, by stage group:           agreement  commitment  deadline | grp                                       | IDS            0.98        0.78      1.76 | conclude       1.01        0.50      2.52 | other          0.64        0.41      1.78 | review         1.16        0.90      1.56
+  agreement  by floor state (share / share of all utterances): F1 1.15, MIX 0.90, F2 1.00
+  commitment by floor state (share / share of all utterances): F1 1.41, MIX 1.04, F2 0.59
+  deadline   by floor state (share / share of all utterances): F1 1.43, MIX 1.00, F2 0.62
+  agreement  utterances within 60 s after an event: 0.392 vs surrogate events 0.258 (ratio 1.52, z +3.9)
+  commitment utterances within 60 s after an event: 0.275 vs surrogate events 0.250 (ratio 1.10, z +0.5)
+  deadline   utterances within 60 s after an event: 0.297 vs surrogate events 0.245 (ratio 1.21, z +1.9)
+  commitment share / word share by role: A-A1: 0.25/0.28, A-A2: 0.16/0.18, A-A3: 0.04/0.08, A-FACILITATOR: 0.55/0.46, B-B1: 0.25/0.28, B-B2: 0.30/0.18, B-B3: 0.09/0.10, B-FACILITATOR: 0.36/0.43
+  commit_h in week w -> to-do completion in w+1: beta=+2.39 p=0.665 n=26
+  agree_h in week w -> to-do completion in w+1: beta=-4.46 p=0.394 n=26
+  team A trends over weeks: commitments/h tau=+0.09 (p=0.655); agreements/h tau=-0.26 (p=0.151)
+  team B trends over weeks: commitments/h tau=-0.18 (p=0.349); agreements/h tau=+0.06 (p=0.776)
+
+E. EMOTIONS (categories with mean probability >= .02: admiration, approval, confusion, curiosity, disapproval, optimism, realization)
+  emotion             F2-F1  IDS-review  event signature at -30/0/+30/+60 s (observed minus surrogate; * outside surrogate 95 %)   weekly tau A / B
+  admiration      +0.12* -0.12         +0.08  +0.09  +0.06  +0.02       -0.22  / +0.12 
+  approval        +0.30**+0.04         +0.19* +0.15* +0.14* +0.11*      -0.37+ / +0.10 
+  confusion       -0.21**+0.40**       -0.09* -0.10* -0.07  -0.03       +0.01  / +0.26 
+  curiosity       -0.20**+0.33**       -0.07* -0.09* -0.12* -0.11*      -0.22  / +0.01 
+  disapproval     +0.25**+0.11*        +0.12* +0.14* +0.14* +0.12*      +0.22  / -0.03 
+  optimism        +0.13**-0.10         +0.06* +0.02  +0.03  +0.01       -0.22  / +0.21 
+  realization     +0.10  +0.04         -0.00  +0.03  +0.05  +0.05       -0.03  / +0.16 
+
+P. PERSON TRAJECTORIES (per role and meeting; Kendall tau over weeks; * q < .05 within the person table, + p < .05)
+var              word_share    q100  col100 long_per_h    sent  commit emo_curiosity emo_confusion emo_approval emo_annoyance emo_optimism
+team role                                                                                                                                 
+A    A1              +0.18   -0.09   -0.41+     +0.18   -0.05   +0.18         -0.09         -0.28        -0.16         +0.18        -0.26 
+     A2              +0.16   +0.54+  +0.26      +0.23   +0.09   -0.06         -0.01         -0.16        -0.06         +0.07        -0.18 
+     A3              -0.12   -0.01   -0.10      -0.08   +0.10   -0.19         -0.20         -0.09        -0.41+        -0.09        -0.31 
+     FACILITATOR     +0.12   -0.25   -0.24      -0.13   -0.21   -0.05         -0.22         +0.13        +0.16         +0.06        +0.01 
+B    B1              -0.25   -0.28   -0.08      -0.13   -0.05   +0.03         -0.25         -0.18        +0.03         -0.25        +0.18 
+     B2              +0.06   +0.26   +0.06      -0.21   +0.01   -0.04         +0.24         +0.41+       +0.35         -0.09        +0.29 
+     B3              -0.32   +0.12   -0.03      -0.21   +0.22   +0.19         +0.27         -0.08        -0.03         +0.02        +0.02 
+     FACILITATOR     +0.50+  -0.18   +0.06      +0.50+  -0.16   +0.01         +0.01         +0.41+       +0.13         -0.06        +0.15 
+  meetings attended: A-A1 15, A-A2 17, A-A3 15, A-FACILITATOR 17, B-B1 16, B-B2 17, B-B3 16, B-FACILITATOR 17
+  team A: member inequality (Gini of word shares) over weeks tau=-0.09 p=0.655; member ranking first vs second half: A1 0.33->0.32, A2 0.17->0.19, A3 0.11->0.06
+  team B: member inequality (Gini of word shares) over weeks tau=+0.18 p=0.349; member ranking first vs second half: B1 0.33->0.27, B2 0.18->0.19, B3 0.14->0.08

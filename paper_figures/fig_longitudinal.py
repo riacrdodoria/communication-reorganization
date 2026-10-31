@@ -24,7 +24,7 @@ for t in "AB":
 rho = np.mean([spearmanr(D[D.team == t].sort_values("week").det.to_numpy()[:-1], D[D.team == t].sort_values("week").det.to_numpy()[1:])[0] for t in "AB"])
 ax.axhline(0, color=ps.NEUTRAL, lw=.5, ls=":"); ax.axvline(0, color=ps.NEUTRAL, lw=.5, ls=":")
 ax.set_title("%DET: meeting w vs w+1 (team-centred)", fontsize=6.6, color=ps.INK, loc="left"); ax.set_xlabel("%DET, week w", fontsize=5.8); ax.set_ylabel("%DET, week w+1", fontsize=5.8)
-ax.tick_params(labelsize=5.6); ax.text(.02, .96, f"lag-1 ρ={rho:+.2f}\npermutation p=.024", transform=ax.transAxes, fontsize=5.2, va="top", color=ps.INK)
+ax.tick_params(labelsize=5.6); ax.text(.02, .96, f"lag-1 ρ={rho:+.2f}\npermutation p=.013", transform=ax.transAxes, fontsize=5.2, va="top", color=ps.INK)
 fig.tight_layout(w_pad=.8, h_pad=1.0)
 for ext in ("png", "pdf"): fig.savefig(f"{os.path.dirname(__file__)}/fig_longitudinal.{ext}", bbox_inches="tight", facecolor="white", dpi=600 if ext == "png" else None)
 print("ok")

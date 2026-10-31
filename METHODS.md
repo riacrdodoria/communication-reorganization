@@ -172,4 +172,9 @@ only as a bound.
 - **2026-10-31 (initiators).** Against surrogate events, the shares of reorganization events initiated by the
   facilitator and by the quietest member equal those at surrogate events. The Study 9 lift of the quietest member over
   talk time therefore describes floor-taking in general, not reorganization specifically.
+- **2026-10-31 (meeting-to-meeting links).** With a two-sided null (5,000 permutations of meeting order within team;
+  `studies/study13_metric_extensions/longitudinal_lag1_perm.py`), the alternation of consecutive meetings holds for
+  %DET (lag-1 rho -.45, p = .013) and entropy (-.43, p = .020). The persistence of facilitator share, centralization and
+  collective pronouns (rho +.29 to +.31) does not (p = .08 to .12), because the permutation null of a 17-meeting series
+  is centred below zero (about -.06); it is reported as a tendency. Figure 5 now prints p = .013.
 

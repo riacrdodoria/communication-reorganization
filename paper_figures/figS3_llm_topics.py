@@ -13,7 +13,7 @@ flT = grab(r"LLMT n=\d+: F1 ([\d.]+)\s+MIX ([\d.]+)\s+F2 ([\d.]+)"); flS = grab(
 fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.2)); (axA, axB), (axC, axD) = axs; fig.subplots_adjust(hspace=.7, wspace=.5)
 fig.suptitle("Exploratory, not validated: content-only LLM topic segmentation", x=.01, ha="left", fontsize=8.6, color=MUTED, y=1.0)
 # A
-a = AG[AG.llm == "LLMT"].set_index("other"); order = [("AGENDA", "Pulso agenda"), ("TILE", "lexical tiling"), ("EMB", "embeddings"), ("NETC", "semantic network"), ("NETG", "network change")]
+a = AG[AG.llm == "LLMT"].set_index("other"); order = [("AGENDA", "L10 agenda"), ("TILE", "lexical tiling"), ("EMB", "embeddings"), ("NETC", "semantic network"), ("NETG", "network change")]
 axA.barh(range(5), [a.loc[k, "llm_to_other"] for k, _ in order], .6, color=[BLUE] + ["#9fb6d6"] * 4); axA.set_yticks(range(5)); axA.set_yticklabels([l for _, l in order], fontsize=6.2); axA.invert_yaxis()
 for i, (k, _) in enumerate(order): axA.text(a.loc[k, "llm_to_other"] + .08, i, f"{a.loc[k, 'llm_to_other']:.2f}×", va="center", fontsize=5.8, color=INK)
 axA.axvline(1, color=MUTED, ls=":", lw=.7); axA.set_xlabel("coincidence / expected", fontsize=6.4); axA.tick_params(axis="x", labelsize=5.8); axA.grid(axis="y", visible=False); axA.set_xlim(0, 6)

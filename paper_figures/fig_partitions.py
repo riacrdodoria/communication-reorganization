@@ -10,7 +10,7 @@ ps.setup()
 R = os.path.expanduser("~/lsh-work/study13_metric_extensions/results")
 P = pd.read_csv(f"{R}/partitions_pairs.csv"); S = pd.read_csv(f"{R}/partitions_scale.csv").set_index("partition"); B = json.load(open(f"{R}/partitions_bounds.json"))
 NAMES = ["agenda", "topic", "event", "level", "floor", "novelty"]
-LAB = {"agenda": "Pulso script stage", "topic": "lexical topic (TF-IDF tiling)", "event": "reorganization event", "level": "entropy level shift",
+LAB = {"agenda": "L10 stage", "topic": "lexical topic (TF-IDF tiling)", "event": "reorganization event", "level": "entropy level shift",
        "floor": "extended floor turn (≥30 s)", "novelty": "lexical novelty peak"}
 STAGE_LAB = {"segue": "check-in", "scorecard": "scorecard", "rock_review": "rocks", "headlines": "headlines", "todo": "to-dos", "ids": "IDS", "conclude": "close"}
 INK, MUTED = ps.INK, ps.NEUTRAL

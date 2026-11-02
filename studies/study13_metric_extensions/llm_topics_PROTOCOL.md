@@ -1,5 +1,9 @@
 # LLM topic segmentation protocol (content only), v1, 2026-10-30
 
+MODEL AND RUN. Executed with Claude Opus 5.5 (Anthropic; model identifier `claude-opus-5-5`) in October 2026: one
+independent session per meeting (34 sessions), each given this protocol as its only instruction and its own input file.
+Outputs were parsed without manual editing. Labels stay local; only boundary statistics are published.
+
 TASK. Segment one meeting transcript into topics, from content only.
 
 CONTEXT. Weekly advisory meetings, in Brazilian Portuguese, of an early-stage venture team with an external

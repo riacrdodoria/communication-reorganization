@@ -576,3 +576,15 @@ B    B1              -0.25   -0.28   -0.08      -0.13   -0.05   +0.03         -0
   team A: member inequality (Gini of word shares) over weeks tau=-0.09 p=0.655; member ranking first vs second half: A1 0.33->0.32, A2 0.17->0.19, A3 0.11->0.06
   team B: member inequality (Gini of word shares) over weeks tau=+0.18 p=0.349; member ranking first vs second half: B1 0.33->0.27, B2 0.18->0.19, B3 0.14->0.08
 ```
+
+## Midpoint transition (2026-11-01)
+
+Script `midpoint_break.py`; output `results/midpoint_break.csv`, `results/midpoint_break_summary.txt`.
+Test of Gersick's (1988) midpoint transition: step change beyond a linear trend in 24 meeting-level measures, planned
+break after meeting 10 (calendar midpoint, also followed by the longest gap between meetings), scan over breaks 4-13,
+2,000 residual permutations within team (joint across measures for the global test), BH-FDR across measures.
+
+- Global test at the midpoint: pooled p = .71, Team A p = .22, Team B p = .99.
+- No single measure survives correction (all q >= .26).
+- Best break: meeting 9 in Team A, meeting 7 in Team B, neither beyond chance (sup p = .23 and .44).
+- Reading: weekly change is a gradual drift, not a punctuated transition at the midpoint.
